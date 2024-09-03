@@ -7,6 +7,8 @@ import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
+export const runtime = "edge";
+
 function Model() {
   const { scene, animations } = useGLTF('/landing.glb');
   const { actions } = useAnimations(animations, scene);
