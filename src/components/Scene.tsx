@@ -9,6 +9,7 @@ import { Suspense, useEffect, useRef } from 'react';
 import LoadingFallback from './LoadingFallback';
 import * as THREE from 'three';
 import CountdownTimer from './CountdownTimer';
+import { useMediaQuery } from "usehooks-ts"
 
 
 export const runtime = "edge";
@@ -40,6 +41,7 @@ function Model() {
 const Scene = () => {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const controlsRef = useRef(null);
+  const matches = useMediaQuery("(max-width: 1024px)")
 
   return (
     <Suspense fallback={<LoadingFallback />}>
@@ -82,14 +84,26 @@ const Scene = () => {
           dampingFactor={0.1}
           target={[0, 0, 800]}
         />
-        <Html position={[-80000, 0, 0]} transform={false}>
-          <CountdownTimer />
-        </Html>
-        <Html position={[80000, 0, 0]} transform={false}>
-          <CountdownTimer />
-        </Html>
+        {matches ? (
+          <>
+          <Html position={[-1500, 200, 0]} transform={false}>
+            <CountdownTimer />
+          </Html>
+          <Html position={[1500, 200, 0]} transform={false}>
+            <CountdownTimer />
+          </Html>
+          </>
+        ) : (
+          <>
+            <Html position={[-80000, 0, 0]} transform={false}>
+              <CountdownTimer />
+            </Html>
+            <Html position={[80000, 0, 0]} transform={false}>
+              <CountdownTimer />
+            </Html>
+          </>
+        )}
       </Canvas>
-
     </Suspense>
   );
 };

@@ -45,9 +45,9 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className={`${oxanium.className} text-2xl text-center whitespace-nowrap border p-2 `} style={{ color: 'rgba(184, 70, 39, 1)' }}>
+    <div className={`${oxanium.className} text-2xl text-center whitespace-nowrap border p-2 select-none border-[#607D8B] bg-[#1E1E1E] text-[#E3F2FD] drop-shadow-md`} style={{ textShadow: '0 0 10px #E3F2FD' }}>
       <div className="inline-flex items-center">
-        <span className="text-3xl font-bold">T-</span>
+        <span className="text-3xl font-bold text-[#FF6F61]">T-</span>
         <div className="flex flex-col items-center mx-2">
           <div>{String(timeLeft.days || 0).padStart(2, '0')}</div>
           <div className="text-sm">Days</div>
