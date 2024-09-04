@@ -4,6 +4,7 @@
 
 import { Environment, OrbitControls, PerspectiveCamera ,useGLTF, useAnimations, Html } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
@@ -52,11 +53,17 @@ const Scene = () => {
       <PerspectiveCamera
         makeDefault
         ref={cameraRef}
-        position={[0, 2000, 80000]}
+        position={[0, 1500, 80000]}
         fov={100}
         near={50}
         far={100000}
       />
+      <EffectComposer>
+        <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={1.5} height={480} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.5} height={300} />
+        <Noise opacity={0.01} />
+        <Vignette eskil={false} offset={0.7} darkness={1.1} />
+      </EffectComposer>
 
       <ambientLight intensity={2} />
       <Model />
@@ -80,9 +87,9 @@ const Scene = () => {
         dampingFactor={0.1}
         target={[0, 0, -470]}
       />
-      <Html position={[0, 1000, 0]}>
-        <div style={{ color: 'white', backgroundColor: 'black', padding: '10px' }}>
-          This is a React component inside the 3D scene!
+      <Html position={[-300, 1100, 0]} transform={false}>
+        <div style={{ color: 'white', textWrap: "nowrap" }}>
+          Beyond the Horizon, Into the Arena
         </div>
       </Html>
     </Canvas>
