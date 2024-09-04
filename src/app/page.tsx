@@ -13,7 +13,7 @@ export default function HomePage() {
       <div className="h-screen">
         <Scene />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
