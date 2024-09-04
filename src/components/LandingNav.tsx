@@ -9,7 +9,6 @@ const Navbar = () => {
   const title = [
     'Tecnoesis 2024',
     'Coming Soon',
-    'Under Development'
   ];
   const [text, setText] = useState(0);
   const textRef = useRef(null);

@@ -8,6 +8,8 @@ import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-thr
 import { Suspense, useEffect, useRef } from 'react';
 import LoadingFallback from './LoadingFallback';
 import * as THREE from 'three';
+import CountdownTimer from './CountdownTimer';
+
 
 export const runtime = "edge";
 
@@ -80,11 +82,12 @@ const Scene = () => {
           dampingFactor={0.1}
           target={[0, 0, 800]}
         />
-        {/* <Html position={[-300, 1100, 0]} transform={false}>
-          <div style={{ color: 'white', textWrap: "nowrap" }}>
-            Beyond the Horizon, Into the Arena
-          </div>
-        </Html> */}
+        <Html position={[-80000, 0, 0]} transform={false}>
+          <CountdownTimer />
+        </Html>
+        <Html position={[80000, 0, 0]} transform={false}>
+          <CountdownTimer />
+        </Html>
       </Canvas>
 
     </Suspense>
