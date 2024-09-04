@@ -39,35 +39,26 @@ const Scene = () => {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const controlsRef = useRef(null);
 
-  useEffect(() => {
-    if (cameraRef.current && controlsRef.current) {
-      // @ts-expect-error: controls ref is guranteed to be a OrbitControl
-      controlsRef.current.target.set(10, 10, -400);
-      // @ts-expect-error: controls ref is guranteed to be a OrbitControl
-      controlsRef.current.update();
-    }
-  }, []);
-
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Canvas style={{ height: '100vh', width: '100vw' }}>
-        <Environment preset="sunset" />
+        <Environment preset="forest" />
         <PerspectiveCamera
           makeDefault
           ref={cameraRef}
-          position={[0, 1500, 80000]}
-          fov={100}
+          position={[300, 100, 1000]}
+          fov={45}
           near={50}
           far={100000}
         />
         <EffectComposer>
-          <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={1.5} height={480} />
-          <Bloom luminanceThreshold={0} luminanceSmoothing={0.5} height={300} />
+          <DepthOfField focusDistance={0} focalLength={0.2} bokehScale={1.5} height={480} />
+          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
           <Noise opacity={0.01} />
-          <Vignette eskil={false} offset={0.7} darkness={1.1} />
+          <Vignette eskil={true} offset={0.7} darkness={1.1} />
         </EffectComposer>
 
-        <ambientLight intensity={2} />
+        <ambientLight intensity={0.8} />
         <Model />
         <meshPhysicalMaterial
           color="blue"
@@ -81,13 +72,13 @@ const Scene = () => {
           <OrbitControls
           ref={controlsRef}
           enableRotate={true}
-          enablePan={false}
-          maxPolarAngle={Math.PI/2}
-          minDistance={10}
-          maxDistance={1500}
+          enablePan={true}
+          maxPolarAngle={Math.PI}
+          minDistance={600}
+          maxDistance={1600}
           enableDamping={true}
           dampingFactor={0.1}
-          target={[0, 0, -470]}
+          target={[0, 0, 800]}
         />
         {/* <Html position={[-300, 1100, 0]} transform={false}>
           <div style={{ color: 'white', textWrap: "nowrap" }}>
