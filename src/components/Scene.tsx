@@ -1,20 +1,32 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
-import { Environment, OrbitControls, PerspectiveCamera ,useGLTF, useAnimations, Html } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
-import { Suspense, useEffect, useRef } from 'react';
-import LoadingFallback from './LoadingFallback';
-import * as THREE from 'three';
-import CountdownTimer from './CountdownTimer';
-import { useMediaQuery } from "usehooks-ts"
-
+import {
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+  useGLTF,
+  useAnimations,
+  Html,
+} from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import {
+  Bloom,
+  DepthOfField,
+  EffectComposer,
+  Noise,
+  Vignette,
+} from "@react-three/postprocessing";
+import { Suspense, useEffect, useRef } from "react";
+import LoadingFallback from "./LoadingFallback";
+import * as THREE from "three";
+import CountdownTimer from "./CountdownTimer";
+import { useMediaQuery } from "usehooks-ts";
 
 export const runtime = "edge";
 
 function Model() {
-  const { scene, animations } = useGLTF('/landing.glb');
+  const { scene, animations } = useGLTF("/landing.glb");
   const { actions } = useAnimations(animations, scene);
   const modelRef = useRef<THREE.Group>(null);
 
@@ -40,11 +52,11 @@ function Model() {
 const Scene = () => {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const controlsRef = useRef(null);
-  const matches = useMediaQuery("(max-width: 1024px)")
+  const matches = useMediaQuery("(max-width: 1024px)");
 
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <Canvas style={{ height: '100vh', width: '100vw' }}>
+      <Canvas style={{ height: "100vh", width: "100vw" }}>
         <Environment preset="forest" />
         <PerspectiveCamera
           makeDefault
@@ -55,9 +67,13 @@ const Scene = () => {
           far={100000}
         />
         <EffectComposer>
-          <DepthOfField focusDistance={0} focalLength={0.2} bokehScale={1.5} height={480} />
+          <DepthOfField
+            focusDistance={0}
+            focalLength={0.2}
+            bokehScale={1.5}
+            height={480}
+          />
           <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
-          <Noise opacity={0.01} />
           <Vignette eskil={true} offset={0.7} darkness={1.1} />
         </EffectComposer>
 
@@ -72,15 +88,13 @@ const Scene = () => {
           transmission={2}
           ior={1.5}
         />
-          <OrbitControls
+        <OrbitControls
           ref={controlsRef}
           enableRotate={true}
           enablePan={true}
           maxPolarAngle={Math.PI}
           minDistance={600}
           maxDistance={1600}
-          enableDamping={true}
-          dampingFactor={0.1}
           target={[0, 0, 800]}
         />
         {matches ? null : (
