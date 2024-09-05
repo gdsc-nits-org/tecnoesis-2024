@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-"use client";
 
 import { Environment, OrbitControls, PerspectiveCamera ,useGLTF, useAnimations, Html } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -84,21 +83,12 @@ const Scene = () => {
           dampingFactor={0.1}
           target={[0, 0, 800]}
         />
-        {matches ? (
+        {matches ? null : (
           <>
-          <Html position={[-1500, 200, 0]} transform={false}>
-            <CountdownTimer />
-          </Html>
-          <Html position={[1500, 200, 0]} transform={false}>
-            <CountdownTimer />
-          </Html>
-          </>
-        ) : (
-          <>
-            <Html position={[-80000, 0, 0]} transform={false}>
+            <Html position={[-90000, 5000, 0]} transform={false}>
               <CountdownTimer />
             </Html>
-            <Html position={[80000, 0, 0]} transform={false}>
+            <Html position={[90000, 5000, 0]} transform={false}>
               <CountdownTimer />
             </Html>
           </>

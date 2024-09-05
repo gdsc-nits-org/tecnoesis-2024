@@ -1,4 +1,5 @@
 // components/Navbar.js
+"use client";
 import React, { useRef } from 'react';
 import { Oxanium } from 'next/font/google';
 import Link from 'next/link';
