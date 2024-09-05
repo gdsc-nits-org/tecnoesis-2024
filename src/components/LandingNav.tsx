@@ -1,14 +1,12 @@
-// components/Navbar.js
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useState, useEffect, useRef } from 'react';
-import { Oxanium } from 'next/font/google';
 import gsap from 'gsap';
 import { BiSolidVolumeMute, BiSolidVolumeFull } from "react-icons/bi";
 
-const oxanium = Oxanium({ subsets: ['latin'] });
 
 const Navbar = () => {
   const title = [
-    'Tecnoesis 2024',
+    'Tecnoesis',
     'Coming Soon',
   ];
   const [text, setText] = useState(0);
@@ -45,8 +43,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed bottom-4 left-0 w-full p-1 z-10 flex items-center justify-center text-2xl lg:text-4xl">
-      <span ref={textRef} className={`${oxanium.className} text-white text-center animate-text-glow text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF]`}>
+    <nav className="fixed bottom-4 left-0 w-full p-1 z-10 flex items-center justify-center text-2xl lg:text-4xl font-rp1">
+      <span ref={textRef} className={`text-white text-center animate-text-glow text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF]`}>
         {title[text]}
       </span>
       <div onClick={togglePlayPause} className='fixed right-6 text-white text-center animate-text-glow text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF]'>

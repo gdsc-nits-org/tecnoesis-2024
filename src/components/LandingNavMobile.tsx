@@ -1,8 +1,5 @@
-// components/Navbar.js
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
 import { Oxanium } from 'next/font/google';
-import gsap from 'gsap';
 import CountdownTimer from './CountdownTimer';
 
 const oxanium = Oxanium({ subsets: ['latin'] });

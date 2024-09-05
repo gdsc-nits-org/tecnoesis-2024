@@ -67,3 +67,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+    font-family: 'readyplayer';
+    src: url('/rp1font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

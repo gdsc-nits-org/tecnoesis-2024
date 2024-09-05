@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        rp1: ["readyplayer", 'monospace']
+      },
       colors: {
         customGray: '#1e2025',
         customDark: '#121317',

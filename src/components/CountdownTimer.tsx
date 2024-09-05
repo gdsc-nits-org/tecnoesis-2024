@@ -48,22 +48,22 @@ const CountdownTimer = () => {
   return (
     <div className={`${oxanium.className} text-2xl text-center whitespace-nowrap border p-2 select-none border-[#607D8B] bg-[#1E1E1E] text-[#E3F2FD] `}>
       <div className="inline-flex items-center">
-        <span className="text-3xl font-bold text-[#FF6F61] 2xl:text-4xl">ETA</span>
+        <span className="text-3xl font-bold text-[#FF6F61] 2xl:text-4xl font-rp1">ETA</span>
         <div className="flex flex-col items-center mx-2 drop-shadow-md lg:text-6xl 2xl:text-8xl" style={{ textShadow: '0 0 10px #E3F2FD' }}>
           <div>{String(timeLeft.days || 0).padStart(2, '0')}:</div>
-          <div className="text-sm">Days</div>
+          <div className="text-sm font-rp1">Days</div>
         </div>
         <div className="flex flex-col items-center mx-2 drop-shadow-md lg:text-6xl 2xl:text-8xl" style={{ textShadow: '0 0 10px #E3F2FD' }} >
           <div>{String(timeLeft.hours || 0).padStart(2, '0')}:</div>
-          <div className="text-sm">Hours</div>
+          <div className="text-sm font-rp1">Hours</div>
         </div>
         <div className="flex flex-col items-center mx-2 drop-shadow-md lg:text-6xl 2xl:text-8xl" style={{ textShadow: '0 0 10px #E3F2FD' }}>
           <div>{String(timeLeft.minutes || 0).padStart(2, '0')}:</div>
-          <div className="text-sm">Mins</div>
+          <div className="text-sm font-rp1">Mins</div>
         </div>
         <div className="flex flex-col items-center mx-2 drop-shadow-md lg:text-6xl 2xl:text-8xl" style={{ textShadow: '0 0 10px #E3F2FD' }}>
           <div>{String(timeLeft.seconds || 0).padStart(2, '0')}</div>
-          <div className="text-sm">Secs</div>
+          <div className="text-sm font-rp1">Secs</div>
         </div>
       </div>
     </div>

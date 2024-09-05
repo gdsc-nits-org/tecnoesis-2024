@@ -1,9 +1,7 @@
-// components/Navbar.js
-"use client";
 import React, { useRef } from 'react';
 import { Oxanium } from 'next/font/google';
 import Link from 'next/link';
-import { IoLogoInstagram, IoLogoFacebook, IoLogoTwitter } from "react-icons/io5";
+import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io5";
 
 
 const oxanium = Oxanium({ subsets: ['latin'] });
