@@ -1,8 +1,8 @@
 // components/Navbar.js
-"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { Oxanium } from 'next/font/google';
 import gsap from 'gsap';
+import { BiSolidVolumeMute, BiSolidVolumeFull } from "react-icons/bi";
 
 const oxanium = Oxanium({ subsets: ['latin'] });
 
@@ -34,11 +34,25 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, [title.length]);
 
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
+
+  const togglePlayPause = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) audioRef.current.pause();
+    else audioRef.current.play();
+    setIsPlaying(!isPlaying);
+  }
+
   return (
     <nav className="fixed bottom-4 left-0 w-full p-1 z-10 flex items-center justify-center text-2xl lg:text-4xl">
       <span ref={textRef} className={`${oxanium.className} text-white text-center animate-text-glow text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF]`}>
         {title[text]}
       </span>
+      <div onClick={togglePlayPause} className='fixed right-6 text-white text-center animate-text-glow text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF]'>
+        {isPlaying ? <BiSolidVolumeFull /> : <BiSolidVolumeMute />}
+      </div>
+      <audio ref={audioRef} src="/rp1bgm.mp3" preload='metadata' loop/>
     </nav>
   );
 };
