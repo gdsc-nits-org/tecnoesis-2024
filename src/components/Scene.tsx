@@ -53,11 +53,10 @@ const Scene = () => {
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
   const controlsRef = useRef(null);
   const matches = useMediaQuery("(max-width: 1024px)");
-
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Canvas style={{ height: "100vh", width: "100vw" }}>
-        <Environment preset="forest" />
+        <Environment preset="park" />
         <PerspectiveCamera
           makeDefault
           ref={cameraRef}
