@@ -1,6 +1,16 @@
 import { useProgress } from "@react-three/drei";
+import { useEffect } from "react";
+
+interface NavigatorExtended extends Navigator {
+  deviceMemory?: number;
+}
 
 export default function LoadingProgress() {
+  useEffect(() => {
+    // TODO: Render according to Device Memory
+    const nav = navigator as NavigatorExtended;
+    console.log(`Device Memory: ${nav.deviceMemory}`);
+  }, []);
   const { progress } = useProgress();
 
   return (
