@@ -88,7 +88,7 @@ const Scene = () => {
                 </Html>
               </>
             )}
-            <Environment preset="park" />
+            <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/rooitou_park_1k.hdr" />
             <PerspectiveCamera
               makeDefault
               ref={cameraRef}
