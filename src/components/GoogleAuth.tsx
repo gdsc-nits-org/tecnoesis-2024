@@ -4,7 +4,6 @@ import { auth } from '~/app/utils/firebase';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useSignOut } from 'react-firebase-hooks/auth';
-export const runtime = "edge";
 
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
