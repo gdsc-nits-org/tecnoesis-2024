@@ -3,7 +3,7 @@ import { useSignInWithGoogle, useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '~/app/utils/firebase';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { useSignOut } from 'react-firebase-hooks/auth';
+
 
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -63,9 +63,5 @@ const Login = () => {
     return null;
 }
 
-const Logout = () => {
-    const [signOut] = useSignOut(auth);
-    <button onClick={() => signOut()}>Sign Out</button>
-}
 
-export { Login, Logout };
+export default Login;
