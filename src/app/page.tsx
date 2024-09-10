@@ -8,41 +8,41 @@ import { useEffect, useState } from "react";
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
 
 export const runtime = "edge";
-
+interface NavigatorExtended extends Navigator {
+  deviceMemory?: number | undefined;
+}
 export default function HomePage() {
-  const [isClient, setIsClient] = useState(false)
+  const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    setIsClient(true)
-  }, [])
-  const matches = useMediaQuery("(max-width: 1024px)")
-  let browser=/Mozilla/i;
-  let isBrowserMozilla=browser.test(navigator.userAgent);
-  console.log(isBrowserMozilla);
-  if(!isBrowserMozilla){
+    setIsClient(true);
+  }, []);
+
+  const matches = useMediaQuery("(max-width: 1024px)");
+
+  if (!isClient) return null;
+  const nav = navigator as NavigatorExtended;
+  const isFirefox = navigator.userAgent.includes("Firefox");
+  const isLowMemoryDevice = nav.deviceMemory! <= 4;
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  console.log(isAndroid);
+  if (!isFirefox) {
     return (
       <main className="bg-black">
         <Navbar />
-        {isClient && matches && <NavbarMobile />}
+        {matches && <NavbarMobile />}
         <div className="h-screen">
-          {
-            navigator.deviceMemory<=2 && !(/Android/i.test(navigator.userAgent))?
-              <h1>Android</h1>:<Scene />
-          }
-          {/* <Scene /> */}
+          {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center" style={{ minHeight: '100vh' }}><p>Low memory Android device detected</p></div> : <Scene />}
         </div>
-        {/* <Footer /> */}
       </main>
     );
-  }
-  else{
+  } else {
     return (
       <main className="bg-black">
         <Navbar />
-        {isClient && matches && <NavbarMobile />}
-        <div className="h-screen">
-          {/* <Scene /> */}
+        {matches && <NavbarMobile />}
+        <div className="h-screen flex items-center justify-center">
+          <h1 className="text-[#ffffff]">Please have the mercy to use chromium based browsers</h1>
         </div>
-        {/* <Footer /> */}
       </main>
     );
   }
