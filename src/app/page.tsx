@@ -2,10 +2,10 @@
 import Navbar from "~/components/LandingNav";
 import Scene from "~/components/Scene";
 import { useMediaQuery } from "usehooks-ts";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
+const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
 
 export const runtime = "edge";
 interface NavigatorExtended extends Navigator {
