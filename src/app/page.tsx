@@ -4,6 +4,8 @@ import Scene from "~/components/Scene";
 import { useMediaQuery } from "usehooks-ts";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import Login from "~/components/GoogleAuth";
+
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
 
@@ -32,6 +34,7 @@ export default function HomePage() {
         {matches && <NavbarMobile />}
         <div className="h-screen">
           {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center" style={{ minHeight: '100vh' }}><p>Low memory Android device detected</p></div> : <Scene />}
+          <Login />
         </div>
       </main>
     );
@@ -42,7 +45,10 @@ export default function HomePage() {
         {matches && <NavbarMobile />}
         <div className="h-screen flex items-center justify-center">
           <h1 className="text-[#ffffff]">Please have the mercy to use chromium based browsers</h1>
-        </div>
+          <Login />
+      </div>
+
+      
       </main>
     );
   }
