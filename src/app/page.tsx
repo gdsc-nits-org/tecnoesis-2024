@@ -1,10 +1,10 @@
 "use client";
-import Navbar from "~/components/LandingNav";
-import Scene from "~/components/Scene";
-import { useMediaQuery } from "usehooks-ts";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 import Login from "~/components/GoogleAuth";
+import Navbar from "~/components/LandingNav";
+import Scene from "~/components/Scene";
 
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
@@ -33,7 +33,7 @@ export default function HomePage() {
         <Navbar />
         {matches && <NavbarMobile />}
         <div className="h-screen">
-          {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center" style={{ minHeight: '100vh' }}><p>Low memory Android device detected</p></div> : <Scene />}
+          {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center min-h-screen"><p>Low memory Android device detected</p></div> : <Scene />}
           <Login />
         </div>
       </main>
