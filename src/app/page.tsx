@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import Login from "~/components/GoogleAuth";
+import Landing from "~/components/Landing";
 import Navbar from "~/components/LandingNav";
 import Scene from "~/components/Scene";
-
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
 
@@ -15,6 +15,7 @@ interface NavigatorExtended extends Navigator {
 }
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
+  const [comingsoon,setComingsoon]=useState(false);
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -26,30 +27,38 @@ export default function HomePage() {
   const isFirefox = navigator.userAgent.includes("Firefox");
   const isLowMemoryDevice = nav.deviceMemory! <= 4;
   const isAndroid = /Android/i.test(navigator.userAgent);
-  console.log(isAndroid);
-  if (!isFirefox) {
-    return (
-      <main className="bg-black">
-        <Navbar />
-        {matches && <NavbarMobile />}
-        <div className="h-screen">
-          {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center min-h-screen"><p>Low memory Android device detected</p></div> : <Scene />}
-          <Login />
+  if(comingsoon){
+    if (!isFirefox) {
+      return (
+        <main className="bg-black">
+          <Navbar />
+          {matches && <NavbarMobile />}
+          <div className="h-screen">
+            {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center min-h-screen"><p>Low memory Android device detected</p></div> : <Scene />}
+            <Login />
+          </div>
+        </main>
+      );
+    } else {
+      return (
+        <main className="bg-black">
+          <Navbar />
+          {matches && <NavbarMobile />}
+          <div className="h-screen flex items-center justify-center">
+            <h1 className="text-[#ffffff]">Please have the mercy to use chromium based browsers</h1>
+            <Login />
         </div>
-      </main>
-    );
-  } else {
-    return (
-      <main className="bg-black">
-        <Navbar />
-        {matches && <NavbarMobile />}
-        <div className="h-screen flex items-center justify-center">
-          <h1 className="text-[#ffffff]">Please have the mercy to use chromium based browsers</h1>
-          <Login />
-      </div>
 
-      
-      </main>
+
+        </main>
+      );
+    }
+  }
+  else{
+    return(
+      <>
+        <Landing/>
+      </>
     );
   }
 }
