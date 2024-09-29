@@ -99,10 +99,7 @@ const CompleteProfile = () => {
                     {} as Record<string, string>
                 );
                 setFormErrors(zodErrors);
-            } else if (err instanceof AxiosError) {
-                setError(err.response?.data.msg ?? "An error occurred");
-                alert(error ?? "An error occurred");
-            }
+            } 
         }
     };
 
