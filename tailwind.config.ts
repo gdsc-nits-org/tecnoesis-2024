@@ -19,7 +19,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        rp1: ["readyplayer", 'monospace']
+        rp1: ["readyplayer", 'monospace'],
+        outfit: ['Outfit', 'sans-serif']
       },
       colors: {
         customGray: '#1e2025',
@@ -114,6 +115,10 @@ const config = {
         'text-glow': 'text-glow 2s infinite alternate ease-in-out',
         'rotate-pattern': 'rotate-pattern 8s 1 ease-in-out',
       },
+       backgroundImage: {
+        'blue-metall': 'linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)',
+      },
+    
     },
   },
   plugins: [require("tailwindcss-animate")],
