@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Login from "~/components/GoogleAuth";
 
 
+
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
 
 export const runtime = "edge";
@@ -23,9 +24,9 @@ export default function HomePage() {
       {isClient && matches && <NavbarMobile />}
       <div className="h-screen">
         <Scene />
+  
         <Login />
       </div>
-
       
       {/* <Footer /> */}
     </main>
