@@ -40,21 +40,31 @@ const Landing = () => {
 
 
     return (
-        <div className="bg-[#000000] flex flex-col items-center justify-around min-h-screen text-[#ffffff] overflow-hidden">
-            <div className="flex flex-col justify-center items-center">
+        <div className="h-[100vh] flex flex-col items-center justify-around text-[#ffffff] overflow-hidden">
+            <div className="flex flex-col justify-center items-center p-[4rem] lg:p-0">
                 <Image
-                src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727602017/tecno-24/Tecnoesis_24_matte_png_1_cgjhdi.svg"
+                src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727623666/tecno-24/3_l3upkw.png"
                 alt="Tecnoesis Logo"
-                className="h-[10rem] w-[20rem] md:h-[15rem] md:w-[30rem]"
-                width={0}
-                height={0}
+                className="h-[10rem] z-1 w-[20rem] md:h-[15rem] md:w-[30rem] lg:w-[45rem] lg:h-[25rem]"
+                width={1000}
+                height={1000}
                 />
             </div>
-            <div className="overflow-hidden">
-                <Image src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727615010/tecno-24/fsd_1_xk5yt7.svg" alt="core" className="absolute bottom-[0%] left-0 w-[100%] h-[50%] z-0" width={0} height={0} />
-                <Image src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727616945/tecno-24/doubleglitch_hiker_standing_on_a_cliff_at_the_center_of_the_sho_aa94348b-fe2f-4e72-8adb-391de9ab66c4_0000_Layer-2_qko7ut.svg" alt="rock" className="h-[50%] z-2"
-                width={0} height={0}/>
+            <div className="overflow-hidden mt-[10rem] min-h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727622996/tecno-24/Layer_4-removebg-preview_dqkln1.png')" }}>
+                <Image 
+                    src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727601952/tecno-24/dsf1-ezgif.com-png-to-webp-converter_bge52x.webp" 
+                    className='absolute z-0 top-[25%] left-0 h-[60%] md:w-[100%]' 
+                    width={1000} 
+                    height={1000} 
+                    alt="cover" 
+                />
+                <img 
+                    src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727624423/tecno-24/Layer_1_qxjn7z.png" 
+                    alt="rock" 
+                    className="absolute bottom-0 left-0 mobile4:left-[12%] md:left-[22%] lg:left-[28%] w-full mobile4:w-[60%] md:w-[45%] lg:w-[40%] z-3"
+                />
             </div>
+
         </div>
     );
 };

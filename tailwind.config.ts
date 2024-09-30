@@ -15,10 +15,18 @@ const config = {
       padding: "2rem",
       screens: {
         "mobile2":"400px",
+        "tablet1":"600px",
         "2xl": "1400px",
       },
     },
     extend: {
+      screens: {
+        "mobile1":"350px",
+        'mobile2': '400px',
+        "mobile3":'450px',
+        "mobile4":'500px',
+        "tablet1":"550px"
+      },
       fontFamily: {
         rp1: ["readyplayer", 'monospace']
       },

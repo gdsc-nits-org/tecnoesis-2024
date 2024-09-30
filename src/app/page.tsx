@@ -56,9 +56,9 @@ export default function HomePage() {
   }
   else{
     return(
-      <>
+      <div className="bg-[url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727624095/tecno-24/stars_cfwxhr.avif')]">
         <Landing/>
-      </>
+      </div>
     );
   }
 }
