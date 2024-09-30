@@ -15,9 +15,17 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
       {
         src: "/past-sponsor-logos/amul-logo.webp",
         alt: "Amul",
-        width: 300,
-        height: 300,
-        divWidths: "w-[200px] sm:w-[250px] md:w-[300px] lg:w-[300px]",
+        width: 200,
+        height: 200,
+        divWidths: "w-[150px] sm:w-[200px] md:w-[300px] lg:w-[300px]",
+      },
+
+      {
+        src: "/past-sponsor-logos/hackerearth-logo.webp",
+        alt: "HackerEarth",
+        width: 200,
+        height: 200,
+        divWidths: "w-[100px] sm:w-[150px] md:w-[200px] lg:w-[200px]",
       },
       {
         src: "/past-sponsor-logos/gplus-logo.webp",
@@ -43,9 +51,9 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
       {
         src: "/past-sponsor-logos/MTV-logo.webp",
         alt: "MTV",
-        width: 200,
-        height: 200,
-        divWidths: "w-[150px] sm:w-[200px] md:w-[200px] lg:w-[200px]",
+        width: 300,
+        height: 300,
+        divWidths: "w-[150px] sm:w-[250px] md:w-[250px] lg:w-[300px]",
       },
     ],
     [
@@ -84,6 +92,13 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
         height: 100,
         divWidths: "w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px]",
       },
+      {
+        src: "/past-sponsor-logos/unstop-logo.webp",
+        alt: "Unstop",
+        width: 400,
+        height: 100,
+        divWidths: "w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px]",
+      },
     ],
   ];
 
@@ -101,7 +116,7 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
           {imagesToShow?.map((image, index) => (
             <div
               key={index}
-              className={`flex items-center pl-8 ${image.divWidths}`}
+              className={`flex items-center px-4 ${image.divWidths}`}
             >
               <Image
                 src={image.src}
