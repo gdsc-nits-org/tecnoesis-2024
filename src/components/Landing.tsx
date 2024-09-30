@@ -9,38 +9,6 @@ const Landing = () => {
 
     const tl = gsap.timeline({ease: "slow", duration: 1});
 
-    const backgroundImages = [
-        {
-            src: "https://res.cloudinary.com/dhry5xscm/image/upload/v1727601952/tecno-24/dsf1-ezgif.com-png-to-webp-converter_bge52x.webp",
-            alt: "Background Environment",
-            className: "absolute bottom-0 z-0 h-[10rem]"
-        },
-        {
-            src: "https://res.cloudinary.com/dhry5xscm/image/upload/v1727601952/tecno-24/fsd1-ezgif.com-png-to-webp-converter_leymjj.webp",
-            alt: "Background Environment",
-            className: "absolute bottom-0 z-1 h-[10rem]"
-        },
-        // ... add other image objects here
-    ];
-
-    const foregroundImages = [
-        {
-            src: "https://res.cloudinary.com/dhry5xscm/image/upload/v1727601951/tecno-24/1e89fdb62cf7812a3b1e57ead4143e4d1-ezgif.com-png-to-webp-converter_swbu67.webp",
-            alt: "Sphere Glass",
-            className: "absolute bottom-[3rem] z-2"
-        },
-        {
-            src: "https://res.cloudinary.com/dhry5xscm/image/upload/v1727601951/tecno-24/doubleglitch_hiker_standing_on_a_cliff_at_the_center_of_the_sho_aa94348b-fe2f-4e72-8adb-391de9ab66c4_0000_Layer-2-ezgif.com-png-to-webp-converter_ktacys.webp",
-            alt: "Rock",
-            className: "absolute bottom-0 z-3"
-        },
-        {
-            src: "https://res.cloudinary.com/dhry5xscm/image/upload/v1727605344/tecno-24/character1-ezgif.com-webp-to-png-converter_jpopwg.png",
-            alt: "Character",
-            className: "absolute bottom-[1rem] z-4"
-        },
-    ];
-
 
     document.addEventListener("mousemove", (e: MouseEvent) => {
         gsap.utils.toArray<HTMLElement>(".movable").forEach((layer: HTMLElement) => {
@@ -49,7 +17,7 @@ const Landing = () => {
           const moveY = ((e.pageY)-(window.innerHeight/2));
           tl.to(layer, {
             x: -moveX/depth,
-            y: -moveY/(depth*2)
+            y: -moveY/(depth*4)
           }, 0);
         });
       });
@@ -66,7 +34,7 @@ const Landing = () => {
                 data-depth={80}
                 />
             </div>
-            <div className="mt-[10rem] min-h-[100vh] bg-cover bg-center" style={{ backgroundImage: "url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727622996/tecno-24/Layer_4-removebg-preview_dqkln1.png')" }}>
+            <div className="mt-[10rem] w-[100vw] min-h-[100vh] bg-cover bg-center">
                 <Image 
                     src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727601952/tecno-24/dsf1-ezgif.com-png-to-webp-converter_bge52x.webp" 
                     className='movable absolute top-[25%] left-0 h-[60%] md:h-[80%] md:w-[100%] z-2' 
@@ -75,10 +43,13 @@ const Landing = () => {
                     alt="cover"
                     data-depth={75} 
                 />
+                {/* <Image height={1200} width={1200}
+ alt="a new world" src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727705442/tecno-24/newworld_tbupia.png" className='movable absolute left-0 bottom-[4.5rem] z-3' data-depth={50} /> */}
+                <img src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727705467/tecno-24/glowing-ball-unscreen_isib6t.gif" alt="glowing ball" className='movable absolute bottom-[3.6rem] scale-[2] mobile2:scale-[1.5] mobile4:scale-[1.8] lg:scale-[2.2] lg:left-[35%] mobile4:bottom-[3rem] tablet1:bottom-[2.2rem] sm:bottom-1rem tablet1:left-[10%] sm:left-[15%] lg:bottom-[1rem] z-4 left-0 mobile4:left-[3.5%] md:left-[25%] opacity-75' data-depth={50} />
                 <img 
                     src="https://res.cloudinary.com/dhry5xscm/image/upload/v1727624423/tecno-24/Layer_1_qxjn7z.png" 
                     alt="rock" 
-                    className="movable absolute bottom-0 left-0 mobile4:left-[12%] md:left-[22%] lg:left-[28%] w-full mobile4:w-[60%] md:w-[45%] lg:w-[40%] z-3"
+                    className="movable absolute bottom-0 left-0 scale-[1] mobile2:scale-[0.8] mobile2:bottom-[-4.2rem] mobile4:left-[20%] sm:left-[25%] mobile4:bottom-[-4rem] md:left-[30%] lg:left-[33%] lg:scale-[1.4] lg:bottom-[0.8rem] z-5"
                     data-depth={20}
                 />
             </div>

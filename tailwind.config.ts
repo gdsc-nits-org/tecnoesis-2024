@@ -15,7 +15,7 @@ const config = {
       padding: "2rem",
       screens: {
         "mobile2":"400px",
-        "tablet1":"600px",
+        "phone1":"570px",
         "2xl": "1400px",
       },
     },
