@@ -8,12 +8,6 @@ await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
 const config = {
-<<<<<<< HEAD
-    images:{
-        domains: ['res.cloudinary.com']
-    },
-    transpilePackages: ['three'],
-=======
   transpilePackages: ["three"],
   images: {
     remotePatterns: [
@@ -24,8 +18,7 @@ const config = {
         pathname: "/**",
       },
     ],
-  },
->>>>>>> a8dfbfc5713ba90414a949fac772c90e431783fd
+  }
 };
 
 
