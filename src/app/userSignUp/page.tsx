@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { env } from "~/env";
 import Image from "next/image";
 import { User } from "firebase/auth";
 import { z } from "zod";
+import { toast } from "sonner";
+
 
 export const runtime = "edge";
 const userDataSchema = z.object({
@@ -76,31 +78,48 @@ const CompleteProfile = () => {
         e.preventDefault();
         setFormErrors({});
         setError(null);
-        try {
-            const validatedData = userDataSchema.parse(formData);
 
-            if (user) {
-                await createUser(validatedData, user);
-                alert("User Created Successfully");
-                setTimeout(() => {
-                    router.push("/");
-                }, 200);
+        toast.promise(
+            (async () => {
+                try {
+                    const validatedData = userDataSchema.parse(formData);
+
+                    if (user) {
+                        await createUser(validatedData, user);
+                        setTimeout(() => {
+                            router.push("/");
+                        }, 200);
+                    }
+                } catch (err) {
+                    if (err instanceof z.ZodError) {
+                        const zodErrors = err.errors.reduce(
+                            (acc, current) => {
+                                const key = String(current.path[0]);
+                                return {
+                                    ...acc,
+                                    [key]: current.message,
+                                };
+                            },
+                            {} as Record<string, string>
+                        );
+                        setFormErrors(zodErrors);
+                    } else {
+                        throw err;
+                    }
+                }
+            })(),
+            {
+                loading: "Creating user...",
+                success: "User created successfully!",
+                error: (err) => {
+                    if (err instanceof z.ZodError) {
+                        return "Validation errors occurred.";
+                    } else {
+                        return "An error occurred while creating the user.";
+                    }
+                },
             }
-        } catch (err) {
-            if (err instanceof z.ZodError) {
-                const zodErrors = err.errors.reduce(
-                    (acc, current) => {
-                        const key = String(current.path[0]);
-                        return {
-                            ...acc,
-                            [key]: current.message,
-                        };
-                    },
-                    {} as Record<string, string>
-                );
-                setFormErrors(zodErrors);
-            } 
-        }
+        );
     };
 
     if (loading) {
@@ -112,7 +131,7 @@ const CompleteProfile = () => {
     }
 
     return (
-        <div className="bg-[url('https://res.cloudinary.com/dgnlmdkyq/image/upload/v1727602194/Tecno/background_pmqoi8.png')] bg-cover lg:bg-contain bg-repeat flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
+        <div className="bg-[url('/Images/background.png')] bg-cover lg:bg-contain bg-repeat flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
             <div className="bg-blue-metall bg-clip-text text-transparent text-center text-2xl lg:text-5xl font-normal font-rp1 tracking-widest">
                 USER LOGIN
             </div>
@@ -198,7 +217,7 @@ const CompleteProfile = () => {
                             value={formData.registrationId}
                             onChange={handleChange}
                             required
-                            className=" bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10"
+                            className=" bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10 text-white text-center"
                         />
                     </div>
                 </div>
@@ -209,7 +228,7 @@ const CompleteProfile = () => {
                     >
                         <div className="flex items-center justify-center gap-5 w-full h- full ">
                             <Image
-                                src="https://res.cloudinary.com/dgnlmdkyq/image/upload/v1727622715/Tecno/tabler_planet_wffzgp.svg"
+                                src='/Images/tabler_planet.svg'
                                 alt="logo"
                                 width={25}
                                 height={25}
