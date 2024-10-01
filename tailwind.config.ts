@@ -14,8 +14,6 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "mobile2":"400px",
-        "phone1":"570px",
         "2xl": "1400px",
       },
     },
@@ -25,7 +23,11 @@ const config = {
         'mobile2': '400px',
         "mobile3":'450px',
         "mobile4":'500px',
-        "tablet1":"550px"
+        "tablet1":"550px",
+        "tablet2":"800px",
+        "tablet25":"870px",
+        "tablet3":"900px",
+        "tablet4":"950px"
       },
       fontFamily: {
         rp1: ["readyplayer", 'monospace']
