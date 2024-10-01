@@ -86,3 +86,49 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@keyframes neon-glow-blue {
+  0% {
+    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3),
+      0 0 20px rgba(59, 236, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(59, 236, 255, 0.7), 0 0 20px rgba(59, 236, 255, 0.5),
+      0 0 25px rgba(59, 236, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3),
+      0 0 20px rgba(59, 236, 255, 0.2);
+  }
+}
+
+.toast-theme-blue {
+  background-color: #1b1f23;
+  color: #3becff;
+  border: 2px solid #3becff;
+  padding: 16px;
+  animation: neon-glow-blue 2s infinite alternate;
+}
+
+@keyframes neon-red-glow {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3),
+      0 0 20px rgba(255, 64, 64, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 64, 64, 0.7), 0 0 20px rgba(255, 64, 64, 0.5),
+      0 0 25px rgba(255, 64, 64, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3),
+      0 0 20px rgba(255, 64, 64, 0.2);
+  }
+}
+
+.toast-theme-red {
+  background-color: #1b1f23;
+  color: #ff4040;
+  border: 2px solid #ff4040;
+  padding: 16px;
+  animation: neon-red-glow 2s infinite alternate;
+}
