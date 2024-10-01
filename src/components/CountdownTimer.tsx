@@ -13,7 +13,7 @@ interface ItimeLeft {
 const CountdownTimer = () => {
   const calculateTimeLeft = () => {
     const targetDate = new Date(
-      "October 24, 2024 00:00:00 GMT+05:30",
+      "November 7, 2024 00:00:00 GMT+05:30",
     ).getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
