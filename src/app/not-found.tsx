@@ -2,7 +2,8 @@
 import Image from "next/image"
 import Link from "next/link";
 
-function notFound() {
+export const runtime = "edge";
+const notFound = () => {
     return (
         <>
             <div className="bg-[url('/Images/background.png')] bg-cover md:bg-contain bg-repeat flex flex-col w-full min-h-[100vh] items-center justify-center pt-8 overflow-hidden gap-0">
@@ -25,7 +26,7 @@ function notFound() {
                 </div>
                 <div className="w-full flex flex-col justify-center items-center sm:-translate-y-15 md:-translate-y-20 lg:-translate-y-24">
                     <div className="w-full flex items-center justify-center">
-                        <p className="text-white text-center font-outfit w-[80vw] text-wrap font-medium text-xl :text-3xl"> We don't know how you made it here, but</p>
+                        <p className="text-white text-center font-outfit w-[80vw] text-wrap font-medium text-xl :text-3xl"> We don&#39;t know how you made it here, but</p>
                     </div>
                     <Link href="/home" >
                         <div className="w-full flex items-center justify-around mt-10">
