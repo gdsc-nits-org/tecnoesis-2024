@@ -18,6 +18,17 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        "mobile1":"350px",
+        'mobile2': '400px',
+        "mobile3":'450px',
+        "mobile4":'500px',
+        "tablet1":"550px",
+        "tablet2":"800px",
+        "tablet25":"870px",
+        "tablet3":"900px",
+        "tablet4":"950px"
+      },
       fontFamily: {
         rp1: ["readyplayer", 'monospace'],
         outfit: ['Outfit', 'sans-serif']
