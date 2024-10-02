@@ -1,4 +1,3 @@
-import NewFooter from "~/components/Footer";
 import MarqueeComponent from "~/components/sponsorMarquee";
 
 export default function Page() {
@@ -11,7 +10,6 @@ export default function Page() {
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
       </div>
-      <NewFooter />
     </div>
   );
 }
