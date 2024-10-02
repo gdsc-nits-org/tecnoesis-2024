@@ -131,14 +131,14 @@ const CompleteProfile = () => {
     }
 
     return (
-        <div className="bg-[url('/Images/background.png')] bg-cover lg:bg-contain bg-repeat flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
+        <div className="bg-[url('/Images/background.png')] bg-cover md:bg-contain bg-repeat flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
             <div className="bg-blue-metall bg-clip-text text-transparent text-center text-2xl lg:text-5xl font-normal font-rp1 tracking-widest">
                 USER LOGIN
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-15">
                 <div className="flex flex-col items-center justify-center gap-7  min-w-[90vw] lg:min-w-[60vw]">
                     <div className="inline-flex justify-between items-center lg:gap-7 w-full">
-                        <label htmlFor="firstName" className="text-white font-outfit  text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">FIRST NAME:</label>
+                        <label htmlFor="firstName" className="text-white font-outfit  text-sm md:text-xl lg:text-2xl font-normal w-3/10 text-wrap lg:text-nowrap">FIRST NAME:</label>
                         <input
                             type="text"
                             id="firstName"
@@ -146,22 +146,22 @@ const CompleteProfile = () => {
                             value={formData.firstName}
                             onChange={handleChange}
                             required
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10 text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10 text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between items-center lg:gap-7 w-full">
-                        <label htmlFor="middleName" className="text-white font-outfit text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">MIDDLE NAME:</label>
+                        <label htmlFor="middleName" className="text-white font-outfit  text-sm md:text-xl lg:text-2xl w-3/10 font-normal text-wrap lg:text-nowrap">MIDDLE NAME:</label>
                         <input
                             type="text"
                             id="middleName"
                             name="middleName"
                             value={formData.middleName}
                             onChange={handleChange}
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10  text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10  text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between items-center lg:gap-7 w-full">
-                        <label htmlFor="lastName" className="text-white font-outfit text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">LAST NAME:</label>
+                        <label htmlFor="lastName" className="text-white font-outfit text-sm md:text-xl lg:text-2xl w-3/10 font-normal text-wrap lg:text-nowrap">LAST NAME:</label>
                         <input
                             type="text"
                             id="lastName"
@@ -169,11 +169,11 @@ const CompleteProfile = () => {
                             value={formData.lastName}
                             onChange={handleChange}
                             required
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10  text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10  text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between lg:gap-7 w-full">
-                        <label htmlFor="phoneNumber" className="text-white font-outfittext-sm lg:text-2xl font-normal  text-wrap lg:text-nowrap">PHONE    NUMBER:</label>
+                        <label htmlFor="phoneNumber" className="text-white font-outfittext-sm md:text-xl lg:text-2xl font-normal w-3/10 text-wrap lg:text-nowrap">PHONE    NUMBER:</label>
                         <input
                             type="text"
                             id="phoneNumber"
@@ -181,11 +181,11 @@ const CompleteProfile = () => {
                             value={formData.phoneNumber}
                             onChange={handleChange}
                             required
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10  text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px]  border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10  text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between lg:gap-7 w-full">
-                        <label htmlFor="username" className="text-white font-outfit text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">USERNAME:</label>
+                        <label htmlFor="username" className="text-white font-outfit text-sm md:text-xl lg:text-2xl w-3/10 font-normal text-wrap lg:text-nowrap">USERNAME:</label>
                         <input
                             type="text"
                             id="username"
@@ -193,11 +193,11 @@ const CompleteProfile = () => {
                             value={formData.username}
                             onChange={handleChange}
                             required
-                            className="bg-transparent origin-top-left  rounded-[10.036px]  border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10  text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px]  border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10  text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between lg:gap-7 w-full">
-                        <label htmlFor="collegeName" className="text-white font-outfit text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">COLLEGE NAME:</label>
+                        <label htmlFor="collegeName" className="text-white font-outfit text-sm md:text-xl lg:text-2xl w-3/10 font-normal text-wrap lg:text-nowrap">COLLEGE NAME:</label>
                         <input
                             type="text"
                             id="collegeName"
@@ -205,11 +205,11 @@ const CompleteProfile = () => {
                             value={formData.collegeName}
                             onChange={handleChange}
                             required
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10  text-white text-center"
+                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10  text-white text-center"
                         />
                     </div>
                     <div className="inline-flex justify-between lg:gap-7 w-full">
-                        <label htmlFor="registrationId" className="text-white font-outfit text-sm lg:text-2xl font-normal text-wrap lg:text-nowrap">REGISTRATION  ID:</label>
+                        <label htmlFor="registrationId" className="text-white font-outfit text-sm md:text-xl lg:text-2xl w-3/10 font-normal text-wrap lg:text-nowrap">REGISTRATION  ID:</label>
                         <input
                             type="text"
                             id="registrationId"
@@ -217,11 +217,11 @@ const CompleteProfile = () => {
                             value={formData.registrationId}
                             onChange={handleChange}
                             required
-                            className=" bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-2/3 h-10 text-white text-center"
+                            className=" bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10 text-white text-center"
                         />
                     </div>
                 </div>
-                <div className="w-full flex items-center justify-around mt-10 md:translate-x-28">
+                <div className="w-full flex items-center justify-around mt-10 lg:translate-x-25">
                     <button
                         type="submit"
                         className="flex flex-row items-center justify-center gap-5 w-60 lg:w-80 h-15 p-2 bg-transparent origin-top-left rounded-full border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] hover:border-none"
