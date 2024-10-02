@@ -188,7 +188,7 @@ const LandingFooter = () => {
         <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190%201.webp')] bg-cover bg-bottom pt-[5vh]">
           <div className="flex h-full w-full flex-col items-center justify-between">
             <div className="tecno-big-img mb-0 mt-[150px] flex h-4/6 h-[40vh] h-[50vh] w-9/12 w-full flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[50vh] lg:w-full"></div>
-            <div className="mt-[-30px] h-[50px] w-[70%]">
+            <div className="mt-[-30px] h-[150px] w-[70%] bg-red-600">
               <CustomButton text="Become Our Campus Ambassador" />
             </div>
           </div>
