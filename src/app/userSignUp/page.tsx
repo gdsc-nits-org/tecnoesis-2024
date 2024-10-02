@@ -131,7 +131,7 @@ const CompleteProfile = () => {
     }
 
     return (
-        <div className="bg-[url('/Images/background.png')] bg-cover md:bg-contain bg-repeat flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
+        <div className="bg-dotted flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
             <div className="bg-blue-metall bg-clip-text text-transparent text-center text-2xl lg:text-5xl font-normal font-rp1 tracking-widest">
                 USER LOGIN
             </div>

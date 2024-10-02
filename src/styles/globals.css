@@ -69,13 +69,13 @@
 }
 
 @font-face {
-    font-family: 'readyplayer';
-    src: url('/rp1font.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "readyplayer";
+  src: url("/rp1font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
   background-color: black;
@@ -84,23 +84,20 @@
 }
 
 .text-gradient-blue {
-  background: linear-gradient(150deg, #59CAFA 0% , #8dddff 10%, #3092C2 40%);
+  background: linear-gradient(150deg, #59cafa 0%, #8dddff 10%, #3092c2 40%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @keyframes neon-glow-blue {
   0% {
-    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3),
-      0 0 20px rgba(59, 236, 255, 0.2);
+    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3), 0 0 20px rgba(59, 236, 255, 0.2);
   }
   50% {
-    box-shadow: 0 0 10px rgba(59, 236, 255, 0.7), 0 0 20px rgba(59, 236, 255, 0.5),
-      0 0 25px rgba(59, 236, 255, 0.3);
+    box-shadow: 0 0 10px rgba(59, 236, 255, 0.7), 0 0 20px rgba(59, 236, 255, 0.5), 0 0 25px rgba(59, 236, 255, 0.3);
   }
   100% {
-    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3),
-      0 0 20px rgba(59, 236, 255, 0.2);
+    box-shadow: 0 0 8px rgba(59, 236, 255, 0.5), 0 0 15px rgba(59, 236, 255, 0.3), 0 0 20px rgba(59, 236, 255, 0.2);
   }
 }
 
@@ -114,16 +111,13 @@
 
 @keyframes neon-red-glow {
   0% {
-    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3),
-      0 0 20px rgba(255, 64, 64, 0.2);
+    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3), 0 0 20px rgba(255, 64, 64, 0.2);
   }
   50% {
-    box-shadow: 0 0 10px rgba(255, 64, 64, 0.7), 0 0 20px rgba(255, 64, 64, 0.5),
-      0 0 25px rgba(255, 64, 64, 0.3);
+    box-shadow: 0 0 10px rgba(255, 64, 64, 0.7), 0 0 20px rgba(255, 64, 64, 0.5), 0 0 25px rgba(255, 64, 64, 0.3);
   }
   100% {
-    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3),
-      0 0 20px rgba(255, 64, 64, 0.2);
+    box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3), 0 0 20px rgba(255, 64, 64, 0.2);
   }
 }
 
