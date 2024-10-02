@@ -5,9 +5,8 @@ import {gsap} from 'gsap';
 import Logo from "../../public/Landing/tecnoesisLogo.webp";
 import Buildings from "../../public/Landing/buildings.webp";
 import glowingBall from "../../public/Landing/glowingBall.gif";
-import player from "../../public/Landing/player.webp";
+import player from "../../public/Landing/player.svg";
 import newWorld from "../../public/Landing/newWorld.webp";
-
 const Landing = () => {
     const tablet = useMediaQuery("(min-width: 500px)"); // Use camelCase for variable names
     const desktop = useMediaQuery("(min-width: 800px)");
@@ -39,7 +38,7 @@ const Landing = () => {
                 data-depth={80}
                 />
             </div>
-            <div className="w-[100vw] min-h-[100vh] flex items-center justify-end">
+            <div className="w-[100vw] h-[100vh] flex items-end justify-center">
                 <Image 
                     src={Buildings} 
                     className='movable absolute top-[25%] object-cover left-0 h-[60%] md:h-[80%] md:w-[100%] z-2' 
@@ -58,13 +57,13 @@ const Landing = () => {
                     className="movable absolute bottom-[2.8rem] mobile1:bottom-[2.9rem] mobile1:left-[0.6rem] left-0 scale-[1] mobile2:scale-[1.2] mobile2:bottom-[3rem] mobile4:left-[5%] tablet1:bottom-[2.5rem] sm:left-[25%] mobile4:bottom-[4rem] mobile4:scale-[1.4] md:left-[30%] tablet2:bottom-[3rem] tablet2:scale-[2] lg:left-[30%] lg:scale-[1.4] lg:bottom-[3rem] z-5"
                     data-depth={20}
                 /> */}
-                <div className='relative bottom-[-1rem] left-0 w-[100%] flex justify-center items-center'>
-                    <Image width={500} height={500} src={newWorld} alt="new world" className='movable absolute bottom-0 scale-[1.2]' data-depth={50} />
-                    <Image width={500} height={500} src={glowingBall} alt="glowing ball" className='movable absolute bottom-0 scale-[2] mobile2:scale-[1.5] mobile4:scale-[1.8] lg:scale-[1.6] z-4 opacity-75' data-depth={50} />
+                <div className='relative bottom-[40px] left-0 w-[100%] flex justify-center items-center scale-1 lg:scale-[1.3]'>
+                    <Image width={500} height={500} src={newWorld} alt="new world" className='movable absolute scale-[1.2]' data-depth={50} />
+                    <Image width={500} height={500} src={glowingBall} alt="glowing ball" className='movable absolute scale-[2] mobile2:scale-[1.5] mobile4:scale-[1.8] lg:scale-[1.6] z-4 opacity-50' data-depth={50} />
                     <Image width={500} height={500}
                         src={player} 
                         alt="rock" 
-                        className="movable absolute bottom-0 md:bottom-[4rem] tablet4:bottom-[4.3rem] lg:bottom-[6rem] scale-[1] mobile2:scale-[1.2] mobile4:scale-[1.4] tablet2:scale-[2] lg:scale-[1.5] z-5"
+                        className="movable absolute bottom-0 scale-[2] mobile4:scale-[1.4] tablet2:scale-[2] lg:scale-[1.5] z-5"
                         data-depth={20}
                     />
                 </div>
