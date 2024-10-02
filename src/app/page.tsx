@@ -15,7 +15,7 @@ interface NavigatorExtended extends Navigator {
 }
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
-  const [comingsoon,setComingsoon]=useState(false);
+  const comingsoon=false;
   useEffect(() => {
     setIsClient(true);
   }, []);
