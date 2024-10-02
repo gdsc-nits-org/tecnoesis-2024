@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.back-cover {
+    width: 100vw;
+    height: auto;
+    min-height: 600px;
+    z-index: 1000;
+    background: url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190\ 1.webp') center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tecno-big-img {
+    width: 80vw;
+    min-height: 30vw;
+    z-index: 1000;
+    background: url('/assets/footer/imgs/Tecnoesis\'24_matte_png\ 1.webp') center no-repeat;
+    background-size: contain;
+}
+
+
+.glow {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5), 0 0 50px rgba(255, 0, 255, 0.3);
+    transition: transform 0.1s ease;
+}
