@@ -4,6 +4,7 @@ import Scene from "~/components/Scene";
 import { useMediaQuery } from "usehooks-ts";
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
+import Footer from "~/components/Footer";
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
 
@@ -16,13 +17,13 @@ export default function HomePage() {
   }, [])
   const matches = useMediaQuery("(max-width: 1024px)")
   return (
-    <main className="bg-black">
+    <main className="bg-black min-h-screen flex flex-col">
       <Navbar />
       {isClient && matches && <NavbarMobile />}
-      <div className="h-screen">
+      <div className="flex-grow">
         <Scene />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
