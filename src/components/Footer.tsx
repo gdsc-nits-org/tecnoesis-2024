@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Oxanium } from "next/font/google";
 import Link from "next/link";
-import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io5";
+import { IoLogoInstagram, IoLogoFacebook, IoLogoLinkedin } from "react-icons/io5";
+import { FaXTwitter } from "react-icons/fa6";
 import "~/styles/footer.css";
 
 const oxanium = Oxanium({ subsets: ["latin"] });
@@ -14,19 +15,29 @@ const Footer = () => {
   });
 
   return (
-    <footer className="fixed left-0 top-4 z-10 flex w-full items-center justify-center p-1 text-2xl lg:text-3xl">
+    <footer className="fixed left-0 bottom-0 z-10 w-full flex flex-col items-center justify-end p-4">
       <div className="glow"></div>
-      <div className="back-cover">
+      <div className="back-cover w-full flex flex-col items-center justify-end">
         <div className="tecno-big-img"></div>
-        <div className="bottom-content">
-          <span className="social-links">
+        <div className="bottom-content flex flex-col items-center mb-4">
+          <h2 className="text-white text-xl font-semibold mb-4">CONTACT US</h2>
+          <span className="social-links flex space-x-4 mb-2">
             <Link href={"https://www.instagram.com/tecnoesis.nits/"}>
-              <IoLogoInstagram className="hover:text-gray-200" />
+              <IoLogoInstagram className="text-white hover:text-gray-200 text-2xl" />
             </Link>
             <Link href={"https://www.facebook.com/tecnoesis.nits"}>
-              <IoLogoFacebook className="hover:text-gray-200" />
+              <IoLogoFacebook className="text-white hover:text-gray-200 text-2xl" />
+            </Link>
+            <Link href={"https://www.linkedin.com/company/tecnoesis-nits"}>
+              <IoLogoLinkedin className="text-white hover:text-gray-200 text-2xl" />
+            </Link>
+            <Link href={"https://twitter.com/tecnoesis_nits"}>
+              <FaXTwitter className="text-white hover:text-gray-200 text-2xl" />
             </Link>
           </span>
+          <div className="text-center text-sm text-white">
+            Designed in collaboration with GDG Silchar
+          </div>
         </div>
       </div>
     </footer>
