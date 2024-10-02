@@ -22,13 +22,41 @@ body {
 }
 
 .tecno-big-img {
-    width: 80vw;
-    min-height: 30vw;
+    width: 101.4vw;  
+    max-width: 1014px; 
+    height: 33.8vw;  
     z-index: 1000;
     background: url('/assets/footer/imgs/Tecnoesis\'24_matte_png\ 1.webp') center no-repeat;
     background-size: contain;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 0;
+    margin-bottom: -20px;
 }
 
+.campus-ambassador-button {
+    width: 101.4vw;
+    max-width: 1014px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 70px;
+    margin-top: -20px;
+    margin-bottom: 70px;
+}
+
+.campus-ambassador-button:hover {
+    background-color: rgba(0, 0, 255, 0.7);
+    transform: scale(1.05);
+}
 
 .glow {
     width: 100px;
