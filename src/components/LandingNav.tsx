@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { BiSolidVolumeMute, BiSolidVolumeFull } from "react-icons/bi";
-
+//8320
 interface NavigatorExtended extends Navigator {
   deviceMemory?: number;
 }
