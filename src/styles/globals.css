@@ -63,8 +63,13 @@
   * {
     @apply border-border;
   }
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
   body {
     @apply bg-background text-foreground;
+    position: relative;
   }
 }
 

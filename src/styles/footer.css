@@ -10,7 +10,7 @@ body {
 }
 
 .back-cover {
-    width: 100vw;
+    width: 100%;
     height: auto;
     min-height: 600px;
     z-index: 1000;
@@ -84,11 +84,11 @@ body {
 }
 
 footer {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
   
   .back-cover {
     position: relative;
@@ -120,4 +120,18 @@ footer {
 
   .bottom-content {
     padding: 2rem 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .tecno-big-img {
+      width: 90%;
+      height: 40vh;
+    }
+  
+    .campus-ambassador-button {
+      width: 90%;
+      font-size: 1rem;
+      margin-top: -100px;
+      margin-bottom: 40px;
+    }
   }
