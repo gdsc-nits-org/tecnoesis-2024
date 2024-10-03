@@ -17,13 +17,13 @@ export default function HomePage() {
   }, [])
   const matches = useMediaQuery("(max-width: 1024px)")
   return (
-    <main className="bg-black min-h-screen flex flex-col">
-      <Navbar />
-      {isClient && matches && <NavbarMobile />}
-      <div className="flex-grow">
-        <Scene />
-      </div>
-      <Footer />
-    </main>
+<main className="bg-black min-h-screen flex flex-col">
+  <Navbar />
+  {isClient && matches && <NavbarMobile />}
+  <div className="flex-grow">
+    <Scene />
+  </div>
+  <Footer />
+</main>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
 import { Oxanium } from "next/font/google";
 import Link from "next/link";
 import {
@@ -15,6 +15,16 @@ const oxanium = Oxanium({ subsets: ["latin"] });
 
 const Footer = () => {
   const glowRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (glowRef.current) {
@@ -34,7 +44,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative bottom-0 left-0 z-10 flex w-full flex-col items-center justify-end p-4">
+    <footer className="relative w-full flex flex-col items-center justify-end bg-black">
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -81,7 +91,7 @@ const Footer = () => {
                 enable: true,
                 area: 800,
               },
-              value: 80,
+              value: isMobile ? 40 : 80,
             },
             opacity: {
               value: 0.5,
@@ -104,34 +114,34 @@ const Footer = () => {
           Become Our Campus Ambassador
         </button>
         <div className="bottom-content mb-8 flex flex-col items-center">
-          <h2 className="mb-6 text-2xl font-semibold text-white">CONTACT US</h2>
-          <span className="social-links mb-4 flex space-x-6">
+          <h2 className="mb-6 text-xl sm:text-2xl font-semibold text-white">CONTACT US</h2>
+          <span className="social-links mb-4 flex space-x-4 sm:space-x-6">
             <Link
               href={"https://www.instagram.com/tecnoesis.nits/"}
               aria-label="Instagram"
             >
-              <IoLogoInstagram className="text-3xl text-white hover:text-gray-200" />
+              <IoLogoInstagram className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
             </Link>
             <Link
               href={"https://www.facebook.com/tecnoesis.nits"}
               aria-label="Facebook"
             >
-              <IoLogoFacebook className="text-3xl text-white hover:text-gray-200" />
+              <IoLogoFacebook className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
             </Link>
             <Link
               href={"https://www.linkedin.com/company/tecnoesis-nits"}
               aria-label="LinkedIn"
             >
-              <IoLogoLinkedin className="text-3xl text-white hover:text-gray-200" />
+              <IoLogoLinkedin className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
             </Link>
             <Link
               href={"https://twitter.com/tecnoesis_nits"}
               aria-label="Twitter"
             >
-              <FaXTwitter className="text-3xl text-white hover:text-gray-200" />
+              <FaXTwitter className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
             </Link>
           </span>
-          <div className="text-center text-base text-white">
+          <div className="text-center text-sm sm:text-base text-white">
             Designed in collaboration with GDG Silchar
           </div>
         </div>
