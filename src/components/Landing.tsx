@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useMediaQuery } from "usehooks-ts";
 import { gsap } from 'gsap';
-import Logo from "../../public/Landing/tecnoesisLogo.webp";
-import Buildings from "../../public/Landing/buildings.webp";
-import glowingBall from "../../public/Landing/glowingBall.gif";
-import player from "../../public/Landing/player.svg";
-import newWorld from "../../public/Landing/newWorld.webp";
+import Logo from "../../public/assets/Landing/tecnoesisLogo.webp";
+import Buildings from "../../public/assets/Landing/buildings.webp";
+import glowingBall from "../../public/assets/Landing/glowingBall.gif";
+import newWorld from "../../public/assets/Landing/newWorld.webp";
 
 
 
@@ -77,7 +76,7 @@ const Landing: React.FC = () => {
                     <Image 
                         width={500} 
                         height={500}
-                        src={player} 
+                        src="/assets/Landing/player.svg"
                         alt="rock" 
                         className="movable absolute bottom-0 scale-[2] mobile4:scale-[1.4] tablet2:scale-[2] lg:scale-[1.5] z-5"
                         data-depth={20}
