@@ -64,10 +64,10 @@ const Footer = () => {
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: "#ffffff00",
             },
             links: {
-              color: "#ffffff",
+              color: "#ffffff00",
               distance: 150,
               enable: false,
               opacity: 0.5,
