@@ -28,7 +28,7 @@ const Footer = () => {
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (glowRef.current) {
-      glowRef.current.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+      glowRef.current.style.transform = `translate(${e.pageX - 150}px, ${e.pageY - 150}px)`;
     }
   }, []);
 
@@ -108,14 +108,15 @@ const Footer = () => {
         className="absolute left-0 top-0 z-0 h-full w-full"
       />
       <div ref={glowRef} className="glow z-10"></div>
-      <div className="back-cover z-20 flex w-full flex-col items-center justify-end">
-        <div className="tecno-big-img"></div>
+      {/* <div className="star-background"></div> */}
+      <div className="back-cover z-20 flex w-full flex-col items-center justify-between h-auto">
+        <div className="tecno-big-img w-9/12 h-4/6 bg-contain flex flex-col justify-center items-center"></div>
         <button className="campus-ambassador-button">
           Become Our Campus Ambassador
         </button>
         <div className="bottom-content mb-8 flex flex-col items-center">
-          <h2 className="mb-6 text-xl sm:text-2xl font-semibold text-white">CONTACT US</h2>
-          <span className="social-links mb-4 flex space-x-4 sm:space-x-6">
+          <h2 className="footer-middle-text mb-6 text-xl sm:text-2xl font-semibold text-white">CONTACT US</h2>
+          <span className="mb-4 flex w-screen justify-center space-x-4 sm:space-x-6">
             <Link
               href={"https://www.instagram.com/tecnoesis.nits/"}
               aria-label="Instagram"
@@ -141,7 +142,7 @@ const Footer = () => {
               <FaXTwitter className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
             </Link>
           </span>
-          <div className="text-center text-sm sm:text-base text-white">
+          <div className="footer-below-text w-screen justify-center text-sm sm:text-base text-white">
             Designed in collaboration with GDG Silchar
           </div>
         </div>

@@ -1,87 +1,116 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    padding: 0;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'ReadyPlayerOne';
+  src: url('/assets/ReadyPlayerOne-rwzx.ttf') format('truetype');
 }
 
 body {
-    background-color: black;
+  background-color: black;
+  font-stretch: ultra-expanded expanded;
 }
 
 .back-cover {
-    width: 100%;
-    height: auto;
-    min-height: 600px;
-    z-index: 1000;
-    background: url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190\ 1.webp') center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  z-index: 1000;
+  background: url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190\ 1.webp') center;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tecno-big-img {
-    width: 70vw;  
-    height: 60vh;  
-    background: url('/assets/footer/imgs/Tecnoesis\'24_matte_png\ 1.webp') center no-repeat;
-    background-size: contain;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 0;
+  height: 60vh;
+  background: url('/assets/footer/imgs/Tecnoesis\'24_matte_png\ 1.webp') center no-repeat;
+  background-size: contain;
 }
 
 .campus-ambassador-button {
-    width: 101.4vw;
-    max-width: 1014px;
-    padding: 15px 25px;
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 70px;
-    margin-top: -60px;
-    margin-bottom: 70px;
-    position: relative;
-    z-index: 31;
+  width: 101.4vw;
+  max-width: 1014px;
+  padding: 15px 25px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 70px;
+  margin-top: -60px;
+  margin-bottom: 70px;
+  position: relative;
+  z-index: 31;
 }
 
 .campus-ambassador-button:hover {
-    background-color: rgba(0, 0, 255, 0.7);
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .glow {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.326),rgba(255, 255, 255, 0.326),rgba(255, 255, 255, 0.203),rgba(255, 255, 255, 0.112), rgba(255, 255, 255, 0.057), rgba(255, 255, 255, 0.018),rgba(255, 255, 255, 0),rgba(255, 255, 255, 0));;
-    opacity: 0.5;
-    /* backdrop-filter: blur(10px); */
-    background-attachment: scroll;
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.016);
-    transition: transform 0.05s ease;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.212), rgba(255, 255, 255, 0.203), rgba(255, 255, 255, 0.112), rgba(255, 255, 255, 0.057), rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  opacity: 0.5;
+  background-attachment: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: scaleZ(2);
+  box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.016);
+  transition: transform 0.05s ease;
+  background-blend-mode: difference;
 }
 
-.star-background {
-    width: 100vw;
-    min-height: 100%;
-    z-index: 1000;
-    background: url('/assets/footer/imgs/Stars.webp') center no-repeat;
-    background-size: contain;
+.footer-middle-text {
+  /* CONTACT US */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 131% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 9.45px;
+  background: linear-gradient(180deg, #E9F8FF 0%, rgba(144, 168, 180, 0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-family: 'ReadyPlayerOne', sans-serif;
+  background-clip: text;
+  flex: none;
+}
+
+.footer-below-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.33em;
+  color: #FFFFFF;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
 }
 
 footer {
@@ -90,49 +119,49 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
 }
-  
-  .back-cover {
-    position: relative;
-    z-index: 20;
+
+.back-cover {
+  position: relative;
+  z-index: 20;
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.glow {
+  z-index: 30;
+}
+
+.campus-ambassador-button {
+  position: relative;
+  z-index: 30;
+}
+
+.bottom-content {
+  position: relative;
+  z-index: 30;
+}
+
+.bottom-content {
+  padding: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .tecno-big-img {
+    width: 90%;
+    height: 40vh;
   }
-  
-  #tsparticles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-  }
-  
-  .glow {
-    z-index: 30;
-  }
-  
+
   .campus-ambassador-button {
-    position: relative;
-    z-index: 30;
+    width: 90%;
+    font-size: 1rem;
+    margin-top: -100px;
+    margin-bottom: 40px;
   }
-  
-  .bottom-content {
-    position: relative;
-    z-index: 30;
-  }
-
-  .bottom-content {
-    padding: 2rem 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .tecno-big-img {
-      width: 90%;
-      height: 40vh;
-    }
-  
-    .campus-ambassador-button {
-      width: 90%;
-      font-size: 1rem;
-      margin-top: -100px;
-      margin-bottom: 40px;
-    }
-  }
+}
