@@ -75,7 +75,7 @@
     font-style: normal;
 }
 body{
-  overflow: hidden !important;
+  overflow-x: hidden !important;
   width:100vw;
   height: 100vh;
 }

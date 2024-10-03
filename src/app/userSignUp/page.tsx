@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { env } from "~/env";
 import { User } from "firebase/auth";
+import CustomButton from "~/components/CustomButton";
 
 export const runtime = "edge";
 interface UserData {
@@ -193,6 +194,7 @@ const CompleteProfile = () => {
                 >
                     Submit
                 </button>
+                <CustomButton text="TEST"/>
             </form>
         </div>
     );
