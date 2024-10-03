@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useCallback, useState } from "react";
-import { Oxanium } from "next/font/google";
 import Link from "next/link";
 import {
   IoLogoInstagram,
@@ -11,8 +10,6 @@ import "~/styles/footer.css";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-const oxanium = Oxanium({ subsets: ["latin"] });
-
 const Footer = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -22,8 +19,8 @@ const Footer = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -44,7 +41,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative w-full flex flex-col items-center justify-end bg-black">
+    <footer className="relative flex min-h-screen w-full flex-col bg-black">
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -108,41 +105,42 @@ const Footer = () => {
         className="absolute left-0 top-0 z-0 h-full w-full"
       />
       <div ref={glowRef} className="glow z-10"></div>
-      {/* <div className="star-background"></div> */}
-      <div className="back-cover z-20 flex w-full flex-col items-center justify-between h-auto">
-        <div className="tecno-big-img w-9/12 h-4/6 bg-contain flex flex-col justify-center items-center"></div>
+      <div className="back-cover z-20 flex w-full flex-grow flex-col items-center justify-between">
+        <div className="tecno-big-img flex h-4/6 w-9/12 flex-col items-center justify-center bg-contain"></div>
         <button className="campus-ambassador-button">
           Become Our Campus Ambassador
         </button>
-        <div className="bottom-content mb-8 flex flex-col items-center">
-          <h2 className="footer-middle-text mb-6 text-xl sm:text-2xl font-semibold text-white">CONTACT US</h2>
-          <span className="mb-4 flex w-screen justify-center space-x-4 sm:space-x-6">
+        <div className="bottom-content-container mt-auto flex w-full flex-col items-center justify-end py-8">
+          <h2 className="footer-middle-text mb-6 text-xl font-semibold text-white sm:text-2xl md:text-3xl lg:text-4xl">
+            CONTACT US
+          </h2>
+          <span className="mb-6 flex justify-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10">
             <Link
               href={"https://www.instagram.com/tecnoesis.nits/"}
               aria-label="Instagram"
             >
-              <IoLogoInstagram className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
+              <IoLogoInstagram className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
               href={"https://www.facebook.com/tecnoesis.nits"}
               aria-label="Facebook"
             >
-              <IoLogoFacebook className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
+              <IoLogoFacebook className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
               href={"https://www.linkedin.com/company/tecnoesis-nits"}
               aria-label="LinkedIn"
             >
-              <IoLogoLinkedin className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
+              <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
               href={"https://twitter.com/tecnoesis_nits"}
               aria-label="Twitter"
             >
-              <FaXTwitter className="text-2xl sm:text-3xl text-white hover:text-gray-200" />
+              <FaXTwitter className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
           </span>
-          <div className="footer-below-text w-screen justify-center text-sm sm:text-base text-white">
+          <div className="footer-below-text text-center text-sm text-white sm:text-base md:text-lg lg:text-xl">
             Designed in collaboration with GDG Silchar
           </div>
         </div>

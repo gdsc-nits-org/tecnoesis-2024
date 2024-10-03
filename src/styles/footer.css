@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  padding: 0;
   overflow: hidden;
 }
 
@@ -15,11 +14,9 @@ body {
   background-color: black;
   font-stretch: ultra-expanded expanded;
 }
-
 .back-cover {
   width: 100%;
-  height: auto;
-  min-height: 600px;
+  min-height: 100vh;
   z-index: 1000;
   background: url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190\ 1.webp') center;
   background-size: cover;
@@ -27,36 +24,87 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-top: 5vh;
+  padding-top: 2rem;
 }
 
 .tecno-big-img {
   height: 60vh;
+  width: 90%;
   background: url('/assets/footer/imgs/Tecnoesis\'24_matte_png\ 1.webp') center no-repeat;
   background-size: contain;
+  margin-bottom: 0;
 }
-
+@media screen and (max-width: 768px) {
+  .tecno-big-img {
+    margin-top: 200px;
+    height: 25vh;
+    width: 100%;
+  }
+  .campus-ambassador-button {
+    width: 75%;
+    font-size: calc(0.8rem + 0.5vw);
+    padding: 1vh 2vw;
+  }
+}
 .campus-ambassador-button {
-  width: 101.4vw;
+  width: 90%;
   max-width: 1014px;
-  padding: 15px 25px;
+  padding: 1.5vh 2vw;
   background-color: transparent;
   color: white;
   border: 2px solid white;
-  font-size: 1.25rem;
+  font-size: calc(1rem + 0.25vw);
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 70px;
-  margin-top: -60px;
-  margin-bottom: 70px;
   position: relative;
   z-index: 31;
+  margin-top: -100px;
+}
+
+@media screen and (max-width: 768px) {
+  .campus-ambassador-button {
+    width: 75%;
+    font-size: calc(0.8rem + 0.5vw);
+    padding: 1vh 2vw;
+    margin-top: -2vh;
+    margin-bottom: 2vh;
+  }
 }
 
 .campus-ambassador-button:hover {
   transform: scale(1.05);
+}
+
+.bottom-content-container {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .bottom-content-container {
+    padding: 3rem 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bottom-content-container {
+    padding: 4rem 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bottom-content-container {
+    padding: 5rem 4rem;
+  }
 }
 
 .glow {
@@ -77,40 +125,62 @@ body {
 }
 
 .footer-middle-text {
-  /* CONTACT US */
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 32px;
-  /* identical to box height, or 131% */
+  line-height: 1.5;
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 9.45px;
+  letter-spacing: 0.3em;
   background: linear-gradient(180deg, #E9F8FF 0%, rgba(144, 168, 180, 0.75) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
   font-family: 'ReadyPlayerOne', sans-serif;
   background-clip: text;
-  flex: none;
+  margin-bottom: 1rem;
 }
 
 .footer-below-text {
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
-  line-height: 15px;
+  line-height: 1.5;
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.33em;
+  letter-spacing: 0.2em;
   color: #FFFFFF;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
+  font-size: 1rem; /* Base size for small screens */
+}
 
+@media screen and (min-width: 640px) {
+  .footer-below-text {
+    font-size: 1.25rem; /* Slightly larger for medium screens */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-below-text {
+    font-size: 1.375rem; /* Even larger for large screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-below-text {
+    font-size: 1.375rem; /* Larger size for extra large screens */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer-below-text {
+    font-size: 1.5rem; /* Larger size for 2K and similar resolutions */
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .footer-below-text {
+    font-size: 1.75rem; /* Largest size for 4K and higher resolutions */
+  }
 }
 
 footer {
@@ -146,22 +216,54 @@ footer {
 .bottom-content {
   position: relative;
   z-index: 30;
-}
-
-.bottom-content {
   padding: 2rem 0;
 }
 
-@media screen and (max-width: 768px) {
-  .tecno-big-img {
-    width: 90%;
-    height: 40vh;
+@media screen and (min-width: 640px) {
+  .footer-middle-text {
+    font-size: 28px;
+    letter-spacing: 0.35em;
   }
+  .footer-below-text {
+    letter-spacing: 0.25em;
+  }
+}
 
+@media screen and (min-width: 768px) {
+  .footer-middle-text {
+    font-size: 32px;
+    letter-spacing: 0.4em;
+  }
+  .footer-below-text {
+    letter-spacing: 0.3em;
+  }
+  .tecno-big-img {
+    width: 80%;
+    height: 50vh;
+  }
   .campus-ambassador-button {
-    width: 90%;
-    font-size: 1rem;
-    margin-top: -100px;
-    margin-bottom: 40px;
+    width: 80%;
+    font-size: calc(1rem + 0.5vw);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tecno-big-img {
+    width: 70%;
+    height: 60vh;
+  }
+  .campus-ambassador-button {
+    width: 70%;
+    font-size: calc(1.2rem + 0.5vw);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-middle-text {
+    font-size: 36px;
+    letter-spacing: 0.45em;
+  }
+  .footer-below-text {
+    letter-spacing: 0.35em;
   }
 }
