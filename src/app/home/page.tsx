@@ -1,10 +1,8 @@
-import NavbarMobile from "~/components/NavbarMobile";
 import MarqueeComponent from "~/components/sponsorMarquee";
 
 export default function Page() {
   return (
     <>
-      <NavbarMobile />
       <div className="bg-dotted flex min-h-screen w-full flex-col items-center">
         <div className="text-gradient-blue m-10 font-rp1 text-2xl font-bold md:text-6xl">
           Past Sponsors

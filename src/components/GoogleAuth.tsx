@@ -45,7 +45,7 @@ const Login = () => {
   }
   if (loading || _loading) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center gap-3">
+      <div className="flex items-center justify-center gap-3 w-[6rem] lg w-[6rem]:md:w-[10rem]">
         User Loading....
       </div>
     );
@@ -61,13 +61,14 @@ const Login = () => {
   if (bigScreen) {
     if (!_user) {
       return (
-        <section className="group">
-          <button className="flex w-[200px] items-center justify-between rounded-full bg-[#5252522a] py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
-            <p className="duration-1000 group-hover:text-[#01A3F5]">Button</p>
-            <div className="overflow-hidden rounded-full bg-[#01A3F5]">
+        <section className="group w-[8rem] lg:w-[13rem] tv1:w-[20rem] tv2:w-[20rem]">
+          <button onClick={async () => { await signInWithGoogle() }}
+            className="flex ml items-center justify-between rounded-full bg-[#5252522a] py-1 xl:py-3 tv2:py-8 pl-2 lg:pl-5 pr-3 tv2:pr-8 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
+            <p className="duration-1000 text-xs xl:text-[1rem] tv1:4xl tv2:text-4xl group-hover:text-[#01A3F5] font-rp1 mr-2 lg:mr-8">Sign in</p>
+            <div className="overflow-hidden rounded-full bg-[#01A3F5] -mr-1 lg:mr-0">
               <img
-                src="/navbarDesktop/rocket.svg"
-                className="group-hover:animate-rocketzoom"
+                src="/assets/NavbarMobile/rocket.svg"
+                className="group-hover:animate-rocketzoom h-[2rem] lg:h-auto tv1:h-[50px] tv2:h-[70px]"
                 alt="rocket-svg"
               />
             </div>
@@ -76,16 +77,20 @@ const Login = () => {
       );
     } else {
       return (
-        <div>
-          {_user?.photoURL && (
-            <Image
-              src={_user.photoURL}
-              height={50}
-              width={50}
-              alt="avater"
-            ></Image>
-          )}
-        </div>
+        <section className="group w-[8rem] lg:w-[13rem] tv1:w-[20rem] tv2:w-[20rem]">
+          <button
+            className="flex items-center justify-between rounded-full bg-[#5252522a] py-3 tv2:py-4 pl-7 pr-8 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
+            {_user?.photoURL && (
+              <Image className="rounded-full mr-4 -ml-4 h-auto w-[35px] tv1:w-[60px] tv2:w-[120px]"
+                src={_user.photoURL}
+                height={100}
+                width={100}
+                alt="avater"
+              ></Image>
+            )}
+            <p className="duration-1000 text-sm group-hover:text-[#01A3F5] tv1:text-4xl tv2:text-4xl">{_user?.displayName?.split(' ')[0]}</p>
+          </button>
+        </section>
       );
     }
   }
@@ -93,15 +98,15 @@ const Login = () => {
     return (
       <section
         className={
-          "mx-4 flex items-center justify-center rounded-lg p-4 font-rp1 text-[#01A3F5]"
+          "mx-4 flex items-center justify-center rounded-lg p-4 font-rp1 text-[#01A3F5] w-[6rem] lg w-[6rem]:md:w-[10rem]"
         }
-        // style={{
-        //   background:
-        //     "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
-        // }}
+      // style={{
+      //   background:
+      //     "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
+      // }}
       >
         <button
-          className="flex w-[200px] items-center justify-between rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
+          className="flex items-center justify-between rounded-full bg-transparent py-3 tv2:py-8 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
           onClick={() => signInWithGoogle()}
         >
           <p className="mx-auto text-center text-xl">Sign in</p>
