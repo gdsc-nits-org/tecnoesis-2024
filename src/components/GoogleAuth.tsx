@@ -37,7 +37,7 @@ const Login = () => {
 
   if (error) {
     return (
-      <div>
+      <div className="flex items-center justify-center gap-3">
         There was some error. Please refresh the page or email
         contact@tecnoesis.co.in
       </div>
@@ -45,7 +45,7 @@ const Login = () => {
   }
   if (loading || _loading) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center gap-3">
+      <div className="flex items-center justify-center gap-3">
         User Loading....
       </div>
     );
