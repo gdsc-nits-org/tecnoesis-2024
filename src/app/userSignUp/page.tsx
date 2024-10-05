@@ -239,7 +239,9 @@ const CompleteProfile = () => {
                         </div>
                     </button>
                 </div>
-                <CustomButton text="SUBMIT" width="20rem" />
+                <div className="w-[100%] mobile3:w-[50%] m-auto">
+                    <CustomButton text="SUBMIT" />
+                </div>
             </form>
         </div>
     );
