@@ -4,7 +4,7 @@ import Scene from "~/components/Scene";
 import { useMediaQuery } from "usehooks-ts";
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
-import Footer from "~/components/Footer";
+import LandingFooter from "~/components/LandingFooter";
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
 
@@ -23,7 +23,7 @@ export default function HomePage() {
   <div className="flex-grow">
     <Scene />
   </div>
-  <Footer />
+  <LandingFooter />
 </main>
   );
 }
