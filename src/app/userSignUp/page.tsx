@@ -233,11 +233,13 @@ const CompleteProfile = () => {
                                 width={25}
                                 height={25}
                             />
-                            <CustomButton text="TEST"/>
+                            <div className="font-outfit text-lg lg:text-xl text-white">
+                                SIGN UP
+                            </div>
                         </div>
                     </button>
-                    <CustomButton text="SUBMIT"/>
                 </div>
+                <CustomButton text="SUBMIT" width="20rem" />
             </form>
         </div>
     );
