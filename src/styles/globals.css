@@ -83,7 +83,7 @@ body{
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
-  background-color: black;
+  background-color: #000204;
   background-image: radial-gradient(rgba(39, 50, 62, 0.7) 1px, transparent 2px);
   background-size: 50px 50px;
 }
