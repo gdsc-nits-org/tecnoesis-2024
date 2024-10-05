@@ -233,9 +233,7 @@ const CompleteProfile = () => {
                                 width={25}
                                 height={25}
                             />
-                            <div className="font-outfit text-lg lg:text-xl text-white">
-                                SIGN UP
-                            </div>
+                            <CustomButton text="TEST"/>
                         </div>
                     </button>
                     <CustomButton text="SUBMIT"/>
