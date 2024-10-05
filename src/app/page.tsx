@@ -15,7 +15,7 @@ interface NavigatorExtended extends Navigator {
 }
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
-  const [comingsoon,setComingsoon]=useState(false);
+  const comingsoon=false;
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -56,7 +56,7 @@ export default function HomePage() {
   }
   else{
     return(
-      <div className="bg-[url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727624095/tecno-24/stars_cfwxhr.avif')] overflow-hidden">
+      <div className="bg-[url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727624095/tecno-24/stars_cfwxhr.avif')] overflow-hidden w-[100vw]">
         <Landing/>
       </div>
     );

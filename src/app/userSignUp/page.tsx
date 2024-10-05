@@ -8,9 +8,9 @@ import { auth } from "../utils/firebase";
 import { env } from "~/env";
 import Image from "next/image";
 import { User } from "firebase/auth";
+import CustomButton from "~/components/CustomButton";
 import { z } from "zod";
 import { toast } from "sonner";
-
 
 export const runtime = "edge";
 const userDataSchema = z.object({
