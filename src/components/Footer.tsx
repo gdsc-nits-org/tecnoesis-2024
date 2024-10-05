@@ -128,13 +128,13 @@ const Footer = () => {
               <IoLogoFacebook className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
-              href={"https://www.linkedin.com/company/tecnoesis-nits"}
+              href={"https://www.linkedin.com/company/tecnoesis-nit-silchar/"}
               aria-label="LinkedIn"
             >
               <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
-              href={"https://twitter.com/tecnoesis_nits"}
+              href={"https://x.com/tecnoesis_nits"}
               aria-label="Twitter"
             >
               <FaXTwitter className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
