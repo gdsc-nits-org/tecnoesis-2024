@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Tech team",
+    "members": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "2",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "3",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "4",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Marketing team",
+    "members": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "2",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "3",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "4",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Design team",
+    "members": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "2",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "3",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "4",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Outreach team",
+    "members": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "2",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "3",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      },
+      {
+        "id": "4",
+        "name": "John Doe",
+        "designation": "tech Head",
+        "photo": "/team/person.png"
+      }
+    ]
+  }
+]
