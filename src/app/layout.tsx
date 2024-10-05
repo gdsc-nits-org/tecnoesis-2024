@@ -26,7 +26,11 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         {children}
-        <Toaster toastOptions={toastOps} />
+        <Toaster
+          toastOptions={toastOps}
+          visibleToasts={1}
+          position="bottom-center"
+        />
       </body>
     </html>
   );
