@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
   border: 0;
-  overflow: hidden;
+}
+
+body {
+  overflow: hidden !important;
 }
 
 @font-face {
@@ -10,24 +13,24 @@
   src: url('/assets/ReadyPlayerOne-rwzx.ttf') format('truetype');
 }
 
-body {
-  background-color: black;
-  font-stretch: ultra-expanded expanded;
+#tsparticles canvas {
+  position: relative !important;
 }
-.back-cover {
-  width: 100%;
-  min-height: 100vh;
-  z-index: 1000;
-  background: url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190\ 1.webp') center;
-  background-size: cover;
-  background-position: bottom;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 5vh;
-  padding-top: 2rem;
+
+/* For screen widths less than or equal to 1280px */
+@media (max-width: 1280px) {
+  /* Adjust the size of the social media icons */
+  .footer-icons {
+    font-size: 1.5rem; /* Smaller size for the icons */
+  }
+
+  /* Adjust the size of the collaboration text */
+  .footer-below-text {
+    font-size: 0.875rem; /* Smaller size for the collaboration text */
+    letter-spacing: 0.15em; /* Adjust the letter-spacing if needed */
+  }
 }
+
 
 .tecno-big-img {
   height: 40vh;
@@ -107,25 +110,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem 1rem;
-}
-
-@media screen and (min-width: 640px) {
-  .bottom-content-container {
-    padding: 3rem 2rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .bottom-content-container {
-    padding: 4rem 3rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .bottom-content-container {
-    padding: 5rem 4rem;
-  }
+  min-height: 50vh;
 }
 
 .glow {
@@ -145,23 +130,6 @@ body {
   background-blend-mode: difference;
 }
 
-.footer-middle-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.3em;
-  background: linear-gradient(180deg, #E9F8FF 0%, rgba(144, 168, 180, 0.75) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'ReadyPlayerOne', sans-serif;
-  background-clip: text;
-  margin-bottom: 1rem;
-}
-
 .footer-below-text {
   font-style: normal;
   font-weight: 500;
@@ -172,36 +140,6 @@ body {
   letter-spacing: 0.2em;
   color: #FFFFFF;
   font-size: 1rem; /* Base size for small screens */
-}
-
-@media screen and (min-width: 640px) {
-  .footer-below-text {
-    font-size: 1.25rem; /* Slightly larger for medium screens */
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .footer-below-text {
-    font-size: 1.375rem; /* Even larger for large screens */
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .footer-below-text {
-    font-size: 1.375rem; /* Larger size for extra large screens */
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .footer-below-text {
-    font-size: 1.5rem; /* Larger size for 2K and similar resolutions */
-  }
-}
-
-@media screen and (min-width: 2560px) {
-  .footer-below-text {
-    font-size: 1.75rem; /* Largest size for 4K and higher resolutions */
-  }
 }
 
 footer {

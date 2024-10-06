@@ -17,8 +17,9 @@ export default function HomePage() {
   }, [])
   const matches = useMediaQuery("(max-width: 1024px)")
   return (
-    <main className="bg-black">
-      <LandingFooter />
+    <main className="bg-black text-white">
+      <div className="w-full h-screen">Hello World</div>
+      <LandingFooter></LandingFooter>
     </main>
   );
 }
