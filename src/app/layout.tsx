@@ -30,7 +30,11 @@ export default function RootLayout({
         <FinalNav />
         {/* </div> */}
         {children}
-        <Toaster toastOptions={toastOps} />
+        <Toaster
+          toastOptions={toastOps}
+          visibleToasts={1}
+          position="bottom-center"
+        />
       </body>
     </html>
   );
