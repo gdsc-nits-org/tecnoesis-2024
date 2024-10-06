@@ -26,6 +26,7 @@ const Navbar = () => {
         const { width, left } = (link as HTMLElement).getBoundingClientRect();
         return { width, left };
       });
+      const reqheight = links.item(0).clientHeight;
 
       const navMap = new Map([
         ["/home", 0],
@@ -40,6 +41,7 @@ const Navbar = () => {
         gsap.set(animation, {
           width: linkPositions[curr]?.width,
           left: finalLeft,
+          height: reqheight,
         });
         if (links[curr])
           gsap.to(links[curr], {
@@ -49,6 +51,7 @@ const Navbar = () => {
 
       links.forEach((link, index) => {
         link.addEventListener("mouseenter", () => {
+          console.log("hovered");
           gsap.to(link, {
             color: "#01A3F5",
           });
@@ -69,6 +72,23 @@ const Navbar = () => {
             ease: "expo.out",
           });
         });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(link, {
+            color: "white",
+          });
+          if (curr !== undefined) {
+            gsap.to(animation, {
+              width: linkPositions[curr]?.width,
+              left: finalLeft,
+              duration: 0.7,
+              ease: "expo.out",
+            });
+            if (links[curr])
+              gsap.to(links[curr], {
+                color: "#01A3F5",
+              });
+          }
+        });
       });
     }
   }, []);
@@ -80,50 +100,50 @@ const Navbar = () => {
         " absolute top-0 z-20 w-screen bg-nav-gradient to-transparent"
       }
     >
-      <div className="text-md sticky top-0 flex w-screen items-center justify-between px-3 text-center text-white lg:pl-0 lg:pr-8 min-[1350px]:text-2xl tv1:pl-[2.5vw] tv1:pr-[4vw] tv1:text-4xl tv2:pl-[3vw] tv2:pr-[5vw] tv2:text-6xl">
+      <div className="sticky top-0 flex items-center justify-between px-[2vw] text-center text-[1.5vw] text-white">
         <Link href="/">
           <Image
             src="/Landing/tecnoesisLogo.webp"
             width={300}
             height={80}
             alt="Tecno 24 logo"
-            className="h-auto w-[150px] lg:w-[200px] min-[1350px]:w-auto tv1:w-[400px] tv2:w-[600px]"
+            className="h-auto w-[20vw]"
           />
         </Link>
-        <section className="flex h-max rounded-full bg-[#5252522a] px-2 py-2 shadow-[inset_0_2.5px_2.5px_rgba(255,255,255,0.3),inset_0_-2.5px_2.5px_rgba(255,255,255,0.3)] backdrop-blur-md tv2:py-8 tv2:pl-8 tv2:pr-0">
-          <div className="animation absolute -z-10 hidden h-[3rem] rounded-full bg-gradient-to-t from-[#00507957] to-[#01A3F557] text-[#01A3F5] lg:block tv1:h-[3.5rem] tv2:-mt-4 tv2:ml-2 tv2:h-[7rem]"></div>
+        <section className="flex h-max items-center rounded-full bg-[#5252522a] px-[0.27vw] py-[0.27vw] shadow-[inset_0_2.5px_2.5px_rgba(255,255,255,0.3),inset_0_-2.5px_2.5px_rgba(255,255,255,0.3)] backdrop-blur-md">
+          <div className="animation absolute -z-10 -ml-1 hidden rounded-full bg-gradient-to-t from-[#00507957] to-[#01A3F557] text-[#01A3F5] lg:block tv1:ml-1"></div>
           <Link
             href="/home"
-            className="navOpt cursor-pointer rounded-full px-4 py-1 lg:px-8 lg:py-2 tv2:px-16"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw]"
           >
             Home
           </Link>
           <Link
             href="/home#about"
-            className="navOpt cursor-pointer rounded-full px-4 py-1 hover:text-[#01A3F5] lg:px-8 lg:py-2 tv2:px-16"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"
           >
             About
           </Link>
           <Link
             href="/home#sponsors"
-            className="navOpt cursor-pointer rounded-full px-4 py-1 hover:text-[#01A3F5] lg:px-8 lg:py-2 tv2:px-16"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"
           >
             Sponsors
           </Link>
           <Link
             href="/modules"
-            className="navOpt cursor-pointer rounded-full px-4 py-1 hover:text-[#01A3F5] lg:px-8 lg:py-2 tv2:px-16"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"
           >
             Modules
           </Link>
           <Link
             href="/team"
-            className="navOpt cursor-pointer rounded-full px-4 py-1 lg:px-8 lg:py-2 tv2:px-16"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw]"
           >
             Team
           </Link>
         </section>
-        <section className="backdrop-blur-lg tv2:w-[20rem]">
+        <section className="backdrop-blur-lg">
           <Login />
         </section>
       </div>
