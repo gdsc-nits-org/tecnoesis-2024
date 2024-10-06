@@ -314,7 +314,7 @@ const LandingFooter = () => {
             },
             detectRetina: true,
           }}
-          className="absolute inset-0 z-0 bg-orange-400 overflow-hidden w-full"
+          className="absolute inset-0 z-0 overflow-hidden w-full"
         />
       </div>
 
