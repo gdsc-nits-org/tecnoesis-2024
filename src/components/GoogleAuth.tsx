@@ -106,7 +106,7 @@ const Login = () => {
     return (
       <section
         className={
-          "lg w-[6rem]:md:w-[10rem] mx-4 flex w-[6rem] items-center justify-center rounded-lg p-4 font-rp1 text-[#01A3F5]"
+          "mx-4 flex items-center justify-center rounded-lg p-4 font-rp1 text-[#01A3F5]"
         }
         // style={{
         //   background:
@@ -114,7 +114,7 @@ const Login = () => {
         // }}
       >
         <button
-          className="flex items-center justify-between rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] tv2:py-8"
+          className="flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] tv2:py-8"
           onClick={() => signInWithGoogle()}
         >
           <p className="mx-auto text-center text-xl">Sign in</p>

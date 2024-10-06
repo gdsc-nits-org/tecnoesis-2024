@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <div className="sticky top-0 w-screen z-20">
-          <FinalNav />
-        </div>
+        {/* <div className="sticky top-0 w-screen z-20"> */}
+        <FinalNav />
+        {/* </div> */}
         {children}
         <Toaster toastOptions={toastOps} />
       </body>

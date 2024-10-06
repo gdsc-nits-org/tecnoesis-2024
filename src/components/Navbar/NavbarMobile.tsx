@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import styles from "./NavbarMobile.module.css";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
 import Login from "../GoogleAuth";
@@ -15,10 +14,22 @@ const outfit = Outfit({
 export default function NavbarMobile() {
   const [expand, setExpand] = useState(false);
 
+  const [path, setPath] = useState<string | undefined>("/home");
+  const navLinks: string[] = [
+    "/home",
+    "/home#about",
+    "/home#sponsors",
+    "/modules",
+    "/team",
+  ];
+  useEffect(() => {
+    if (window) setPath(window.location.pathname);
+  }, []);
+
   return (
     <nav
       className={
-        "absolute left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]"
+        "sticky left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]"
       }
       style={
         expand
@@ -28,12 +39,8 @@ export default function NavbarMobile() {
           : {}
       }
     >
-      <div
-        className={
-          !expand
-            ? "flex items-center justify-between px-8 pr-14 pt-4"
-            : "flex items-center justify-between px-8 pr-14 pt-4"
-        }
+      <section
+        className={"flex items-center justify-between px-8 pr-14 pt-4"}
         style={
           !expand
             ? {
@@ -44,7 +51,7 @@ export default function NavbarMobile() {
             : {}
         }
       >
-        <button onClick={() => setExpand(!expand)}>
+        <button className="mb-2" onClick={() => setExpand(!expand)}>
           {!expand ? (
             <IoMenu size={50} color="#B8B8B8" />
           ) : (
@@ -54,16 +61,18 @@ export default function NavbarMobile() {
         <Image
           className="filter"
           style={{
-            filter: "drop-shadow(2px 2px 8px 16px #01A3F5)",
+            filter: "drop-shadow(2px 2px 16px #01A3F5)",
           }}
           src="/assets/NavbarMobile/TecnoLogo.svg"
-          width={27}
+          width={30}
           height={41}
           alt="tecnoesisLogo"
         ></Image>
-      </div>
-      {expand && (
-        <div className="flex h-full w-full flex-col gap-2">
+      </section>
+      {
+        <div
+          className={`${expand ? "flex h-screen translate-y-0 opacity-100" : "h-0 translate-y-[-100rem] opacity-0"} w-full flex-col gap-2 transition-transform duration-1000`}
+        >
           <Login />
           <section
             className={
@@ -72,27 +81,57 @@ export default function NavbarMobile() {
             }
           >
             <div className="p-4">
-              <Link href="home">Home</Link>
+              <Link
+                onClick={() => setPath(navLinks[0])}
+                className={`navOptions duration- transition-colors ${path == navLinks[0] && "text-[#01A3F5]"} `}
+                href="home"
+              >
+                Home
+              </Link>
             </div>
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
-              <Link href="home#about">About</Link>
+              <Link
+                onClick={() => setPath(navLinks[1])}
+                className={`navOptions duration- transition-colors ${path == navLinks[1] && "text-[#01A3F5]"} `}
+                href="home#about"
+              >
+                About
+              </Link>
             </div>
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
-              <Link href="home#sponsors">Sponsors</Link>
+              <Link
+                onClick={() => setPath(navLinks[2])}
+                className={`navOptions duration- transition-colors ${path == navLinks[2] && "text-[#01A3F5]"} `}
+                href="home#sponsors"
+              >
+                Sponsors
+              </Link>
             </div>
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
-              <Link href="modules">Modules</Link>
+              <Link
+                onClick={() => setPath(navLinks[3])}
+                className={`navOptions duration- transition-colors ${path == navLinks[3] && "text-[#01A3F5]"} `}
+                href="modules"
+              >
+                Modules
+              </Link>
             </div>
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
-              <Link href="team">Team</Link>
+              <Link
+                onClick={() => setPath(navLinks[4])}
+                className={`navOptions duration- transition-colors ${path == navLinks[4] && "text-[#01A3F5]"} `}
+                href="team"
+              >
+                Team
+              </Link>
             </div>
           </section>
         </div>
-      )}
+      }
     </nav>
   );
 }
