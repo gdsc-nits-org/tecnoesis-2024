@@ -1,4 +1,5 @@
 "use client";
+<<<<<<< HEAD
 import { forwardRef, useState, useEffect } from "react";
 import type { HTMLAttributes, ButtonHTMLAttributes } from "react";
 import {
@@ -599,5 +600,29 @@ export default function DashBoard() {
         </div>
       </main>
     </div>
+=======
+import Navbar from "~/components/LandingNav";
+import Scene from "~/components/Scene";
+import { useMediaQuery } from "usehooks-ts";
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from "react";
+import LandingFooter from "~/components/LandingFooter";
+
+const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
+
+export const runtime = "edge";
+
+export default function HomePage() {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  const matches = useMediaQuery("(max-width: 1024px)")
+  return (
+    <main className="bg-black text-white">
+      <div className="w-full h-screen">Hello World</div>
+      <LandingFooter></LandingFooter>
+    </main>
+>>>>>>> f0e2af3 (footer >> tried to fix particle js)
   );
 }
