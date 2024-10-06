@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { User } from "firebase/auth";
 import { useMediaQuery } from "usehooks-ts";
+import {LoaderCircle }from "lucide-react"
 
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -45,8 +46,8 @@ const Login = () => {
   }
   if (loading || _loading) {
     return (
-      <div className="flex items-center justify-center gap-3 w-[6rem] lg w-[6rem]:md:w-[10rem]">
-        User Loading....
+      <div className="flex items-center justify-center gap-3 w-[12vw] animate-spin">
+        <LoaderCircle/>
       </div>
     );
   }
@@ -61,14 +62,14 @@ const Login = () => {
   if (bigScreen) {
     if (!_user) {
       return (
-        <section className="group w-[8rem] lg:w-[13rem] tv1:w-[20rem] tv2:w-[20rem]">
+        <section className="group w-[15vw]">
           <button onClick={async () => { await signInWithGoogle() }}
-            className="flex ml items-center justify-between rounded-full bg-[#5252522a] py-1 xl:py-3 tv2:py-8 pl-2 lg:pl-5 pr-3 tv2:pr-8 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
-            <p className="duration-1000 text-xs xl:text-[1rem] tv1:4xl tv2:text-4xl group-hover:text-[#01A3F5] font-rp1 mr-2 lg:mr-8">Sign in</p>
-            <div className="overflow-hidden rounded-full bg-[#01A3F5] -mr-1 lg:mr-0">
+            className="flex items-center justify-between rounded-full bg-[#5252522a] py-[0.75vw] px-[2vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
+            <p className="duration-1000 text-[1.5vw] group-hover:text-[#01A3F5] font-rp1 mr-2">Sign in</p>
+            <div className="overflow-hidden flex justify-center rounded-full bg-[#01A3F5] -mr-1 lg:mr-0">
               <img
                 src="/assets/NavbarMobile/rocket.svg"
-                className="group-hover:animate-rocketzoom h-[2rem] lg:h-auto tv1:h-[50px] tv2:h-[70px]"
+                className="group-hover:animate-rocketzoom h-auto w-[2.5vw]"
                 alt="rocket-svg"
               />
             </div>
@@ -77,18 +78,18 @@ const Login = () => {
       );
     } else {
       return (
-        <section className="group w-[8rem] lg:w-[13rem] tv1:w-[20rem] tv2:w-[20rem]">
+        <section className="group w-[12vw]">
           <button
-            className="flex items-center justify-between rounded-full bg-[#5252522a] py-3 tv2:py-4 pl-7 pr-8 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
+            className="flex items-center w-full justify-between rounded-full bg-[#5252522a] py-[0.5vw] px-[2vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
             {_user?.photoURL && (
-              <Image className="rounded-full mr-4 -ml-4 h-auto w-[35px] tv1:w-[60px] tv2:w-[120px]"
+              <Image className="rounded-full mr-[1vw] -ml-[1.5vw] h-auto w-[3vw]"
                 src={_user.photoURL}
                 height={100}
                 width={100}
                 alt="avater"
               ></Image>
             )}
-            <p className="duration-1000 text-sm group-hover:text-[#01A3F5] tv1:text-4xl tv2:text-4xl">{_user?.displayName?.split(' ')[0]}</p>
+            <p className="duration-1000 group-hover:text-[#01A3F5] font-rp1 text-[1.3vw]">{_user?.displayName?.split(' ')[0]}</p>
           </button>
         </section>
       );
