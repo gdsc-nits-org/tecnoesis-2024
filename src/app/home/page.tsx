@@ -11,46 +11,6 @@ export default function Page() {
           <MarqueeComponent direction={"left"} set={1} />
           <MarqueeComponent direction={"right"} set={2} />
         </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>{" "}
-        <div className="flex w-full flex-col gap-y-20 md:w-3/5">
-          <MarqueeComponent direction={"left"} set={1} />
-          <MarqueeComponent direction={"right"} set={2} />
-        </div>
       </div>
     </>
   );
