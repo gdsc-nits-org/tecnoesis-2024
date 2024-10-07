@@ -8,7 +8,6 @@ import { auth } from "../utils/firebase";
 import { env } from "~/env";
 import Image from "next/image";
 import { User } from "firebase/auth";
-import CustomButton from "~/components/CustomButton";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -239,7 +238,6 @@ const CompleteProfile = () => {
                         </div>
                     </button>
                 </div>
-                <CustomButton text="SUBMIT" width="20rem" />
             </form>
         </div>
     );
