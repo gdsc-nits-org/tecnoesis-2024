@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useRef, useEffect, useCallback, useState } from "react";
 import Link from "next/link";
 import {
@@ -41,78 +41,120 @@ const LandingFooter = () => {
     await loadFull(engine);
   }, []);
 
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const particlesArray: Particle[] = [];
+    let mouse = { x: 0, y: 0 };
+    const numParticles = 100;
+    canvas.width = window.innerWidth;
+    canvas.height = 300; // Adjust the height as needed
+
+    class Particle {
+      x: number;
+      y: number;
+      size: number;
+
+      constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 2 + 1;
+      }
+
+      draw() {
+        if (ctx) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fillStyle = "rgba(144,168,180,0.75)";
+          ctx.fill();
+        }
+      }
+    }
+
+    function initParticles() {
+      particlesArray.length = 0;
+      for (let i = 0; i < numParticles; i++) {
+        if (canvas) {
+          let x: number = Math.random() * canvas.width;
+          let y: number = Math.random() * canvas.height;
+          particlesArray.push(new Particle(x, y));
+        }
+      }
+    }
+
+    function connectParticles() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        const particleA = particlesArray[a];
+        if (particleA) {
+          const dx = mouse.x - particleA.x;
+          const dy = mouse.y - particleA.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 80) {
+            for (let b = a + 1; b < particlesArray.length; b++) {
+              const particleB = particlesArray[b];
+              if (particleB) {
+                const dxB = particleB.x - particleA.x;
+                const dyB = particleB.y - particleA.y;
+                const distanceB = Math.sqrt(dxB * dxB + dyB * dyB);
+
+                if (distanceB < 80 && ctx) {
+                  ctx.strokeStyle = "rgba(144,168,180,0.75)";
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+                  ctx.moveTo(particleA.x, particleA.y);
+                  ctx.lineTo(particleB.x, particleB.y);
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx && canvas ? ctx.clearRect(0, 0, canvas.width, canvas.height) : "";
+      for (let i = 0; i < particlesArray.length; i++) {
+        const particle = particlesArray[i];
+        if (particle) {
+          particle.draw();
+        }
+      }
+      connectParticles();
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = 300; // Adjust height again on resize
+      initParticles();
+    });
+
+    window.addEventListener("mousemove", (event) => {
+      mouse.x = event.x;
+      mouse.y = event.y - canvas.offsetTop; // Adjust according to canvas position
+    });
+  }, []);
+
   return (
     <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
-      {/* Fixing Particles to footer area */}
       <div className="inset-0 z-0 w-full">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            background: {
-              color: {
-                value: "transparent",
-              },
-            },
-            fpsLimit: 60,
-            interactivity: {
-              events: {
-                onHover: {
-                  enable: true,
-                  mode: "connect",
-                },
-              },
-              modes: {
-                connect: {
-                  distance: 100,
-                  links: {
-                    opacity: 0.5,
-                  },
-                  radius: 120,
-                },
-              },
-            },
-            particles: {
-              color: {
-                value: "#ffffff", // Adjust the color to ensure visibility
-              },
-              links: {
-                color: "#ffffff",
-                distance: 150,
-                enable: false,
-                opacity: 0.5,
-                width: 1,
-              },
-              move: {
-                enable: false, // Disable particle movement
-              },
-              number: {
-                density: {
-                  enable: true,
-                  area: 400,
-                },
-                value: isMobile ? 40 : 80, // Adjust number of particles for mobile
-              },
-              opacity: {
-                value: 0.5,
-              },
-              shape: {
-                type: "circle",
-              },
-              size: {
-                value: { min: 1, max: 3 },
-              },
-            },
-            detectRetina: true,
-          }}
-          className="absolute inset-0 z-0 overflow-hidden w-full"
-        />
+        <canvas ref={canvasRef} style={{ display: 'block', background: '#000', position: 'absolute', zIndex: '-2'}}></canvas>
       </div>
 
-      {/* Glow Effect */}
       <div ref={glowRef} className="glow z-10"></div>
 
-      {/* Footer Content */}
       <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190%201.webp')] bg-cover bg-bottom pt-[5vh]">
         <div className="flex h-full w-full flex-col items-center justify-between">
           <div className="tecno-big-img flex h-4/6 w-9/12 flex-col items-center justify-center bg-contain"></div>
@@ -123,7 +165,7 @@ const LandingFooter = () => {
         </div>
 
         <div className="bottom-content-container mt-auto flex w-full flex-col items-center justify-end py-8">
-          <h2 className="footer-middle-text mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['ReadyPlayerOne',sans-serif] text-[24px] text-xl font-[500] leading-[1.5] tracking-[0.3em] text-transparent text-white sm:text-2xl md:text-3xl lg:text-4x">
+          <h2 className="footer-middle-text lg:text-4x mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['ReadyPlayerOne',sans-serif] text-[24px] text-xl font-[500] leading-[1.5] tracking-[0.3em] text-transparent text-white sm:text-2xl md:text-3xl">
             CONTACT US
           </h2>
           <span className="mb-6 flex justify-center gap-x-3.5">
