@@ -55,7 +55,7 @@ const Navbar = () => {
           gsap.to(link, {
             color: "#01A3F5",
           });
-          links.forEach((ink, index) => {
+          links.forEach((ink) => {
             if (ink != link) {
               gsap.to(ink, {
                 color: "white",

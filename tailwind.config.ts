@@ -143,10 +143,8 @@ const config = {
         'rotate-pattern': 'rotate-pattern 8s 1 ease-in-out',
         'rocketzoom' : 'rocketzoom 0.5s ease-in-out',
       },
-      backgroundImage:{
-        'nav-gradient' : 'linear-gradient(to top, transparent 0%, #070710 50%)',
-      },
        backgroundImage: {
+        'nav-gradient' : 'linear-gradient(to top, transparent 0%, #070710 50%)',
         'blue-metall': 'linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)',
       },
     

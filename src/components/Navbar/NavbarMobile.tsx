@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect,  useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
