@@ -64,7 +64,7 @@ export default function Team() {
                             {
                                 data.map((item) => (
                                     item.members.map((member) => (
-                                        <MemberCard name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} />
+                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} />
                                     ))
                                 ))
                             }

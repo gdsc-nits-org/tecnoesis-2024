@@ -18,7 +18,8 @@ const config = {
         pathname: "/**",
       },
     ],
-  },
+  }
 };
+
 
 export default config;
