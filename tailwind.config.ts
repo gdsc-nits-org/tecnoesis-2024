@@ -21,6 +21,9 @@ const config = {
       fontFamily: {
         rp1: ["readyplayer", 'monospace']
       },
+      backgroundImage:{
+        customTeam : "url('/team/tecnoteam.png')"
+      },
       colors: {
         customGray: '#1e2025',
         customBlue:'#59CAFA',
