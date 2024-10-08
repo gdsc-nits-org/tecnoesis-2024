@@ -12,9 +12,6 @@ const outfit = Outfit({
 })
 
 //I have not added the code to check which team is currently checked.
-// I have just added the code to display the team heads and members.
-// You can add the code to check which team is currently checked and display the members accordingly.
-
 export default function Team() {
 
     const [team, setTeam] = useState<1|2>(1);
