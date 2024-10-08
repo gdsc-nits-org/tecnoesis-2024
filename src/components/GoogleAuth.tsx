@@ -127,8 +127,8 @@ const Login = () => {
           <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
             <Image
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               src="/assets/NavbarMobile/rocket.svg"
               className="group-hover:animate-rocketzoom"
               alt="rocket-svg"
