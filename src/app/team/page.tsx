@@ -13,10 +13,8 @@ const outfit = Outfit({
 
 //I have not added the code to check which team is currently checked.
 export default function Team() {
-
     const [team, setTeam] = useState<1|2>(1);
-
-    return (
+     return (
         <div className='min-h-screen'>
             <div className="bg-customBluish min-h-screen">
                 <div className="w-full flex justify-center items-center">
