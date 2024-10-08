@@ -14,6 +14,7 @@ import { loadFull } from "tsparticles";
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isInside, setIsInside] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -25,13 +26,14 @@ const LandingFooter = () => {
   }, []);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (glowRef.current) {
-      glowRef.current.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+    if (glowRef.current && isInside) {
+      glowRef.current.style.transform = `translate(${e.clientX - glowRef.current.clientWidth / 2}px, ${e.clientY - glowRef.current.clientHeight / 2}px)`;
     }
   }, []);
 
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
+    // document.querySelector("footer")?.onmouseenter = () => {setIsInside(true)}
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
@@ -52,9 +54,9 @@ const LandingFooter = () => {
 
     const particlesArray: Particle[] = [];
     let mouse = { x: 0, y: 0 };
-    const numParticles = 100;
+    const numParticles = 120;
     canvas.width = window.innerWidth;
-    canvas.height = 300; // Adjust the height as needed
+    canvas.height = 500; // Adjust the height as needed
 
     class Particle {
       x: number;
@@ -96,7 +98,7 @@ const LandingFooter = () => {
           const dx = mouse.x - particleA.x;
           const dy = mouse.y - particleA.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 80) {
             for (let b = a + 1; b < particlesArray.length; b++) {
               const particleB = particlesArray[b];
@@ -137,7 +139,7 @@ const LandingFooter = () => {
 
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
-      canvas.height = 300; // Adjust height again on resize
+      canvas.height = 500; // Adjust height again on resize
       initParticles();
     });
 
@@ -150,7 +152,15 @@ const LandingFooter = () => {
   return (
     <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
       <div className="inset-0 z-0 w-full">
-        <canvas ref={canvasRef} style={{ display: 'block', background: '#000', position: 'absolute', zIndex: '-2'}}></canvas>
+        <canvas
+          ref={canvasRef}
+          style={{
+            display: "block",
+            background: "#000",
+            position: "absolute",
+            zIndex: "-2",
+          }}
+        ></canvas>
       </div>
 
       <div ref={glowRef} className="glow z-10"></div>
