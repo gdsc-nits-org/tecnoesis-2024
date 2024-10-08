@@ -76,6 +76,7 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main }) => {
         </div>
         <div style={hover ? {
           filter: `drop-shadow(0 0 2.48px rgba(251, 5, 255, 1))`,
+          transform: "translateY(0.91rem)",
           transition: "all 0.3s ease"
         }
           : { transition: "all 0.3s ease" }}
