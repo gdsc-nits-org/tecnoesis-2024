@@ -40,6 +40,9 @@ const config = {
         rp1: ["readyplayer", "monospace"],
         outfit: ["Outfit", "sans-serif"],
       },
+      backgroundImage:{
+        customTeam : "url('/team/tecnoteam.png')"
+      },
       colors: {
         customGray: "#1e2025",
         customBlue: "#59CAFA",

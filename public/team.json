@@ -1,122 +1,88 @@
 [
   {
     "id": 1,
-    "name": "Tech team",
-    "members": [
+    "name": "Team Heads",
+    "heads": [
       {
         "id": "1",
-        "name": "John Doe",
-        "designation": "tech Head",
+        "name": "apj abdul kalam",
+        "designation": "technical Head",
         "photo": "/team/person.png"
       },
       {
         "id": "2",
-        "name": "John Doe",
-        "designation": "tech Head",
+        "name": "Baldev",
+        "designation": "Demolition Head",
         "photo": "/team/person.png"
       },
       {
         "id": "3",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "4",
-        "name": "John Doe",
-        "designation": "tech Head",
+        "name": "Jhon Cena",
+        "designation": "Invisibility Head",
         "photo": "/team/person.png"
       }
     ]
-  },
-  {
-    "id": 2,
-    "name": "Marketing team",
+  ,
     "members": [
       {
         "id": "1",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
+        "name": "Sophia",
+        "designation": "AI Researcher",
+        "photo": "/team/futureBot.jpg"
       },
       {
         "id": "2",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
+        "name": "Jarvis",
+        "designation": "Systems Architect",
+        "photo": "/team/futureBot.jpg"
       },
       {
         "id": "3",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
+        "name": "HAL 9000",
+        "designation": "Data Analyst",
+        "photo": "/team/futureBot.jpg"
       },
       {
         "id": "4",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
+        "name": "TARS",
+        "designation": "Robotics Engineer",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "5",
+        "name": "R2-D2",
+        "designation": "Technical Assistant",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "6",
+        "name": "Optimus Prime",
+        "designation": "Operations Manager",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "7",
+        "name": "Wall-E",
+        "designation": "Environmental Specialist",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "8",
+        "name": "BB-8",
+        "designation": "Mechanical Engineer",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "9",
+        "name": "Cortana",
+        "designation": "Software Developer",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "10",
+        "name": "Data",
+        "designation": "Science Officer",
+        "photo": "/team/futureBot.jpg"
       }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Design team",
-    "members": [
-      {
-        "id": "1",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "2",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "3",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "4",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Outreach team",
-    "members": [
-      {
-        "id": "1",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "2",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "3",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      },
-      {
-        "id": "4",
-        "name": "John Doe",
-        "designation": "tech Head",
-        "photo": "/team/person.png"
-      }
-    ]
-  }
+    ]}
 ]
