@@ -1,15 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import { Outfit } from "next/font/google";
 import Link from "next/link";
 import Login from "../GoogleAuth";
-const outfit = Outfit({
-  weight: "500",
-  subsets: ["latin"],
-});
 
 export default function NavbarMobile() {
   const [expand, setExpand] = useState(false);
@@ -74,12 +69,7 @@ export default function NavbarMobile() {
           className={`${expand ? "flex h-screen translate-y-0 opacity-100" : "h-0 translate-y-[-100rem] opacity-0"} w-full flex-col gap-2 transition-transform duration-1000`}
         >
           <Login />
-          <section
-            className={
-              outfit.className +
-              " flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]"
-            }
-          >
+          <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
             <div className="p-4">
               <Link
                 onClick={() => setPath(navLinks[0])}

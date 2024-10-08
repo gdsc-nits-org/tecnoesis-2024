@@ -7,6 +7,7 @@ import Image from "next/image";
 import { User } from "firebase/auth";
 import { useMediaQuery } from "usehooks-ts";
 import { LoaderCircle } from "lucide-react";
+import { toast } from "sonner";
 
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -28,7 +29,7 @@ const Login = () => {
             router.push("/");
           }
         } catch (error) {
-          console.error("Error checking user:", error);
+          toast.error("Error checking user");
         }
       }
     };
@@ -37,17 +38,20 @@ const Login = () => {
   }, [user, router, _user]);
 
   if (error) {
-    return (
-      <div className="flex items-center justify-center gap-3">
-        There was some error. Please refresh the page or email
-        contact@tecnoesis.co.in
-      </div>
+    toast.error(
+      "There was some error. Please refresh the page or email contact@tecnoesis.co.in",
     );
+    // return (
+    //   <div className="flex items-center justify-center gap-3">
+    //     There was some error. Please refresh the page or email
+    //     contact@tecnoesis.co.in
+    //   </div>
+    // );
   }
   if (loading || _loading) {
     return (
-      <div className="flex w-[12vw] animate-spin items-center justify-center gap-3">
-        <LoaderCircle />
+      <div className="flex w-[12vw] animate-spin items-center justify-center gap-3 bg-transparent">
+        <LoaderCircle size={60} />
       </div>
     );
   }
@@ -73,7 +77,9 @@ const Login = () => {
               Sign in
             </p>
             <div className="-mr-1 flex justify-center overflow-hidden rounded-full bg-[#01A3F5] lg:mr-0">
-              <img
+              <Image
+                width={50}
+                height={50}
                 src="/assets/NavbarMobile/rocket.svg"
                 className="h-auto w-[2.5vw] group-hover:animate-rocketzoom"
                 alt="rocket-svg"
@@ -120,7 +126,9 @@ const Login = () => {
         >
           <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
-            <img
+            <Image
+              width={50}
+              height={50}
               src="/assets/NavbarMobile/rocket.svg"
               className="group-hover:animate-rocketzoom"
               alt="rocket-svg"
@@ -177,7 +185,7 @@ const ProfileCard: React.FC<UserCred> = ({ photoURL, displayName }) => {
         </div>
         <button
           // onClick={() => router.push("/")}
-          className="text-md rounded-3xl border border-[#01a3f5] text-[#01a3f5]"
+          className="rounded-3xl border border-[#01a3f5] p-1 text-[#01a3f5]"
         >
           View Profile
         </button>
