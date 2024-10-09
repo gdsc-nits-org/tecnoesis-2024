@@ -1,4 +1,5 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config = {
   darkMode: ["class"],
@@ -118,6 +119,14 @@ const config = {
           '0%': { transform: 'rotate(0deg)' },
           '10%': { transform: 'rotate(0deg)' },
         },
+        upDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        oppositeUpDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(20px)' },
+        },
       },
       clipPath: {
         'custom-ellipse': 'ellipse(100% 50% at 50% 100%)',
@@ -135,7 +144,7 @@ const config = {
     
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate], 
 } satisfies Config
 
 export default config
