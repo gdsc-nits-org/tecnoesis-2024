@@ -2,11 +2,18 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useMediaQuery } from "usehooks-ts";
 import { gsap } from 'gsap';
-import Logo from "../../public/assets/Landing/tecnoesisLogo.webp";
 import Buildings from "../../public/assets/Landing/buildings.webp";
 import glowingBall from "../../public/assets/Landing/glowingBall.gif";
 import newWorld from "../../public/assets/Landing/newWorld.webp";
 
+
+const Enter=()=>{
+    return(
+        <div className='text-[#ffffff] z-10'>
+            ENTER
+        </div>
+    );
+}
 
 
 const Landing: React.FC = () => {
@@ -26,6 +33,15 @@ const Landing: React.FC = () => {
                     y: -moveY / (depth * 4)
                 }, 0);
             });
+            gsap.utils.toArray<HTMLElement>(".movable2").forEach((layer: HTMLElement) => {
+                const depth: number = layer.dataset.depth ? parseFloat(layer.dataset.depth) : 1;
+                const moveX = e.pageX - window.innerWidth / 2;
+                const moveY = e.pageY - window.innerHeight / 2;
+                tl.to(layer, {
+                    x: moveX / depth,
+                    y: -moveY / (depth * 4)
+                }, 0);
+            });
         };
 
         document.addEventListener("mousemove", handleMouseMove);
@@ -37,11 +53,11 @@ const Landing: React.FC = () => {
 
     return (
         <div className="relative h-[100vh] flex flex-col items-center justify-around text-[#ffffff] overflow-hidden">
-            <div className="flex flex-col justify-center items-center pt-[4rem] pb-[4rem] lg:p-0">
+            <div className="flex flex-col justify-center items-center pt-[2rem] pb-[4rem] lg:p-0">
                 <Image
-                    src={Logo}
+                    src="../../public/assets/Landing/TecnoesisLogoNew.svg"
                     alt="Tecnoesis Logo"
-                    className="movable object-cover h-[10rem] z-1 w-[20rem] md:h-[15rem] md:w-[30rem] lg:w-[45rem] lg:h-[25rem]"
+                    className="movable object-cover z-1"
                     width={1000}
                     height={1000}
                     data-depth={80}
@@ -56,6 +72,9 @@ const Landing: React.FC = () => {
                     alt="cover"
                     data-depth={75} 
                 />
+                <div className='relative top-[-17%] mobile4:top-[-25%] tablet1:top-[-40%] tablet4:top-[-50%] left-[55%] flex flex-col justify-start items-center z-10'>
+                    <Enter/>
+                </div>
                 <div className='relative bottom-[40px] left-0 w-[100%] flex justify-center items-center scale-1 lg:scale-[1.3]'>
                     <Image 
                         width={500} 
@@ -73,14 +92,16 @@ const Landing: React.FC = () => {
                         className='movable absolute scale-[2] mobile2:scale-[1.5] mobile4:scale-[1.8] lg:scale-[1.6] z-4 opacity-50' 
                         data-depth={50} 
                     />
-                    <Image 
-                        width={500} 
-                        height={500}
-                        src="/assets/Landing/player.svg"
-                        alt="rock" 
-                        className="movable absolute bottom-0 scale-[2] mobile4:scale-[1.4] tablet2:scale-[2] lg:scale-[1.5] z-5"
-                        data-depth={20}
-                    />
+                    <div className='absolute bottom-0 flex items-center justify-center scale-x-[-1]'>
+                        <Image 
+                            width={500} 
+                            height={500}
+                            src="/assets/Landing/player.svg"
+                            alt="rock" 
+                            className="movable2 scale-[2] mobile4:scale-[1.4] tablet2:scale-[2] lg:scale-[1.5] z-5"
+                            data-depth={20}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

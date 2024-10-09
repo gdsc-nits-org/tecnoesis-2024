@@ -29,6 +29,9 @@ const config = {
         "tablet3":"900px",
         "tablet4":"950px"
       },
+      rotate: {
+        'x-180': 'rotateX(180deg)',
+      },
       fontFamily: {
         rp1: ["readyplayer", 'monospace'],
         outfit: ['Outfit', 'sans-serif']
