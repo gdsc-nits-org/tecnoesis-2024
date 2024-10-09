@@ -9,10 +9,10 @@ export default function Page() {
       <div className="px-10">
         <PhotoGallery/>
       </div>
-      <div className="text-gradient-blue m-10 font-rp1 text-2xl font-bold md:hidden">
+      <div className="text-gradient-blue mt-10 font-rp1 text-2xl font-bold md:hidden">
         Tecnoesis App
       </div>
-      <div className="flex w-full p-6 lg:py-[5rem] flex-col gap-y-20">
+      <div className="flex w-full lg:py-[5rem] mb-10 flex-col gap-y-20">
         <Download/>
       </div>
       <div className="text-gradient-blue m-10 font-rp1 text-2xl font-bold md:text-6xl">
@@ -22,10 +22,10 @@ export default function Page() {
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
       </div>
-      <div className="text-gradient-blue m-10 font-rp1 text-2xl font-bold md:text-6xl sm:pt-20">
+      <div className="text-gradient-blue mb-10 mt-20 font-rp1 text-2xl font-bold md:text-6xl sm:pt-20">
         Sponsors
       </div>
-      <div className="px-10">
+      <div className="px-10 w-full">
         <SponsorHome/>
       </div>
     </div>
