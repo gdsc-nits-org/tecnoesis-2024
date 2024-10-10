@@ -261,9 +261,9 @@ const ProfileCard = ({ profile }: { profile: ProfileData }) => (
           />
           <Button
             size="icon"
-            className="absolute bottom-3 right-3 rounded-full bg-purple-600 p-2 shadow-lg hover:bg-purple-700 sm:p-3"
+            className="absolute bottom-3 right-3 rounded-md bg-gray-800 p-2 shadow-lg transition-all duration-300 hover:bg-gray-700 hover:shadow-cyan-400/20 sm:p-3"
           >
-            <Camera className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+            <Camera className="h-4 w-4 text-cyan-400 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
           </Button>
         </div>
         <div className="w-full text-center sm:w-[calc(100%-16rem)] sm:text-left md:w-[calc(100%-20rem)] lg:w-[calc(100%-22rem)]">
@@ -451,16 +451,16 @@ const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
         {events.map((event) => (
           <div
             key={event.id}
-            className={`relative flex flex-col rounded-[10px] border border-dashed border-[rgba(197,221,240,0.28)] p-3 transition-all duration-300 ease-in-out sm:p-4 md:p-6 ${
+            className={`relative flex flex-col rounded-[10px] border border-dashed border-[rgba(197,221,240,0.28)] p-2 transition-all duration-300 ease-in-out sm:p-3 md:p-4 ${
               expandedEvents.includes(event.id)
                 ? "min-h-[300px]"
-                : "min-h-[135px] sm:min-h-[150px] md:min-h-[165px] lg:min-h-[180px]"
+                : "min-h-[120px] sm:min-h-[135px] md:min-h-[150px] lg:min-h-[165px]"
             }`}
           >
-            <div className="mb-3 flex w-full items-center justify-between sm:mb-0">
-              <div>
+            <div className="mb-2 flex w-full items-start justify-between sm:mb-3 sm:items-center">
+              <div className="mr-2">
                 <h3
-                  className="mb-1 text-base font-bold sm:mb-2 sm:text-lg md:text-xl lg:text-2xl"
+                  className="mb-1 text-sm font-bold sm:text-base md:text-lg lg:text-xl"
                   style={{
                     background:
                       "linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)",
@@ -471,37 +471,37 @@ const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
                 >
                   {event.eventName}
                 </h3>
-                <p className="text-xs font-bold text-[#7EA9CB] sm:text-sm md:text-base lg:text-lg">
+                <p className="text-xs font-bold text-[#7EA9CB] sm:text-sm md:text-base">
                   Team Name: {event.teamName}
                 </p>
               </div>
               <Button
                 onClick={() => toggleExpand(event.id)}
-                className="rounded-[47px] border border-[rgba(188,233,255,0.67)] bg-[rgba(56,70,77,0.23)] px-3 py-1 font-outfit text-xs font-semibold uppercase leading-5 tracking-[0.06em] text-white sm:py-2 sm:text-sm md:py-3 md:text-base lg:text-lg"
+                className="flex-shrink-0 rounded-full border border-[rgba(188,233,255,0.67)] bg-[rgba(56,70,77,0.23)] p-1 font-outfit text-xs font-semibold uppercase leading-5 tracking-[0.06em] text-white transition-all duration-300 hover:bg-[rgba(56,70,77,0.4)] sm:px-3 sm:py-1.5 md:px-4 md:py-2"
               >
-                View Status
+                <span className="hidden sm:inline">View Status</span>
                 {expandedEvents.includes(event.id) ? (
-                  <ChevronUp className="ml-2 h-4 w-4" />
+                  <ChevronUp className="h-4 w-4 sm:ml-2 sm:h-4 sm:w-4" />
                 ) : (
-                  <ChevronDown className="ml-2 h-4 w-4" />
+                  <ChevronDown className="h-4 w-4 sm:ml-2 sm:h-4 sm:w-4" />
                 )}
               </Button>
             </div>
             {expandedEvents.includes(event.id) && (
-              <div className="mt-4 w-full overflow-x-auto">
-                <table className="w-full table-auto">
+              <div className="mt-2 w-full overflow-x-auto sm:mt-3 md:mt-4">
+                <table className="w-full table-auto text-xs sm:text-sm">
                   <thead>
                     <tr className="border-b border-gray-700">
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                      <th className="px-2 py-1 text-left font-semibold text-gray-300 sm:px-3 sm:py-2">
                         Name
                       </th>
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                      <th className="px-2 py-1 text-left font-semibold text-gray-300 sm:px-3 sm:py-2">
                         Username
                       </th>
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                      <th className="px-2 py-1 text-left font-semibold text-gray-300 sm:px-3 sm:py-2">
                         Team Name
                       </th>
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                      <th className="px-2 py-1 text-left font-semibold text-gray-300 sm:px-3 sm:py-2">
                         Status
                       </th>
                     </tr>
@@ -509,20 +509,20 @@ const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
                   <tbody>
                     {event.teamMembers.map((member, index) => (
                       <tr key={index} className="border-b border-gray-700">
-                        <td className="px-4 py-2 text-sm text-gray-300">
+                        <td className="px-2 py-1 text-gray-300 sm:px-3 sm:py-2">
                           {member.name}
                         </td>
-                        <td className="px-4 py-2 text-sm text-gray-300">
+                        <td className="px-2 py-1 text-gray-300 sm:px-3 sm:py-2">
                           {member.username}
                         </td>
-                        <td className="px-4 py-2 text-sm text-gray-300">
+                        <td className="px-2 py-1 text-gray-300 sm:px-3 sm:py-2">
                           {member.teamName}
                         </td>
-                        <td className="px-4 py-2 text-sm text-gray-300">
+                        <td className="px-2 py-1 text-gray-300 sm:px-3 sm:py-2">
                           {member.status ? (
-                            <Check className="h-5 w-5 text-green-500" />
+                            <Check className="h-4 w-4 text-green-500 sm:h-5 sm:w-5" />
                           ) : (
-                            <X className="h-5 w-5 text-red-500" />
+                            <X className="h-4 w-4 text-red-500 sm:h-5 sm:w-5" />
                           )}
                         </td>
                       </tr>
@@ -566,35 +566,35 @@ export default function DashBoard() {
     <div
       className={`min-h-screen bg-black p-1 font-outfit text-white sm:p-2 md:p-4 lg:p-6`}
     >
-                    <main className="container mx-auto max-w-full pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:max-w-[1350px] 2xl:max-w-[1500px]">
-                    <div className="relative flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-center">
-           <Button
-             variant="ghost"
-             className="absolute left-4 top-0 flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 px-3 py-1.5 text-xs text-cyan-300 shadow-md transition-all duration-300 hover:from-cyan-500/50 hover:to-blue-500/50 hover:text-white hover:shadow-cyan-400/20 sm:static sm:px-5 sm:py-2.5 sm:text-sm md:px-6 md:py-3 md:text-base lg:px-7 lg:py-3.5 lg:text-lg xl:px-8 xl:py-4 xl:text-xl"
-           >
-             <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
-             Back
-           </Button>
-           <h1
-             className="mt-16 text-center font-rp1 text-3xl font-normal leading-tight sm:mt-0 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.2] xl:text-[64px]"
-             style={{
-               background:
-                 "linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), #59CAFA",
-               WebkitBackgroundClip: "text",
-               WebkitTextFillColor: "transparent",
-               backgroundClip: "text",
-               backgroundBlendMode: "overlay, color, normal",
-             }}
-           >
-             DASHBOARD
-           </h1>
-           <div className="invisible sm:visible sm:w-[100px] md:w-[120px] lg:w-[140px]"></div>
-         </div>
+      <main className="container mx-auto max-w-full pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:max-w-[1350px] 2xl:max-w-[1500px]">
+        <div className="relative flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-center">
+          <Button
+            variant="ghost"
+            className="absolute left-4 top-0 flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 px-3 py-1.5 text-xs text-cyan-300 shadow-md transition-all duration-300 hover:from-cyan-500/50 hover:to-blue-500/50 hover:text-white hover:shadow-cyan-400/20 sm:static sm:px-5 sm:py-2.5 sm:text-sm md:px-6 md:py-3 md:text-base lg:px-7 lg:py-3.5 lg:text-lg xl:px-8 xl:py-4 xl:text-xl"
+          >
+            <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
+            Back
+          </Button>
+          <h1
+            className="mt-16 text-center font-rp1 text-3xl font-normal leading-tight sm:mt-0 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.2] xl:text-[64px]"
+            style={{
+              background:
+                "linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), #59CAFA",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              backgroundBlendMode: "overlay, color, normal",
+            }}
+          >
+            DASHBOARD
+          </h1>
+          <div className="invisible sm:visible sm:w-[100px] md:w-[120px] lg:w-[140px]"></div>
+        </div>
         <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 md:mt-12 md:gap-10 lg:mt-14 lg:gap-12 xl:grid-cols-[60%_40%] xl:gap-16 2xl:gap-20">
           <div className="xl:self-start">
             <ProfileCard profile={dashboardData.profile} />
           </div>
-          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent hover:scrollbar-thumb-gray-700 max-h-[calc(100vh-280px)] space-y-6 overflow-y-auto sm:space-y-8 md:space-y-10 lg:space-y-12">
+          <div className="space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 xl:max-h-[calc(100vh-280px)] xl:overflow-y-auto xl:scrollbar-thin xl:scrollbar-track-transparent xl:scrollbar-thumb-transparent hover:xl:scrollbar-thumb-gray-700">
             <PendingRequestsCard requests={dashboardData.pendingRequests} />
             <CompletedCard completed={dashboardData.completed} />
             <EventsRegisteredCard events={dashboardData.eventsRegistered} />
