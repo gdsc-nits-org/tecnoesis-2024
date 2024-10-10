@@ -12,10 +12,7 @@ import CustomButton from "./CustomButton";
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-<<<<<<< HEAD
   const [mouseInsideFooter, setMouseInsideFooter] = useState(false);
-=======
->>>>>>> 3c5f416 (minor fix)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -28,11 +25,7 @@ const LandingFooter = () => {
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (glowRef.current) {
-<<<<<<< HEAD
       glowRef.current.style.transform = `translate(${e.layerX - 150}px, ${e.layerY - 150}px)`;
-=======
-      glowRef.current.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
->>>>>>> 3c5f416 (minor fix)
     }
   }, []);
 
@@ -53,17 +46,10 @@ const LandingFooter = () => {
     if (!ctx) return;
 
     const particlesArray: Particle[] = [];
-<<<<<<< HEAD
     const mouse = { x: 0, y: 0 };
     const numParticles = 100;
     canvas.width = window.innerWidth;
     canvas.height = 300;
-=======
-    let mouse = { x: 0, y: 0 };
-    const numParticles = 100;
-    canvas.width = window.innerWidth;
-    canvas.height = 300; // Adjust the height as needed
->>>>>>> 3c5f416 (minor fix)
 
     class Particle {
       x: number;
@@ -105,7 +91,7 @@ const LandingFooter = () => {
           const dx = mouse.x - particleA.x;
           const dy = mouse.y - particleA.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 80) {
             for (let b = a + 1; b < particlesArray.length; b++) {
               const particleB = particlesArray[b];
@@ -148,11 +134,7 @@ const LandingFooter = () => {
 
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
-<<<<<<< HEAD
       canvas.height = 300;
-=======
-      canvas.height = 300; // Adjust height again on resize
->>>>>>> 3c5f416 (minor fix)
       initParticles();
     });
 
@@ -173,7 +155,6 @@ const LandingFooter = () => {
   }, [isMobile]);
 
   return (
-<<<<<<< HEAD
     <>
       <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
         <div
@@ -193,22 +174,6 @@ const LandingFooter = () => {
               zIndex: "-2",
             }}
           ></canvas>
-=======
-    <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
-      <div className="inset-0 z-0 w-full">
-        <canvas ref={canvasRef} style={{ display: 'block', background: '#000', position: 'absolute', zIndex: '-2'}}></canvas>
-      </div>
-
-      <div ref={glowRef} className="glow z-10"></div>
-
-      <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190%201.webp')] bg-cover bg-bottom pt-[5vh]">
-        <div className="flex h-full w-full flex-col items-center justify-between">
-          <div className="tecno-big-img flex h-4/6 w-9/12 flex-col items-center justify-center bg-contain"></div>
-
-          <button className="campus-ambassador-button">
-            Become Our Campus Ambassador
-          </button>
->>>>>>> 3c5f416 (minor fix)
         </div>
 
         {mouseInsideFooter && !isMobile ? (
