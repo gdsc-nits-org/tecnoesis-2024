@@ -73,11 +73,10 @@
   src: url("/rp1font.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-body{
-  overflow-x: hidden !important;
-  width:100vw;
-  height: 100vh;
+  font-family: "readyplayer";
+  src: url("/rp1font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
