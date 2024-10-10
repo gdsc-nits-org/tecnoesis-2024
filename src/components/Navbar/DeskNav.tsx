@@ -4,8 +4,9 @@ import { Outfit } from "next/font/google";
 import Image from "next/image";
 import gsap from "gsap";
 import Link from "next/link";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import Login from "../GoogleAuth";
+import { usePathname } from "next/navigation";
 
 const outin = Outfit({
   subsets: ["latin"],
@@ -13,11 +14,9 @@ const outin = Outfit({
 });
 
 const Navbar = () => {
-  useLayoutEffect(() => {
-    let currentPage = "sdhf";
-    if (window) {
-      currentPage = window.location.pathname;
-    }
+  const currentPage = usePathname();
+
+  useEffect(() => {
     const links = document.querySelectorAll(".navOpt");
     const animation = document.querySelector(".animation");
 
@@ -49,49 +48,64 @@ const Navbar = () => {
           });
       }
 
-      links.forEach((link, index) => {
-        link.addEventListener("mouseenter", () => {
-          console.log("hovered");
-          gsap.to(link, {
-            color: "#01A3F5",
-          });
-          links.forEach((ink) => {
-            if (ink != link) {
-              gsap.to(ink, {
-                color: "white",
-              });
-            }
-          });
-          let pickleft = 0;
-          if (linkPositions[index] && linkPositions[0])
-            pickleft = linkPositions[index]?.left - linkPositions[0]?.left + 8;
+      const handleMouseEnter = (link: Element, index: number) => {
+        gsap.to(link, {
+          color: "#01A3F5",
+        });
+        links.forEach((ink) => {
+          if (ink !== link) {
+            gsap.to(ink, {
+              color: "white",
+            });
+          }
+        });
+        let pickleft = 0;
+        if (linkPositions[index] && linkPositions[0])
+          pickleft = linkPositions[index]?.left - linkPositions[0]?.left + 8;
+        gsap.to(animation, {
+          width: linkPositions[index]?.width,
+          left: pickleft,
+          duration: 0.7,
+          ease: "expo.out",
+        });
+      };
+
+      const handleMouseLeave = (link: Element) => {
+        gsap.to(link, {
+          color: "white",
+        });
+        if (curr !== undefined) {
           gsap.to(animation, {
-            width: linkPositions[index]?.width,
-            left: pickleft,
+            width: linkPositions[curr]?.width,
+            left: finalLeft,
             duration: 0.7,
             ease: "expo.out",
           });
-        });
-        link.addEventListener("mouseleave", () => {
-          gsap.to(link, {
-            color: "white",
-          });
-          if (curr !== undefined) {
-            gsap.to(animation, {
-              width: linkPositions[curr]?.width,
-              left: finalLeft,
-              duration: 0.7,
-              ease: "expo.out",
+          if (links[curr])
+            gsap.to(links[curr], {
+              color: "#01A3F5",
             });
-            if (links[curr])
-              gsap.to(links[curr], {
-                color: "#01A3F5",
-              });
-          }
-        });
+        }
+      };
+
+      links.forEach((link, index) => {
+        const mouseEnterHandler = () => handleMouseEnter(link, index);
+        const mouseLeaveHandler = () => handleMouseLeave(link);
+        link.addEventListener("mouseenter", mouseEnterHandler);
+        link.addEventListener("mouseleave", mouseLeaveHandler);
+
+        (link as any).__mouseEnterHandler = mouseEnterHandler;
+        (link as any).__mouseLeaveHandler = mouseLeaveHandler;
       });
+
+      return () => {
+        links.forEach((link) => {
+          link.removeEventListener("mouseenter", (link as any).__mouseEnterHandler);
+          link.removeEventListener("mouseleave", (link as any).__mouseLeaveHandler);
+        });
+      };
     }
-  }, []);
+  }, [currentPage]);
 
   return (
     <nav

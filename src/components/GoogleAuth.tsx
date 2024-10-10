@@ -16,6 +16,7 @@ const Login = () => {
   const bigScreen = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
+    console.log(_user)
     const checkUserFirstTime = () => {
       if (user) {
         try {
@@ -41,12 +42,6 @@ const Login = () => {
     toast.error(
       "There was some error. Please refresh the page or email contact@tecnoesis.co.in",
     );
-    // return (
-    //   <div className="flex items-center justify-center gap-3">
-    //     There was some error. Please refresh the page or email
-    //     contact@tecnoesis.co.in
-    //   </div>
-    // );
   }
   if (loading || _loading) {
     return (
@@ -55,14 +50,7 @@ const Login = () => {
       </div>
     );
   }
-  // if (user) {
-  //   return (
-  //     <ProfileCard
-  //       photoURL={_user?.photoURL}
-  //       displayName={_user?.displayName}
-  //     />
-  //   );
-  // }
+
   if (bigScreen) {
     if (!_user) {
       return (
@@ -115,10 +103,6 @@ const Login = () => {
         className={
           "mx-4 flex items-center justify-center rounded-lg p-4 font-rp1 text-[#01A3F5]"
         }
-        // style={{
-        //   background:
-        //     "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
-        // }}
       >
         <button
           className="flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] tv2:py-8"
@@ -153,8 +137,6 @@ interface UserCred {
   displayName: string | null | undefined;
 }
 const ProfileCard: React.FC<UserCred> = ({ photoURL, displayName }) => {
-  const router = useRouter();
-
   return (
     <section
       className={"mx-4 flex items-center justify-center rounded-lg p-4"}
@@ -184,7 +166,6 @@ const ProfileCard: React.FC<UserCred> = ({ photoURL, displayName }) => {
           <h3 className="">ALIAS</h3>
         </div>
         <button
-          // onClick={() => router.push("/")}
           className="rounded-3xl border border-[#01a3f5] p-1 text-[#01a3f5]"
         >
           View Profile

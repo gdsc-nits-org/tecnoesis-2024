@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Login from "../GoogleAuth";
+import { usePathname } from "next/navigation";
 
 export default function NavbarMobile() {
   const [expand, setExpand] = useState(false);
 
-  const [path, setPath] = useState<string | undefined>("/home");
+  const path = usePathname();
   const navLinks: string[] = [
     "/home",
     "/home#about",
@@ -17,9 +18,6 @@ export default function NavbarMobile() {
     "/modules",
     "/team",
   ];
-  useEffect(() => {
-    if (window) setPath(window.location.pathname);
-  }, []);
 
   return (
     <nav
@@ -72,9 +70,8 @@ export default function NavbarMobile() {
           <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
             <div className="p-4">
               <Link
-                onClick={() => setPath(navLinks[0])}
                 className={`navOptions duration- transition-colors ${path == navLinks[0] && "text-[#01A3F5]"} `}
-                href="home"
+                href="/home"
               >
                 Home
               </Link>
@@ -82,9 +79,8 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
-                onClick={() => setPath(navLinks[1])}
                 className={`navOptions duration- transition-colors ${path == navLinks[1] && "text-[#01A3F5]"} `}
-                href="home#about"
+                href="/home#about"
               >
                 About
               </Link>
@@ -92,9 +88,8 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
-                onClick={() => setPath(navLinks[2])}
                 className={`navOptions duration- transition-colors ${path == navLinks[2] && "text-[#01A3F5]"} `}
-                href="home#sponsors"
+                href="/home#sponsors"
               >
                 Sponsors
               </Link>
@@ -102,9 +97,8 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
-                onClick={() => setPath(navLinks[3])}
                 className={`navOptions duration- transition-colors ${path == navLinks[3] && "text-[#01A3F5]"} `}
-                href="modules"
+                href="/modules"
               >
                 Modules
               </Link>
@@ -112,9 +106,8 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
-                onClick={() => setPath(navLinks[4])}
                 className={`navOptions duration- transition-colors ${path == navLinks[4] && "text-[#01A3F5]"} `}
-                href="team"
+                href="/team"
               >
                 Team
               </Link>

@@ -6,6 +6,7 @@ import { useMediaQuery } from "usehooks-ts";
 
 const FinalNav = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return isMobile ? <NavbarMobile /> : <Navbar />;
+  if(isMobile) return <NavbarMobile/>
+  return <Navbar/>
 };
 export default FinalNav;
