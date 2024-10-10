@@ -566,34 +566,35 @@ export default function DashBoard() {
     <div
       className={`min-h-screen bg-black p-1 font-outfit text-white sm:p-2 md:p-4 lg:p-6`}
     >
-      <main className="container mx-auto max-w-full xl:max-w-[1350px] 2xl:max-w-[1500px]">
-        <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
-          <Button
-            variant="ghost"
-            className="flex items-center rounded-full bg-blue-900/70 px-1 py-1 text-xs text-white hover:bg-blue-800/80 sm:px-2 sm:py-1.5 sm:text-sm md:px-3 md:py-2 md:text-base lg:px-4 lg:text-lg"
-          >
-            <ArrowLeft className="mr-1 h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4 lg:h-5 lg:w-5" />
-            Back
-          </Button>
-        </div>
-        <h1
-          className="mb-3 px-1 text-center font-rp1 text-2xl font-normal leading-tight sm:mb-4 sm:px-2 sm:text-3xl sm:leading-tight md:mb-6 md:text-4xl md:leading-tight lg:mb-9 lg:text-5xl lg:leading-[62px] xl:text-[54px]"
-          style={{
-            background:
-              "linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), #59CAFA",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            backgroundBlendMode: "overlay, color, normal",
-          }}
-        >
-          DASHBOARD
-        </h1>
-        <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:grid-cols-[60%_40%] xl:gap-9 2xl:gap-12">
+                    <main className="container mx-auto max-w-full pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:max-w-[1350px] 2xl:max-w-[1500px]">
+                    <div className="relative flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-center">
+           <Button
+             variant="ghost"
+             className="absolute left-4 top-0 flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-500/30 px-3 py-1.5 text-xs text-cyan-300 shadow-md transition-all duration-300 hover:from-cyan-500/50 hover:to-blue-500/50 hover:text-white hover:shadow-cyan-400/20 sm:static sm:px-5 sm:py-2.5 sm:text-sm md:px-6 md:py-3 md:text-base lg:px-7 lg:py-3.5 lg:text-lg xl:px-8 xl:py-4 xl:text-xl"
+           >
+             <ArrowLeft className="mr-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
+             Back
+           </Button>
+           <h1
+             className="mt-16 text-center font-rp1 text-3xl font-normal leading-tight sm:mt-0 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-[1.2] xl:text-[64px]"
+             style={{
+               background:
+                 "linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), #59CAFA",
+               WebkitBackgroundClip: "text",
+               WebkitTextFillColor: "transparent",
+               backgroundClip: "text",
+               backgroundBlendMode: "overlay, color, normal",
+             }}
+           >
+             DASHBOARD
+           </h1>
+           <div className="invisible sm:visible sm:w-[100px] md:w-[120px] lg:w-[140px]"></div>
+         </div>
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 md:mt-12 md:gap-10 lg:mt-14 lg:gap-12 xl:grid-cols-[60%_40%] xl:gap-16 2xl:gap-20">
           <div className="xl:self-start">
             <ProfileCard profile={dashboardData.profile} />
           </div>
-          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent hover:scrollbar-thumb-gray-700 max-h-[calc(100vh-200px)] space-y-3 overflow-y-auto sm:space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent hover:scrollbar-thumb-gray-700 max-h-[calc(100vh-280px)] space-y-6 overflow-y-auto sm:space-y-8 md:space-y-10 lg:space-y-12">
             <PendingRequestsCard requests={dashboardData.pendingRequests} />
             <CompletedCard completed={dashboardData.completed} />
             <EventsRegisteredCard events={dashboardData.eventsRegistered} />
