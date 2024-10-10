@@ -8,8 +8,7 @@ import { useState } from 'react';
 
 export default function Team() {
     const [team, setTeam] = useState<1|2>(1);
-
-    return (
+     return (
         <div className='min-h-screen'>
             <div className="bg-customBluish min-h-screen">
                 <div className="w-full flex justify-center items-center">
