@@ -6,12 +6,17 @@ import {
   HTMLAttributes,
   ButtonHTMLAttributes,
 } from "react";
-import { 
-  Camera, 
-  MapPin, 
-  Phone, 
-  ExternalLink, 
-  ArrowLeft 
+import {
+  Camera,
+  GraduationCap,
+  MapPin,
+  Phone,
+  ExternalLink,
+  ArrowLeft,
+  ChevronDown,
+  ChevronUp,
+  Check,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -48,6 +53,21 @@ type DashboardData = {
   profile: ProfileData;
   pendingRequests: RequestData[];
   completed: CompletedData[];
+  eventsRegistered: EventData[];
+};
+
+type TeamMember = {
+  name: string;
+  username: string;
+  teamName: string;
+  status: boolean;
+};
+
+type EventData = {
+  id: string;
+  eventName: string;
+  teamName: string;
+  teamMembers: TeamMember[];
 };
 
 const fetchDashboardData = (): Promise<DashboardData> => {
@@ -80,6 +100,46 @@ const fetchDashboardData = (): Promise<DashboardData> => {
             teamName: "Data Dynamos",
             teamId: "7856421",
             imageUrl: "/placeholder.png",
+          },
+        ],
+        eventsRegistered: [
+          {
+            id: "1",
+            eventName: "NITS HACKS 4.0",
+            teamName: "Bonkers",
+            teamMembers: [
+              {
+                name: "John Doe",
+                username: "johnd",
+                teamName: "Bonkers",
+                status: true,
+              },
+              {
+                name: "Jane Smith",
+                username: "janes",
+                teamName: "Bonkers",
+                status: false,
+              },
+            ],
+          },
+          {
+            id: "2",
+            eventName: "NITS HACKS 5.0",
+            teamName: "Bonkers",
+            teamMembers: [
+              {
+                name: "John Doe",
+                username: "johnd",
+                teamName: "Bonkers",
+                status: true,
+              },
+              {
+                name: "Jane Smith",
+                username: "janes",
+                teamName: "Bonkers",
+                status: false,
+              },
+            ],
           },
         ],
       });
@@ -219,21 +279,7 @@ const ProfileCard = ({ profile }: { profile: ProfileData }) => (
         className={`mb-4 space-y-3 font-outfit sm:mb-6 sm:space-y-4 md:mb-8 md:space-y-5 lg:mb-10 lg:space-y-6`}
       >
         <p className="flex items-center text-base text-gray-300 sm:text-lg md:text-xl lg:text-2xl">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="mr-3 h-6 w-6 text-cyan-400 sm:mr-4 sm:h-7 sm:w-7 md:h-8 md:w-8"
-          >
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-          </svg>
+          <GraduationCap className="mr-3 h-6 w-6 text-cyan-400 sm:mr-4 sm:h-7 sm:w-7 md:h-8 md:w-8" />
           <span className="break-words">{profile.institute}</span>
         </p>
         <p className="flex items-center text-base text-gray-300 sm:text-lg md:text-xl lg:text-2xl">
@@ -372,6 +418,126 @@ const CompletedCard = ({ completed }: { completed: CompletedData[] }) => (
   </Card>
 );
 
+const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
+  const [expandedEvents, setExpandedEvents] = useState<string[]>([]);
+
+  const toggleExpand = (eventId: string) => {
+    setExpandedEvents((prev) =>
+      prev.includes(eventId)
+        ? prev.filter((id) => id !== eventId)
+        : [...prev, eventId],
+    );
+  };
+
+  return (
+    <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-purple-400/20">
+      <CardHeader className="pb-1 sm:pb-2 md:pb-3">
+        <CardTitle
+          className="text-center font-outfit text-lg font-bold leading-tight tracking-[0.19em] sm:text-xl md:text-2xl"
+          style={{
+            background:
+              "linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          EVENTS REGISTERED
+        </CardTitle>
+      </CardHeader>
+      <CardContent
+        className={`space-y-2 pt-1 font-outfit sm:space-y-3 sm:pt-2 md:space-y-4 md:pt-4 lg:space-y-6`}
+      >
+        {events.map((event) => (
+          <div
+            key={event.id}
+            className={`relative flex flex-col rounded-[10px] border border-dashed border-[rgba(197,221,240,0.28)] p-3 transition-all duration-300 ease-in-out sm:p-4 md:p-6 ${
+              expandedEvents.includes(event.id)
+                ? "min-h-[300px]"
+                : "min-h-[135px] sm:min-h-[150px] md:min-h-[165px] lg:min-h-[180px]"
+            }`}
+          >
+            <div className="mb-3 flex w-full items-center justify-between sm:mb-0">
+              <div>
+                <h3
+                  className="mb-1 text-base font-bold sm:mb-2 sm:text-lg md:text-xl lg:text-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {event.eventName}
+                </h3>
+                <p className="text-xs font-bold text-[#7EA9CB] sm:text-sm md:text-base lg:text-lg">
+                  Team Name: {event.teamName}
+                </p>
+              </div>
+              <Button
+                onClick={() => toggleExpand(event.id)}
+                className="rounded-[47px] border border-[rgba(188,233,255,0.67)] bg-[rgba(56,70,77,0.23)] px-3 py-1 font-outfit text-xs font-semibold uppercase leading-5 tracking-[0.06em] text-white sm:py-2 sm:text-sm md:py-3 md:text-base lg:text-lg"
+              >
+                View Status
+                {expandedEvents.includes(event.id) ? (
+                  <ChevronUp className="ml-2 h-4 w-4" />
+                ) : (
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                )}
+              </Button>
+            </div>
+            {expandedEvents.includes(event.id) && (
+              <div className="mt-4 w-full overflow-x-auto">
+                <table className="w-full table-auto">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                        Name
+                      </th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                        Username
+                      </th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                        Team Name
+                      </th>
+                      <th className="px-4 py-2 text-left text-sm font-semibold text-gray-300">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {event.teamMembers.map((member, index) => (
+                      <tr key={index} className="border-b border-gray-700">
+                        <td className="px-4 py-2 text-sm text-gray-300">
+                          {member.name}
+                        </td>
+                        <td className="px-4 py-2 text-sm text-gray-300">
+                          {member.username}
+                        </td>
+                        <td className="px-4 py-2 text-sm text-gray-300">
+                          {member.teamName}
+                        </td>
+                        <td className="px-4 py-2 text-sm text-gray-300">
+                          {member.status ? (
+                            <Check className="h-5 w-5 text-green-500" />
+                          ) : (
+                            <X className="h-5 w-5 text-red-500" />
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+};
+
 export default function DashBoard() {
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(
     null,
@@ -427,9 +593,10 @@ export default function DashBoard() {
           <div className="xl:self-start">
             <ProfileCard profile={dashboardData.profile} />
           </div>
-          <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent hover:scrollbar-thumb-gray-700 max-h-[calc(100vh-200px)] space-y-3 overflow-y-auto sm:space-y-4 md:space-y-6 lg:space-y-8">
             <PendingRequestsCard requests={dashboardData.pendingRequests} />
             <CompletedCard completed={dashboardData.completed} />
+            <EventsRegisteredCard events={dashboardData.eventsRegistered} />
           </div>
         </div>
       </main>
