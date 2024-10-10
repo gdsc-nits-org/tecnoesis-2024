@@ -7,7 +7,6 @@ import {
   IoLogoLinkedin,
 } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import "~/styles/footer.css";
 import CustomButton from "./CustomButton";
 
 const LandingFooter = () => {
