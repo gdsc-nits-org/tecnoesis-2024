@@ -1,11 +1,6 @@
 "use client";
-import {
-  forwardRef,
-  useState,
-  useEffect,
-  HTMLAttributes,
-  ButtonHTMLAttributes,
-} from "react";
+import { forwardRef, useState, useEffect } from "react";
+import type { HTMLAttributes, ButtonHTMLAttributes } from "react";
 import {
   Camera,
   GraduationCap,
@@ -548,9 +543,11 @@ export default function DashBoard() {
       .then((data) => {
         setDashboardData(data);
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error("Error fetching dashboard data:", error);
-        toast.error("Error fetching dashboard data", error);
+        toast.error("Error fetching dashboard data", {
+          description: error instanceof Error ? error.message : String(error),
+        });
       });
   }, []);
 
