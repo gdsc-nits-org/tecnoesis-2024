@@ -1,14 +1,18 @@
 import Image from "next/image"
 import React, { useEffect, useState } from "react";
+import {SocialIcon} from 'react-social-icons'
 interface propsType {
   name: string;
   designation: string;
   photo: string;
   id: string;
-  main: number
+  main: number;
+  facebook?: string;
+  linkedin?: string;
+  instagram?: string
 }
 
-const Card: React.FC<propsType> = ({ name, designation, photo, id, main }) => {
+const Card: React.FC<propsType> = ({ name, designation, photo, id, main, facebook, linkedin, instagram }) => {
   const [hover, setHover] = useState(false);
   const customHoverDetails = hover ? {
     textShadow: "0 0 8.48px rgba(251, 5, 255, 1), 0 0 16.96px rgba(251,5,255,1)",
@@ -55,15 +59,18 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main }) => {
             transform: "scale(1)",
             transition: "all 0.3s ease",
           } : { opacity: "0", transition: "all 0.3s ease", transform: "scale(0.6)" }}>
-            <a className="relative cursor-pointer" style={customHoverButton}>
-              <Image src="/team/fb.svg" height={30} width={30} alt="linkedin" />
-            </a >
-            <a className="relative cursor-pointer" style={customHoverButton}>
-              <Image src="/team/insta.svg" height={30} width={30} alt="linkedin" />
-            </a >
-            <a className="relative cursor-pointer" style={customHoverButton}>
-              <Image src="/team/lin.svg" height={30} width={30} alt="linkedin" />
-            </a >
+           {facebook && (<a className="relative cursor-pointer" style={customHoverButton} target="_blank">
+              < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
+            </a>
+          )}
+            {instagram &&(<a className="relative cursor-pointer" style={customHoverButton} target="_blank ">
+              < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
+            </a>
+            )}
+            {linkedin && (<a className="relative cursor-pointer" style={customHoverButton} target="_blank">
+              < SocialIcon url="https://linkedin.com" style={{height:30, width:30}} />
+            </a>
+            )}
           </div>
           <Image src="/team/stencil.png" width={162} height={162} alt=""
             style={hover ? {
@@ -108,13 +115,16 @@ interface MemberProps {
   name: string,
   designation: string,
   photo: string,
-  index : number
+  index : number,
+  facebook?: string,
+  linkedin?: string,
+  instagram?: string
 }
 
 //Links to the social media handles of the members are not added yet.
 // The json needs to be updated with the social media handles of the members.
 
-const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index }) => {
+const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, facebook, instagram, linkedin }) => {
   const top = index%2?(-2-2*Math.random()):6+2*Math.random()
   return (
     <div style={{ top: top.toString() + "rem" }}
@@ -130,15 +140,21 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index }) 
       </div>
       <div className="overflow-hidden absolute bottom-0 right-8 w-1/2 h-16">
       <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
-        <a className="drop-shadow-xl p-2 cursor-pointer">
-          <Image src="/team/fb.svg" height={30} width={30} alt="linkedin" />
-        </a >
-        <a className="drop-shadow-xl p-2 cursor-pointer">
-          <Image src="/team/insta.svg" height={30} width={30} alt="linkedin" />
-        </a >
-        <a className="drop-shadow-xl p-2 cursor-pointer">
-          <Image src="/team/lin.svg" height={30} width={30} alt="linkedin" />
-        </a >
+          {facebook && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+            rel="noopener noreferrer">
+            < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
+        </a>
+          )}
+          {instagram && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+            rel="noopener noreferrer">
+            < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
+        </a>
+          )}
+          {linkedin && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+            rel="noopener noreferrer">
+            < SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 }} />
+        </a>
+          )}
       </div>
       </div>
     </div>

@@ -1,22 +1,12 @@
 "use client"
 
-import { Outfit } from 'next/font/google';
 import Card, { MemberCard } from '~/components/Card';
 import data from "../../../public/team.json";
 import Marquee from 'react-fast-marquee';
 import { useState } from 'react';
 
-const outfit = Outfit({
-    weight: "400",
-    subsets: ["latin"],
-})
-
-//I have not added the code to check which team is currently checked.
-// I have just added the code to display the team heads and members.
-// You can add the code to check which team is currently checked and display the members accordingly.
 
 export default function Team() {
-
     const [team, setTeam] = useState<1|2>(1);
 
     return (
@@ -29,12 +19,12 @@ export default function Team() {
                     <button style={team==1?{backgroundColor:"#59CAFA"}:{}} onClick={()=>{
                         setTeam(1);
                     }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className={outfit.className + " group-hover:text-customBlue group-hover:scale-90 duration-300"}>Tech Team</p>
+                        <p className="font-outfit group-hover:text-customBlue group-hover:scale-90 duration-300">Tech Team</p>
                     </button>
                     <button style={team==2?{backgroundColor:"#59CAFA"}:{}} onClick={()=>{
                         setTeam(2);
                     }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className={outfit.className + " group-hover:text-customBlue group-hover:scale-90 duration-300"}>Other Team</p>
+                        <p className= "font-outfit group-hover:text-customBlue group-hover:scale-90 duration-300">Other Team</p>
                     </button>
                 </div>
                 <div className='flex flex-col justify-center items-center text-yellow-50'>
@@ -46,7 +36,7 @@ export default function Team() {
                                     {
                                         item.heads.map((member) => (
                                             <div key={member.id} className='flex w-max flex-row justify-center items-center'>
-                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} />
+                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook || ""} instagram={member.instagram || ""} linkedin={member.linkedin || ""} />
                                             </div>
                                         ))
                                     }
@@ -64,7 +54,7 @@ export default function Team() {
                             {
                                 data.map((item) => (
                                     item.members.map((member) => (
-                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} />
+                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook} instagram={member.instagram} linkedin={member.linkedin} />
                                     ))
                                 ))
                             }
