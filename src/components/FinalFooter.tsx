@@ -10,10 +10,12 @@ import { FaXTwitter } from "react-icons/fa6";
 import "~/styles/footer.css";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import CustomButton from "./CustomButton";
 
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [mouseInsideFooter, setMouseInsideFooter] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -26,7 +28,7 @@ const LandingFooter = () => {
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (glowRef.current) {
-      glowRef.current.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`;
+      glowRef.current.style.transform = `translate(${e.layerX - 150}px, ${e.layerY - 150}px)`;
     }
   }, []);
 
@@ -96,7 +98,7 @@ const LandingFooter = () => {
           const dx = mouse.x - particleA.x;
           const dy = mouse.y - particleA.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 80) {
             for (let b = a + 1; b < particlesArray.length; b++) {
               const particleB = particlesArray[b];
@@ -106,7 +108,8 @@ const LandingFooter = () => {
                 const distanceB = Math.sqrt(dxB * dxB + dyB * dyB);
 
                 if (distanceB < 80 && ctx) {
-                  ctx.strokeStyle = "rgba(144,168,180,0.75)";
+                  if (isMobile) ctx.strokeStyle = "rgba(144,168,180,0)";
+                  else ctx.strokeStyle = "rgba(144,168,180,0.75)";
                   ctx.lineWidth = 1;
                   ctx.beginPath();
                   ctx.moveTo(particleA.x, particleA.y);
@@ -142,30 +145,54 @@ const LandingFooter = () => {
     });
 
     window.addEventListener("mousemove", (event) => {
-      mouse.x = event.x;
-      mouse.y = event.y - canvas.offsetTop; // Adjust according to canvas position
+      mouse.x = event.layerX;
+      mouse.y = event.layerY - canvas.offsetTop; // Adjust according to canvas position
     });
-  }, []);
+
+    const footerElement = document.querySelector("footer");
+    if (footerElement) {
+      footerElement.addEventListener("mouseenter", () =>
+        setMouseInsideFooter(true),
+      );
+      footerElement.addEventListener("mouseleave", () =>
+        setMouseInsideFooter(false),
+      );
+    }
+  }, [isMobile]);
 
   return (
     <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
       <div className="inset-0 z-0 w-full">
-        <canvas ref={canvasRef} style={{ display: 'block', background: '#000', position: 'absolute', zIndex: '-2'}}></canvas>
+        <canvas
+          ref={canvasRef}
+          style={{
+            display: "block",
+            background: "#000",
+            position: "absolute",
+            zIndex: "-2",
+          }}
+        ></canvas>
       </div>
 
-      <div ref={glowRef} className="glow z-10"></div>
+      {mouseInsideFooter && !isMobile ? (
+        <div
+          ref={glowRef}
+          className="glow duration-[50ms] pointer-events-none absolute left-0 top-0 z-30 h-[300px] w-[300px] scale-[2] rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.212),_rgba(255,255,255,0.203),_rgba(255,255,255,0.112),_rgba(255,255,255,0.057),_rgba(255,255,255,0.018),_rgba(255,255,255,0),_rgba(255,255,255,0))] bg-scroll opacity-50 bg-blend-difference shadow-[0_0_15px_10px_rgba(255,255,255,0.016)] transition-transform ease-linear"
+        ></div>
+      ) : (
+        ""
+      )}
 
       <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/minimal-globe-technology-business-background_53876-117190%201.webp')] bg-cover bg-bottom pt-[5vh]">
         <div className="flex h-full w-full flex-col items-center justify-between">
-          <div className="tecno-big-img flex h-4/6 w-9/12 flex-col items-center justify-center bg-contain"></div>
-
-          <button className="campus-ambassador-button">
-            Become Our Campus Ambassador
-          </button>
+          <div className="tecno-big-img mb-0 flex h-4/6 h-[40vh] h-[50vh] w-9/12 w-full flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[50vh] lg:w-full"></div>
+          <div className="mt-[-30px] h-[50px] w-[70%]">
+            <CustomButton text="Become Our Campus Ambassador" />
+          </div>
         </div>
 
-        <div className="bottom-content-container mt-auto flex w-full flex-col items-center justify-end py-8">
-          <h2 className="footer-middle-text lg:text-4x mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['ReadyPlayerOne',sans-serif] text-[24px] text-xl font-[500] leading-[1.5] tracking-[0.3em] text-transparent text-white sm:text-2xl md:text-3xl">
+        <div className="justify-end py-8 mt-auto flex flex-col items-center w-full min-h-[50vh]">
+          <h2 className="text-[28px] sm:text-[28px] md:text-[32px] lg:text-[36px] tracking-[0.35em] sm:tracking-[0.35em] md:tracking-[0.4em] lg:tracking-[0.45em] lg:text-4x mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['readyplayer',sans-serif] text-[24px] text-xl font-[500] leading-[1.5] tracking-[0.3em] text-transparent text-white sm:text-2xl md:text-3xl">
             CONTACT US
           </h2>
           <span className="mb-6 flex justify-center gap-x-3.5">
@@ -173,25 +200,25 @@ const LandingFooter = () => {
               href={"https://www.instagram.com/tecnoesis.nits/"}
               aria-label="Instagram"
             >
-              <IoLogoInstagram className="footer-icons text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
+              <IoLogoInstagram className="text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
               href={"https://www.facebook.com/tecnoesis.nits"}
               aria-label="Facebook"
             >
-              <IoLogoFacebook className="footer-icons text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
+              <IoLogoFacebook className="text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link
               href={"https://www.linkedin.com/company/tecnoesis-nit-silchar/"}
               aria-label="LinkedIn"
             >
-              <IoLogoLinkedin className="footer-icons text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
+              <IoLogoLinkedin className="text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
             <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter">
-              <FaXTwitter className="footer-icons text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
+              <FaXTwitter className="text-[1.5rem] md:text-[1.5rem] lg:text-[1.5rem] xl:text-[1.5rem] text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl lg:text-5xl" />
             </Link>
           </span>
-          <div className="footer-below-text flex items-center text-center text-[1rem] text-sm font-normal leading-[1.5] tracking-[0.2em] text-white sm:text-base md:text-lg lg:text-xl">
+          <div className="text-[0.875rem] tracking-[0.15em] md:tracking-[0.25em] sm:tracking-[0.25em] lg:tracking-[0.3em] xl:tracking-[0.35em] flex items-center text-center !text-[1rem] text-sm font-medium leading-[1.5] tracking-[0.2em] text-white sm:text-base md:text-lg lg:text-xl">
             Designed in collaboration with GDG Silchar
           </div>
         </div>
