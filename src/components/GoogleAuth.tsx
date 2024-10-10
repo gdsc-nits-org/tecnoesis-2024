@@ -2,21 +2,21 @@
 import { useSignInWithGoogle, useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { User } from "firebase/auth";
 import { useMediaQuery } from "usehooks-ts";
 import { LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
+import axios from "axios";
+import { env } from "~/env";
 
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [_user, _loading, _error] = useAuthState(auth);
   const router = useRouter();
   const bigScreen = useMediaQuery("(min-width: 768px)");
-
+  const [userName, setUserName] = useState("");
   useEffect(() => {
-    console.log(_user)
     const checkUserFirstTime = () => {
       if (user) {
         try {
@@ -34,7 +34,23 @@ const Login = () => {
         }
       }
     };
-
+    const getUserName = async () => {
+      if (_user) {
+        const token = await _user.getIdToken();
+        const response = await axios.get(
+          `${env.NEXT_PUBLIC_API_URL}api/user/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        if (response) {
+          setUserName(response.data.msg.username);
+        }
+      }
+    };
+    getUserName();
     checkUserFirstTime();
   }, [user, router, _user]);
 
@@ -78,7 +94,7 @@ const Login = () => {
       );
     } else {
       return (
-        <section className="group w-[12vw]">
+        <section className="auto group min-w-[8vw] max-w-[20vw]">
           <button className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
             {_user?.photoURL && (
               <Image
@@ -89,8 +105,8 @@ const Login = () => {
                 alt="avater"
               ></Image>
             )}
-            <p className="font-rp1 text-[1.3vw] duration-1000 group-hover:text-[#01A3F5]">
-              {_user?.displayName?.split(" ")[0]}
+            <p className="overflow-hidden text-nowrap font-rp1 text-[1.3vw] duration-1000 group-hover:text-[#01A3F5]">
+              {userName}
             </p>
           </button>
         </section>
@@ -126,6 +142,7 @@ const Login = () => {
       <ProfileCard
         photoURL={_user?.photoURL}
         displayName={_user?.displayName}
+        userName={userName}
       />
     );
   }
@@ -135,8 +152,13 @@ export default Login;
 interface UserCred {
   photoURL: string | null | undefined;
   displayName: string | null | undefined;
+  userName: string | null | undefined;
 }
-const ProfileCard: React.FC<UserCred> = ({ photoURL, displayName }) => {
+const ProfileCard: React.FC<UserCred> = ({
+  photoURL,
+  displayName,
+  userName,
+}) => {
   return (
     <section
       className={"mx-4 flex items-center justify-center rounded-lg p-4"}
@@ -160,14 +182,16 @@ const ProfileCard: React.FC<UserCred> = ({ photoURL, displayName }) => {
           ></Image>
         )}
       </div>
-      <div className="mb-1 flex h-full flex-grow flex-col justify-between gap-8 pl-4">
-        <div className="font-rp1 text-[#B8B8B8]">
-          <h1 className="text-nowrap text-xl">{displayName}</h1>
-          <h3 className="">ALIAS</h3>
+      <div className="flex h-[80%] flex-grow flex-col justify-around gap-6 pl-4">
+        <div className="flex flex-col gap-1 text-[#B8B8B8]">
+          <h1 className="text-wrap font-rp1 text-lg leading-5">
+            {displayName}
+          </h1>
+          <h3 className="font-outfit text-sm">
+            {userName?.toLocaleUpperCase()}
+          </h3>
         </div>
-        <button
-          className="rounded-3xl border border-[#01a3f5] p-1 text-[#01a3f5]"
-        >
+        <button className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]">
           View Profile
         </button>
       </div>

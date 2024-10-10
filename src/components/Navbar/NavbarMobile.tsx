@@ -70,6 +70,7 @@ export default function NavbarMobile() {
           <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
             <div className="p-4">
               <Link
+                onClick={() => setExpand(false)}
                 className={`navOptions duration- transition-colors ${path == navLinks[0] && "text-[#01A3F5]"} `}
                 href="/home"
               >
