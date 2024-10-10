@@ -58,9 +58,9 @@ export default function Team() {
                       photo={member.photo}
                       main={item.id}
                       id={member.id}
-                      facebook={member.facebook ?? ""}
-                      instagram={member.instagram ?? ""}
-                      linkedin={member.linkedin ?? ""}
+                      facebook={member.facebook || ""}
+                      instagram={member.instagram || ""}
+                      linkedin={member.linkedin || ""}
                     />
                   </div>
                 ))}
@@ -78,9 +78,9 @@ export default function Team() {
                     designation={member.designation}
                     photo={member.photo}
                     index={parseInt(member.id)}
-                    facebook={member.facebook}
-                    instagram={member.instagram}
-                    linkedin={member.linkedin}
+                    facebook={member.facebook || ""}
+                    instagram={member.instagram || ""}
+                    linkedin={member.linkedin || ""}
                   />
                 )),
               )}
