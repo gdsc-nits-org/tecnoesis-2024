@@ -12,6 +12,11 @@ import CustomButton from '../components/CustomButton'
 const About = () => {
 
     const image2WrapperRef = useRef<HTMLDivElement | null>(null);
+    const image1Ref = useRef<HTMLImageElement | null>(null);
+    const image2Ref = useRef<HTMLImageElement | null>(null);
+    const image3Ref = useRef<HTMLImageElement | null>(null);
+    const class1DivRef = useRef<HTMLDivElement | null>(null);
+
 
     useEffect(() => {
         if (image2WrapperRef.current) {
@@ -24,6 +29,62 @@ const About = () => {
             });
         }
     }, []);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+    
+            // Animate Image 1
+            if (image1Ref.current) {
+                gsap.to(image1Ref.current, {
+                    x: (mouseX - window.innerWidth / 2) * 0.05, // slight movement
+                    y: (mouseY - window.innerHeight / 2) * 0.05,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+    
+            // Animate Image 2
+            if (image2Ref.current) {
+                gsap.to(image2Ref.current, {
+                    x: (mouseX - window.innerWidth / 2) * 0.08, // more movement
+                    y: (mouseY - window.innerHeight / 2) * 0.08,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+    
+            // Animate Image 3
+            if (image3Ref.current) {
+                gsap.to(image3Ref.current, {
+                    x: (mouseX - window.innerWidth / 2) * 0.1, // more movement
+                    y: (mouseY - window.innerHeight / 2) * 0.1,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+    
+            // Animate class1 div
+            if (class1DivRef.current) {
+                gsap.to(class1DivRef.current, {
+                    x: (mouseX - window.innerWidth / 2) * 0.05, // strongest magnetic effect
+                    y: (mouseY - window.innerHeight / 2) * 0.05,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+        };
+    
+        window.addEventListener('mousemove', handleMouseMove);
+    
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+    
+    
+    
     return (
         <div className="flex flex-col w-screen overflow-x-hidden" >
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
@@ -104,9 +165,10 @@ const About = () => {
                 </div>
 
             </div>
-            <div className="flex flex-col md:flex-row md:items-center px-7 md:px-16 md:mb-20">
+            <div className="flex flex-col md:flex-row md:items-center 
+            justify-center px-7 md:px-16 md:mb-20">
                 <div className="w-full h-[40vh] overflow-visible md:h-screen flex flex-col justify-center  ">
-                    <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center md:text-left md:p-7 lg:h-[20%]">MODULES</div>
+                    <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center md:text-left md:p-7 ">MODULES</div>
                     <div className="md:px-7 text-[#B5D8EABF] text-xl text-justify  pb-4 font-outfit md:text-left md:w-3/4 md:text-2xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </div>
                     <div className="text-center flex items-center md:justify-start justify-center md:pl-7">
                         <div className="w-3/4 
@@ -117,32 +179,33 @@ const About = () => {
                     </div>
 
                 </div>
-                <div className="w-full h-[50vh]  md:h-[80vh]  overflow-hidden">
-                    <div className="relative w-full h-[300px] md:h-[500px] ">
+                <div className="w-full h-[50vh]  md:h-[100%]  overflow-hidden flex flex-col justify-center ">
+                    <div className="relative w-full h-[300px] md:h-[500px]  top-[-60px] ">
 
-                        <div className="absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
+                        <div ref={class1DivRef} className="class1 absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
                         </div>
 
 
                         <div className="relative w-full h-full">
 
-                            <img
+                            <img ref={image1Ref}
                                 src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624289/DFAS_ksi64o.webp"
                                 alt="Image 1"
-                                className="absolute top-[50%] left-1/2 transform -translate-x-1/2 w-[320px] md:w-[440px] h-1/2 object-cover z-10"
+                                className="class1 absolute top-[50%] left-1/2 transform -translate-x-1/2 w-[320px] md:w-[440px] h-1/2 object-cover z-10"
                             />
 
-                            <img
+                            <img ref={image2Ref}
                                 src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624313/ONLI_q2feli.webp"
                                 alt="Image 2"
-                                className="absolute top-[18%]  md:top-[20%] left-1/2 transform -translate-x-1/2 w-36 md:w-56 h-auto object-cover z-20"
+                                className="class1 absolute top-[18%]  md:top-[20%] left-1/2 transform -translate-x-1/2 w-36 md:w-56 h-auto object-cover z-20"
                             />
 
 
-                            <img
+                            <img ref={image3Ref}
                                 src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728629253/ezgif-2-181eaf98db_t96qn5.webp"
                                 alt="Image 3"
-                                className="absolute top-[65%]  left-1/2 transform -translate-x-1/2 w-[160px] h-auto object-cover z-30"
+                                className="class1 absolute top-[65%]  left-1/2 transform -translate-x-1/2 
+                               w-[160px] md:w-[260px] h-auto object-cover z-30"
                             />
                         </div>
                     </div>
