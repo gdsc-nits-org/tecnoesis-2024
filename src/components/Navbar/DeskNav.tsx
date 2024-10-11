@@ -113,13 +113,13 @@ const Navbar = () => {
     <nav
       className={
         outin.className +
-        " absolute top-0 z-20 w-screen bg-nav-gradient to-transparent"
+        " absolute top-0 z-20 w-screen bg-nav-gradient to-transparent pt-[3vh]"
       }
     >
       <div className="sticky top-0 flex items-center justify-between px-[2vw] text-center text-[1.5vw] text-white">
         <Link href="/">
           <Image
-            src="/Landing/tecnoesisLogo.webp"
+            src="/assets/NavbarMobile/tecnoLogo.png"
             width={300}
             height={80}
             alt="Tecno 24 logo"
