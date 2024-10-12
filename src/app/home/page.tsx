@@ -3,6 +3,7 @@ import MarqueeComponent from "~/components/sponsorMarquee";
 import SponsorHome from "~/components/SponsorHome";
 import PhotoGallery from "~/components/PhotoGallery";
 import About from "~/components/AboutPage";
+import FinalFooter from "~/components/FinalFooter";
 
 export default function Page() {
   return (
@@ -30,6 +31,7 @@ export default function Page() {
       <div className="px-10 w-full">
         <SponsorHome/>
       </div>
+      <FinalFooter />
     </div>
   );
 }
