@@ -103,7 +103,9 @@ const Login = () => {
     } else {
       return (
         <section className="auto group min-w-[8vw] max-w-[20vw]">
-          <button 
+          <button onClick={()=>{
+            router.push("/home")
+          }}
           className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
             {_user?.photoURL && (
               <Image
@@ -164,6 +166,7 @@ const ProfileCard: React.FC<UserCred> = ({
   displayName,
   userName,
 }) => {
+  const router = useRouter();
   return (
     <section
       className={"mx-4 flex items-center justify-center rounded-lg p-4"}
@@ -196,7 +199,9 @@ const ProfileCard: React.FC<UserCred> = ({
             {userName?.toLocaleLowerCase()}
           </h3>
         </div>
-        <button className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]">
+        <button onClick={()=>{
+            router.push("/home")
+          }} className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]">
           View Profile
         </button>
       </div>
