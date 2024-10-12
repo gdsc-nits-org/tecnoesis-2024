@@ -38,6 +38,71 @@ jobs:
               fi
           }
 
+          fetchlogs() {
+            DEPLOYMENT=$1
+            if [ -z "$DEPLOYMENT" ]; then
+                echo "No deployments found for branch: $PR_BRANCH."
+                exit 0
+            fi
+            DEPLOYMENT_ID=$(echo "$DEPLOYMENT" | jq -r '.id')
+            echo "\`\`\`"
+
+            echo "Fetching deployment logs for deployment: $DEPLOYMENT_ID"
+
+            # Fetch the deployment logs using the correct endpoint
+            LOGS_RESPONSE=$(curl -s -X GET \
+                "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/history/logs" \
+                -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+                -H "Content-Type: application/json")
+
+            if echo "$LOGS_RESPONSE" | jq -e '.success == true' > /dev/null; then
+                echo "Deployment Log Summary:"
+                echo "========================"
+
+                # Extract and display total log entries
+                TOTAL_LOGS=$(echo "$LOGS_RESPONSE" | jq -r '.result.total')
+                echo "Total log entries: $TOTAL_LOGS"
+                echo ""
+
+                # Parse and display log entries
+                echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
+                    timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
+                    message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
+
+                    # Check for important messages and format accordingly
+                    case "$message" in
+                        "Cloning repository..."*)
+                            echo -e "\n[STEP] $message"
+                            ;;
+                        "Success: Finished cloning repository files")
+                            echo -e "[SUCCESS] $message\n"
+                            ;;
+                        "Installing project dependencies:"*)
+                            echo -e "\n[STEP] $message"
+                            ;;
+                        "Error:"*|"Failed:"*)
+                            echo -e "\n[ERROR] $message"
+                            ;;
+                        *"ERR_PNPM"*)
+                            echo -e "[ERROR] $message"
+                            ;;
+                        "Detected the following tools"*)
+                            echo -e "\n[INFO] $message"
+                            ;;
+                        *)
+                            echo "[$timestamp] $message"
+                            ;;
+                    esac
+                done
+            else
+                echo "Failed to fetch deployment logs. API Response:"
+                echo "$LOGS_RESPONSE" | jq '.'
+            fi
+            echo "\`\`\`"
+          }
+
+
+
           fetch_and_parse_deployment_logs() {
               DEPLOYMENT=$1
               if [ -z "$DEPLOYMENT" ]; then
@@ -47,73 +112,55 @@ jobs:
               DEPLOYMENT_ID=$(echo "$DEPLOYMENT" | jq -r '.id')
               
               echo "Fetching deployment logs for deployment: $DEPLOYMENT_ID"
-              
               LOGS_RESPONSE=$(curl -s -X GET \
                   "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/history/logs" \
                   -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
                   -H "Content-Type: application/json")
               
               if echo "$LOGS_RESPONSE" | jq -e '.success == true' > /dev/null; then
-                  LOG_OUTPUT="Deployment Log Summary:\n========================\n"
-                  
+                  echo "Deployment Log Summary:\n========================\n"
                   TOTAL_LOGS=$(echo "$LOGS_RESPONSE" | jq -r '.result.total')
-                  LOG_OUTPUT+="Total log entries: $TOTAL_LOGS\n\n"
-                  
+                  echo "Total log entries: $TOTAL_LOGS"
+                  echo "\`\`\`sh\n"
                   echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
                       timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
                       message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
                       
                       case "$message" in
                           "Cloning repository..."*)
-                              LOG_OUTPUT+="\n[STEP] $message"
+                              echo -e "\n[STEP] $message"
                               ;;
                           "Success: Finished cloning repository files")
-                              LOG_OUTPUT+="[SUCCESS] $message\n"
+                              echo -e "[SUCCESS] $message\n"
                               ;;
                           "Installing project dependencies:"*)
-                              LOG_OUTPUT+="\n[STEP] $message"
+                              echo -e "\n[STEP] $message"
                               ;;
                           "Error:"*|"Failed:"*)
-                              LOG_OUTPUT+="\n[ERROR] <span style='color:red;'>$message</span>"
+                              echo -e "\n[ERROR] $message"
                               ;;
                           *"ERR_PNPM"*)
-                              LOG_OUTPUT+="[ERROR] <span style='color:red;'>$message</span>"
+                              echo -e "[ERROR] $message"
                               ;;
                           "Detected the following tools"*)
-                              LOG_OUTPUT+="\n[INFO] $message"
+                              echo -e "\n[INFO] $message"
                               ;;
                           *)
-                              LOG_OUTPUT+="[$timestamp] $message"
+                              echo -e "[$timestamp] $message"
                               ;;
                       esac
                   done
-
-                  # Set the log output as an output variable
-                  echo "log_output=$LOG_OUTPUT" >> $GITHUB_ENV
+                  echo "\`\`\`"
               else
-                  echo "Failed to fetch deployment logs. API Response:"
-                  echo "$LOGS_RESPONSE" | jq '.'
+                  echo "Failed to fetch deployment logs."
               fi
           }
 
           latest_deployment=$(fetch_latest_deployment)
-          BUILD_LOGS=$(fetch_and_parse_deployment_logs "$latest_deployment")
+          BUILD_LOGS=$(fetchlogs "$latest_deployment")
           echo "logs<<EOF" >> $GITHUB_ENV
           echo "$BUILD_LOGS" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-
-      # - name: Comment on PR
-      #   uses: actions/github-script@v5
-      #   with:
-      #     script: |
-      #       const logMessage = process.env.log_output || 'No logs found.';
-      #       const prNumber = context.payload.pull_request.number;
-      #       await github.issues.createComment({
-      #         issue_number: prNumber,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: logMessage.replace(/<span style='color:red;'>/g, '**').replace(/<\/span>/g, '**')
-      #       })
 
       - name: Post build logs to PR
         if: success()
@@ -121,7 +168,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const buildLogs = process.env.logs;
+            const buildLogs = process.env.logs || 'No logs available.';
             const commentBody = `Cloudflare Pages build logs for branch **${{ github.head_ref }}**:\n\n${buildLogs}`;
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -129,3 +176,8 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             });
+
+      - name: Post build status
+        if: always()
+        run: |
+          echo "Build status: ${{ job.status }}"
