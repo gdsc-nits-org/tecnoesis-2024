@@ -1,0 +1,40 @@
+name: Cloudflare Pages Build Logs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Cloudflare Pages build logs
+        run: |
+          CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ZONE_ID=${{ secrets.CLOUDFLARE_ZONE_ID }}
+          PROJECT_NAME=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+
+          # API call to get the latest Cloudflare Pages build logs
+          BUILD_LOGS=$(curl -X GET \
+            "https://api.cloudflare.com/client/v4/accounts/$ZONE_ID/pages/projects/$PROJECT_NAME/deployments" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json")
+
+          echo "$BUILD_LOGS"
+
+      - name: Post build logs to PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const buildLogs = process.env.BUILD_LOGS;
+            const commentBody = `Cloudflare Pages build logs:\n\n\`\`\`json\n${buildLogs}\n\`\`\``;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            })
