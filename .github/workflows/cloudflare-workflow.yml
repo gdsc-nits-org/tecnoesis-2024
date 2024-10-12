@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set variables
         id: vars
@@ -19,7 +19,7 @@ jobs:
           echo "ACCOUNT_ID=a78f164886c715236ce6aad68eb42d3e" >> $GITHUB_ENV
           echo "PR_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
 
-      - name: Fetch Deployment Logs
+      - name: Wait for Cloudflare Pages build and fetch logs
         id: fetch_logs
         run: |
           fetch_latest_deployment() {
@@ -36,6 +36,32 @@ jobs:
                   echo "$RESPONSE" | jq '.'
                   exit 1
               fi
+          }
+
+          wait_for_build_completion() {
+              MAX_ATTEMPTS=30
+              ATTEMPT=0
+              SLEEP_TIME=20
+
+              while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+                  DEPLOYMENT=$(fetch_latest_deployment)
+                  STATUS=$(echo "$DEPLOYMENT" | jq -r '.status')
+
+                  if [ "$STATUS" = "success" ] || [ "$STATUS" = "failed" ]; then
+                      echo "Build completed with status: $STATUS"
+                      return 0
+                  elif [ "$STATUS" = "canceled" ]; then
+                      echo "Build was canceled"
+                      return 1
+                  fi
+
+                  echo "Build still in progress. Waiting..."
+                  sleep $SLEEP_TIME
+                  ATTEMPT=$((ATTEMPT + 1))
+              done
+
+              echo "Timeout waiting for build to complete"
+              return 1
           }
 
           fetchlogs() {
@@ -101,66 +127,16 @@ jobs:
             echo "\`\`\`"
           }
 
-
-
-          fetch_and_parse_deployment_logs() {
-              DEPLOYMENT=$1
-              if [ -z "$DEPLOYMENT" ]; then
-                  echo "No deployments found for branch: $PR_BRANCH."
-                  exit 0
-              fi
-              DEPLOYMENT_ID=$(echo "$DEPLOYMENT" | jq -r '.id')
-              
-              echo "Fetching deployment logs for deployment: $DEPLOYMENT_ID"
-              LOGS_RESPONSE=$(curl -s -X GET \
-                  "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/history/logs" \
-                  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-                  -H "Content-Type: application/json")
-              
-              if echo "$LOGS_RESPONSE" | jq -e '.success == true' > /dev/null; then
-                  echo "Deployment Log Summary:\n========================\n"
-                  TOTAL_LOGS=$(echo "$LOGS_RESPONSE" | jq -r '.result.total')
-                  echo "Total log entries: $TOTAL_LOGS"
-                  echo "\`\`\`sh\n"
-                  echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
-                      timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
-                      message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
-                      
-                      case "$message" in
-                          "Cloning repository..."*)
-                              echo -e "\n[STEP] $message"
-                              ;;
-                          "Success: Finished cloning repository files")
-                              echo -e "[SUCCESS] $message\n"
-                              ;;
-                          "Installing project dependencies:"*)
-                              echo -e "\n[STEP] $message"
-                              ;;
-                          "Error:"*|"Failed:"*)
-                              echo -e "\n[ERROR] $message"
-                              ;;
-                          *"ERR_PNPM"*)
-                              echo -e "[ERROR] $message"
-                              ;;
-                          "Detected the following tools"*)
-                              echo -e "\n[INFO] $message"
-                              ;;
-                          *)
-                              echo -e "[$timestamp] $message"
-                              ;;
-                      esac
-                  done
-                  echo "\`\`\`"
-              else
-                  echo "Failed to fetch deployment logs."
-              fi
-          }
-
-          latest_deployment=$(fetch_latest_deployment)
-          BUILD_LOGS=$(fetchlogs "$latest_deployment")
-          echo "logs<<EOF" >> $GITHUB_ENV
-          echo "$BUILD_LOGS" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          if wait_for_build_completion; then
+              latest_deployment=$(fetch_latest_deployment)
+              BUILD_LOGS=$(fetchlogs "$latest_deployment")
+              echo "logs<<EOF" >> $GITHUB_ENV
+              echo "$BUILD_LOGS" >> $GITHUB_ENV
+              echo "EOF" >> $GITHUB_ENV
+          else
+              echo "Failed to fetch logs: Build did not complete successfully"
+              exit 1
+          fi
 
       - name: Post build logs to PR
         if: success()
