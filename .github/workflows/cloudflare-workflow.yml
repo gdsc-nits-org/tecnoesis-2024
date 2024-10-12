@@ -17,10 +17,11 @@ jobs:
         run: |
           PROJECT_NAME=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
           CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT_ID=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
           # API call to get the latest Cloudflare Pages build logs
           RESPONSE=$(curl -s -o response.json -w "%{http_code}" -X GET \
-            "https://api.cloudflare.com/client/v4/accounts/$ZONE_ID/pages/projects/$PROJECT_NAME/deployments" \
+            "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json")
 
