@@ -94,6 +94,7 @@ jobs:
                 echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
                     timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
                     message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
+                    echo "DEBUG: Raw message: $message" >&2
 
                     # Check for important messages and format accordingly
                     case "$message" in
