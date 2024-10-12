@@ -100,13 +100,13 @@ jobs:
                             echo -e "\n[STEP] $message"
                             ;;
                         "Error:"*|"Failed:"*)
-                            echo -e "\n[ERROR] $(tput setaf 1)$message$(tput sgr0)"
+                            echo -e "\n[ERROR] $message"
                             ;;
                         *"ERR_PNPM"*)
-                            echo -e "[ERROR] $(tput setaf 1)$message$(tput sgr0)"
+                            echo -e "[ERROR] $message$"
                             ;;
                         "Detected the following tools"*)
-                            echo -e "\n[INFO] $(tput setaf 3)$message$(tput sgr0)"
+                            echo -e "\n[INFO] $message"
                             ;;
                         *)
                             echo "$message"
