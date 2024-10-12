@@ -85,11 +85,11 @@ const About = () => {
     return (
         <div className="flex flex-col w-screen overflow-x-hidden" >
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
-                <div className="w-full h-[50vh] md:h-[30vh]  lg:w-1/3 lg:h-auto">
+                <div className=" upper w-full h-[50vh] md:h-[30vh]  lg:w-1/3 lg:h-auto">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left ">ABOUT NIT SILCHAR</div>
-                    <div className="px-7 text-[#B5D8EABF] text-xl text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
+                    <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
                 </div>
-                <div className="w-full h-[40vh] flex justify-center items-center lg:w-1/3 ">
+                <div className="lower w-full h-[40vh] flex justify-center items-center lg:w-1/3">
                     <div className="relative w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] overflow-visible ">
                         <Image
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/1_oztzxp.webp"
@@ -151,7 +151,7 @@ const About = () => {
                 </div>
                 <div className="w-full h-1/2 lg:w-1/3 lg:h-auto">
                     <div className="p-7 text-gradient-blue m-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-right md:m-0">ABOUT US</div>
-                    <div className="px-7 text-xl text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-xl md:text-center md:text-3xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
+                    <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-xl md:text-center md:text-3xl ">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
                 </div>
             </div>
             <div className="text-center p-8 flex items-center justify-center md:h-[20vh]">
@@ -162,11 +162,11 @@ const About = () => {
                 </div>
 
             </div>
-            <div className="flex flex-col md:flex-row md:items-center 
+            <div className=" flex flex-col md:flex-row md:items-center 
             justify-center px-7 md:px-16 md:mb-20">
-                <div className="w-full h-[40vh] overflow-visible md:h-screen flex flex-col justify-center  ">
+                <div className="w-full h-[50vh] overflow-visible md:h-screen flex flex-col justify-center  ">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center md:text-left md:p-7 ">MODULES</div>
-                    <div className="md:px-7 text-[#B5D8EABF] text-xl text-justify  pb-4 font-outfit md:text-left md:w-3/4 md:text-2xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </div>
+                    <div className="md:px-7 text-[#B5D8EABF] text-xl text-justify  pb-4  font-outfit md:text-left md:w-3/4 md:text-2xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </div>
                     <div className="text-center flex items-center md:justify-start justify-center md:pl-7">
                         <div className="w-3/4 
                h-3 text-xs lg:w-1/2 md:w-3/4 font-outfit">
@@ -176,7 +176,7 @@ const About = () => {
                     </div>
 
                 </div>
-                <div className="w-full h-[50vh]  md:h-[100%]  overflow-hidden flex flex-col justify-center ">
+                <div className="w-full h-[50vh]  md:h-[100%]  overflow-hidden flex flex-col justify-center">
                     <div className="relative w-full h-[300px] md:h-[500px]  top-[-60px] ">
 
                         <div ref={class1DivRef} className="class1 rounded-3xl absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
