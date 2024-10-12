@@ -6,9 +6,6 @@ import { gsap } from 'gsap';
 import CustomButton from '../components/CustomButton'
 
 
-
-
-
 const About = () => {
 
     const image2WrapperRef = useRef<HTMLDivElement | null>(null);
@@ -34,57 +31,57 @@ const About = () => {
         const handleMouseMove = (event: MouseEvent) => {
             const mouseX = event.clientX;
             const mouseY = event.clientY;
-    
-            // Animate Image 1
+
+
             if (image1Ref.current) {
                 gsap.to(image1Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.05, // slight movement
+                    x: (mouseX - window.innerWidth / 2) * 0.05,
                     y: (mouseY - window.innerHeight / 2) * 0.05,
                     duration: 0.6,
                     ease: "power3.out",
                 });
             }
-    
-            // Animate Image 2
+
+
             if (image2Ref.current) {
                 gsap.to(image2Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.08, // more movement
+                    x: (mouseX - window.innerWidth / 2) * 0.08,
                     y: (mouseY - window.innerHeight / 2) * 0.08,
                     duration: 0.6,
                     ease: "power3.out",
                 });
             }
-    
-            // Animate Image 3
+
+
             if (image3Ref.current) {
                 gsap.to(image3Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.1, // more movement
+                    x: (mouseX - window.innerWidth / 2) * 0.1,
                     y: (mouseY - window.innerHeight / 2) * 0.1,
                     duration: 0.6,
                     ease: "power3.out",
                 });
             }
-    
-            // Animate class1 div
+
+
             if (class1DivRef.current) {
                 gsap.to(class1DivRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.05, // strongest magnetic effect
+                    x: (mouseX - window.innerWidth / 2) * 0.05,
                     y: (mouseY - window.innerHeight / 2) * 0.05,
                     duration: 0.6,
                     ease: "power3.out",
                 });
             }
         };
-    
+
         window.addEventListener('mousemove', handleMouseMove);
-    
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
-    
-    
-    
+
+
+
     return (
         <div className="flex flex-col w-screen overflow-x-hidden" >
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
@@ -100,7 +97,7 @@ const About = () => {
                             className="absolute top-1/2 left-1/2 w-[30%] h-[30%] transform -translate-x-1/2 -translate-y-1/2 z-7"
                             width={250}
                             height={250}
-                            objectFit="cover"
+                            style={{ objectFit: 'cover' }}
                         />
                         <div ref={image2WrapperRef} className="absolute top-1/2 left-1/2 w-[80%] h-[80%] lg:w-[60%] lg:h-[60%] transform -translate-x-1/2 -translate-y-1/2 z-6">
                             <Image
@@ -108,7 +105,7 @@ const About = () => {
                                 alt="Image 2"
                                 width={250}
                                 height={250}
-                                objectFit="cover"
+                                style={{ objectFit: 'cover' }}
                             />
                         </div>
 
@@ -118,7 +115,7 @@ const About = () => {
                             className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5"
                             width={250}
                             height={250}
-                            objectFit="cover"
+                            style={{ objectFit: 'cover' }}
                         />
                         <Image
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/dotted_ring_tcdt3j.webp"
@@ -126,7 +123,7 @@ const About = () => {
                             className="absolute top-1/2 left-1/2 w-[70%] h-[70%] transform -translate-x-1/2 -translate-y-1/2 z-4"
                             width={250}
                             height={250}
-                            objectFit="cover"
+                            style={{ objectFit: 'cover' }}
                         />
                         <Image
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/static_ring_ehsm66.webp"
@@ -141,7 +138,7 @@ const About = () => {
                             className="absolute top-1/2 left-1/2 w-[100%] h-[100%] transform -translate-x-1/2 -translate-y-1/2 z-2"
                             width={250}
                             height={250}
-                            objectFit="cover"
+                            style={{ objectFit: 'cover' }}
                         />
                         <Image
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465507/outer_ring_amzrc1.webp"
@@ -182,7 +179,7 @@ const About = () => {
                 <div className="w-full h-[50vh]  md:h-[100%]  overflow-hidden flex flex-col justify-center ">
                     <div className="relative w-full h-[300px] md:h-[500px]  top-[-60px] ">
 
-                        <div ref={class1DivRef} className="class1 absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
+                        <div ref={class1DivRef} className="class1 rounded-3xl absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
                         </div>
 
 
