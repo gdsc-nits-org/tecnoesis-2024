@@ -26,7 +26,7 @@ interface Event {
     minTeamSize: number;
 }
 
-interface AllUserResponse {
+interface UserResponse {
     balance: number;
     collegeName: string;
     email: string;
@@ -39,11 +39,6 @@ interface AllUserResponse {
     phoneNumber: string;
     registrationId: string;
     username: string;
-}
-
-interface GetApiTeam {
-    status: string;
-    msg: Team[];
 }
 
 interface GetEventAPIResponse {
@@ -76,15 +71,16 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     });
     const [isSoloEvent, setIsSoloEvent] = useState<boolean>(false);
     const [event, setEvent] = useState<Event | null>(null);
-    const [allUsers, setAllUsers] = useState<AllUserResponse[]>([]);
+    const [allUsers, setAllUsers] = useState<UserResponse[]>([]);
+    const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
     const [formErrors, setFormErrors] = useState<Record<string, string>>({});
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [search, setSearch] = useState("");
     const searchButtonRef = useRef<HTMLDivElement | null>(null);
 
-    const fetchAllUsers = async (token: string) => {
+    const fetchAllUsers = async () => {
         try {
-            const { data } = await axios.get<{ msg: AllUserResponse[] }>(
+            const { data } = await axios.get<{ msg: UserResponse[] }>(
                 `${env.NEXT_PUBLIC_API_URL}/api/user/`,
                 {
                     headers: {
@@ -92,10 +88,28 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                     },
                 }
             );
+            console.log(data);
             return data.msg;
         } catch (e) {
             console.error(e);
             return [];
+        }
+    };
+    const fetchUser = async (token: string) => {
+        try {
+            const { data } = await axios.get<{ msg: UserResponse }>(
+                `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            console.log(data);
+            return data.msg.username;
+        } catch (e) {
+            console.error(e);
+            return;
         }
     };
 
@@ -119,8 +133,17 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         void (async () => {
             const token = await user?.getIdToken();
             if (!token) return;
-            setAllUsers(await fetchAllUsers(token));
+            setAllUsers(await fetchAllUsers());
         })();
+        void (async () => {
+            const token = user?.uid;
+            if (!token) return;
+            const leaderUsername = await fetchUser(token);
+            if (leaderUsername) {
+                setTeamLeader(leaderUsername);
+            }
+        })();
+
     }, [user]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -131,18 +154,18 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         }));
     };
 
-    const handleTeamMemberSelect = (username: string) => {
-        if (
-            !formData.members.includes(username) &&
-            formData.members.length < (event?.maxTeamSize || Infinity)
-        ) {
-            setFormData((prevData) => ({
-                ...prevData,
-                members: [...prevData.members, username],
-            }));
-        }
-        setIsOpen(false);
-    };
+    // const handleTeamMemberSelect = (username: string) => {
+    //     if (
+    //         !formData.members.includes(username) &&
+    //         formData.members.length < (event?.maxTeamSize || Infinity)
+    //     ) {
+    //         setFormData((prevData) => ({
+    //             ...prevData,
+    //             members: [...prevData.members, username],
+    //         }));
+    //     }
+    //     setIsOpen(false);
+    // };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -156,11 +179,11 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                     const validatedData = userDataSchema.parse(formData);
 
                     const token = await user.getIdToken();
-                    const response = await axios.post<GetApiTeam>(
+                    await axios.post(
                         `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
                         {
                             ...validatedData,
-                            extraInformation: ["Hardcoded Extra Info"],
+                            extraInformation: "This team specialises in AI and machine learning projects",
                         },
                         {
                             headers: {
@@ -249,23 +272,15 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                                 type="text"
                                 id="teamLeader"
                                 name="teamLeader"
-                                value={formData.members[0] ?? ""}
-                                onChange={(e) => handleTeamMemberSelect(e.target.value)}
+                                value={teamLeader}
                                 className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-full h-10 text-white text-center"
-                                required
+                                readOnly
                             />
-                            <div
-                                ref={searchButtonRef}
-                                onClick={() => setIsOpen(true)}
-                                className="absolute right-0 mr-2 cursor-pointer text-white"
-                            >
-                                🔍
-                            </div>
                         </div>
                     </div>
 
-                    {isSoloEvent &&
-                        Array.from({ length: event?.maxTeamSize }).map((_, idx) => (
+                    {/* {!isSoloEvent &&
+                        Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
                             <div
                                 key={idx}
                                 className="inline-flex justify-between items-center lg:gap-7 w-full"
@@ -294,22 +309,22 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
                 </div>
 
-                <CommandPalette
+                {/* <CommandPalette
                     isOpen={isOpen}
                     onChangeSearch={(value: any) => setSearch(value)}
                     onChangeOpen={(open: any) => setIsOpen(open)}
                     search={search}
-                    ref={searchButtonRef}
-                    page={
-                        <CommandPalette.Page id="root">
-                            {filterItems(
+                    pages={[
+                        {
+                            id: 'root',
+                            children: filterItems(
                                 filteredUsers?.map((user) => ({
                                     id: user.username,
                                     children: user.username,
-                                })) ?? [], 
+                                })) ?? [],
                                 search
                             ).map((item: any) => (
                                 <CommandPalette.ListItem
@@ -319,11 +334,10 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                                 >
                                     {item.children}
                                 </CommandPalette.ListItem>
-                            ))}
-
-                        </CommandPalette.Page>
-                    }
-                />
+                            )),
+                        },
+                    ]}
+                /> */}
 
                 <div className="w-full flex items-center justify-around mt-10 ">
                     <button
