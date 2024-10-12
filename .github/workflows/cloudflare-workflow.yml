@@ -45,7 +45,7 @@ jobs:
 
               while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
                   DEPLOYMENT=$(fetch_latest_deployment)
-                  STATUS=$(echo "$DEPLOYMENT" | jq -r '.status')
+                  STATUS=$(echo "$DEPLOYMENT" | jq -r '.latest_stage.status')
 
                   if [ "$STATUS" = "success" ] || [ "$STATUS" = "failed" ]; then
                       echo "Build completed with status: $STATUS"
