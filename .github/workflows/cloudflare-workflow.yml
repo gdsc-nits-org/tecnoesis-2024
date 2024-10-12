@@ -75,7 +75,6 @@ jobs:
 
             echo "Fetching deployment logs for deployment: $DEPLOYMENT_ID"
 
-            # Fetch the deployment logs using the correct endpoint
             LOGS_RESPONSE=$(curl -s -X GET \
                 "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/history/logs" \
                 -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
@@ -85,18 +84,11 @@ jobs:
                 echo "Deployment Log Summary:"
                 echo "========================"
 
-                # Extract and display total log entries
                 TOTAL_LOGS=$(echo "$LOGS_RESPONSE" | jq -r '.result.total')
                 echo "Total log entries: $TOTAL_LOGS"
                 echo ""
 
-                # Parse and display log entries
-                echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
-                    timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
-                    message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
-                    echo "DEBUG: Raw message: $message" >&2
-
-                    # Check for important messages and format accordingly
+                echo "$LOGS_RESPONSE" | jq -r '.result.data[] | .line' | while read -r message; do
                     case "$message" in
                         "Cloning repository..."*)
                             echo -e "\n[STEP] $message"
@@ -108,16 +100,16 @@ jobs:
                             echo -e "\n[STEP] $message"
                             ;;
                         "Error:"*|"Failed:"*)
-                            echo -e "\n[ERROR] $message"
+                            echo -e "\n[ERROR] $(tput setaf 1)$message$(tput sgr0)"
                             ;;
                         *"ERR_PNPM"*)
-                            echo -e "[ERROR] $message"
+                            echo -e "[ERROR] $(tput setaf 1)$message$(tput sgr0)"
                             ;;
                         "Detected the following tools"*)
-                            echo -e "\n[INFO] $message"
+                            echo -e "\n[INFO] $(tput setaf 3)$message$(tput sgr0)"
                             ;;
                         *)
-                            echo "[$timestamp] $message"
+                            echo "$message"
                             ;;
                     esac
                 done
