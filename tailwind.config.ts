@@ -1,5 +1,6 @@
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 import { transform } from "next/dist/build/swc"
-import type { Config } from "tailwindcss"
 
 const config = {
   darkMode: ["class"],
@@ -79,6 +80,14 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        upDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        oppositeUpDown: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(20px)' },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -136,6 +145,8 @@ const config = {
         'custom-ellipse': 'ellipse(100% 50% at 50% 100%)',
       },
       animation: {
+        upDown: "upDown 3s ease-in-out infinite",
+        oppositeUpDown: "oppositeUpDown 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'bg-glitch': 'bg-glitch 5s infinite alternate',
@@ -147,10 +158,9 @@ const config = {
         'nav-gradient' : 'linear-gradient(to top, transparent 0%, #070710 50%)',
         'blue-metall': 'linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)',
       },
-    
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [tailwindcssAnimate], 
+} satisfies Config;
 
-export default config
+export default config;
