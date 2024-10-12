@@ -1,67 +1,119 @@
-name: Cloudflare Pages Build Logs
+name: Fetch Deployment Logs
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize]
 
 jobs:
-  build:
+  fetch-logs:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Get Cloudflare Pages build logs for PR branch
+      - name: Set variables
+        id: vars
+        run: |
+          echo "PROJECT_NAME=tecnoesis-2024" >> $GITHUB_ENV
+          echo "CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}" >> $GITHUB_ENV
+          echo "ACCOUNT_ID=a78f164886c715236ce6aad68eb42d3e" >> $GITHUB_ENV
+          echo "PR_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
+
+      - name: Fetch Deployment Logs
         id: fetch_logs
         run: |
-          PROJECT_NAME=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
-          ACCOUNT_ID=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          PR_BRANCH=${{ github.head_ref }}
+          fetch_latest_deployment() {
+              RESPONSE=$(curl -s -X GET \
+                  "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments" \
+                  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+                  -H "Content-Type: application/json")
+              
+              if echo "$RESPONSE" | jq -e '.success == true' > /dev/null; then
+                  LATEST_DEPLOYMENT=$(echo "$RESPONSE" | jq -c --arg branch "$PR_BRANCH" '.result | map(select(.deployment_trigger.metadata.branch == $branch)) | max_by(.created_on)')
+                  echo "$LATEST_DEPLOYMENT"
+              else
+                  echo "Cloudflare API request failed. Response:"
+                  echo "$RESPONSE" | jq '.'
+                  exit 1
+              fi
+          }
 
-          # API call to get the deployments for the PR branch
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" -X GET \
-            "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json")
+          fetch_and_parse_deployment_logs() {
+              DEPLOYMENT=$1
+              if [ -z "$DEPLOYMENT" ]; then
+                  echo "No deployments found for branch: $PR_BRANCH."
+                  exit 0
+              fi
+              DEPLOYMENT_ID=$(echo "$DEPLOYMENT" | jq -r '.id')
+              
+              echo "Fetching deployment logs for deployment: $DEPLOYMENT_ID"
+              
+              LOGS_RESPONSE=$(curl -s -X GET \
+                  "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/history/logs" \
+                  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+                  -H "Content-Type: application/json")
+              
+              if echo "$LOGS_RESPONSE" | jq -e '.success == true' > /dev/null; then
+                  LOG_OUTPUT="Deployment Log Summary:\n========================\n"
+                  
+                  TOTAL_LOGS=$(echo "$LOGS_RESPONSE" | jq -r '.result.total')
+                  LOG_OUTPUT+="Total log entries: $TOTAL_LOGS\n\n"
+                  
+                  echo "$LOGS_RESPONSE" | jq -r '.result.data[] | "\(.ts) | \(.line)"' | while read -r log_entry; do
+                      timestamp=$(echo "$log_entry" | cut -d'|' -f1 | xargs)
+                      message=$(echo "$log_entry" | cut -d'|' -f2- | xargs)
+                      
+                      case "$message" in
+                          "Cloning repository..."*)
+                              LOG_OUTPUT+="\n[STEP] $message"
+                              ;;
+                          "Success: Finished cloning repository files")
+                              LOG_OUTPUT+="[SUCCESS] $message\n"
+                              ;;
+                          "Installing project dependencies:"*)
+                              LOG_OUTPUT+="\n[STEP] $message"
+                              ;;
+                          "Error:"*|"Failed:"*)
+                              LOG_OUTPUT+="\n[ERROR] <span style='color:red;'>$message</span>"
+                              ;;
+                          *"ERR_PNPM"*)
+                              LOG_OUTPUT+="[ERROR] <span style='color:red;'>$message</span>"
+                              ;;
+                          "Detected the following tools"*)
+                              LOG_OUTPUT+="\n[INFO] $message"
+                              ;;
+                          *)
+                              LOG_OUTPUT+="[$timestamp] $message"
+                              ;;
+                      esac
+                  done
 
-          # Check if the API call was successful (HTTP 2xx status code)
-          if [ "$RESPONSE" -ge 200 ] && [ "$RESPONSE" -lt 300 ]; then
-            echo "Cloudflare API request succeeded."
-            
-            # Filter deployments for the current PR branch
-            DEPLOYMENTS=$(jq -c --arg branch "$PR_BRANCH" '.result[] | select(.deployment_trigger.metadata.branch == $branch)' response.json)
-            
-            if [ -z "$DEPLOYMENTS" ]; then
-              BUILD_LOGS="No deployments found for branch: $PR_BRANCH."
-            else
-              BUILD_LOGS=""
-              while IFS= read -r deployment; do
-                # Extract the deployment ID to fetch logs
-                DEPLOYMENT_ID=$(echo "$deployment" | jq -r '.id')
-                
-                # Fetching logs using the deployment ID
-                LOGS_RESPONSE=$(curl -s -o logs.json -w "%{http_code}" -X GET \
-                  "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments/$DEPLOYMENT_ID/logs" \
-                  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN")
-                
-                # Check if logs API call was successful
-                if [ "$LOGS_RESPONSE" -ge 200 ] && [ "$LOGS_RESPONSE" -lt 300 ]; then
-                  LOGS=$(cat logs.json | jq -r '.result | .[] | .message')
-                  BUILD_LOGS+="\n\`\`\`\n$LOGS\n\`\`\`"
-                else
-                  BUILD_LOGS+="\nFailed to fetch logs for deployment: $DEPLOYMENT_ID"
-                fi
-              done <<< "$DEPLOYMENTS"
-            fi
-            echo "::set-output name=logs::$BUILD_LOGS"
-          else
-            echo "Cloudflare API request failed with status code: $RESPONSE"
-            echo "Response:"
-            cat response.json
-            exit 1  # Explicitly fail the job
-          fi
+                  # Set the log output as an output variable
+                  echo "log_output=$LOG_OUTPUT" >> $GITHUB_ENV
+              else
+                  echo "Failed to fetch deployment logs. API Response:"
+                  echo "$LOGS_RESPONSE" | jq '.'
+              fi
+          }
+
+          latest_deployment=$(fetch_latest_deployment)
+          BUILD_LOGS=$(fetch_and_parse_deployment_logs "$latest_deployment")
+          echo "logs<<EOF" >> $GITHUB_ENV
+          echo "$BUILD_LOGS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # - name: Comment on PR
+      #   uses: actions/github-script@v5
+      #   with:
+      #     script: |
+      #       const logMessage = process.env.log_output || 'No logs found.';
+      #       const prNumber = context.payload.pull_request.number;
+      #       await github.issues.createComment({
+      #         issue_number: prNumber,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: logMessage.replace(/<span style='color:red;'>/g, '**').replace(/<\/span>/g, '**')
+      #       })
 
       - name: Post build logs to PR
         if: success()
@@ -69,11 +121,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const buildLogs = `${{ steps.fetch_logs.outputs.logs }}`;
+            const buildLogs = process.env.logs;
             const commentBody = `Cloudflare Pages build logs for branch **${{ github.head_ref }}**:\n\n${buildLogs}`;
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: commentBody
-            })
+            });
