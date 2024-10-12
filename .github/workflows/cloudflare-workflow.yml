@@ -20,38 +20,4 @@ jobs:
           echo "PR_BRANCH=${{ github.head_ref }}" >> $GITHUB_ENV
 
       - name: Poll for Cloudflare Pages Build and Fetch Logs
-        uses: JDeepD/cloudflare-build-log@0.1.1
-
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-author: "github-actions[bot]"
-          body-includes: <!-- CLOUDFLARE_PAGES_BUILD_LOGS -->
-
-      - name: Update or create comment
-        if: success()
-        uses: peter-evans/create-or-update-comment@v3
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          body: |
-            <!-- CLOUDFLARE_PAGES_BUILD_LOGS -->
-            ## Cloudflare Pages Build Logs
-
-            **Branch:** ${{ github.head_ref }}
-            **Commit:** ${{ github.sha }}
-            **Build Time:** ${{ env.BUILD_TIME }}
-
-            <details>
-            <summary>Click to expand build logs</summary>
-
-            ${{ env.logs }}
-
-            </details>
-          edit-mode: replace
-      - name: Post build status
-        if: always()
-        run: |
-          echo "Build status: ${{ job.status }}"
+        uses: JDeepD/cloudflare-build-log@0.1.3
