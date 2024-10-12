@@ -124,7 +124,7 @@ const LandingFooter = () => {
         if (particle) {
           particle.draw();
         }
-      }
+      }      
       connectParticles();
       requestAnimationFrame(animateParticles);
     }
