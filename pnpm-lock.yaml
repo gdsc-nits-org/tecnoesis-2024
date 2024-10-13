@@ -7,7 +7,7 @@ settings:
 importers:
 
   .:
-    dependencies:
+    dependencies:     
       '@react-three/drei':
         specifier: ^9.111.4
         version: 9.114.0(@react-three/fiber@8.17.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.168.0))(@types/react@18.3.10)(@types/three@0.167.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.168.0)
@@ -28,7 +28,9 @@ importers:
         version: 5.59.0(react@18.3.1)
       '@types/three':
         specifier: ^0.167.2
-        version: 0.167.2
+        version: 0.167.2 '@radix-ui/react-slot':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react@18.3.10)(react@18.3.1)
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -125,7 +127,9 @@ importers:
         version: 3.3.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.5
-        version: 0.6.8(prettier@3.3.3)
+        version: 0.6.8(prettier@3.3.3)      tailwind-scrollbar:
+        specifier: ^3.1.0
+        version: 3.1.0(tailwindcss@3.4.13)
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.13
@@ -516,7 +520,22 @@ packages:
 
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
-
+  '@radix-ui/react-compose-refs@1.1.0':
+    resolution: {integrity: sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+  '@radix-ui/react-slot@1.1.0':
+    resolution: {integrity: sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
   '@react-spring/animated@9.6.1':
     resolution: {integrity: sha512-ls/rJBrAqiAYozjLo5EPPLLOb1LM0lNVQcXODTC1SMtS6DbuBCPaKco5svFUQFMP2dso3O+qcC4k9FsKc0KxMQ==}
     peerDependencies:
@@ -2238,7 +2257,11 @@ packages:
 
   tailwind-merge@2.5.2:
     resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
-
+  tailwind-scrollbar@3.1.0:
+    resolution: {integrity: sha512-pmrtDIZeHyu2idTejfV59SbaJyvp1VRjYxAjZBH0jnyrPRo6HL1kD5Glz8VPagasqr6oAx6M05+Tuw429Z8jxg==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: 3.x
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
@@ -2955,7 +2978,17 @@ snapshots:
   '@protobufjs/pool@1.1.0': {}
 
   '@protobufjs/utf8@1.1.0': {}
-
+  '@radix-ui/react-compose-refs@1.1.0(@types/react@18.3.10)(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.10
+  '@radix-ui/react-slot@1.1.0(@types/react@18.3.10)(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.3.10)(react@18.3.1)
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.10
   '@react-spring/animated@9.6.1(react@18.3.1)':
     dependencies:
       '@react-spring/shared': 9.6.1(react@18.3.1)
@@ -4902,7 +4935,9 @@ snapshots:
       react: 18.3.1
 
   tailwind-merge@2.5.2: {}
-
+  tailwind-scrollbar@3.1.0(tailwindcss@3.4.13):
+    dependencies:
+      tailwindcss: 3.4.13
   tailwindcss-animate@1.0.7(tailwindcss@3.4.13):
     dependencies:
       tailwindcss: 3.4.13
@@ -5170,4 +5205,6 @@ snapshots:
   zustand@4.5.5(@types/react@18.3.10)(react@18.3.1):
     dependencies:
       use-sync-external-store: 1.2.2(react@18.3.1)
-
+    optionalDependencies:
+      '@types/react': 18.3.10
+      react: 18.3.1
