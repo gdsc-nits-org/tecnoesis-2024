@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Poll for Cloudflare Pages Build and Fetch Logs
-        uses: JDeepD/cloudflare-build-log@0.1.5
+        uses: JDeepD/cloudflare-build-log@0.1.6
         with:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
