@@ -31,8 +31,8 @@ const Download: React.FC = () => {
         <div className="mt-4 md:mt-0 text-center pb-6 text-lg md:text-xl h-[60%]">
             <h5 className="text-white mt-10 font-rp1 text-xl lg:text-4xl font-bold hidden h-[20%] md:flex">Download the</h5>
             <h1 className="text-gradient-blue font-rp1 text-2xl font-bold lg:text-[2.7rem] hidden md:flex pt-1"> new tecnoesis app</h1>
-          <h3 className="md:hidden">Download The New Tecnoesis App On Both Android And iOS Devices.</h3>
-          <h3 className="md:flex text-start hidden w-full md:text-sm py-[1rem]">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </h3>
+          <h3 className="md:hidden font-outfit">Download The New Tecnoesis App On Both Android And iOS Devices.</h3>
+          <h3 className="md:flex text-start hidden w-full md:text-sm py-[1rem] font-outfit">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </h3>
         </div>
         <div className="flex md:justify-start md:p-0 text-start items-center justify-center gap-[1.75rem] px-8 space-x-4 my-2">
           <a

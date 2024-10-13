@@ -54,8 +54,8 @@ const SponsorHome: React.FC = () => {
             <Image
               src={backgroundImg}
               alt="Sponsor Background"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
               className="rounded-lg"
             />
             <div className="flex items-center justify-center h-full relative z-10">
@@ -64,8 +64,7 @@ const SponsorHome: React.FC = () => {
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                layout="intrinsic"
-                objectFit="contain"
+                style={{ objectFit: 'contain' }}
                 className="w-[65%] h-[65%]"
               />
             </div>

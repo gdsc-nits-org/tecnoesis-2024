@@ -5170,6 +5170,4 @@ snapshots:
   zustand@4.5.5(@types/react@18.3.10)(react@18.3.1):
     dependencies:
       use-sync-external-store: 1.2.2(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.10
-      react: 18.3.1
+
