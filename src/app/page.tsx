@@ -15,7 +15,7 @@ interface NavigatorExtended extends Navigator {
 }
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
-  const [comingsoon,setComingsoon]=useState(false);
+  const comingsoon = false;
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -27,14 +27,20 @@ export default function HomePage() {
   const isFirefox = navigator.userAgent.includes("Firefox");
   const isLowMemoryDevice = nav.deviceMemory! <= 4;
   const isAndroid = /Android/i.test(navigator.userAgent);
-  if(comingsoon){
+  if (comingsoon) {
     if (!isFirefox) {
       return (
         <main className="bg-black">
           <Navbar />
           {matches && <NavbarMobile />}
           <div className="h-screen">
-            {(isLowMemoryDevice && isAndroid) ? <div className="text-[#ffffff] flex items-center justify-center min-h-screen"><p>Low memory Android device detected</p></div> : <Scene />}
+            {isLowMemoryDevice && isAndroid ? (
+              <div className="flex min-h-screen items-center justify-center text-[#ffffff]">
+                <p>Low memory Android device detected</p>
+              </div>
+            ) : (
+              <Scene />
+            )}
             <Login />
           </div>
         </main>
@@ -44,20 +50,19 @@ export default function HomePage() {
         <main className="bg-black">
           <Navbar />
           {matches && <NavbarMobile />}
-          <div className="h-screen flex items-center justify-center">
-            <h1 className="text-[#ffffff]">Please have the mercy to use chromium based browsers</h1>
+          <div className="flex h-screen items-center justify-center">
+            <h1 className="text-[#ffffff]">
+              Please have the mercy to use chromium based browsers
+            </h1>
             <Login />
-        </div>
-
-
+          </div>
         </main>
       );
     }
-  }
-  else{
-    return(
-      <div className="bg-[url('https://res.cloudinary.com/dhry5xscm/image/upload/v1727624095/tecno-24/stars_cfwxhr.avif')] overflow-hidden">
-        <Landing/>
+  } else {
+    return (
+      <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/stars-bg.avif')]">
+        <Landing />
       </div>
     );
   }

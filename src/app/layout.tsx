@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { Toaster } from "sonner";
+import FinalNav from "~/components/Navbar/FinalNav";
 
 export const metadata: Metadata = {
   title: "Tecnoesis 2024",
@@ -25,8 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
+        {/* <div className="sticky top-0 w-screen z-20"> */}
+        <FinalNav />
+        {/* </div> */}
         {children}
-        <Toaster toastOptions={toastOps} />
+        <Toaster
+          toastOptions={toastOps}
+          visibleToasts={1}
+          position="bottom-center"
+        />
       </body>
     </html>
   );
