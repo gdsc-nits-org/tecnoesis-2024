@@ -202,3 +202,26 @@ body{
   padding: 16px;
   animation: neon-red-glow 2s infinite alternate;
 }
+
+.starry-background {
+  background-color: #000;
+  background-image:
+    radial-gradient(circle, #ffffff 1px, transparent 1px),
+    radial-gradient(circle, #ffffff 2px, transparent 2px),
+    radial-gradient(circle, #ffffff 3px, transparent 3px);
+  background-size: 
+    20px 20px,
+    40px 40px,
+    60px 60px;
+  background-position: 
+    0 0,
+    10px 20px,
+    20px 40px;
+  animation: twinkling 50s infinite;
+}
+
+@keyframes twinkling {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}

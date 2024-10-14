@@ -2,10 +2,12 @@ import Download from "~/components/Download";
 import MarqueeComponent from "~/components/sponsorMarquee";
 import SponsorHome from "~/components/SponsorHome";
 import PhotoGallery from "~/components/PhotoGallery";
+import About from "~/components/AboutPage";
 
 export default function Page() {
   return (
     <div className="bg-dotted flex min-h-screen w-full flex-col items-center">
+      <About/>
       <div className="px-10">
         <PhotoGallery/>
       </div>
