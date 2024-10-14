@@ -1,9 +1,16 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; 
 import CustomButton from './CustomButton';
 
 const PhotoGallery: React.FC = () => {
+  const router = useRouter(); 
+
+  const handleButtonClick = () => {
+    router.push('/gallery'); 
+  };
+
   return (
     <div
       className="w-full h-[38rem] lg:h-[40rem] bg-no-repeat sm:bg-contain bg-top bg-[length:22rem_auto] sm:bg-[position:center_50%] flex items-center justify-center sm:p-6 md:p-8 gap-10 overflow-hidden"
@@ -21,7 +28,9 @@ const PhotoGallery: React.FC = () => {
           Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar, Promising All Tech Geeks.
         </p>
         <div className='width-[42%] mt-[0.7rem] px-[3rem] sm:pr-[64%] sm:pl-0 sm:pt-[1rem]'>
-            <CustomButton text="View Gallery"/>
+          <div onClick={handleButtonClick}>
+            <CustomButton text="View Gallery" />
+          </div>
         </div>
       </div>
       <div className="w-[30%] items-center justify-end lg:flex hidden">
