@@ -35,7 +35,7 @@ export default function Team() {
                                     {
                                         item.heads.map((member) => (
                                             <div key={member.id} className='flex w-max flex-row justify-center items-center'>
-                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook || ""} instagram={member.instagram || ""} linkedin={member.linkedin || ""} />
+                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} />
                                             </div>
                                         ))
                                     }
@@ -53,7 +53,7 @@ export default function Team() {
                             {
                                 data.map((item) => (
                                     item.members.map((member) => (
-                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook || ""} instagram={member.instagram || ""} linkedin={member.linkedin || ""} />
+                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} />
                                     ))
                                 ))
                             }
