@@ -35,9 +35,9 @@ const Login = () => {
       }
     };
 
-    interface UserResponse{
-      user:{
-        username : string;
+    interface UserResponse {
+      user: {
+        username: string;
       };
     }
 
@@ -93,8 +93,9 @@ const Login = () => {
               Sign in
             </p>
             <div className="-mr-1 flex justify-center overflow-hidden rounded-full bg-[#01A3F5] lg:mr-0">
-              <Rocket size={20}
-                className="h-auto p-2 w-[2.5vw] group-hover:animate-rocketzoom"
+              <Rocket
+                size={20}
+                className="h-auto w-[2.5vw] p-2 group-hover:animate-rocketzoom"
               />
             </div>
           </button>
@@ -103,10 +104,12 @@ const Login = () => {
     } else {
       return (
         <section className="auto group min-w-[8vw] max-w-[20vw]">
-          <button onClick={()=>{
-            router.push("/home")
-          }}
-          className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]">
+          <button
+            onClick={() => {
+              router.push("/home");
+            }}
+            className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
+          >
             {_user?.photoURL && (
               <Image
                 className="-ml-[1.5vw] mr-[1vw] h-auto w-[3vw] rounded-full"
@@ -137,8 +140,9 @@ const Login = () => {
         >
           <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
-            <Rocket size={40}
-              className="p-2 group-hover:animate-rocketzoom text-white"
+            <Rocket
+              size={40}
+              className="p-2 text-white group-hover:animate-rocketzoom"
             />
           </div>
         </button>
@@ -199,9 +203,12 @@ const ProfileCard: React.FC<UserCred> = ({
             {userName?.toLocaleLowerCase()}
           </h3>
         </div>
-        <button onClick={()=>{
-            router.push("/home")
-          }} className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]">
+        <button
+          onClick={() => {
+            router.push("/home");
+          }}
+          className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]"
+        >
           View Profile
         </button>
       </div>
