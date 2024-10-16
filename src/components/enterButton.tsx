@@ -1,11 +1,6 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-
-const FuturisticButton = () => {
-  const outerBorderRef = useRef<HTMLDivElement>(null);
-  const innerBorderRef = useRef<HTMLDivElement>(null);
-
+import React from "react";
+const FuturisticButton: React.FC = () => {
   // const setTarget=() => {
   //   gsap.to(outerBorderRef.current, {
   //     rotate: 60,
@@ -36,12 +31,10 @@ const FuturisticButton = () => {
           </div>
         </div>
         <div
-          ref={outerBorderRef}
           className="outerring bg-[url('/assets/Landing/outerringenter.svg')] bg-cover bg-no-repeat absolute h-[200px] w-[200px] rounded-full"
         ></div>
 
         <div
-          ref={innerBorderRef}
           className="innerring bg-[url('/assets/Landing/innerringenter.svg')] bg-cover bg-no-repeat absolute h-[150px] w-[150px] rounded-full"
         ></div>
 
