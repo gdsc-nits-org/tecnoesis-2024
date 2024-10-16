@@ -5,7 +5,7 @@ import data from "../../../public/team.json";
 import Marquee from 'react-fast-marquee';
 import { useState } from 'react';
 
-
+export const runtime = "edge";
 export default function Team() {
     const [team, setTeam] = useState<1|2>(1);
      return (
@@ -35,7 +35,7 @@ export default function Team() {
                                     {
                                         item.heads.map((member) => (
                                             <div key={member.id} className='flex w-max flex-row justify-center items-center'>
-                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook || ""} instagram={member.instagram || ""} linkedin={member.linkedin || ""} />
+                                                <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} />
                                             </div>
                                         ))
                                     }
