@@ -5,7 +5,7 @@ import data from "../../../public/team.json";
 import Marquee from 'react-fast-marquee';
 import { useState } from 'react';
 
-
+export const runtime = "edge";
 export default function Team() {
     const [team, setTeam] = useState<1|2>(1);
      return (
