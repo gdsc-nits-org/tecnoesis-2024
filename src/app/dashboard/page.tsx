@@ -1,7 +1,5 @@
 "use client";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { forwardRef, useState, useEffect } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import type { HTMLAttributes, ButtonHTMLAttributes } from "react";
 import {
   Camera,
@@ -20,6 +18,8 @@ import { toast } from "sonner";
 import { cn } from "~/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import FinalFooter from "~/components/FinalFooter";
+import { useMediaQuery } from "usehooks-ts";
 
 export const runtime = "edge";
 
@@ -419,7 +419,7 @@ const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
   const [expandedEvents, setExpandedEvents] = useState<string[]>([]);
 
   const toggleExpand = (eventId: string) => {
-    setExpandedEvents((prev) =>
+    setExpandedEvents((prev: string[]) =>
       prev.includes(eventId)
         ? prev.filter((id) => id !== eventId)
         : [...prev, eventId],
@@ -601,29 +601,19 @@ export default function DashBoard() {
         </div>
       </main>
     </div>
-=======
-import Navbar from "~/components/LandingNav";
-import Scene from "~/components/Scene";
-=======
->>>>>>> 4ed7492 (fix)
-import { useMediaQuery } from "usehooks-ts";
-import { useEffect, useState } from "react";
-import FinalFooter from "~/components/FinalFooter";
-
-
-export const runtime = "edge";
-
-export default function HomePage() {
-  const [isClient, setIsClient] = useState(false)
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-  const matches = useMediaQuery("(max-width: 1024px)")
-  return (
-    <main className="min-h-[100vh]">
-      <div className="min-h-[50vh] bg-yellow-500 w-full">hello</div>
-      <FinalFooter />
-    </main>
->>>>>>> f0e2af3 (footer >> tried to fix particle js)
-  );
+  )
 }
+
+// export default function HomePage() {
+//   const [isClient, setIsClient] = useState(false)
+//   useEffect(() => {
+//     setIsClient(true)
+//   }, [])
+//   const matches = useMediaQuery("(max-width: 1024px)")
+//   return (
+//     <main className="min-h-[100vh]">
+//       <div className="min-h-[50vh] bg-yellow-500 w-full">hello</div>
+//       <FinalFooter />
+//     </main>
+//   );
+// }
