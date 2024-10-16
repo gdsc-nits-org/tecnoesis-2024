@@ -17,17 +17,17 @@ const Navbar = () => {
   const currentPage = usePathname();
 
   useEffect(() => {
-    const links = document.querySelectorAll(".navOpt");
-    const animation = document.querySelector(".animation");
+    const links = document.querySelectorAll<HTMLElement>(".navOpt");
+    const animation = document.querySelector<HTMLElement>(".animation");
 
     if (animation && links.length > 0) {
       const linkPositions = Array.from(links).map((link) => {
-        const { width, left } = (link as HTMLElement).getBoundingClientRect();
+        const { width, left } = link.getBoundingClientRect();
         return { width, left };
       });
-      const reqheight = links.item(0).clientHeight;
+      const reqheight = links.item(0)?.clientHeight || 0;
 
-      const navMap = new Map([
+      const navMap = new Map<string, number>([
         ["/home", 0],
         ["/modules", 3],
         ["/team", 4],
@@ -47,8 +47,12 @@ const Navbar = () => {
             color: "#01A3F5",
           });
       }
+      const handlerMap = new Map<
+        HTMLElement,
+        { mouseEnter: () => void; mouseLeave: () => void }
+      >();
 
-      const handleMouseEnter = (link: Element, index: number) => {
+      const handleMouseEnter = (link: HTMLElement, index: number) => {
         gsap.to(link, {
           color: "#01A3F5",
         });
@@ -70,7 +74,7 @@ const Navbar = () => {
         });
       };
 
-      const handleMouseLeave = (link: Element) => {
+      const handleMouseLeave = (link: HTMLElement) => {
         gsap.to(link, {
           color: "white",
         });
@@ -94,14 +98,17 @@ const Navbar = () => {
         link.addEventListener("mouseenter", mouseEnterHandler);
         link.addEventListener("mouseleave", mouseLeaveHandler);
 
-        (link as any).__mouseEnterHandler = mouseEnterHandler;
-        (link as any).__mouseLeaveHandler = mouseLeaveHandler;
+        handlerMap.set(link, {
+          mouseEnter: mouseEnterHandler,
+          mouseLeave: mouseLeaveHandler,
+        });
       });
 
+      // Cleanup function to remove event listeners
       return () => {
-        links.forEach((link) => {
-          link.removeEventListener("mouseenter", (link as any).__mouseEnterHandler);
-          link.removeEventListener("mouseleave", (link as any).__mouseLeaveHandler);
+        handlerMap.forEach((handlers, link) => {
+          link.removeEventListener("mouseenter", handlers.mouseEnter);
+          link.removeEventListener("mouseleave", handlers.mouseLeave);
         });
       };
     }
@@ -111,13 +118,13 @@ const Navbar = () => {
     <nav
       className={
         outin.className +
-        " absolute top-0 z-20 w-screen bg-nav-gradient to-transparent"
+        " sticky top-0 z-50 w-screen bg-nav-gradient to-transparent pt-[3vh]"
       }
     >
       <div className="sticky top-0 flex items-center justify-between px-[2vw] text-center text-[1.5vw] text-white">
         <Link href="/">
           <Image
-            src="/Landing/tecnoesisLogo.webp"
+            src="/assets/NavbarMobile/tecnoLogo.png"
             width={300}
             height={80}
             alt="Tecno 24 logo"

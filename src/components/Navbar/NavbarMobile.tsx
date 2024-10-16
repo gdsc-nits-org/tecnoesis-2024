@@ -9,8 +9,7 @@ import { usePathname } from "next/navigation";
 
 export default function NavbarMobile() {
   const [expand, setExpand] = useState(false);
-
-  const path = usePathname();
+  let path = usePathname();
   const navLinks: string[] = [
     "/home",
     "/home#about",
@@ -19,11 +18,14 @@ export default function NavbarMobile() {
     "/team",
   ];
 
+  const handleNavClick = (idx: number) => {
+    setExpand(false);
+    if (navLinks[idx]) path = navLinks[idx];
+  };
+
   return (
     <nav
-      className={
-        "sticky left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]"
-      }
+      className={`${expand ? "absolute max-h-screen" : "sticky"} left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]`}
       style={
         expand
           ? {
@@ -70,7 +72,7 @@ export default function NavbarMobile() {
           <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
             <div className="p-4">
               <Link
-                onClick={() => setExpand(false)}
+                onClick={() => handleNavClick(0)}
                 className={`navOptions duration- transition-colors ${path == navLinks[0] && "text-[#01A3F5]"} `}
                 href="/home"
               >
@@ -80,6 +82,7 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
+                onClick={() => handleNavClick(1)}
                 className={`navOptions duration- transition-colors ${path == navLinks[1] && "text-[#01A3F5]"} `}
                 href="/home#about"
               >
@@ -89,6 +92,7 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
+                onClick={() => handleNavClick(2)}
                 className={`navOptions duration- transition-colors ${path == navLinks[2] && "text-[#01A3F5]"} `}
                 href="/home#sponsors"
               >
@@ -98,6 +102,7 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
+                onClick={() => handleNavClick(3)}
                 className={`navOptions duration- transition-colors ${path == navLinks[3] && "text-[#01A3F5]"} `}
                 href="/modules"
               >
@@ -107,6 +112,7 @@ export default function NavbarMobile() {
             <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
             <div className="p-4">
               <Link
+                onClick={() => handleNavClick(4)}
                 className={`navOptions duration- transition-colors ${path == navLinks[4] && "text-[#01A3F5]"} `}
                 href="/team"
               >
