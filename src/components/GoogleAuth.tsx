@@ -36,7 +36,7 @@ const Login = () => {
     };
 
     interface UserResponse {
-      user: {
+      msg: {
         username: string;
       };
     }
@@ -53,9 +53,7 @@ const Login = () => {
               },
             },
           );
-          if (response?.data?.user?.username) {
-            setUserName(response.data.user.username);
-          }
+          setUserName(response.data.msg.username);
         }
       } catch (error) {
         toast.error("Error fetching user data");
@@ -108,18 +106,18 @@ const Login = () => {
             onClick={() => {
               router.push("/home");
             }}
-            className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
+            className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[1.5vw] py-1 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
           >
             {_user?.photoURL && (
               <Image
-                className="-ml-[1.5vw] mr-[1vw] h-auto w-[3vw] rounded-full"
+                className="-ml-[1.25vw] mr-[1vw] h-auto w-[2.83vw] rounded-full"
                 src={_user.photoURL}
                 height={100}
                 width={100}
                 alt="avater"
               ></Image>
             )}
-            <p className="overflow-hidden text-nowrap font-rp1 text-[1.3vw] duration-1000 group-hover:text-[#01A3F5]">
+            <p className="overflow-hidden text-nowrap font-outfit text-[1.15vw] duration-1000 group-hover:text-[#01A3F5]">
               {userName}
             </p>
           </button>
@@ -173,7 +171,7 @@ const ProfileCard: React.FC<UserCred> = ({
   const router = useRouter();
   return (
     <section
-      className={"mx-4 flex items-center justify-center rounded-lg p-4"}
+      className={"p-4] rounded-lgjf mx-4 flex items-center justify-center"}
       style={{
         background:
           "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
@@ -199,9 +197,7 @@ const ProfileCard: React.FC<UserCred> = ({
           <h1 className="text-wrap font-rp1 text-lg leading-5">
             {displayName}
           </h1>
-          <h3 className="font-outfit text-sm">
-            {userName?.toLocaleLowerCase()}
-          </h3>
+          <h3 className="font-outfit text-sm">{userName}</h3>
         </div>
         <button
           onClick={() => {

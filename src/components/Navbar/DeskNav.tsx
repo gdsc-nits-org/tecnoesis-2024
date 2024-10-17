@@ -4,7 +4,7 @@ import { Outfit } from "next/font/google";
 import Image from "next/image";
 import gsap from "gsap";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Login from "../GoogleAuth";
 import { usePathname } from "next/navigation";
 
@@ -15,6 +15,8 @@ const outin = Outfit({
 
 const Navbar = () => {
   const currentPage = usePathname();
+  const [isResize, setIsResize] = useState(false);
+  window.addEventListener("resize", () => setIsResize(!isResize));
 
   useEffect(() => {
     const links = document.querySelectorAll<HTMLElement>(".navOpt");
@@ -112,13 +114,13 @@ const Navbar = () => {
         });
       };
     }
-  }, [currentPage]);
+  }, [currentPage, isResize]);
 
   return (
     <nav
       className={
         outin.className +
-        " sticky top-0 z-50 w-screen bg-nav-gradient to-transparent pt-[3vh]"
+        "sticky top-0 z-50 w-screen bg-nav-gradient to-transparent pt-[3vh]"
       }
     >
       <div className="sticky top-0 flex items-center justify-between px-[2vw] text-center text-[1.5vw] text-white">
@@ -164,7 +166,7 @@ const Navbar = () => {
             Team
           </Link>
         </section>
-        <section className="backdrop-blur-lg">
+        <section className="pr-2 backdrop-blur-lg">
           <Login />
         </section>
       </div>
