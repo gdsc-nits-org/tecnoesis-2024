@@ -1,6 +1,6 @@
 import Image from "next/image"
 import React, { useEffect, useState } from "react";
-import {SocialIcon} from 'react-social-icons'
+import { SocialIcon } from 'react-social-icons'
 interface propsType {
   name: string;
   designation: string;
@@ -59,17 +59,17 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
             transform: "scale(1)",
             transition: "all 0.3s ease",
           } : { opacity: "0", transition: "all 0.3s ease", transform: "scale(0.6)" }}>
-           {facebook && (<a className="relative cursor-pointer" style={customHoverButton} target="_blank">
+            {facebook && (<div className="relative cursor-pointer" style={customHoverButton} >
               < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
-            </a>
-          )}
-            {instagram &&(<a className="relative cursor-pointer" style={customHoverButton} target="_blank ">
-              < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
-            </a>
+            </div>
             )}
-            {linkedin && (<a className="relative cursor-pointer" style={customHoverButton} target="_blank">
-              < SocialIcon url="https://linkedin.com" style={{height:30, width:30}} />
-            </a>
+            {instagram && (<div className="relative cursor-pointer" style={customHoverButton} >
+              < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
+            </div>
+            )}
+            {linkedin && (<div className="relative cursor-pointer" style={customHoverButton} >
+              < SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 }} />
+            </div>
             )}
           </div>
           <Image src="/team/stencil.png" width={162} height={162} alt=""
@@ -115,20 +115,22 @@ interface MemberProps {
   name: string,
   designation: string,
   photo: string,
-  index : number,
+  index: number,
   facebook?: string,
   linkedin?: string,
-  instagram?: string
+  instagram?: string,
+  hoversetter: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
 //Links to the social media handles of the members are not added yet.
 // The json needs to be updated with the social media handles of the members.
 
-const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, facebook, instagram, linkedin }) => {
-  const top = index%2?(-2-2*Math.random()):6+2*Math.random()
+const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, facebook, instagram, linkedin, hoversetter }) => {
+  const top = index % 2 ? (-2 - 2 * Math.random()) : 6 + 2 * Math.random()
   return (
-    <div style={{ top: top.toString() + "rem" }}
-      className={`group relative -mx-8 lg:mx-0 w-[21rem] h-[26.25rem] ${index%2?"scale-[0.5]":"scale-[0.6]"} hover:scale-[0.7] duration-700`}>
+    <div onMouseEnter={() => hoversetter(false)} onMouseLeave={() => hoversetter(true)} style={{ top: top.toString() + "rem" }}
+      className={`group relative -mx-8 lg:mx-0 w-[21rem] h-[26.25rem] ${index % 2 ? "scale-[0.5]" : "scale-[0.6]"} hover:scale-[0.7] duration-700`}>
       <Image
         style={{
           mask: "url('/team/memberVector.svg')"
@@ -139,23 +141,23 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, fa
         <p>{designation}</p>
       </div>
       <div className="overflow-hidden absolute bottom-0 right-8 w-1/2 h-16">
-      <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
-          {facebook && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+        <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
+          {facebook && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
             < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
-        </a>
+          </div>
           )}
-          {instagram && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+          {instagram && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
             < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
-        </a>
+          </div>
           )}
-          {linkedin && (<a className="drop-shadow-xl p-2 cursor-pointer" target="_blank"
+          {linkedin && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
             < SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 }} />
-        </a>
+          </div>
           )}
-      </div>
+        </div>
       </div>
     </div>
   )
