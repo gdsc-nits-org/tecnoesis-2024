@@ -78,7 +78,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     const [search, setSearch] = useState("");
     const searchButtonRef = useRef<HTMLDivElement | null>(null);
 
-    const fetchAllUsers = async () => {
+    const fetchAllUsers = async (token: string) => {
         try {
             const { data } = await axios.get<{ msg: UserResponse[] }>(
                 `${env.NEXT_PUBLIC_API_URL}/api/user/`,
@@ -97,6 +97,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     };
     const fetchUser = async (token: string) => {
         try {
+            console.log(token);
             const { data } = await axios.get<{ msg: UserResponse }>(
                 `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
                 {
@@ -133,7 +134,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         void (async () => {
             const token = await user?.getIdToken();
             if (!token) return;
-            setAllUsers(await fetchAllUsers());
+            setAllUsers(await fetchAllUsers(token));
         })();
         void (async () => {
             const token = user?.uid;
@@ -223,9 +224,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         );
     };
 
-    const filteredUsers = allUsers?.filter(
-        (user) => !formData.members?.includes(user.username)
-    );
+    // const filteredUsers = allUsers?.filter(
+    //     (user) => !formData.members?.includes(user.username)
+    // );
 
     if (loading || !event) {
         return (
