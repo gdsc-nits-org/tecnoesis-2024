@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "name": "Team Heads",
+    "heads": [
+      {
+        "id": "1",
+        "name": "apj abdul kalam",
+        "designation": "technical Head",
+        "photo": "/team/person.png",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "2",
+        "name": "Baldev",
+        "designation": "Demolition Head",
+        "photo": "/team/person.png",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "3",
+        "name": "Jhon Cena",
+        "designation": "Invisibility Head",
+        "photo": "/team/person.png",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      }
+    ]
+  ,
+    "members": [
+      {
+        "id": "1",
+        "name": "Sophia",
+        "designation": "AI Researcher",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "2",
+        "name": "Jarvis",
+        "designation": "Systems Architect",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "3",
+        "name": "HAL 9000",
+        "designation": "Data Analyst",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "4",
+        "name": "TARS",
+        "designation": "Robotics Engineer",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "5",
+        "name": "R2-D2",
+        "designation": "Technical Assistant",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "6",
+        "name": "Optimus Prime",
+        "designation": "Operations Manager",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "7",
+        "name": "Wall-E",
+        "designation": "Environmental Specialist",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "8",
+        "name": "BB-8",
+        "designation": "Mechanical Engineer",
+        "photo": "/team/futureBot.jpg"
+      },
+      {
+        "id": "9",
+        "name": "Cortana",
+        "designation": "Software Developer",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      },
+      {
+        "id": "10",
+        "name": "Data",
+        "designation": "Science Officer",
+        "photo": "/team/futureBot.jpg",
+        "facebook": "www.facebook.com",
+        "linkedin": "www.linkedin.com",
+        "instagram": "www.instagram.com"
+      }
+    ]}
+]
