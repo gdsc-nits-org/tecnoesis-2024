@@ -239,7 +239,7 @@ const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 CardContent.displayName = "CardContent";
 
 const ProfileCard = ({ profile }: { profile: ProfileData }) => (
-  <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-cyan-400/20 min-h-full">
+  <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-cyan-400/20">
     <CardContent className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
       <div className="mb-4 flex flex-col items-center sm:mb-6 sm:flex-row sm:items-start md:mb-8 lg:mb-10">
         <div className="relative mb-4 flex-shrink-0 sm:mb-0 sm:mr-6 md:mr-8 lg:mr-10">
@@ -561,7 +561,7 @@ export default function DashBoard() {
 
   return (
     <div
-      className={`min-h-screen w-full bg-black p-1 font-outfit text-white sm:p-2 md:p-4 lg:p-6`}
+      className={`min-h-screen bg-black p-1 font-outfit text-white sm:p-2 md:p-4 lg:p-6`}
     >
       <main className="container mx-auto max-w-full pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:max-w-[1350px] 2xl:max-w-[1500px]">
         <div className="relative flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-center">

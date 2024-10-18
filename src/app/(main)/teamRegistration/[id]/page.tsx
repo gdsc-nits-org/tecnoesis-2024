@@ -1,367 +1,393 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../utils/firebase";
+import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
 import { z } from "zod";
 import { toast } from "sonner";
 import Image from "next/image";
-import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
+import { Command } from "cmdk";
 
 export const runtime = "edge";
 
-interface Team {
-    id: string;
-    name: string;
-    members: string[];
-}
+const CommandMenu = ({
+  allUsers,
+  value,
+  setValue,
+  index,
+}: {
+  allUsers: UserResponse[];
+  value: string[];
+  setValue: (username: string, index: number) => void;
+  index: number;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleFocus = () => {
+    setIsOpen(true);
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => setIsOpen(false), 100);
+  };
+  const handleChange = (username: string) => {
+    setValue(username, index + 1);
+  };
+  return (
+    <div className={`relative w-full`}>
+      <Command
+        className="text-white"
+        label="Command Menu"
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            e.preventDefault();
+            setIsOpen(false);
+          }
+        }}
+      >
+        <Command.Input
+          className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          value={value[index + 1]}
+          onValueChange={handleChange}
+          onClick={handleFocus}
+        />
+        {isOpen && (
+          <Command.List
+            className="animate-borderNeon absolute left-0 top-full mt-2 w-full rounded-lg border-[1px] border-transparent bg-black bg-opacity-60 text-center shadow-lg backdrop-blur-md"
+            style={{ zIndex: 10 }}
+          >
+            <Command.Empty>No results found.</Command.Empty>
+
+            <Command.Group>
+              {allUsers.map((user, idx) => (
+                <Command.Item
+                  key={idx}
+                  onSelect={() => {
+                    setValue(user.username, index + 1);
+                  }}
+                  className="cursor-pointer px-6 py-2 hover:bg-sky-500"
+                >
+                  {user.firstName} {user.lastName} - {user.username} (
+                  {user.registrationId})
+                </Command.Item>
+              ))}
+            </Command.Group>
+          </Command.List>
+        )}
+      </Command>
+    </div>
+  );
+};
 
 interface Event {
-    id: string;
-    name: string;
-    maxTeamSize: number;
-    minTeamSize: number;
+  id: string;
+  name: string;
+  maxTeamSize: number;
+  minTeamSize: number;
 }
 
 interface UserResponse {
-    balance: number;
-    collegeName: string;
-    email: string;
-    firebaseId: string;
-    firstName: string;
-    id: string;
-    imageUrl: string;
-    lastName: string;
-    middleName: string;
-    phoneNumber: string;
-    registrationId: string;
-    username: string;
+  balance: number;
+  collegeName: string;
+  email: string;
+  firebaseId: string;
+  firstName: string;
+  id: string;
+  imageUrl: string;
+  lastName: string;
+  middleName: string;
+  phoneNumber: string;
+  registrationId: string;
+  username: string;
 }
 
 interface GetEventAPIResponse {
-    status: string;
-    msg: Event;
+  status: string;
+  msg: Event;
 }
 
 const userDataSchema = z.object({
-    teamName: z.string().min(1, "Team name is required"),
-    members: z.array(z.string()).min(1, "At least one member is required"),
+  teamName: z.string().min(1, "Team name is required"),
+  members: z.array(z.string()).min(1, "At least one member is required"),
 });
 
 interface TeamData {
-    teamName: string;
-    members: string[];
-    extraInformation?: string[];
+  teamName: string;
+  members: string[];
+  extraInformation?: string[];
 }
 
 interface EventParams {
-    id: string;
+  id: string;
 }
 
 const RegisterTeam = ({ params }: { params: EventParams }) => {
-    const router = useRouter();
-    const [user, loading] = useAuthState(auth);
-    const [formData, setFormData] = useState<TeamData>({
-        teamName: "",
-        members: [],
-        extraInformation: [],
-    });
-    const [isSoloEvent, setIsSoloEvent] = useState<boolean>(false);
-    const [event, setEvent] = useState<Event | null>(null);
-    const [allUsers, setAllUsers] = useState<UserResponse[]>([]);
-    const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
-    const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [search, setSearch] = useState("");
-    const searchButtonRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
+  const [user, loading] = useAuthState(auth);
+  const [formData, setFormData] = useState<TeamData>({
+    teamName: "",
+    members: [],
+    extraInformation: [],
+  });
+  const [isSoloEvent, setIsSoloEvent] = useState<boolean>(false);
+  const [event, setEvent] = useState<Event | null>(null);
+  const [allUsers, setAllUsers] = useState<UserResponse[]>([]);
+  const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
-    const fetchAllUsers = async (token: string) => {
-        try {
-            const { data } = await axios.get<{ msg: UserResponse[] }>(
-                `${env.NEXT_PUBLIC_API_URL}/api/user/`,
-                {
-                    headers: {
-                        Authorization: 1000000,
-                    },
-                }
-            );
-            console.log(data);
-            return data.msg;
-        } catch (e) {
-            console.error(e);
-            return [];
-        }
-    };
-    const fetchUser = async (token: string) => {
-        try {
-            console.log(token);
-            const { data } = await axios.get<{ msg: UserResponse }>(
-                `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            console.log(data);
-            return data.msg.username;
-        } catch (e) {
-            console.error(e);
-            return;
-        }
-    };
-
-    useEffect(() => {
-        const fetchEventData = async () => {
-            try {
-                const { data } = await axios.get<GetEventAPIResponse>(
-                    `${env.NEXT_PUBLIC_API_URL}/api/event/${params.id}`
-                );
-                const eventData = data.msg;
-                setEvent(eventData);
-                setIsSoloEvent(eventData.maxTeamSize === eventData.minTeamSize);
-            } catch (e) {
-                console.error(e);
-            }
-        };
-        void fetchEventData();
-    }, [params.id]);
-
-    useEffect(() => {
-        void (async () => {
-            const token = await user?.getIdToken();
-            if (!token) return;
-            setAllUsers(await fetchAllUsers(token));
-        })();
-        void (async () => {
-            const token = user?.uid;
-            console.log(user?.getIdToken());
-            if (!token) return;
-            const leaderUsername = await fetchUser(token);
-            if (leaderUsername) {
-                setTeamLeader(leaderUsername);
-            }
-        })();
-
-    }, [user]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    // const handleTeamMemberSelect = (username: string) => {
-    //     if (
-    //         !formData.members.includes(username) &&
-    //         formData.members.length < (event?.maxTeamSize || Infinity)
-    //     ) {
-    //         setFormData((prevData) => ({
-    //             ...prevData,
-    //             members: [...prevData.members, username],
-    //         }));
-    //     }
-    //     setIsOpen(false);
-    // };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormErrors({});
-
-        toast.promise(
-            (async () => {
-                try {
-                    if (!user) throw new Error("User not authenticated");
-
-                    const validatedData = userDataSchema.parse(formData);
-
-                    const token = await user.getIdToken();
-                    await axios.post(
-                        `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
-                        {
-                            ...validatedData,
-                            extraInformation: "This team specialises in AI and machine learning projects",
-                        },
-                        {
-                            headers: {
-                                Authorization: `Bearer ${token}`,
-                            },
-                        }
-                    );
-
-                    toast.success("Team Created successfully.");
-                    setTimeout(() => {
-                        router.push("/");
-                    }, 200);
-                } catch (err) {
-                    if (err instanceof z.ZodError) {
-                        const zodErrors = err.errors.reduce(
-                            (acc, current) => {
-                                const key = String(current.path[0]);
-                                return {
-                                    ...acc,
-                                    [key]: current.message,
-                                };
-                            },
-                            {} as Record<string, string>
-                        );
-                        setFormErrors(zodErrors);
-                    } else {
-                        toast.error("An error occurred during registration.");
-                        console.error(err);
-                    }
-                }
-            })(),
-            {
-                loading: "Registering...",
-                success: "Registration successful!",
-                error: "An error occurred during registration.",
-            }
-        );
-    };
-
-    // const filteredUsers = allUsers?.filter(
-    //     (user) => !formData.members?.includes(user.username)
-    // );
-
-    if (loading || !event) {
-        return (
-            <div className="flex w-screen h-screen justify-center items-center gap-3">
-                Loading....
-            </div>
-        );
+  const fetchAllUsers = async (token: string) => {
+    try {
+      const { data } = await axios.get<{ msg: UserResponse[] }>(
+        `${env.NEXT_PUBLIC_API_URL}/api/user/`,
+        {
+          headers: {
+            Authorization: 1000000,
+          },
+        },
+      );
+      return data.msg;
+    } catch (e) {
+      console.error(e);
+      return [];
     }
+  };
+  const fetchUser = async (token: string) => {
+    try {
+      const { data } = await axios.get<{ msg: UserResponse }>(
+        `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      return data.msg.username;
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+  };
 
-    return (
-        <div className="bg-dotted flex flex-col gap-10 min-h-[100vh] items-center justify-center pt-15 overflow-hidden">
-            <div className="bg-blue-metall bg-clip-text text-transparent text-center text-2xl lg:text-5xl font-normal font-rp1 tracking-widest">
-                {isSoloEvent ? "Solo Registration" : "Group Registration"}
-            </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-15">
-                <div className="flex flex-col items-center justify-center gap-7 min-w-[90vw] lg:min-w-[60vw]">
-                    <div className="inline-flex justify-between items-center lg:gap-7 w-full">
-                        <label
-                            htmlFor="teamName"
-                            className="text-white font-outfit text-sm md:text-xl lg:text-2xl font-normal w-3/10"
-                        >
-                            Team Name:
-                        </label>
-                        <input
-                            type="text"
-                            id="teamName"
-                            name="teamName"
-                            value={formData.teamName}
-                            onChange={handleChange}
-                            className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-1/2 h-10 text-white text-center"
-                            required
-                        />
-                    </div>
+  useEffect(() => {
+    const fetchEventData = async () => {
+      try {
+        const { data } = await axios.get<GetEventAPIResponse>(
+          `${env.NEXT_PUBLIC_API_URL}/api/event/${params.id}`,
+        );
+        const eventData = data.msg;
+        setEvent(eventData);
+        setIsSoloEvent(eventData.maxTeamSize === eventData.minTeamSize);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    void fetchEventData();
+  }, [params.id]);
 
-                    <div className="inline-flex justify-between items-center lg:gap-7 w-full">
-                        <label
-                            htmlFor="teamLeader"
-                            className="text-white font-outfit text-sm md:text-xl lg:text-2xl font-normal w-3/10"
-                        >
-                            Leader&apos;s Username:
-                        </label>
-                        <div className="relative w-1/2 flex items-center">
-                            <input
-                                type="text"
-                                id="teamLeader"
-                                name="teamLeader"
-                                value={teamLeader}
-                                className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-full h-10 text-white text-center"
-                                readOnly
-                            />
-                        </div>
-                    </div>
+  useEffect(() => {
+    void (async () => {
+      const token = await user?.getIdToken();
+      if (!token) return;
+      setAllUsers(await fetchAllUsers(token));
+    })();
+    void (async () => {
+      const token = user?.uid;
+      if (!token) return;
+      const leaderUsername = await fetchUser(token);
+      if (leaderUsername) {
+        setTeamLeader(leaderUsername);
+      }
+    })();
+  }, [user]);
 
-                    {/* {!isSoloEvent &&
-                        Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
-                            <div
-                                key={idx}
-                                className="inline-flex justify-between items-center lg:gap-7 w-full"
-                            >
-                                <label
-                                    htmlFor={`member${idx + 1}`}
-                                    className="text-white font-outfit text-sm md:text-xl lg:text-2xl font-normal w-3/10"
-                                >
-                                    Member {idx + 2} Username:
-                                </label>
-                                <div className="relative w-1/2 flex items-center">
-                                    <input
-                                        type="text"
-                                        id={`member${idx + 1}`}
-                                        value={formData.members[idx + 1] ?? ""}
-                                        onChange={(e) =>
-                                            handleTeamMemberSelect(e.target.value)
-                                        }
-                                        className="bg-transparent origin-top-left  rounded-[10.036px] border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] w-full h-10 text-white text-center"
-                                    />
-                                    <div
-                                        onClick={() => setIsOpen(true)}
-                                        className="absolute right-0 mr-2 cursor-pointer text-white"
-                                    >
-                                        🔍
-                                    </div>
-                                </div>
-                            </div>
-                        ))} */}
-                </div>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-                {/* <CommandPalette
-                    isOpen={isOpen}
-                    onChangeSearch={(value: any) => setSearch(value)}
-                    onChangeOpen={(open: any) => setIsOpen(open)}
-                    search={search}
-                    pages={[
-                        {
-                            id: 'root',
-                            children: filterItems(
-                                filteredUsers?.map((user) => ({
-                                    id: user.username,
-                                    children: user.username,
-                                })) ?? [],
-                                search
-                            ).map((item: any) => (
-                                <CommandPalette.ListItem
-                                    key={item.id}
-                                    index={getItemIndex(item)}
-                                    onClick={() => handleTeamMemberSelect(item.id)}
-                                >
-                                    {item.children}
-                                </CommandPalette.ListItem>
-                            )),
-                        },
-                    ]}
-                /> */}
+  const [members, setMembers] = useState<string[]>([]);
+  const handleMemberSelect = (username: string, index: number) => {
+    setMembers((prev) => {
+      const updated = [...prev];
+      updated[0] = teamLeader;
+      updated[index] = username;
+      console.log(updated);
+      return updated;
+    });
+    setFormData((prevData) => {
+      const newData = {
+        ...prevData,
+        members: members,
+      };
+      newData.members[0] = teamLeader;
+      console.log(newData);
+      return newData;
+    });
+  };
 
-                <div className="w-full flex items-center justify-around mt-10 ">
-                    <button
-                        type="submit"
-                        className="flex flex-row items-center justify-center gap-5 w-60 lg:w-80 h-15 p-2 bg-transparent origin-top-left rounded-full border-t-gray-400 border-b-gray-700 border-[0.627px] backdrop-blur-[9.878px] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] hover:border-none"
-                    >
-                        <div className="flex items-center justify-center gap-5 w-full h- full ">
-                            <Image
-                                src='/Images/tabler_planet.svg'
-                                alt="logo"
-                                width={25}
-                                height={25}
-                            />
-                            <div className="font-outfit text-lg lg:text-xl text-white">
-                                Register
-                            </div>
-                        </div>
-                    </button>
-                </div>
-            </form>
-        </div>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormErrors({});
+
+    toast.promise(
+      (async () => {
+        try {
+          if (!user) throw new Error("User not authenticated");
+          const validatedData = userDataSchema.parse(formData);
+          const filteredMembers = validatedData.members.filter(
+            (member) => member !== teamLeader
+          );
+          const token =  user.uid;
+          await axios.post(
+            `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
+            {
+              name : validatedData.teamName,
+              members: filteredMembers,
+              extraInformation:
+                "This team specialises in AI and machine learning projects",
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+          );
+
+          toast.success("Team Created successfully.");
+          setTimeout(() => {
+            router.push("/");
+          }, 200);
+        } catch (err) {
+          if (err instanceof z.ZodError) {
+            const zodErrors = err.errors.reduce(
+              (acc, current) => {
+                const key = String(current.path[0]);
+                return {
+                  ...acc,
+                  [key]: current.message,
+                };
+              },
+              {} as Record<string, string>,
+            );
+            setFormErrors(zodErrors);
+          } else {
+            toast.error("An error occurred during registration.");
+            console.error(err);
+          }
+        }
+      })(),
+      {
+        loading: "Registering...",
+        success: "Registration successful!",
+        error: "An error occurred during registration.",
+      },
     );
+  };
+
+  if (loading || !event) {
+    return (
+      <div className="flex h-screen w-screen items-center justify-center gap-3">
+        Loading....
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
+      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
+        {isSoloEvent ? "Solo Registration" : "Group Registration"}
+      </div>
+      <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
+        <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="teamName"
+              className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            >
+              Team Name:
+            </label>
+            <input
+              type="text"
+              id="teamName"
+              name="teamName"
+              value={formData.teamName}
+              onChange={handleChange}
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+              required
+            />
+          </div>
+
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="teamLeader"
+              className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            >
+              Leader&apos;s Username:
+            </label>
+            <div className="relative flex w-1/2 items-center">
+              <input
+                type="text"
+                id="teamLeader"
+                name="teamLeader"
+                value={teamLeader}
+                className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+                readOnly
+              />
+            </div>
+          </div>
+
+          {!isSoloEvent &&
+            Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
+              <div
+                key={idx}
+                className="inline-flex w-full items-center justify-between lg:gap-7"
+              >
+                <label
+                  htmlFor={`member${idx + 1}`}
+                  className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+                >
+                  Member {idx + 2} Username:
+                </label>
+                <div className="relative flex w-1/2 items-center">
+                  <CommandMenu
+                    allUsers={allUsers}
+                    value={members}
+                    setValue={handleMemberSelect}
+                    index={idx}
+                  />
+                </div>
+              </div>
+            ))}
+        </div>
+        <div className="mt-10 flex w-full items-center justify-around">
+          <button
+            type="submit"
+            className="h-15 flex w-60 origin-top-left flex-row items-center justify-center gap-5 rounded-full border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent p-2 backdrop-blur-[9.878px] transition-all duration-300 hover:border-none hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] lg:w-80"
+          >
+            <div className="h- full flex w-full items-center justify-center gap-5">
+              <Image
+                src="/Images/tabler_planet.svg"
+                alt="logo"
+                width={25}
+                height={25}
+              />
+              <div className="font-outfit text-lg text-white lg:text-xl">
+                Register
+              </div>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default RegisterTeam;

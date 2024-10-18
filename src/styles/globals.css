@@ -428,3 +428,41 @@ body{
   width:270px;
   transition-delay:1s;
 }
+
+
+@layer utilities {
+  @keyframes neonGradient {
+    0% {
+      border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    }
+    50% {
+      border-image-source: linear-gradient(135deg, #00f, #0ff, #00f);
+    }
+    100% {
+      border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    }
+  }
+
+  .animate-borderNeon {
+    border-width: 3px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    animation: neonGradient 3s infinite linear;
+    box-shadow: 0 0 20px #00f, 0 0 40px #0ff;
+  }
+}
+
+[cmdk-list] {
+  height: auto;
+  max-height: 200px;
+  transition: height 100ms ease;
+  scroll-padding-block-start: 8px;
+  scroll-padding-block-end: 8px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+[cmdk-list]::-webkit-scrollbar {
+  display: none;
+}
