@@ -1,72 +1,8 @@
 "use client";
-import { forwardRef, useState, useEffect } from "react";
-import type { HTMLAttributes, ButtonHTMLAttributes } from "react";
-import {
-  Camera,
-  GraduationCap,
-  MapPin,
-  Phone,
-  ExternalLink,
-  ArrowLeft,
-  ChevronDown,
-  ChevronUp,
-  Check,
-  X,
-} from "lucide-react";
-import Image from "next/image";
-import { toast } from "sonner";
-import { cn } from "~/lib/utils";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-import EventsInfo from "../../../components/Dashboard/EventsInfo";
-
-
-export const runtime = "edge";
-
-type ProfileData = {
-  name: string;
-  alias: string;
-  institute: string;
-  phone: string;
-  address: string;
-  imageUrl: string;
-};
-
-type RequestData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-};
-
-type CompletedData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-  teamId: string;
-  imageUrl: string;
-};
-
-type DashboardData = {
-  profile: ProfileData;
-  pendingRequests: RequestData[];
-  completed: CompletedData[];
-  eventsRegistered: EventData[];
-};
-
-type TeamMember = {
-  name: string;
-  username: string;
-  teamName: string;
-  status: boolean;
-};
-
-type EventData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-  teamMembers: TeamMember[];
-};
-
+"use strict";
+exports.__esModule = true;
+exports.runtime = void 0;
+exports.runtime = "edge";
 // const fetchDashboardData = (): Promise<DashboardData> => {
 //   return new Promise((resolve) => {
 //     setTimeout(() => {
@@ -143,7 +79,6 @@ type EventData = {
 //     }, 0);
 //   });
 // };
-
 // const buttonVariants = cva(
 //   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
 //   {
@@ -172,13 +107,11 @@ type EventData = {
 //     },
 //   },
 // );
-
 // interface ButtonProps
 //   extends ButtonHTMLAttributes<HTMLButtonElement>,
 //     VariantProps<typeof buttonVariants> {
 //   asChild?: boolean;
 // }
-
 // const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 //   ({ className, variant, size, asChild = false, ...props }, ref) => {
 //     const Comp = asChild ? Slot : "button";
@@ -192,7 +125,6 @@ type EventData = {
 //   },
 // );
 // Button.displayName = "Button";
-
 // const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 //   ({ className, ...props }, ref) => (
 //     <div
@@ -206,7 +138,6 @@ type EventData = {
 //   ),
 // );
 // Card.displayName = "Card";
-
 // const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 //   ({ className, ...props }, ref) => (
 //     <div
@@ -217,7 +148,6 @@ type EventData = {
 //   ),
 // );
 // CardHeader.displayName = "CardHeader";
-
 // const CardTitle = forwardRef<
 //   HTMLParagraphElement,
 //   HTMLAttributes<HTMLHeadingElement>
@@ -232,14 +162,12 @@ type EventData = {
 //   />
 // ));
 // CardTitle.displayName = "CardTitle";
-
 // const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 //   ({ className, ...props }, ref) => (
 //     <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
 //   ),
 // );
 // CardContent.displayName = "CardContent";
-
 // const ProfileCard = ({ profile }: { profile: ProfileData }) => (
 //   <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-cyan-400/20">
 //     <CardContent className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
@@ -248,7 +176,6 @@ type EventData = {
 //           <div className="sm:-top-30 sm:-left-30 absolute -left-24 -top-24 h-[22rem] w-[22rem] rounded-full bg-[#0A0ACA] opacity-30 blur-[150px] sm:h-[27rem] sm:w-[27rem] lg:-left-36 lg:-top-36 lg:h-[33rem] lg:w-[33rem]"></div>
 //           <div className="-top-18 -left-18 lg:-top-30 lg:-left-30 absolute h-[19rem] w-[19rem] rounded-full bg-[#0A0ACA] opacity-50 blur-[105px] sm:-left-24 sm:-top-24 sm:h-[24rem] sm:w-[24rem] lg:h-[30rem] lg:w-[30rem]"></div>
 //           <div className="sm:-top-15 sm:-left-15 lg:-top-18 lg:-left-18 absolute -left-12 -top-12 h-48 w-48 rounded-full bg-[#0A0ACA] opacity-70 blur-[60px] sm:h-60 sm:w-60 lg:h-72 lg:w-72"></div>
-
 //           <Image
 //             src={profile.imageUrl}
 //             alt="Profile"
@@ -305,7 +232,6 @@ type EventData = {
 //     </CardContent>
 //   </Card>
 // );
-
 // const PendingRequestsCard = ({ requests }: { requests: RequestData[] }) => (
 //   <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-yellow-400/20">
 //     <CardHeader className="pb-1 sm:pb-2 md:pb-3">
@@ -355,7 +281,6 @@ type EventData = {
 //     </CardContent>
 //   </Card>
 // );
-
 // const CompletedCard = ({ completed }: { completed: CompletedData[] }) => (
 //   <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-green-400/20">
 //     <CardHeader className="pb-1 sm:pb-2 md:pb-3">
@@ -414,10 +339,8 @@ type EventData = {
 //     </CardContent>
 //   </Card>
 // );
-
 // const EventsRegisteredCard = ({ events }: { events: EventData[] }) => {
 //   const [expandedEvents, setExpandedEvents] = useState<string[]>([]);
-
 //   const toggleExpand = (eventId: string) => {
 //     setExpandedEvents((prev) =>
 //       prev.includes(eventId)
@@ -425,7 +348,6 @@ type EventData = {
 //         : [...prev, eventId],
 //     );
 //   };
-
 //   return (
 //     <Card className="border-gray-700 bg-gray-800/30 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-purple-400/20">
 //       <CardHeader className="pb-1 sm:pb-2 md:pb-3">
@@ -534,12 +456,10 @@ type EventData = {
 //     </Card>
 //   );
 // };
-
 // export default function DashBoard() {
 //   const [dashboardData, setDashboardData] = useState<DashboardData | null>(
 //     null,
 //   );
-
 //   useEffect(() => {
 //     fetchDashboardData()
 //       .then((data) => {
@@ -552,7 +472,6 @@ type EventData = {
 //         });
 //       });
 //   }, []);
-
 //   if (!dashboardData) {
 //     return (
 //       <div className="flex min-h-screen items-center justify-center bg-black text-lg text-white sm:text-xl md:text-2xl lg:text-3xl">
@@ -560,7 +479,6 @@ type EventData = {
 //       </div>
 //     );
 //   }
-
 //   return (
 //     <div
 //       className={`min-h-screen bg-black p-1 font-outfit text-white sm:p-2 md:p-4 lg:p-6`}
@@ -603,15 +521,7 @@ type EventData = {
 //     </div>
 //   );
 // }
-
-
-
-
-const Dashboard=()=>{
-  return(
-    <div className="flex flex-col items-center justify-center min-h-screen">
-
-    </div>
-  );
-}
-export default Dashboard;
+var Dashboard = function () {
+    return (React.createElement("div", { className: "flex flex-col items-center justify-center min-h-screen" }));
+};
+exports["default"] = Dashboard;
