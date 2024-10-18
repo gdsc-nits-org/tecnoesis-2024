@@ -42,7 +42,7 @@ const Login = () => {
     const getUserName = async () => {
       try {
         if (_user) {
-          const token = _user.uid;
+          const token = await _user.getIdToken();
           console.log(token)
           const { data } = await axios.get<{ msg: UserResponse }>(
             `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
