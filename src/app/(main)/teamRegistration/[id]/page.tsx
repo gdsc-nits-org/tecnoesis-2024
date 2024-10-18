@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../utils/firebase";
+import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -146,164 +146,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
-<<<<<<< HEAD:src/app/teamRegistration/[id]/page.tsx
-    const fetchAllUsers = async (token: string) => {
-        try {
-            const { data } = await axios.get<{ msg: UserResponse[] }>(
-                `${env.NEXT_PUBLIC_API_URL}/api/user/`,
-                {
-                    headers: {
-                        Authorization: 1000000,
-                    },
-                }
-            );
-            console.log(data);
-            return data.msg;
-        } catch (e) {
-            console.error(e);
-            return [];
-        }
-    };
-    const fetchUser = async (token: string) => {
-        try {
-            console.log(token);
-            const { data } = await axios.get<{ msg: UserResponse }>(
-                `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            console.log(data);
-            return data.msg.username;
-        } catch (e) {
-            console.error(e);
-            return;
-        }
-    };
-
-    useEffect(() => {
-        const fetchEventData = async () => {
-            try {
-                const { data } = await axios.get<GetEventAPIResponse>(
-                    `${env.NEXT_PUBLIC_API_URL}/api/event/${params.id}`
-                );
-                const eventData = data.msg;
-                setEvent(eventData);
-                setIsSoloEvent(eventData.maxTeamSize === eventData.minTeamSize);
-            } catch (e) {
-                console.error(e);
-            }
-        };
-        void fetchEventData();
-    }, [params.id]);
-
-    useEffect(() => {
-        void (async () => {
-            const token = await user?.getIdToken();
-            if (!token) return;
-            setAllUsers(await fetchAllUsers(token));
-        })();
-        void (async () => {
-            const token = user?.uid;
-            if (!token) return;
-            const leaderUsername = await fetchUser(token);
-            if (leaderUsername) {
-                setTeamLeader(leaderUsername);
-            }
-        })();
-
-    }, [user]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    // const handleTeamMemberSelect = (username: string) => {
-    //     if (
-    //         !formData.members.includes(username) &&
-    //         formData.members.length < (event?.maxTeamSize || Infinity)
-    //     ) {
-    //         setFormData((prevData) => ({
-    //             ...prevData,
-    //             members: [...prevData.members, username],
-    //         }));
-    //     }
-    //     setIsOpen(false);
-    // };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormErrors({});
-
-        toast.promise(
-            (async () => {
-                try {
-                    if (!user) throw new Error("User not authenticated");
-
-                    const validatedData = userDataSchema.parse(formData);
-
-                    const token = await user.getIdToken();
-                    await axios.post(
-                        `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
-                        {
-                            ...validatedData,
-                            extraInformation: "This team specialises in AI and machine learning projects",
-                        },
-                        {
-                            headers: {
-                                Authorization: `Bearer ${token}`,
-                            },
-                        }
-                    );
-
-                    toast.success("Team Created successfully.");
-                    setTimeout(() => {
-                        router.push("/");
-                    }, 200);
-                } catch (err) {
-                    if (err instanceof z.ZodError) {
-                        const zodErrors = err.errors.reduce(
-                            (acc, current) => {
-                                const key = String(current.path[0]);
-                                return {
-                                    ...acc,
-                                    [key]: current.message,
-                                };
-                            },
-                            {} as Record<string, string>
-                        );
-                        setFormErrors(zodErrors);
-                    } else {
-                        toast.error("An error occurred during registration.");
-                        console.error(err);
-                    }
-                }
-            })(),
-            {
-                loading: "Registering...",
-                success: "Registration successful!",
-                error: "An error occurred during registration.",
-            }
-        );
-    };
-
-    // const filteredUsers = allUsers?.filter(
-    //     (user) => !formData.members?.includes(user.username)
-    // );
-
-    if (loading || !event) {
-        return (
-            <div className="flex w-screen h-screen justify-center items-center gap-3">
-                Loading....
-            </div>
-        );
-=======
   const fetchAllUsers = async (token: string) => {
     try {
       const { data } = await axios.get<{ msg: UserResponse[] }>(
@@ -318,7 +160,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     } catch (e) {
       console.error(e);
       return [];
->>>>>>> baaabf8 (Add CMDK):src/app/(main)/teamRegistration/[id]/page.tsx
     }
   };
   const fetchUser = async (token: string) => {
