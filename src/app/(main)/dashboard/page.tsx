@@ -70,7 +70,7 @@ export const runtime = "edge";
 
 const DashBoard=()=>{
   return(
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <Profile/>
       <EventsInfo/>
     </div>

@@ -30,6 +30,10 @@ const Profile = () => {
     const [_user] = useAuthState(auth);
     const [signOut] = useSignOut(auth);
     const [user, setUser] = useState<UserResponse>();
+    let ImgUrl = "";
+    if(user?.imageUrl) {
+        ImgUrl=user?.imageUrl;
+    }
     const fetchUser = async (token: string) => {
         try {
             const { data } = await axios.get<{ msg: UserResponse }>(
@@ -66,7 +70,7 @@ const Profile = () => {
                         <div className="sm:-top-15 sm:-left-15 lg:-top-18 lg:-left-18 absolute -left-12 -top-12 h-48 w-48 rounded-full bg-[#0A0ACA] opacity-70 blur-[60px] sm:h-60 sm:w-60 lg:h-72 lg:w-72"></div>
 
                         <Image
-                            src={user?.imageUrl}
+                            src={ImgUrl}
                             alt="Profile"
                             width={200}
                             height={250}
