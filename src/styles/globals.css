@@ -466,3 +466,13 @@ body{
 [cmdk-list]::-webkit-scrollbar {
   display: none;
 }
+
+.eventcard{
+  margin:10px;
+  border: 1px solid;
+  border-image-source: linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%);
+  border-image-slice: 1;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}

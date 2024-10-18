@@ -12,17 +12,17 @@ interface CompletedProps {
 
 const Pending = ({ count, data }: PendingProps) => {
     return (
-        <div className="text-white">
-            <h1>Pending Requests <span>{count}</span></h1>
+        <div className="text-white eventcard rounded-md">
+            <h1 className="text-[2rem] bg-silver-lustre bg-clip-text text-transparent font-outfit font-bold">PENDING REQUESTS (<span className="bg-blue-metall bg-clip-text text-transparent">{count}</span>)</h1>
             <div className="flex flex-col items-center justify-center">
-                {data.map((item, index) => ( // Add index as the second parameter for map
-                    <div key={index} className="flex flex-row items-center justify-between"> {/* Add a unique key */}
+                {data.map((item, index) => (
+                    <div key={index} className="flex flex-row items-center justify-between w-[100%] p-[2rem] border border-[#fefdfd68] m-1"> 
                         <div className="flex flex-col items-center justify-center">
-                            <h2>{item.event}</h2>
-                            <h4><span>Team name:</span> {item.team}</h4>
+                            <h2 className="bg-golden-lustre bg-clip-text text-transparent font-outfit font-bold text-[1rem]">{item.event}</h2>
+                            <h4 className="text-[#7ea9cb]"><span>Team name:</span> {item.team}</h4>
                         </div>
                         <div className="flex items-center justify-center">
-                            <button>Accept</button>
+                            <button className="border border-[#BCE9FFAB] rounded-full p-4 pt-1 pb-1">Accept</button>
                         </div>
                     </div>
                 ))}
@@ -33,17 +33,17 @@ const Pending = ({ count, data }: PendingProps) => {
 
 const Completed = ({ data }: CompletedProps) => {
     return (
-        <div className="text-white">
-            <h1>Completed Requests</h1>
+        <div className="text-white eventcard rounded-md">
+            <h1 className="text-[2rem] bg-silver-lustre bg-clip-text text-transparent font-outfit font-bold">Completed Requests</h1>
             <div className="flex flex-col items-center justify-center">
                 {data.map((item, index) => ( // Add index as the second parameter for map
-                    <div key={index} className="flex flex-row items-center justify-between"> {/* Add a unique key */}
+                    <div key={index} className="flex flex-row items-center justify-between w-[100%] p-[2rem] border border-[#fefdfd68] m-1"> {/* Add a unique key */}
                         <div className="flex flex-col items-center justify-center">
-                            <h2>{item.event}</h2>
-                            <h4><span>Team name:</span> {item.team}</h4>
+                            <h2 className="bg-golden-lustre bg-clip-text text-transparent font-outfit font-bold text-[1rem]">{item.event}</h2>
+                            <h4 className="text-[#7ea9cb]"><span>Team name:</span> {item.team}</h4>
                         </div>
                         <div className="flex items-center justify-center">
-                            <button>Accept</button>
+                            <button className="border border-[#BCE9FFAB] rounded-full p-4 pt-1 pb-1">Accept</button>
                         </div>
                     </div>
                 ))}
@@ -54,8 +54,8 @@ const Completed = ({ data }: CompletedProps) => {
 
 const Registered = () => {
     return (
-        <div className="text-white">
-            <h1>Registered Requests</h1>
+        <div className="text-white  eventcard">
+            <h1 className="text-[2rem]">Registered Requests</h1>
         </div>
     );
 }
@@ -94,7 +94,6 @@ const EventsInfo = () => {
             teamId: "123454"
         }
     ]);
-
     return (
         <div className="flex flex-col items-center justify-center">
             <Pending count={count} data={pendinglist} />

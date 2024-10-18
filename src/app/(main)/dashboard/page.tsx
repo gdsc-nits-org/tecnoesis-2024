@@ -20,58 +20,64 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import EventsInfo from "~/components/Dashboard/EventsInfo";
 import Profile from "~/components/Dashboard/Profile";
+import { useRef } from "react";
 
 export const runtime = "edge";
 
-type ProfileData = {
-  name: string;
-  alias: string;
-  institute: string;
-  phone: string;
-  address: string;
-  imageUrl: string;
-};
+// type ProfileData = {
+//   name: string;
+//   alias: string;
+//   institute: string;
+//   phone: string;
+//   address: string;
+//   imageUrl: string;
+// };
 
-type RequestData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-};
+// type RequestData = {
+//   id: string;
+//   eventName: string;
+//   teamName: string;
+// };
 
-type CompletedData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-  teamId: string;
-  imageUrl: string;
-};
+// type CompletedData = {
+//   id: string;
+//   eventName: string;
+//   teamName: string;
+//   teamId: string;
+//   imageUrl: string;
+// };
 
-type DashboardData = {
-  profile: ProfileData;
-  pendingRequests: RequestData[];
-  completed: CompletedData[];
-  eventsRegistered: EventData[];
-};
+// type DashboardData = {
+//   profile: ProfileData;
+//   pendingRequests: RequestData[];
+//   completed: CompletedData[];
+//   eventsRegistered: EventData[];
+// };
 
-type TeamMember = {
-  name: string;
-  username: string;
-  teamName: string;
-  status: boolean;
-};
+// type TeamMember = {
+//   name: string;
+//   username: string;
+//   teamName: string;
+//   status: boolean;
+// };
 
-type EventData = {
-  id: string;
-  eventName: string;
-  teamName: string;
-  teamMembers: TeamMember[];
-};
+// type EventData = {
+//   id: string;
+//   eventName: string;
+//   teamName: string;
+//   teamMembers: TeamMember[];
+// };
 
 const DashBoard=()=>{
+
   return(
-    <div className="min-h-screen">
-      <Profile/>
-      <EventsInfo/>
+    <div className="relative min-h-screen flex flex-col gap-6 lg:flex-row">
+      <div>
+        <Profile/>
+      </div>
+      <div>
+        <EventsInfo/>
+      </div>
     </div>
   );
 }
