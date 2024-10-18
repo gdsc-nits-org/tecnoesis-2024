@@ -69,7 +69,7 @@ type EventData = {
 
 const DashBoard=()=>{
   return(
-    <div>
+    <div className="min-h-screen">
       <Profile/>
       <EventsInfo/>
     </div>
