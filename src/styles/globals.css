@@ -80,6 +80,7 @@ body{
   height: 100vh;
 }
 
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
@@ -478,4 +479,15 @@ body{
   -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%); 
   width: 100%;
   box-sizing: border-box;
+}
+@media screen and (min-width:1024px){
+  .scrollbar-hide{
+    mask-image: linear-gradient(to top,transparent,#000000,);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none; 
+  }
 }

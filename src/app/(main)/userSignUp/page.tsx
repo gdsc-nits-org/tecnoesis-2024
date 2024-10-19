@@ -40,7 +40,7 @@ async function createUser(data: UserData, user: User) {
     imageUrl: user.photoURL,
     ...data,
   };
-  const token = await user.getIdToken();
+  const token = await user?.getIdToken();
   const response = await axios.post(
     `${env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
     payload,

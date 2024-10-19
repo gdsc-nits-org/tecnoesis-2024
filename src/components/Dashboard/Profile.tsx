@@ -52,9 +52,8 @@ const Profile = () => {
     };
     useEffect(() => {
         void (async () => {
-            const token = _user?.uid;
+            const token = await _user?.getIdToken();
             if (!token) return;
-            console.log(await _user?.getIdToken());
             const res = await fetchUser(token);
             if (res) {
                 setUser(res);
@@ -63,7 +62,7 @@ const Profile = () => {
     }, [_user]);
     return (
 
-        <div className="ml-[10vw] rounded-lg shadow-smborder-gray-700 shadow-xl  transition-all duration-300 hover:shadow-cyan-400/20  w-[80vw] lg:w-[50vw] bg-transparent bg-opacity-30 backdrop-blur-md border-2 border-white/20">
+        <div className="rounded-lg shadow-smborder-gray-700 shadow-xl  transition-all duration-300 hover:shadow-cyan-400/20  w-[80vw] lg:w-[50vw] bg-transparent bg-opacity-30 backdrop-blur-md border-2 border-white/20">
             <div className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
                 <div className="mb-4 flex flex-col items-center sm:mb-6 sm:flex-row sm:items-start md:mb-8 lg:mb-10">
                     <div className="relative mb-4 flex-shrink-0 sm:mb-0 sm:mr-6 md:mr-8 lg:mr-10">
@@ -79,10 +78,10 @@ const Profile = () => {
                         />
                     </div>
                     <div className="w-full text-center sm:w-[calc(100%-16rem)] sm:text-left md:w-[calc(100%-20rem)] lg:w-[calc(100%-22rem)]">
-                        <h2 className="mb-2 break-words font-rp1 text-3xl font-normal leading-tight text-white sm:mb-3 sm:text:3xl sm:leading-tight md:text-3xl md:leading-tight lg:text-5xl lg:leading-[1.2]">
+                        <h2 className="mb-2 break-words font-rp1 text-3xl font-normal leading-tight text-white sm:mb-3 sm:text:3xl sm:leading-tight md:text-3xl md:leading-tight lg:text-4xl lg:leading-[1.2]">
                             {user?.firstName} {user?.middleName} {user?.lastName}
                         </h2>
-                        <p className="mb-4 break-words text-xl text-cyan-400 sm:mb-6 sm:text-2xl md:text-3xl lg:text-4xl">
+                        <p className="mb-4 break-words text-xl text-cyan-400 sm:mb-6 sm:text-xl md:text-2xl lg:text-3xl">
                             {user?.username}
                         </p>
                     </div>
