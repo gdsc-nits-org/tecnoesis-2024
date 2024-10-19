@@ -54,6 +54,7 @@ const Profile = () => {
         void (async () => {
             const token = _user?.uid;
             if (!token) return;
+            console.log(await _user?.getIdToken());
             const res = await fetchUser(token);
             if (res) {
                 setUser(res);
