@@ -25,7 +25,7 @@ export default function NavbarMobile() {
 
   return (
     <nav
-      className={`${expand ? "absolute max-h-screen" : "sticky"} left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]`}
+      className={`${expand && "h-auto min-h-screen"} sticky left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]`}
       style={
         expand
           ? {
