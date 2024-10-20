@@ -31,6 +31,7 @@ export default function RootLayout({
         <meta property="og:video" content="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
+        <meta property="og:url" content="https://opengraph.tecnoesis-2024.pages.dev/" />
       </Head>
       <body>
         {children}
