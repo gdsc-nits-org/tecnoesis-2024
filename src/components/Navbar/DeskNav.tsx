@@ -22,12 +22,14 @@ const Navbar = () => {
     const links = document.querySelectorAll<HTMLElement>(".navOpt");
     const animation = document.querySelector<HTMLElement>(".animation");
 
+
     if (animation && links.length > 0) {
       const linkPositions = Array.from(links).map((link) => {
         const { width, left } = link.getBoundingClientRect();
         return { width, left };
       });
       const reqheight = links.item(0)?.clientHeight || 0;
+
 
       const navMap = new Map<string, number>([
         ["/home", 0],
@@ -49,6 +51,7 @@ const Navbar = () => {
             color: "#01A3F5",
           });
       }
+
       const handlerMap = new Map<
         HTMLElement,
         { mouseEnter: () => void; mouseLeave: () => void }
@@ -76,6 +79,7 @@ const Navbar = () => {
         });
       };
 
+
       const handleMouseLeave = (link: HTMLElement) => {
         gsap.to(link, {
           color: "white",
@@ -94,6 +98,7 @@ const Navbar = () => {
         }
       };
 
+
       links.forEach((link, index) => {
         const mouseEnterHandler = () => handleMouseEnter(link, index);
         const mouseLeaveHandler = () => handleMouseLeave(link);
@@ -104,7 +109,13 @@ const Navbar = () => {
           mouseEnter: mouseEnterHandler,
           mouseLeave: mouseLeaveHandler,
         });
+
+        handlerMap.set(link, {
+          mouseEnter: mouseEnterHandler,
+          mouseLeave: mouseLeaveHandler,
+        });
       });
+
 
       // Cleanup function to remove event listeners
       return () => {
@@ -130,7 +141,7 @@ const Navbar = () => {
             width={300}
             height={80}
             alt="Tecno 24 logo"
-            className="h-auto w-[18vw] mr-[2vw]"
+            className="h-auto w-[18vw]"
           />
         </Link>
         <section className="flex h-max items-center rounded-full bg-[#5252522a] px-[0.25vw] py-[0.27vw] shadow-[inset_0_2.5px_2.5px_rgba(255,255,255,0.3),inset_0_-2.5px_2.5px_rgba(255,255,255,0.3)] backdrop-blur-md">
@@ -166,7 +177,7 @@ const Navbar = () => {
             Team
           </Link>
         </section>
-        <section className="pr-2 min-w-[18vw] flex justify-center">
+        <section className="pr-2 min-w-[18vw] flex justify-center mr-[-1vw]">
           <Login />
         </section>
       </div>

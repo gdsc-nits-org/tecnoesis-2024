@@ -106,7 +106,7 @@ const Login = () => {
             onClick={() => {
               router.push("/home");
             }}
-            className="flex backdrop-blur-lg w-full items-center justify-between rounded-full bg-[#5252522a] pl-[0.3vw] pr-[1.5vw] py-1 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
+            className="flex backdrop-blur-lg w-full items-center justify-start rounded-full bg-[#5252522a] pl-[0.3vw] py-1 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
           >
             {_user?.photoURL && (
               <Image
@@ -117,8 +117,8 @@ const Login = () => {
                 alt="avater"
               ></Image>
             )}
-            <p className="overflow-hidden text-nowrap font-outfit font-semibold tracking-wide text-[1.15vw] duration-1000 group-hover:text-[#01A3F5]">
-              {userName}dasdadssss
+            <p className="overflow-hidden w-[8vw] text-center text-nowrap tracking-wide text-[1.25vw] duration-1000 group-hover:text-[#01A3F5]">
+              {(userName ? userName : "use_r_name").toLowerCase()}
             </p>
           </button>
         </section>
@@ -140,8 +140,7 @@ const Login = () => {
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
             <Rocket
               size={40}
-              className="p-2 text-white group-hover:animate-rocketzoom"
-            />
+              className="p-2 text-white group-hover:animate-rocketzoom" />
           </div>
         </button>
       </section>
@@ -170,44 +169,47 @@ const ProfileCard: React.FC<UserCred> = ({
 }) => {
   const router = useRouter();
   return (
-    <section
-      className={"p-4] rounded-lgjf mx-4 flex items-center justify-center"}
-      style={{
-        background:
-          "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
-        border: "1.25px solid",
+    <section className="w-full flex justify-center">
+      <section
+        className={"p-4 rounded-lg mx-4 flex items-center justify-center w-full max-w-[400px]"}
+        style={{
+          background:
+            "linear-gradient(112.83deg, rgba(5, 137, 205, 0.11) 0%, rgba(119, 115, 115, 0) 110.84%)",
+          border: "1.25px solid",
 
-        borderImageSource:
-          "linear-gradient(118.06deg, rgba(170, 187, 254, 0.2) 1.06%, rgba(0, 0, 0, 0) 30.53%) linear-gradient(133.91deg, rgba(0, 0, 0, 0) 8.47%, rgba(39, 232, 177, 0.2) 105.55%)",
-        backdropFilter: "blur(17.00941276550293px)",
-      }}
-    >
-      <div className="relative min-h-[122px] min-w-[122px] overflow-hidden rounded-lg">
-        {photoURL && (
-          <Image
-            src={photoURL}
-            layout="fill"
-            objectFit="cover"
-            alt="avater"
-          ></Image>
-        )}
-      </div>
-      <div className="flex h-[80%] flex-grow flex-col justify-around gap-6 pl-4">
-        <div className="flex flex-col gap-1 text-[#B8B8B8]">
-          <h1 className="text-wrap font-rp1 text-lg leading-5">
-            {displayName}
-          </h1>
-          <h3 className="font-outfit text-sm">{userName}</h3>
+          borderImageSource:
+            "linear-gradient(118.06deg, rgba(170, 187, 254, 0.2) 1.06%, rgba(0, 0, 0, 0) 30.53%) linear-gradient(133.91deg, rgba(0, 0, 0, 0) 8.47%, rgba(39, 232, 177, 0.2) 105.55%)",
+          backdropFilter: "blur(17.00941276550293px)",
+        }}
+      >
+        <div className="relative min-h-[122px] min-w-[122px] overflow-hidden rounded-lg">
+          {photoURL && (
+            <Image
+              src={photoURL}
+              layout="fill"
+              objectFit="cover"
+              alt="avater"
+            ></Image>
+          )}
         </div>
-        <button
-          onClick={() => {
-            router.push("/home");
-          }}
-          className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]"
-        >
-          View Profile
-        </button>
-      </div>
+        <div className="flex h-[80%] flex-grow flex-col justify-around gap-6 pl-4">
+          <div className="flex flex-col gap-1 text-[#B8B8B8]">
+            <h1 className="text-wrap font-rp1 text-lg leading-5">
+              {displayName}
+            </h1>
+            <h3 className="font-outfit text-sm">{userName}</h3>
+          </div>
+          <button
+            onClick={() => {
+              router.push("/home");
+            }}
+            className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5] w-full max-w-[160px]"
+          >
+            View Profile
+          </button>
+        </div>
+      </section>
     </section>
   );
 };
+

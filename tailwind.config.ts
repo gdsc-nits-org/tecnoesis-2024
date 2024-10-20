@@ -42,6 +42,9 @@ const config = {
       },
       colors: {
         customGray: "#1e2025",
+        customBlue: "#59CAFA",
+        customYellow: "DDDBD2",
+        customBluish: "#000912",
         customDark: "#121317",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
