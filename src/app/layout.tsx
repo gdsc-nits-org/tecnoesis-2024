@@ -26,12 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`} prefix="og: https://ogp.me/ns#">
       <Head>
-        <meta property="og:title" content="Tecnoesis 2024" />
-        <meta property="og:description" content="The Official Website of Tecnoesis 2024" />
+        <meta property="og:title" content="Tech fest Tecnoesis 2024" />
+        <meta property="og:description" content="The Official Website of Tech fest Tecnoesis 2024" />
         <meta property="og:image" content="https://picsum.photos/300" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
-        <meta property="og:url" content="https://opengraph.tecnoesis-2024.pages.dev/" />
+        <meta property="og:url" content="https://tecnoesis-2024.pages.dev/" />
         <meta property="og:type" content="website" />
       </Head>
       <body>
