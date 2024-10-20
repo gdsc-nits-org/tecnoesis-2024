@@ -17,7 +17,9 @@ const About = () => {
     const imageERef = useRef<HTMLImageElement | null>(null);
     const imageFRef = useRef<HTMLImageElement | null>(null);
     const imageGRef = useRef<HTMLImageElement | null>(null);
+   
 
+  
 
 
 
@@ -52,101 +54,29 @@ const About = () => {
     useEffect(() => {
 
         if (!isDesktop) {
-            if (imageARef.current) {
-                gsap.to(imageARef.current, {
-                    x: 0,
-                    y: 0,
+            const resetPositions = () => {
+                const resetProps = {
+                    // x: "0%",
+                    // y: "0%",
                     duration: 0.6,
                     ease: "power3.out",
-                });
-            }
-            if (image2WrapperRef.current) {
-                gsap.to(image2WrapperRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageCRef.current) {
-                gsap.to(imageCRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageDRef.current) {
-                gsap.to(imageDRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageERef.current) {
-                gsap.to(imageERef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageFRef.current) {
-                gsap.to(imageFRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageGRef.current) {
-                gsap.to(imageGRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-            if (image1Ref.current) {
-                gsap.to(image1Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image2Ref.current) {
-                gsap.to(image2Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image3Ref.current) {
-                gsap.to(image3Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (class1DivRef.current) {
-                gsap.to(class1DivRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+                    transformOrigin: "center center", // Ensure centered origin
+                };
+    
+                if (imageARef.current) gsap.to(imageARef.current, resetProps);
+                if (image2WrapperRef.current) gsap.to(image2WrapperRef.current, resetProps);
+                if (imageCRef.current) gsap.to(imageCRef.current, resetProps);
+                if (imageDRef.current) gsap.to(imageDRef.current, resetProps);
+                if (imageERef.current) gsap.to(imageERef.current, resetProps);
+                if (imageFRef.current) gsap.to(imageFRef.current, resetProps);
+                if (imageGRef.current) gsap.to(imageGRef.current, resetProps);
+                if (image1Ref.current) gsap.to(image1Ref.current, resetProps);
+                if (image2Ref.current) gsap.to(image2Ref.current, resetProps);
+                if (image3Ref.current) gsap.to(image3Ref.current, resetProps);
+                if (class1DivRef.current) gsap.to(class1DivRef.current, resetProps);
+            };
+    
+            resetPositions();
             return;
         }
         const handleMouseMove = (event: MouseEvent) => {
@@ -261,7 +191,7 @@ const About = () => {
 
 
     return (
-        <div className="flex flex-col w-screen overflow-x-hidden" >
+        <div className="flex flex-col w-screen overflow-x-hidden" id='about'>
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
                 <div className=" upper w-full  md:h-[30vh]  lg:w-1/3 lg:h-auto">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
@@ -286,7 +216,7 @@ const About = () => {
                         <img ref={imageCRef}
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/Flow_7_n6z8tt.webp"
                             alt="Image c"
-                            className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5"
+                            className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5 "
                         />
                         <img ref={imageDRef}
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/dotted_ring_tcdt3j.webp"

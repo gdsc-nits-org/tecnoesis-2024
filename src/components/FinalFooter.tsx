@@ -158,7 +158,7 @@ const LandingFooter = () => {
     <>
       <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
         <div
-          className="bg-[linear-gradient(black, #000000)] z-50 mb-[-150px] h-[180px] w-full"
+          className="bg-[linear-gradient(black, #000000)] z-40 mb-[-150px] h-[180px] w-full"
           style={{
             background:
               "linear-gradient(#000000, #0000009e, rgb(0 0 0 / 33%), #00000000)",
