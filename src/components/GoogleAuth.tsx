@@ -71,8 +71,8 @@ const Login = () => {
   }
   if (loading || _loading) {
     return (
-      <div className="flex w-[12vw] animate-spin items-center justify-center gap-3 bg-transparent backdrop-blur-lg">
-        <LoaderCircle size={60} />
+      <div className="flex w-[12vw] items-center justify-center gap-3 bg-transparent backdrop-blur-lg">
+        <LoaderCircle className=" animate-spin" size={60} />
       </div>
     );
   }
