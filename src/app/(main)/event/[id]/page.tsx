@@ -36,6 +36,7 @@ interface Eventresponse {
 interface EventParams {
   "id": "string"
 }
+export const runtime = "edge";
 
 const EventPage = ({ params }: { params: EventParams }) => {
   const [event, setEvent] = useState<Eventresponse>();
