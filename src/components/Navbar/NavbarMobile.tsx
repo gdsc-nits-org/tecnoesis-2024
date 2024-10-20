@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Login from "../GoogleAuth";

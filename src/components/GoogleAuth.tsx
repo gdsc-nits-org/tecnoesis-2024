@@ -36,25 +36,23 @@ const Login = () => {
     };
 
     interface UserResponse {
-      user: {
-        username: string;
-      };
+      username: string;
     }
 
     const getUserName = async () => {
       try {
         if (_user) {
-          const token = await _user.getIdToken();
-          const response = await axios.get<UserResponse>(
+          const token = await _user?.getIdToken();
+          const { data } = await axios.get<{ msg: UserResponse }>(
             `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
             {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            },
-          );
-          if (response?.data?.user?.username) {
-            setUserName(response.data.user.username);
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+          if (data.msg.username) {
+            setUserName(data.msg.username);
           }
         }
       } catch (error) {
@@ -106,7 +104,7 @@ const Login = () => {
         <section className="auto group min-w-[8vw] max-w-[20vw]">
           <button
             onClick={() => {
-              router.push("/home");
+              router.push("/dashboard");
             }}
             className="flex w-full items-center justify-between rounded-full bg-[#5252522a] px-[2vw] py-[0.5vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
           >
@@ -205,7 +203,7 @@ const ProfileCard: React.FC<UserCred> = ({
         </div>
         <button
           onClick={() => {
-            router.push("/home");
+            router.push("/dashboard");
           }}
           className="rounded-3xl border border-[#01a3f5] p-0.5 text-sm text-[#01a3f5]"
         >
