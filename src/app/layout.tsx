@@ -28,7 +28,7 @@ export default function RootLayout({
       <head>
         <meta property="og:title" content="Tecnoesis 2024" />
         <meta property="og:description" content="The Official Website of Tecnoesis 2024" />
-        <meta property="og:image" content="https://opengraph.tecnoesis-2024.pages.dev/" />
+        <meta property="og:image" content="https://opengraph.tecnoesis-2024.pages.dev/tecnoesislogo.png" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
         <meta property="og:type" content="website" />
