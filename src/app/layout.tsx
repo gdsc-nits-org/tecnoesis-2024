@@ -25,7 +25,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`} prefix="og: https://ogp.me/ns#">
-      <Head>
+      <head>
         <meta property="og:title" content="Tech fest Tecnoesis 2024" />
         <meta property="og:description" content="The Official Website of Tech fest Tecnoesis 2024" />
         <meta property="og:image" content="https://picsum.photos/300" />
@@ -33,7 +33,7 @@ export default function RootLayout({
         <meta property="og:image:height" content="300" />
         <meta property="og:url" content="https://tecnoesis-2024.pages.dev/" />
         <meta property="og:type" content="website" />
-      </Head>
+      </head>
       <body>
         {children}
         <Toaster
