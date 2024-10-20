@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`} prefix="og: https://ogp.me/ns#">
       <Head>
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.icons} />
+        <meta property="og:title" content="Tecnoesis 2024" />
+        <meta property="og:description" content="The Official Website of Tecnoesis 2024" />
+        <meta property="og:image" content="/favicon.ico" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
       </Head>
