@@ -9,7 +9,7 @@ import { LoaderCircle, Rocket } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 import { env } from "~/env";
-import CustomButton from "./CustomButton";
+
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [_user, _loading, _error] = useAuthState(auth);
