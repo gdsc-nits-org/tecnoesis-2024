@@ -28,7 +28,7 @@ export default function RootLayout({
       <Head>
         <meta property="og:title" content="Tecnoesis 2024" />
         <meta property="og:description" content="The Official Website of Tecnoesis 2024" />
-        <meta property="og:image" content="/favicon.ico" />
+        <meta property="og:video" content="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
       </Head>
