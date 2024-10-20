@@ -31,6 +31,7 @@ export default function RootLayout({
         <meta property="og:image" content="https://opengraph.tecnoesis-2024.pages.dev/tecnoesislogo.png" />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
+        <meta property="og:website" content="https://tecnoesis-2024.pages.dev" />
         <meta property="og:type" content="website" />
       </head>
       <body>
