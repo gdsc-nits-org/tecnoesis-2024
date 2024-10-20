@@ -11,11 +11,11 @@ interface LandingProps {
   onProgressUpdate: (progress: number) => void;
 }
 
-const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
+const Landing: React.FC<LandingProps> = ({ onProgressUpdate }) => {
   const tablet = useMediaQuery("(min-width: 500px)");
   const desktop = useMediaQuery("(min-width: 800px)");
   const [loadedImages, setLoadedImages] = useState(0);
-  const totalImages = 5;
+  const totalImages = 5; // Update this number if you change the number of images
   const tl = gsap.timeline({ ease: "slow", duration: 1 });
 
   useEffect(() => {
@@ -45,21 +45,51 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-
   }, [tl]);
-
-
-  useEffect(() => {
-    onProgressUpdate((loadedImages / totalImages) * 100);
-  }, [loadedImages, onProgressUpdate, totalImages]);
 
   const handleImageLoad = () => {
     setLoadedImages((prev) => {
-      const newCount = prev + 1;
+      const newCount = Math.min(prev + 1, totalImages);
+      console.log(`Image loaded. Total loaded: ${newCount}/${totalImages}`);
       return newCount;
     });
   };
-  
+
+  useEffect(() => {
+    const progress = (loadedImages / totalImages) * 100;
+    console.log(`Progress updated: ${progress.toFixed(2)}%`);
+    onProgressUpdate(progress);
+  }, [loadedImages, onProgressUpdate, totalImages]);
+
+  useEffect(() => {
+    const imageSources = [
+      "/assets/Landing/tecnoesisLogo.webp",
+      "/assets/Landing/buildings.svg",
+      "/assets/Landing/newWorld.svg",
+      "/assets/Landing/glowingBall.gif",
+      "/assets/Landing/player2.svg"
+    ];
+
+    const preloadImages = imageSources.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new window.Image();
+        img.src = src;
+        img.onload = () => {
+          handleImageLoad();
+          resolve(img);
+        };
+        img.onerror = reject;
+      });
+    });
+
+    Promise.all(preloadImages)
+      .then(() => {
+        console.log("All images preloaded");
+        onProgressUpdate(100); // Ensure 100% progress when all images are loaded
+      })
+      .catch((error) => console.error("Error preloading images:", error));
+  }, []);
+
   return (
     <div className="relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff]">
       <div className="3xl:ml-[20rem] absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem]">
@@ -69,7 +99,7 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
       </div>
       <div className="flex flex-col items-center justify-center pb-[4rem] pt-[4rem] lg:p-0">
         <Image
-          onLoad= {handleImageLoad}
+          onLoad={handleImageLoad}
           src="/assets/Landing/tecnoesisLogo.webp"
           alt="Tecnoesis Logo"
           className="movable z-1 4xl:scale-[2] h-[10rem] w-[20rem] object-cover md:h-[15rem] md:w-[30rem] lg:h-[25rem] lg:w-[45rem]"
@@ -80,7 +110,7 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
       </div>
       <div className="flex h-[100vh] w-[100vw] items-end justify-center">
         <Image
-          onLoad = {handleImageLoad}
+          onLoad={handleImageLoad}
           src="/assets/Landing/buildings.svg"
           className="movable z-2 absolute left-0 top-[20%] h-[60%] object-cover md:h-[80%] md:w-[100%]"
           width={1000}
@@ -91,7 +121,7 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
         />
         <div className="scale-1 relative bottom-[40px] left-0 flex w-[100%] items-center justify-center tv1:scale-[1.5] tv2:scale-[1.6]">
           <Image
-            onLoad = {handleImageLoad}
+            onLoad={handleImageLoad}
             width={500}
             height={500}
             src="/assets/Landing/newWorld.svg"
@@ -101,7 +131,7 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
             priority={true}
           />
           <Image
-            onLoad = {handleImageLoad}
+            onLoad={handleImageLoad}
             width={500}
             height={500}
             src="/assets/Landing/glowingBall.gif"
@@ -115,6 +145,7 @@ const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
             alt="rock"
             className="movable z-5 absolute scale-[2] md:scale-[1.5] bottom-[30px] mobile2:bottom-[45px] mobile4:bottom-[60px] tablet1:bottom-[100px] md:bottom-[60px] tablet4:bottom-0 tablet4:scale-[1.2]"
             data-depth={20}
+            onLoad={handleImageLoad}
           />
         </div>
       </div>

@@ -16,6 +16,7 @@ export const runtime = "edge";
 interface NavigatorExtended extends Navigator {
   deviceMemory?: number | undefined;
 }
+
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
   const [loading, setIsLoading] = useState(true);
@@ -28,18 +29,26 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
+    console.log(`Landing progress: ${landingProgress}%`);
+    if (landingProgress === 100) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500); // Add a small delay before hiding the loader
+    }
   }, [landingProgress]);
-  
-  if (loading) {
-    return <LandingLoadingProgress progress={landingProgress}/>;
-  }
 
   if (!isClient) return null;
 
+  if (loading) {
+    return (
+      <>
+        <LandingLoadingProgress progress={landingProgress} />
+        <div style={{ display: 'none' }}>
+          <Landing onProgressUpdate={setLandingProgress} />
+        </div>
+      </>
+    );
+  }
 
   const nav = navigator as NavigatorExtended;
   const isFirefox = navigator.userAgent.includes("Firefox");
