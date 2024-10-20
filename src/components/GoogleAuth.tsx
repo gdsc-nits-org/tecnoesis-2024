@@ -36,24 +36,24 @@ const Login = () => {
     };
 
     interface UserResponse {
-      msg: {
-        username: string;
-      };
+      username: string;
     }
 
     const getUserName = async () => {
       try {
         if (_user) {
-          const token = await _user.getIdToken();
-          const response = await axios.get<UserResponse>(
+          const token = await _user?.getIdToken();
+          const { data } = await axios.get<{ msg: UserResponse }>(
             `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
             {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            },
-          );
-          setUserName(response.data.msg.username);
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+          if (data.msg.username) {
+            setUserName(data.msg.username);
+          }
         }
       } catch (error) {
         toast.error("Error fetching user data");
@@ -104,7 +104,7 @@ const Login = () => {
         <section className=" group w-[12vw]">
           <button
             onClick={() => {
-              router.push("/home");
+              router.push("/dashboard");
             }}
             className="flex backdrop-blur-lg w-full items-center justify-start rounded-full bg-[#5252522a] pl-[0.3vw] py-1 shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 group-hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]"
           >

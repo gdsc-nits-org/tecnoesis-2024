@@ -80,10 +80,11 @@ body{
   height: 100vh;
 }
 
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
-  background-color: black;
+  background-color: #000204;
   background-image: radial-gradient(rgba(39, 50, 62, 0.7) 1px, transparent 2px);
   background-size: 50px 50px;
 }
@@ -427,4 +428,66 @@ body{
   height: 270px;
   width:270px;
   transition-delay:1s;
+}
+
+
+@layer utilities {
+  @keyframes neonGradient {
+    0% {
+      border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    }
+    50% {
+      border-image-source: linear-gradient(135deg, #00f, #0ff, #00f);
+    }
+    100% {
+      border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    }
+  }
+
+  .animate-borderNeon {
+    border-width: 3px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #00f, #0ff, #00f);
+    animation: neonGradient 3s infinite linear;
+    box-shadow: 0 0 20px #00f, 0 0 40px #0ff;
+  }
+}
+
+[cmdk-list] {
+  height: auto;
+  max-height: 200px;
+  transition: height 100ms ease;
+  scroll-padding-block-start: 8px;
+  scroll-padding-block-end: 8px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+[cmdk-list]::-webkit-scrollbar {
+  display: none;
+}
+
+.eventcard {
+  margin: 10px;
+  border: 1px solid;
+  border-image-source: linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%);
+  border-image-slice: 1;
+  padding: 20px;
+  border-radius: 10px;
+  mask-image:  radial-gradient(circle, white 100%, transparent 100%); ;
+  -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%); 
+  width: 100%;
+  box-sizing: border-box;
+}
+@media screen and (min-width:1024px){
+  .scrollbar-hide{
+    mask-image: linear-gradient(to top,transparent,#000000,);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none; 
+  }
 }

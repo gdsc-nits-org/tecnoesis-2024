@@ -8,7 +8,6 @@ import { auth } from "../../utils/firebase";
 import { env } from "~/env";
 import Image from "next/image";
 import { User } from "firebase/auth";
-import CustomButton from "~/components/CustomButton";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -41,7 +40,7 @@ async function createUser(data: UserData, user: User) {
     imageUrl: user.photoURL,
     ...data,
   };
-  const token = await user.getIdToken();
+  const token = await user?.getIdToken();
   const response = await axios.post(
     `${env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
     payload,
@@ -279,7 +278,6 @@ const CompleteProfile = () => {
           </button>
         </div>
         <div className="m-auto w-[100%] mobile3:w-[50%]">
-          <CustomButton text="SUBMIT" />
         </div>
       </form>
     </div>
