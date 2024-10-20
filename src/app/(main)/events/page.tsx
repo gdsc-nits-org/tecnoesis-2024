@@ -1,9 +1,9 @@
-import Gallery from "~/components/Gallery";
+import Events from "../../../components/Events";
 
 export default function Page() {
   return (
       <>
-        <Gallery/>
+        <Events/>
       </>
   );
 }
