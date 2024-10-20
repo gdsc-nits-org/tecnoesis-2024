@@ -158,7 +158,7 @@ const LandingFooter = () => {
     <>
       <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
         <div
-          className="bg-[linear-gradient(black, #000000)] z-50 mb-[-150px] h-[180px] w-full"
+          className="bg-[linear-gradient(black, #000000)] z-40 mb-[-150px] h-[180px] w-full"
           style={{
             background:
               "linear-gradient(#000000, #0000009e, rgb(0 0 0 / 33%), #00000000)",
@@ -221,7 +221,8 @@ const LandingFooter = () => {
               </Link>
             </span>
             <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] !text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em]">
-              Designed in collaboration with GDG Silchar
+              Designed in collaboration with GDG NIT Silchar 
+              <img src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" alt="gdgc_logo" className="w-[150px] h-[90px] mt-[22px] ml-[-50px]" />
             </div>
           </div>
         </div>
