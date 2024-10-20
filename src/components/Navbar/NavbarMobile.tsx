@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Login from "../GoogleAuth";
@@ -22,6 +22,13 @@ export default function NavbarMobile() {
     setExpand(false);
     if (navLinks[idx]) path = navLinks[idx];
   };
+  useEffect(() => {
+    if (expand) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [expand]);
 
   return (
     <>
