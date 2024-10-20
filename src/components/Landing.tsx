@@ -74,7 +74,7 @@ const Landing: React.FC = () => {
           <Image
             width={500}
             height={500}
-            src="/assets/Landing/newWorld.svg"
+            src="/assets/Landing/newworld.png"
             alt="new world"
             className="movable absolute bottom-0 left-1/2 ml-[2rem] -translate-x-1/2 scale-[1.5] 2xl:bottom-[5rem] 2xl:scale-[2]"
             data-depth={50}
@@ -89,14 +89,11 @@ const Landing: React.FC = () => {
             data-depth={50}
             priority={true}
           />
-          <Image
-            width={700}
-            height={700}
-            src="/assets/Landing/player2.svg"
+          <img
+            src="/assets/Landing/hiker.png"
             alt="rock"
-            className="movable z-5 absolute bottom-[120px] mobile1:bottom-[130px] mobile2:bottom-[160px] mobile3:bottom-[170px] mobile4:bottom-[200px] tablet1:bottom-[100px] tablet1:scale-[2] scale-[3]"
+            className="movable z-5 absolute mobile4:scale-[0.8] mobile4:bottom-[-150px] md:scale-[0.5] md:bottom-[-300px] tablet4:scale-[0.4] tablet4:bottom-[-400px] desktop1:bottom-[-500px] desktop2:bottom-[-550px] desktop3:bottom-[-700px] tv1:scale-[0.25] tv1:bottom-[-850px] tv3:bottom-[-1000px] 6xl:bottom-[-1200px] 7xl:bottom-[-1300px] bottom-[-100px]"
             data-depth={20}
-            priority={true}
           />
         </div>
       </div>

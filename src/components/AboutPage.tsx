@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import CustomButton from '../components/CustomButton'
 
-
 const About = () => {
-
+    const [isDesktop, setIsDesktop] = useState(true);
     const image2WrapperRef = useRef<HTMLImageElement | null>(null);
     const image1Ref = useRef<HTMLImageElement | null>(null);
     const image2Ref = useRef<HTMLImageElement | null>(null);
@@ -38,6 +37,118 @@ const About = () => {
         , []);
 
     useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 1024);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+
+        if (!isDesktop) {
+            if (imageARef.current) {
+                gsap.to(imageARef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (image2WrapperRef.current) {
+                gsap.to(image2WrapperRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (imageCRef.current) {
+                gsap.to(imageCRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (imageDRef.current) {
+                gsap.to(imageDRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (imageERef.current) {
+                gsap.to(imageERef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (imageFRef.current) {
+                gsap.to(imageFRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            if (imageGRef.current) {
+                gsap.to(imageGRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+
+            if (image1Ref.current) {
+                gsap.to(image1Ref.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+
+
+            if (image2Ref.current) {
+                gsap.to(image2Ref.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+
+
+            if (image3Ref.current) {
+                gsap.to(image3Ref.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+
+
+            if (class1DivRef.current) {
+                gsap.to(class1DivRef.current, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                });
+            }
+            return;
+        }
         const handleMouseMove = (event: MouseEvent) => {
             const mouseX = event.clientX;
             const mouseY = event.clientY;
@@ -145,7 +256,7 @@ const About = () => {
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, []);
+    }, [isDesktop]);
 
 
 

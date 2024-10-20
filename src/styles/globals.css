@@ -80,6 +80,7 @@ body{
   height: 100vh;
 }
 
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
@@ -465,4 +466,28 @@ body{
 
 [cmdk-list]::-webkit-scrollbar {
   display: none;
+}
+
+.eventcard {
+  margin: 10px;
+  border: 1px solid;
+  border-image-source: linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%);
+  border-image-slice: 1;
+  padding: 20px;
+  border-radius: 10px;
+  mask-image:  radial-gradient(circle, white 100%, transparent 100%); ;
+  -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%); 
+  width: 100%;
+  box-sizing: border-box;
+}
+@media screen and (min-width:1024px){
+  .scrollbar-hide{
+    mask-image: linear-gradient(to top,transparent,#000000,);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none; 
+  }
 }

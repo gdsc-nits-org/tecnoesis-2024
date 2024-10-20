@@ -18,7 +18,7 @@ const FuturisticButton: React.FC = () => {
   // }
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center outline-none">
       <div className="enterbtn group relative flex items-center justify-center">
         <div className="squarebox absolute h-[250px] w-[250px] flex flex-col items-center justify-center">
           <div className="flex flex-row items-start justify-between h-[50%] w-[100%]">
