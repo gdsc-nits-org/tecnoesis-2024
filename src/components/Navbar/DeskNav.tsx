@@ -19,14 +19,14 @@ const Navbar = () => {
   useEffect(() => {
     const links = document.querySelectorAll<HTMLElement>(".navOpt");
     const animation = document.querySelector<HTMLElement>(".animation");
-  
+
     if (animation && links.length > 0) {
       const linkPositions = Array.from(links).map((link) => {
         const { width, left } = link.getBoundingClientRect();
         return { width, left };
       });
       const reqheight = links.item(0)?.clientHeight || 0;
-  
+
       const navMap = new Map<string, number>([
         ["/home", 0],
         ["/modules", 3],
@@ -47,8 +47,11 @@ const Navbar = () => {
             color: "#01A3F5",
           });
       }
-      const handlerMap = new Map<HTMLElement, { mouseEnter: () => void; mouseLeave: () => void }>();
-  
+      const handlerMap = new Map<
+        HTMLElement,
+        { mouseEnter: () => void; mouseLeave: () => void }
+      >();
+
       const handleMouseEnter = (link: HTMLElement, index: number) => {
         gsap.to(link, {
           color: "#01A3F5",
@@ -70,7 +73,7 @@ const Navbar = () => {
           ease: "expo.out",
         });
       };
-  
+
       const handleMouseLeave = (link: HTMLElement) => {
         gsap.to(link, {
           color: "white",
@@ -88,16 +91,19 @@ const Navbar = () => {
             });
         }
       };
-  
+
       links.forEach((link, index) => {
         const mouseEnterHandler = () => handleMouseEnter(link, index);
         const mouseLeaveHandler = () => handleMouseLeave(link);
         link.addEventListener("mouseenter", mouseEnterHandler);
         link.addEventListener("mouseleave", mouseLeaveHandler);
-  
-        handlerMap.set(link, { mouseEnter: mouseEnterHandler, mouseLeave: mouseLeaveHandler });
+
+        handlerMap.set(link, {
+          mouseEnter: mouseEnterHandler,
+          mouseLeave: mouseLeaveHandler,
+        });
       });
-  
+
       // Cleanup function to remove event listeners
       return () => {
         handlerMap.forEach((handlers, link) => {
@@ -107,13 +113,12 @@ const Navbar = () => {
       };
     }
   }, [currentPage]);
-  
 
   return (
     <nav
       className={
         outin.className +
-        " absolute top-0 z-20 w-screen bg-nav-gradient to-transparent pt-[3vh]"
+        " sticky top-0 z-50 w-screen bg-nav-gradient to-transparent pt-[3vh]"
       }
     >
       <div className="sticky top-0 flex items-center justify-between px-[2vw] text-center text-[1.5vw] text-white">

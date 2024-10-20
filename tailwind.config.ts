@@ -42,6 +42,9 @@ const config = {
       },
       colors: {
         customGray: "#1e2025",
+        customBlue: "#59CAFA",
+        customYellow: "DDDBD2",
+        customBluish: "#000912",
         customDark: "#121317",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -81,6 +84,10 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      borderImage:{
+        "silvery": 'linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)'
+
       },
       keyframes: {
         upDown: {
@@ -170,8 +177,10 @@ const config = {
       },
       backgroundImage: {
         "nav-gradient": "linear-gradient(to top, transparent 0%, #070710 50%)",
-        "blue-metall":
-          "linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)",
+        "blue-metall": "linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)",
+        "silver-lustre":'linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%)',
+        "golden-lustre":'linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)'
+
       },
     },
   },

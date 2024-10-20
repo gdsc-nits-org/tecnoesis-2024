@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
@@ -13,30 +15,32 @@ const Landing: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      gsap.utils
-        .toArray<HTMLElement>(".movable")
-        .forEach((layer: HTMLElement) => {
-          const depth: number = layer.dataset.depth
-            ? parseFloat(layer.dataset.depth)
-            : 1;
-          const moveX = e.pageX - window.innerWidth / 2;
-          const moveY = e.pageY - window.innerHeight / 2;
-          tl.to(
-            layer,
-            {
-              x: -moveX / depth,
-              y: -moveY / (depth * 4),
-            },
-            0,
-          );
-        });
+      if (typeof window !== 'undefined') {
+        gsap.utils
+          .toArray<HTMLElement>(".movable")
+          .forEach((layer: HTMLElement) => {
+            const depth: number = layer.dataset.depth
+              ? parseFloat(layer.dataset.depth)
+              : 1;
+            const moveX = e.pageX - window.innerWidth / 2;
+            const moveY = e.pageY - window.innerHeight / 2;
+            tl.to(
+              layer,
+              {
+                x: -moveX / depth,
+                y: -moveY / (depth * 4),
+              },
+              0,
+            );
+          });
+      }
     };
-
     document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
+
   }, [tl]);
 
   return (
@@ -66,7 +70,7 @@ const Landing: React.FC = () => {
           data-depth={75}
           priority={true}
         />
-        <div className="scale-1 relative bottom-[40px] left-0 flex w-[100%] items-center justify-center lg:scale-[1.3]">
+        <div className="scale-1 relative bottom-[40px] left-0 flex w-[100%] items-center justify-center tv1:scale-[1.5] tv2:scale-[1.6]">
           <Image
             width={500}
             height={500}
@@ -81,18 +85,15 @@ const Landing: React.FC = () => {
             height={500}
             src="/assets/Landing/glowingBall.gif"
             alt="glowing ball"
-            className="movable z-4 absolute bottom-[-9.5rem] left-1/2 -translate-x-1/2 scale-[2] transform opacity-50 2xl:bottom-[-8rem] 2xl:scale-[2.5]"
+            className="movable z-4 absolute bottom-[-5.5rem] mobile1:bottom-[-6.5rem] mobile2:bottom-[-9rem] left-1/2 -translate-x-1/2 scale-[2] transform opacity-50 2xl:bottom-[-8rem] 2xl:scale-[2.5]"
             data-depth={50}
             priority={true}
           />
-          <Image
-            width={700}
-            height={700}
+          <img
             src="/assets/Landing/player2.svg"
             alt="rock"
-            className="movable z-5 4xl:scale-[5] 4xl:bottom-[40rem] sml:bottom-[14rem] absolute bottom-[11rem] scale-[3] sm:bottom-[16rem] md:bottom-[14rem] md:scale-[2.5] xl:bottom-28 xl:scale-[1.8] 2xl:bottom-[20rem] 2xl:scale-[3]"
+            className="movable z-5 absolute scale-[2] md:scale-[1.5] bottom-[30px] mobile2:bottom-[45px] mobile4:bottom-[60px] tablet1:bottom-[100px] md:bottom-[60px] tablet4:bottom-0 tablet4:scale-[1.2]"
             data-depth={20}
-            priority={true}
           />
         </div>
       </div>

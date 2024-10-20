@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Login from "../GoogleAuth";
@@ -25,13 +25,12 @@ export default function NavbarMobile() {
 
   return (
     <nav
-      className={`${expand ? "absolute max-h-screen" : "sticky"} left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]
-`}
+      className={`${expand ? "absolute max-h-screen" : "sticky"} left-0 top-0 z-50 flex w-full flex-col gap-4 bg-[#000000]`}
       style={
         expand
           ? {
-            background: "radial-gradient(circle, #011528 0%, #000204 100%)",
-          }
+              background: "radial-gradient(circle, #011528 0%, #000204 100%)",
+            }
           : {}
       }
     >
@@ -40,10 +39,10 @@ export default function NavbarMobile() {
         style={
           !expand
             ? {
-              background: "radial-gradient(circle, #011528 0%, #000204 100%)",
-              boxShadow:
-                "0px 0px 29.92px 0px #33789B1A, inset 0px 0px 15.3px 1px #143342BF",
-            }
+                background: "radial-gradient(circle, #011528 0%, #000204 100%)",
+                boxShadow:
+                  "0px 0px 29.92px 0px #33789B1A, inset 0px 0px 15.3px 1px #143342BF",
+              }
             : {}
         }
       >
@@ -121,8 +120,8 @@ export default function NavbarMobile() {
               </Link>
             </div>
           </section>
-        </div >
+        </div>
       }
-    </nav >
+    </nav>
   );
 }

@@ -6,7 +6,7 @@ export const runtime = "edge";
 const notFound = () => {
     return (
         <>
-            <div className="bg-dotted flex flex-col w-full min-h-[100vh] items-center justify-center pt-8 overflow-hidden gap-0">
+            <div className="bg-dotted flex flex-col w-full min-h-[100vh] items-center justify-center overflow-hidden gap-0">
                 <div className="relative max-h-1/2 w-full flex items-center justify-center">
                     <Image
                         src="/Images/404.svg"
