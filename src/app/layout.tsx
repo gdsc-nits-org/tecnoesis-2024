@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { Toaster } from "sonner";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Tecnoesis 2024",
@@ -23,7 +24,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${GeistSans.variable}`} prefix="og: https://ogp.me/ns#">
+      <Head>
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+      </Head>
       <body>
         {children}
         <Toaster
