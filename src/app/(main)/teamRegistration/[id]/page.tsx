@@ -84,12 +84,6 @@ const CommandMenu = ({
   );
 };
 
-interface Team {
-  id: string;
-  name: string;
-  members: string[];
-}
-
 interface Event {
   id: string;
   name: string;
@@ -172,7 +166,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           },
         },
       );
-      //   console.log(data);
       return data.msg.username;
     } catch (e) {
       console.error(e);
@@ -204,7 +197,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     })();
     void (async () => {
       const token = user?.uid;
-      //console.log(user?.getIdToken());
       if (!token) return;
       const leaderUsername = await fetchUser(token);
       if (leaderUsername) {
@@ -249,14 +241,16 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       (async () => {
         try {
           if (!user) throw new Error("User not authenticated");
-
           const validatedData = userDataSchema.parse(formData);
-
-          const token = await user.getIdToken();
+          const filteredMembers = validatedData.members.filter(
+            (member) => member !== teamLeader
+          );
+          const token =  await user?.getIdToken();
           await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
-              ...validatedData,
+              name : validatedData.teamName,
+              members: filteredMembers,
               extraInformation:
                 "This team specialises in AI and machine learning projects",
             },
@@ -297,10 +291,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       },
     );
   };
-
-  // const filteredUsers = allUsers?.filter(
-  //     (user) => !formData.members?.includes(user.username)
-  // );
 
   if (loading || !event) {
     return (
@@ -373,10 +363,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                     setValue={handleMemberSelect}
                     index={idx}
                   />
-                  ;
-                  <div className="absolute right-0 mr-4 cursor-pointer text-white">
-                    🔍
-                  </div>
                 </div>
               </div>
             ))}

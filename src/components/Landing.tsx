@@ -89,14 +89,11 @@ const Landing: React.FC = () => {
             data-depth={50}
             priority={true}
           />
-          <Image
-            width={700}
-            height={700}
+          <img
             src="/assets/Landing/player2.svg"
             alt="rock"
-            className="movable z-5 absolute bottom-[120px] mobile1:bottom-[130px] mobile2:bottom-[160px] mobile3:bottom-[170px] mobile4:bottom-[200px] tablet1:bottom-[100px] tablet1:scale-[2] scale-[3]"
+            className="movable z-5 absolute scale-[2] md:scale-[1.5] bottom-[30px] mobile2:bottom-[45px] mobile4:bottom-[60px] tablet1:bottom-[100px] md:bottom-[60px] tablet4:bottom-0 tablet4:scale-[1.2]"
             data-depth={20}
-            priority={true}
           />
         </div>
       </div>
