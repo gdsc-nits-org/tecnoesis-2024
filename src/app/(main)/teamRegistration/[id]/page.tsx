@@ -245,7 +245,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           const filteredMembers = validatedData.members.filter(
             (member) => member !== teamLeader
           );
-          const token =  user.uid;
+          const token =  await user?.getIdToken();
           await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {

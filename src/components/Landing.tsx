@@ -90,9 +90,9 @@ const Landing: React.FC = () => {
             priority={true}
           />
           <img
-            src="/assets/Landing/player2.svg"
+            src="/assets/Landing/hiker.png"
             alt="rock"
-            className="movable z-5 absolute scale-[2] md:scale-[1.5] bottom-[30px] mobile2:bottom-[45px] mobile4:bottom-[60px] tablet1:bottom-[100px] md:bottom-[60px] tablet4:bottom-0 tablet4:scale-[1.2]"
+            className="movable z-5 absolute mobile4:scale-[0.8] mobile4:bottom-[-150px] md:scale-[0.5] md:bottom-[-300px] tablet4:scale-[0.4] tablet4:bottom-[-400px] desktop1:bottom-[-500px] desktop2:bottom-[-550px] desktop3:bottom-[-700px] tv1:scale-[0.25] tv1:bottom-[-850px] tv3:bottom-[-1000px] 6xl:bottom-[-1200px] 7xl:bottom-[-1300px] bottom-[-100px]"
             data-depth={20}
           />
         </div>

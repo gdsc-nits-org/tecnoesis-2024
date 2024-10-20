@@ -29,12 +29,18 @@ const config = {
         tablet25: "870px",
         tablet3: "900px",
         tablet4: "950px",
+        desktop1:"1200px",
+        desktop2:"1600px",
+        desktop3:"1800px",
         tv1: "2100px",
+        tv3:"2400px",
         tv2: "2700px",
         sml: "500px",
         "3xl": "2560px",
+        "6xl":"2900px",
         "4xl": "3440px",
         "5xl": "3840px",
+        "7xl":"4000px"
       },
       fontFamily: {
         rp1: ["readyplayer", "monospace"],
