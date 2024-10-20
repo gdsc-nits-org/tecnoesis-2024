@@ -1,16 +1,21 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import { gsap } from "gsap";
 import EnterButton from "./enterButton";
 import Link from "next/link";
 
-const Landing: React.FC = () => {
+interface LandingProps {
+  onProgressUpdate: (progress: number) => void;
+}
+
+const Landing: React.FC <LandingProps> = ( {onProgressUpdate}) => {
   const tablet = useMediaQuery("(min-width: 500px)");
   const desktop = useMediaQuery("(min-width: 800px)");
-
+  const [loadedImages, setLoadedImages] = useState(0);
+  const totalImages = 5;
   const tl = gsap.timeline({ ease: "slow", duration: 1 });
 
   useEffect(() => {
@@ -43,6 +48,18 @@ const Landing: React.FC = () => {
 
   }, [tl]);
 
+
+  useEffect(() => {
+    onProgressUpdate((loadedImages / totalImages) * 100);
+  }, [loadedImages, onProgressUpdate, totalImages]);
+
+  const handleImageLoad = () => {
+    setLoadedImages((prev) => {
+      const newCount = prev + 1;
+      return newCount;
+    });
+  };
+  
   return (
     <div className="relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff]">
       <div className="3xl:ml-[20rem] absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem]">
@@ -52,6 +69,7 @@ const Landing: React.FC = () => {
       </div>
       <div className="flex flex-col items-center justify-center pb-[4rem] pt-[4rem] lg:p-0">
         <Image
+          onLoad= {handleImageLoad}
           src="/assets/Landing/tecnoesisLogo.webp"
           alt="Tecnoesis Logo"
           className="movable z-1 4xl:scale-[2] h-[10rem] w-[20rem] object-cover md:h-[15rem] md:w-[30rem] lg:h-[25rem] lg:w-[45rem]"
@@ -62,6 +80,7 @@ const Landing: React.FC = () => {
       </div>
       <div className="flex h-[100vh] w-[100vw] items-end justify-center">
         <Image
+          onLoad = {handleImageLoad}
           src="/assets/Landing/buildings.svg"
           className="movable z-2 absolute left-0 top-[20%] h-[60%] object-cover md:h-[80%] md:w-[100%]"
           width={1000}
@@ -72,6 +91,7 @@ const Landing: React.FC = () => {
         />
         <div className="scale-1 relative bottom-[40px] left-0 flex w-[100%] items-center justify-center tv1:scale-[1.5] tv2:scale-[1.6]">
           <Image
+            onLoad = {handleImageLoad}
             width={500}
             height={500}
             src="/assets/Landing/newWorld.svg"
@@ -81,6 +101,7 @@ const Landing: React.FC = () => {
             priority={true}
           />
           <Image
+            onLoad = {handleImageLoad}
             width={500}
             height={500}
             src="/assets/Landing/glowingBall.gif"

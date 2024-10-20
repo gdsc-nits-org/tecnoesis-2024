@@ -6,23 +6,41 @@ import Login from "~/components/GoogleAuth";
 import Landing from "~/components/Landing";
 import Navbar from "~/components/LandingNav";
 import Scene from "~/components/Scene";
+import LoadingProgress from "~/components/LoadingFallback";
+import LandingLoadingProgress from "~/components/LandingLoadingProgress";
 
 const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
 
 export const runtime = "edge";
+
 interface NavigatorExtended extends Navigator {
   deviceMemory?: number | undefined;
 }
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
+  const [loading, setIsLoading] = useState(true);
+  const [landingProgress, setLandingProgress] = useState(0);
   const comingsoon = false;
+  const matches = useMediaQuery("(max-width: 1024px)");
+
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const matches = useMediaQuery("(max-width: 1024px)");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [landingProgress]);
+  
+  if (loading) {
+    return <LandingLoadingProgress progress={landingProgress}/>;
+  }
 
   if (!isClient) return null;
+
+
   const nav = navigator as NavigatorExtended;
   const isFirefox = navigator.userAgent.includes("Firefox");
   const isLowMemoryDevice = nav.deviceMemory! <= 4;
@@ -62,7 +80,7 @@ export default function HomePage() {
   } else {
     return (
       <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/stars-bg.avif')]">
-        <Landing />
+        <Landing onProgressUpdate={setLandingProgress}/>
       </div>
     );
   }

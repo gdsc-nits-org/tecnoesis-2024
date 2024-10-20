@@ -20,7 +20,7 @@ export default function LoadingProgress() {
       </h1>
       <div className="h-2 w-2/3 overflow-hidden rounded-full bg-gray-700 md:w-1/3">
         <div
-          className="h-full bg-[gold] transition-all duration-300"
+          className="h-full bg-[blue] transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
