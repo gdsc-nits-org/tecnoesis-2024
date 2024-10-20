@@ -125,7 +125,7 @@ const Navbar = () => {
   }, [currentPage, isResize]);
   
   useEffect(() => {
-      var elempos = document.getElementById(section)?.getBoundingClientRect().top;
+      const elempos = document.getElementById(section)?.getBoundingClientRect().top;
       if (elempos) window.scrollTo({
         top: elempos + window.scrollY - 100,
         behavior: "smooth"
@@ -160,7 +160,7 @@ const Navbar = () => {
             onClick={() => {
               router.push("/home");
               setSection("about");
-              var elempos = document.getElementById("about")?.getBoundingClientRect().top;
+              const elempos = document.getElementById("about")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
                 top: elempos + window.scrollY - 100,
                 behavior: "smooth"
@@ -174,7 +174,7 @@ const Navbar = () => {
             onClick={() => {
               router.push("/home");
               setSection("sponsors");
-              var elempos = document.getElementById(section)?.getBoundingClientRect().top;
+              const elempos = document.getElementById(section)?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
                 top: elempos + window.scrollY - 100,
                 behavior: "smooth"
