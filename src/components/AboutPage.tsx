@@ -261,7 +261,7 @@ const About = () => {
 
 
     return (
-        <div className="flex flex-col w-screen overflow-x-hidden" >
+        <div className="flex flex-col w-screen overflow-x-hidden" id='about'>
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
                 <div className=" upper w-full  md:h-[30vh]  lg:w-1/3 lg:h-auto">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
