@@ -213,8 +213,8 @@ const LandingFooter = () => {
                 <FaXTwitter className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
               </Link>
             </span>
-            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] !text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row">
-              Designed in collaboration with GDG NIT Silchar 
+            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] sm:!text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row">
+              Designed in collaboration with GDGC NIT Silchar 
               <img src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" alt="gdgc_logo" className="w-[150px] h-[90px] sm:mt-[22px] sm:ml-[-50px] sm:mb-[-10px] mb-[-30px]" />
             </div>
           </div>
