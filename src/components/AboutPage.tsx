@@ -17,7 +17,9 @@ const About = () => {
     const imageERef = useRef<HTMLImageElement | null>(null);
     const imageFRef = useRef<HTMLImageElement | null>(null);
     const imageGRef = useRef<HTMLImageElement | null>(null);
+   
 
+  
 
 
 
@@ -52,101 +54,29 @@ const About = () => {
     useEffect(() => {
 
         if (!isDesktop) {
-            if (imageARef.current) {
-                gsap.to(imageARef.current, {
-                    x: 0,
-                    y: 0,
+            const resetPositions = () => {
+                const resetProps = {
+                    x: "0%",
+                    y: "0%",
                     duration: 0.6,
                     ease: "power3.out",
-                });
-            }
-            if (image2WrapperRef.current) {
-                gsap.to(image2WrapperRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageCRef.current) {
-                gsap.to(imageCRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageDRef.current) {
-                gsap.to(imageDRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageERef.current) {
-                gsap.to(imageERef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageFRef.current) {
-                gsap.to(imageFRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageGRef.current) {
-                gsap.to(imageGRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-            if (image1Ref.current) {
-                gsap.to(image1Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image2Ref.current) {
-                gsap.to(image2Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image3Ref.current) {
-                gsap.to(image3Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (class1DivRef.current) {
-                gsap.to(class1DivRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+                    transformOrigin: "center center", // Ensure centered origin
+                };
+    
+                if (imageARef.current) gsap.to(imageARef.current, resetProps);
+                if (image2WrapperRef.current) gsap.to(image2WrapperRef.current, resetProps);
+                if (imageCRef.current) gsap.to(imageCRef.current, resetProps);
+                if (imageDRef.current) gsap.to(imageDRef.current, resetProps);
+                if (imageERef.current) gsap.to(imageERef.current, resetProps);
+                if (imageFRef.current) gsap.to(imageFRef.current, resetProps);
+                if (imageGRef.current) gsap.to(imageGRef.current, resetProps);
+                if (image1Ref.current) gsap.to(image1Ref.current, resetProps);
+                if (image2Ref.current) gsap.to(image2Ref.current, resetProps);
+                if (image3Ref.current) gsap.to(image3Ref.current, resetProps);
+                if (class1DivRef.current) gsap.to(class1DivRef.current, resetProps);
+            };
+    
+            resetPositions();
             return;
         }
         const handleMouseMove = (event: MouseEvent) => {
