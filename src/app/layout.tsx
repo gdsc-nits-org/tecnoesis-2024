@@ -28,6 +28,9 @@ export default function RootLayout({
       <Head>
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.icons} />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
       </Head>
       <body>
         {children}
