@@ -179,25 +179,18 @@ const LandingFooter = () => {
         {mouseInsideFooter && !isMobile ? (
           <div
             ref={glowRef}
-            className="glow duration-[50ms] pointer-events-none absolute left-0 top-0 z-30 h-[300px] w-[300px] scale-[2] rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.212),_rgba(255,255,255,0.203),_rgba(255,255,255,0.112),_rgba(255,255,255,0.057),_rgba(255,255,255,0.018),_rgba(255,255,255,0),_rgba(255,255,255,0))] bg-scroll opacity-50 bg-blend-difference shadow-[0_0_15px_10px_rgba(255,255,255,0.016)] transition-transform ease-linear"
+            className="glow duration-[50ms] pointer-events-none absolute left-0 top-0 z-30 h-[200px] w-[300px] scale-[2] rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.212),_rgba(255,255,255,0.203),_rgba(255,255,255,0.112),_rgba(255,255,255,0.057),_rgba(255,255,255,0.018),_rgba(255,255,255,0),_rgba(255,255,255,0))] bg-scroll opacity-50 bg-blend-difference shadow-[0_0_15px_10px_rgba(255,255,255,0.016)] transition-transform ease-linear"
           ></div>
         ) : (
           ""
         )}
-
-        <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-bottom pt-[5vh]">
-          <div className="flex h-full w-full flex-col items-center justify-between">
+        <div className="back-cover z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-center">
+          <div className="flex w-full flex-col items-center justify-between">
             <div className="tecno-big-img mb-0 mt-[150px] flex h-4/6 h-[40vh] h-[50vh] w-9/12 w-full flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[50vh] lg:w-full"></div>
-            <div className="mt-[-30px] h-[50px] w-[70%]">
-              <CustomButton text="Become Our Campus Ambassador" />
-            </div>
           </div>
 
-          <div className="mt-auto flex min-h-[50vh] w-full flex-col items-center justify-end py-8">
-            <h2 className="lg:text-4x mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['readyplayer',sans-serif] text-[24px] text-[28px] text-xl font-[500] leading-[1.5] tracking-[0.35em] text-transparent text-white sm:text-2xl sm:text-[28px] sm:tracking-[0.35em] md:text-3xl md:text-[32px] md:tracking-[0.4em] lg:text-[36px] lg:tracking-[0.45em]">
-              CONTACT US
-            </h2>
-            <span className="mb-6 flex justify-center gap-x-3.5">
+          <div className="mt-auto flex w-full flex-col items-center justify-end py-8">
+            <span className="flex justify-center gap-x-3.5">
               <Link
                 href={"https://www.instagram.com/tecnoesis.nits/"}
                 aria-label="Instagram"
