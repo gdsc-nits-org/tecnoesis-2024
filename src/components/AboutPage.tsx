@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import CustomButton from '../components/CustomButton'
 
 const About = () => {
+    const [isDesktop, setIsDesktop] = useState(true);
     const [isDesktop, setIsDesktop] = useState(true);
     const image2WrapperRef = useRef<HTMLImageElement | null>(null);
     const image1Ref = useRef<HTMLImageElement | null>(null);
@@ -187,6 +189,7 @@ const About = () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
     }, [isDesktop]);
+    }, [isDesktop]);
 
 
 
@@ -196,8 +199,11 @@ const About = () => {
                 <div className=" upper w-full  md:h-[30vh]  lg:w-1/3 lg:h-auto">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
                     <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-base desktop1:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
+                    <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
+                    <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-base desktop1:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
                 </div>
                 <div className="lower w-full h-[40vh] flex justify-center items-center lg:w-1/3">
+                    <div className="first-animation relative w-[250px] h-[250px] desktop1:w-[350px] desktop1:h-[350px] desktop2:w-[400px] desktop2:h-[400px] lg:w-[300px] lg:h-[300px] tv1:w-[700px] tv1:h-[700px] overflow-visible ">
                     <div className="first-animation relative w-[250px] h-[250px] desktop1:w-[350px] desktop1:h-[350px] desktop2:w-[400px] desktop2:h-[400px] lg:w-[300px] lg:h-[300px] tv1:w-[700px] tv1:h-[700px] overflow-visible ">
                         <img ref={imageARef}
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/1_oztzxp.webp"
@@ -242,6 +248,8 @@ const About = () => {
 
                 </div>
                 <div className="w-full h-1/2 lg:w-1/3 lg:h-auto">
+                    <div className="p-7 text-gradient-blue  font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-right md:m-0 lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT US</div>
+                    <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-base desktop1:text-xl md:text-center md:text-3xl ">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
                     <div className="p-7 text-gradient-blue  font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-right md:m-0 lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT US</div>
                     <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-base desktop1:text-xl md:text-center md:text-3xl ">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
                 </div>
