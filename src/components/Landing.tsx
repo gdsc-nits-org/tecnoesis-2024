@@ -74,7 +74,7 @@ const Landing: React.FC = () => {
           <Image
             width={500}
             height={500}
-            src="/assets/Landing/newWorld.svg"
+            src="/assets/Landing/newworld.png"
             alt="new world"
             className="movable absolute bottom-0 left-1/2 ml-[2rem] -translate-x-1/2 scale-[1.5] 2xl:bottom-[5rem] 2xl:scale-[2]"
             data-depth={50}
