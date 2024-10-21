@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { env } from "~/env";
 import EventCard from "~/components/EventCard";
-import { set, string } from "zod";
-
 
 interface Eventresponse {
   "id": string,
@@ -67,21 +65,25 @@ const AllEvents = ({ params }: { params: EventParams }) => {
     void fetchEventDec();
   }, [params])
   return (
-    <>
-      <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
-        <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal uppercase tracking-widest text-transparent lg:text-5xl">
-          {moduleName}
-        </div>
-        <div>
-          {
-            events.map((event, ind) => (
-              <EventCard key={ind} eventID={event.id} eventPoster={event.posterImage} eventname={event.name} modulename={moduleName ?? "Loading module name ...."} />
-            )
-            )
-          }
-        </div>
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
+      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal uppercase tracking-widest text-transparent lg:text-5xl">
+        {moduleName}
       </div>
-    </>
+      <div className="flex flex-wrap flex-col gap-[3rem] items-center justify-evenly md:flex-row">
+        {
+          events.map((event, ind) => (
+            <EventCard
+              key={ind}
+              eventID={event.id}
+              eventPoster={event.posterImage}
+              eventname={event.name}
+              modulename={moduleName ?? "Loading module name ...."}
+            />
+          )
+          )
+        }
+      </div>
+    </div>
   )
 }
 
