@@ -96,13 +96,13 @@ const Gallery: React.FC = () => {
         }}
       ></div>
 
-      <div className="relative z-10 text-white pt-[16.3rem]">
+      <div className="relative z-10 text-white pt-[9.4rem]">
         <div className="w-full flex flex-col gap-24">
           {data.map((item: DataItem, index: number) => (
             <div className="flex w-full h-[45vh]" key={index} id={`row${index + 1}`}>
               {index % 2 === 0 ? (
                 <>
-                  <div className="flex-1 flex justify-end h-full">
+                  <div className="flex-1 flex md:justify-end justify-center h-full">
                     <div className="img-container right w-3/4 h-full flex flex-col justify-between">
                       <Image
                         ref={(el) => setImageRef(el, index)}
@@ -119,12 +119,12 @@ const Gallery: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex-1"></div>
+                  <div className="flex-1 hidden md:flex"></div>
                 </>
               ) : (
                 <>
-                  <div className="flex-1"></div>
-                  <div className="flex-1 flex justify-start h-full">
+                  <div className="flex-1 hidden md:flex"></div>
+                  <div className="flex-1 flex md:justify-start justify-center h-full">
                     <div className="img-container left w-3/4 h-full flex flex-col justify-between">
                       <Image
                         ref={(el) => setImageRef(el, index)}

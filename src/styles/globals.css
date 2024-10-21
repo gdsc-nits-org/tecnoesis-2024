@@ -74,6 +74,10 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Nico";
+  src: url("/public/Nico-Moji.ttf.woff") format('woff');
+}
 body{
   overflow-x: hidden !important;
   width:100vw;
@@ -467,7 +471,15 @@ body{
 [cmdk-list]::-webkit-scrollbar {
   display: none;
 }
-
+.newEventCard{
+    border: 1px solid;
+    border-image-source: linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%);
+    border-image-slice: 1;
+    border-radius: 10px;
+    mask-image: radial-gradient(circle, white 100%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%);
+    box-sizing: border-box;
+}
 .eventcard {
   margin: 10px;
   border: 1px solid;

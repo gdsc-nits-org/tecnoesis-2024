@@ -6,10 +6,10 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 import { env } from "~/env";
-import Image from "next/image";
 import { User } from "firebase/auth";
 import { z } from "zod";
 import { toast } from "sonner";
+import CustomButton from "~/components/CustomButton";
 
 export const runtime = "edge";
 const userDataSchema = z.object({
@@ -260,24 +260,7 @@ const CompleteProfile = () => {
           </div>
         </div>
         <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button
-            type="submit"
-            className="h-15 flex w-60 origin-top-left flex-row items-center justify-center gap-5 rounded-full border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent p-2 backdrop-blur-[9.878px] transition-all duration-300 hover:border-none hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] lg:w-80"
-          >
-            <div className="h- full flex w-full items-center justify-center gap-5">
-              <Image
-                src="/Images/tabler_planet.svg"
-                alt="logo"
-                width={25}
-                height={25}
-              />
-              <div className="font-outfit text-lg text-white lg:text-xl">
-                SIGN UP
-              </div>
-            </div>
-          </button>
-        </div>
-        <div className="m-auto w-[100%] mobile3:w-[50%]">
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="SIGN UP" /></button>
         </div>
       </form>
     </div>
