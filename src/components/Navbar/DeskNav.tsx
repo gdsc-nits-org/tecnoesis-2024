@@ -158,7 +158,7 @@ const Navbar = () => {
           </Link>
           <button
             onClick={() => {
-              router.push("/home");
+              if(currentPage!="/home")router.push("/home");
               setSection("about");
               const elempos = document.getElementById("about")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
@@ -172,7 +172,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={() => {
-              router.push("/home");
+              if(currentPage!="/home")router.push("/home");
               setSection("sponsors");
               const elempos = document.getElementById("sponsors")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
