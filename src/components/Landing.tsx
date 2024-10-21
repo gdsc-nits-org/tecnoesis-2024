@@ -30,6 +30,7 @@ const Landing: React.FC = () => {
   };
 
   useEffect(() => {
+    if (isLoading) return;
     const handleMouseMove = (e: MouseEvent) => {
       if (typeof window !== "undefined") {
         gsap.utils
@@ -56,7 +57,7 @@ const Landing: React.FC = () => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [tl]);
+  }, [isLoading, tl]);
 
   return (
     <div>
@@ -108,7 +109,7 @@ const Landing: React.FC = () => {
               height={500}
               src="/assets/Landing/glowingBall.gif"
               alt="glowing ball"
-              className="movable z-4 absolute bottom-[-5.5rem] left-1/2 -translate-x-1/2 scale-[2] transform opacity-50 mobile1:bottom-[-6.5rem] mobile2:bottom-[-9rem] 2xl:bottom-[-8rem] 2xl:scale-[2.5]"
+              className="movable z-4 absolute bottom-[-5.1rem] left-1/2 -translate-x-1/2 scale-[2] transform opacity-50 mobile1:bottom-[-6.5rem] mobile2:bottom-[-9rem] 2xl:bottom-[-7.5rem] 2xl:scale-[2.5]"
               data-depth={50}
               priority={true}
               onLoad={handleImageLoad}
