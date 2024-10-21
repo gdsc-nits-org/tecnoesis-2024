@@ -174,7 +174,7 @@ const Navbar = () => {
             onClick={() => {
               router.push("/home");
               setSection("sponsors");
-              const elempos = document.getElementById(section)?.getBoundingClientRect().top;
+              const elempos = document.getElementById("sponsors")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
                 top: elempos + window.scrollY - 100,
                 behavior: "smooth"
