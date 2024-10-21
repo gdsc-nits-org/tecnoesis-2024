@@ -74,6 +74,10 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Nico";
+  src: url("/public/Nico-Moji.ttf.woff") format('woff');
+}
 body{
   overflow-x: hidden !important;
   width:100vw;
