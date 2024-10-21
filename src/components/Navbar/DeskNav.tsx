@@ -127,7 +127,7 @@ const Navbar = () => {
   useEffect(() => {
       const elempos = document.getElementById(section)?.getBoundingClientRect().top;
       if (elempos) window.scrollTo({
-        top: elempos + window.scrollY - 100,
+        top: elempos + window.scrollY - 240,
         behavior: "smooth"
       });
     },[currentPage]);
@@ -162,7 +162,7 @@ const Navbar = () => {
               setSection("about");
               const elempos = document.getElementById("about")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
-                top: elempos + window.scrollY - 100,
+                top: elempos + window.scrollY - 210,
                 behavior: "smooth"
               });
             }}
@@ -176,7 +176,7 @@ const Navbar = () => {
               setSection("sponsors");
               const elempos = document.getElementById("sponsors")?.getBoundingClientRect().top;
               if (elempos) window.scrollTo({
-                top: elempos + window.scrollY - 100,
+                top: elempos + window.scrollY - 240,
                 behavior: "smooth"
               });
             }}
