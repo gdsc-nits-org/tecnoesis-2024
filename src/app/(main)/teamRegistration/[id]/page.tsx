@@ -8,7 +8,7 @@ import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
 import { z } from "zod";
 import { toast } from "sonner";
-import Image from "next/image";
+import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
 
 export const runtime = "edge";
@@ -31,7 +31,7 @@ const CommandMenu = ({
   };
 
   const handleBlur = () => {
-    setTimeout(() => setIsOpen(false), 100);
+    setTimeout(() => setIsOpen(false), 500);
   };
   const handleChange = (username: string) => {
     setValue(username, index + 1);
@@ -368,22 +368,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
             ))}
         </div>
         <div className="mt-10 flex w-full items-center justify-around">
-          <button
-            type="submit"
-            className="h-15 flex w-60 origin-top-left flex-row items-center justify-center gap-5 rounded-full border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent p-2 backdrop-blur-[9.878px] transition-all duration-300 hover:border-none hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] lg:w-80"
-          >
-            <div className="h- full flex w-full items-center justify-center gap-5">
-              <Image
-                src="/Images/tabler_planet.svg"
-                alt="logo"
-                width={25}
-                height={25}
-              />
-              <div className="font-outfit text-lg text-white lg:text-xl">
-                Register
-              </div>
-            </div>
-          </button>
+        <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="REGISTER" /></button>
+        </div>
         </div>
       </form>
     </div>

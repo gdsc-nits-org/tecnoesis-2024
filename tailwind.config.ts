@@ -45,6 +45,7 @@ const config = {
       fontFamily: {
         rp1: ["readyplayer", "monospace"],
         outfit: ["Outfit", "sans-serif"],
+        nico: ["Nico","sans-serif"]
       },
       colors: {
         customGray: "#1e2025",

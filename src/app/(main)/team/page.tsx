@@ -11,7 +11,7 @@ export default function Team() {
     const [hovers, setHovers] = useState(true);
     return (
         <div className='min-h-screen'>
-            <div className="bg-customBluish min-h-screen">
+            <div className="min-h-screen">
                 <div className="w-full flex justify-center items-center">
                     <h1 className="font-rp1 text-center text-4xl lg:text-6xl text-customBlue mt-24 lg:mt-48 mb-12">MEET OUR TEAM </h1>
                 </div>
