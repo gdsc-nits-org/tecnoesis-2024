@@ -16,20 +16,34 @@ export default function Team() {
                     <h1 className="font-rp1 text-center text-4xl lg:text-6xl text-customBlue mt-24 lg:mt-48 mb-12">MEET OUR TEAM </h1>
                 </div>
                 <div className='flex justify-center mb-12 text-white text-xl gap-8'>
-                    <button style={team == 1 ? { backgroundColor: "#59CAFA" } : {}} onClick={() => {
+                    <button style={{
+                        background: team == 1
+                            ? "linear-gradient(90deg, #34343680, #5D268B80, #AC12E180, #BE00FF80)"
+                            : "",
+                    }} onClick={() => {
                         setTeam(1);
+
                     }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className="font-outfit group-hover:text-customBlue group-hover:scale-90 duration-300">Core Team</p>
+                        <p className="font-outfit group-hover:scale-90 duration-300">Core Team</p>
                     </button>
-                    <button style={team == 2 ? { backgroundColor: "#59CAFA" } : {}} onClick={() => {
+                    <button style={{
+                        background: team == 2
+                            ? "linear-gradient(90deg, #34343680, #5D268B80, #AC12E180, #BE00FF80)"
+                            : "",
+                    }} onClick={() => {
                         setTeam(2);
                     }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className="font-outfit group-hover:text-customBlue group-hover:scale-90 duration-300">Tech Team</p>
+                        <p className="font-outfit group-hover:scale-90 duration-300">Tech Team</p>
                     </button>
-                    <button style={team == 3 ? { backgroundColor: "#59CAFA" } : {}} onClick={() => {
-                        setTeam(3);
-                    }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className="font-outfit group-hover:text-customBlue group-hover:scale-90 duration-300">Module Heads</p>
+                    <button
+                        style={{
+                            background: team == 3 ? "linear-gradient(90deg, #34343680, #5D268B80, #AC12E180, #BE00FF80)"
+                                : "",
+                        }}
+                        onClick={() => {
+                            setTeam(3);
+                        }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
+                        <p className="font-outfit  group-hover:scale-90 duration-300">Module Heads</p>
                     </button>
                 </div>
                 <div className='flex flex-col justify-center items-center text-yellow-50'>
