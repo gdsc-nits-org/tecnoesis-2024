@@ -1,48 +1,102 @@
 [
     {
-      "year": "[2022]",
-      "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "year": "[2024]",
+      "title": "Lightning the Lamp ceremony",
+      "image": "../assets/gallery/lighiningceremony.webp"
     },
     {
       "year": "[2024]",
-      "title": "Paintball Fight",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "year": "[2022]",
-      "title": "Cosplay",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "year": "[2022]",
       "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "image": "../assets/gallery/nitshacks.webp"
     },
     {
-      "year": "[2022]",
-      "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "year": "[2024]",
+      "title": "Logic Wizard",
+      "image": "../assets/gallery/logicwizard.webp"
     },
     {
-      "year": "[2022]",
-      "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "year": "[2024]",
+      "title": "Treasure Hunt",
+      "image": "../assets/gallery/treasurehunt.webp"
     },
     {
-      "year": "[2022]",
-      "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "year": "[2024]",
+      "title": "Bech ke Dikhao",
+      "image": "../assets/gallery/bechkedikhao.webp"
     },
     {
-      "year": "[2022]",
-      "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "year": "[2024]",
+      "title": "School Genius",
+      "image": "../assets/gallery/schoolgenius_1.webp"
     },
     {
-      "year": "[2022]",
+      "year": "[2024]",
+      "title": "My City My Dream",
+      "image": "../assets/gallery/mycitymydream.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Military Camp",
+      "image": "../assets/gallery/military.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Chess",
+      "image": "../assets/gallery/chess.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Spark Night",
+      "image": "../assets/gallery/dj.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "FOTO GALERIA",
+      "image": "../assets/gallery/fotogallery.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Archinova",
+      "image": "../assets/gallery/archinova.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Bridge It",
+      "image": "../assets/gallery/bridgeit.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Spark Night",
+      "image": "../assets/gallery/sparknight.webp"
+    },
+    {
+      "year": "[2020]",
+      "title": "Robotron",
+      "image": "../assets/gallery/tarrentraders.webp"
+    },
+    {
+      "year": "[2024]",
       "title": "NITS Hacks",
-      "image": "https://plus.unsplash.com/premium_photo-1728498509506-7d669d3faab7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "image": "../assets/gallery/nitshacks_2.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Emprasrio",
+      "image": "../assets/gallery/emprasrio.webp"
+    },
+    {
+      "year": "[2020]",
+      "title": "Robo Soccer",
+      "image": "../assets/gallery/robosoccer.webp"
+    },
+    {
+      "year": "[2024]",
+      "title": "Robo Soccer",
+      "image": "../assets/gallery/robo.webp"
+    },
+    {
+      "year": "[2020]",
+      "title": "Spark Night",
+      "image": "../assets/gallery/spark.webp"
     }
   ]
-  
