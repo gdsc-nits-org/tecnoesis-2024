@@ -6,7 +6,8 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Login from "../GoogleAuth";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { set } from "zod";
 
 const outin = Outfit({
   subsets: ["latin"],
@@ -17,11 +18,12 @@ const Navbar = () => {
   const currentPage = usePathname();
   const [isResize, setIsResize] = useState(false);
   window.addEventListener("resize", () => setIsResize(!isResize));
+  const router = useRouter();
+  const [section,setSection] = useState<""|"sponsors"|"about">("");
 
   useEffect(() => {
     const links = document.querySelectorAll<HTMLElement>(".navOpt");
     const animation = document.querySelector<HTMLElement>(".animation");
-
 
     if (animation && links.length > 0) {
       const linkPositions = Array.from(links).map((link) => {
@@ -29,7 +31,6 @@ const Navbar = () => {
         return { width, left };
       });
       const reqheight = links.item(0)?.clientHeight || 0;
-
 
       const navMap = new Map<string, number>([
         ["/home", 0],
@@ -48,14 +49,14 @@ const Navbar = () => {
         });
         if (links[curr])
           gsap.to(links[curr], {
-            color: "#01A3F5",
-          });
-      }
+        color: "#01A3F5",
+      });
+    }
 
-      const handlerMap = new Map<
-        HTMLElement,
-        { mouseEnter: () => void; mouseLeave: () => void }
-      >();
+    const handlerMap = new Map<
+    HTMLElement,
+    { mouseEnter: () => void; mouseLeave: () => void }
+    >();
 
       const handleMouseEnter = (link: HTMLElement, index: number) => {
         gsap.to(link, {
@@ -79,7 +80,6 @@ const Navbar = () => {
         });
       };
 
-
       const handleMouseLeave = (link: HTMLElement) => {
         gsap.to(link, {
           color: "white",
@@ -95,9 +95,8 @@ const Navbar = () => {
             gsap.to(links[curr], {
               color: "#01A3F5",
             });
-        }
-      };
-
+          }
+      }
 
       links.forEach((link, index) => {
         const mouseEnterHandler = () => handleMouseEnter(link, index);
@@ -116,8 +115,6 @@ const Navbar = () => {
         });
       });
 
-
-      // Cleanup function to remove event listeners
       return () => {
         handlerMap.forEach((handlers, link) => {
           link.removeEventListener("mouseenter", handlers.mouseEnter);
@@ -127,17 +124,24 @@ const Navbar = () => {
     }
   }, [currentPage, isResize]);
 
+  useEffect(() => {
+      const elempos = document.getElementById(section)?.getBoundingClientRect().top;
+      if (elempos) window.scrollTo({
+        top: elempos + window.scrollY - 240,
+        behavior: "smooth"
+      });
+    },[currentPage]);
   return (
     <nav
-      className={
+    className={
         outin.className +
-        " sticky top-0 z-50 w-screen bg-nav-gradient to-transparent pt-[3vh]"
+        " sticky top-0 z-50 w-screen bg-nav-gradient to-transparent"
       }
     >
       <div className="flex items-center justify-between px-[5vw] text-center text-[1.3vw] text-white">
         <Link href="/">
           <Image
-            src="/assets/NavbarMobile/tecnoLogo.png"
+            src="/assets/Landing/tecnoesisLogo.webp"  
             width={300}
             height={80}
             alt="Tecno 24 logo"
@@ -152,18 +156,34 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
-            href="/home#about"
+          <button
+            onClick={() => {
+              if(currentPage!="/home")router.push("/home");
+              setSection("about");
+              const elempos = document.getElementById("about")?.getBoundingClientRect().top;
+              if (elempos) window.scrollTo({
+                top: elempos + window.scrollY - 210,
+                behavior: "smooth"
+              });
+            }}
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"
           >
             About
-          </Link>
-          <Link
-            href="/home#sponsors"
+          </button>
+          <button
+            onClick={() => {
+              if(currentPage!="/home")router.push("/home");
+              setSection("sponsors");
+              const elempos = document.getElementById("sponsors")?.getBoundingClientRect().top;
+              if (elempos) window.scrollTo({
+                top: elempos + window.scrollY - 240,
+                behavior: "smooth"
+              });
+            }}
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"
           >
             Sponsors
-          </Link>
+          </button>
           <Link
             href="/modules"
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] hover:text-[#01A3F5]"

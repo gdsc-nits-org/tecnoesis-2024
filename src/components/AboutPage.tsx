@@ -17,7 +17,9 @@ const About = () => {
     const imageERef = useRef<HTMLImageElement | null>(null);
     const imageFRef = useRef<HTMLImageElement | null>(null);
     const imageGRef = useRef<HTMLImageElement | null>(null);
+   
 
+  
 
 
 
@@ -52,101 +54,29 @@ const About = () => {
     useEffect(() => {
 
         if (!isDesktop) {
-            if (imageARef.current) {
-                gsap.to(imageARef.current, {
-                    x: 0,
-                    y: 0,
+            const resetPositions = () => {
+                const resetProps = {
+                    // x: "0%",
+                    // y: "0%",
                     duration: 0.6,
                     ease: "power3.out",
-                });
-            }
-            if (image2WrapperRef.current) {
-                gsap.to(image2WrapperRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageCRef.current) {
-                gsap.to(imageCRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageDRef.current) {
-                gsap.to(imageDRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageERef.current) {
-                gsap.to(imageERef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageFRef.current) {
-                gsap.to(imageFRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageGRef.current) {
-                gsap.to(imageGRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-            if (image1Ref.current) {
-                gsap.to(image1Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image2Ref.current) {
-                gsap.to(image2Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (image3Ref.current) {
-                gsap.to(image3Ref.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-
-
-            if (class1DivRef.current) {
-                gsap.to(class1DivRef.current, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+                    transformOrigin: "center center", // Ensure centered origin
+                };
+    
+                if (imageARef.current) gsap.to(imageARef.current, resetProps);
+                if (image2WrapperRef.current) gsap.to(image2WrapperRef.current, resetProps);
+                if (imageCRef.current) gsap.to(imageCRef.current, resetProps);
+                if (imageDRef.current) gsap.to(imageDRef.current, resetProps);
+                if (imageERef.current) gsap.to(imageERef.current, resetProps);
+                if (imageFRef.current) gsap.to(imageFRef.current, resetProps);
+                if (imageGRef.current) gsap.to(imageGRef.current, resetProps);
+                if (image1Ref.current) gsap.to(image1Ref.current, resetProps);
+                if (image2Ref.current) gsap.to(image2Ref.current, resetProps);
+                if (image3Ref.current) gsap.to(image3Ref.current, resetProps);
+                if (class1DivRef.current) gsap.to(class1DivRef.current, resetProps);
+            };
+    
+            resetPositions();
             return;
         }
         const handleMouseMove = (event: MouseEvent) => {
@@ -261,11 +191,12 @@ const About = () => {
 
 
     return (
-        <div className="flex flex-col w-screen overflow-x-hidden" >
+        <div className="flex flex-col w-screen overflow-x-hidden" id='about'>
             <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
                 <div className=" upper w-full  md:h-[30vh]  lg:w-1/3 lg:h-auto">
                     <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
-                    <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-base desktop1:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
+                    <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-base desktop1:text-xl">Welcome to NIT Silchar, the launchpad for tomorrow’s innovators! Established in 1967 and now proudly ranked 92 in NIRF, we’ve been pushing boundaries and redefining the tech landscape for decades. Here, creativity converges with cutting-edge research, allowing students to explore new dimensions of knowledge. With a vibrant atmosphere fostering collaboration and bold ideas, NIT Silchar is where the future of technology and innovation takes shape.
+                    </div>
                 </div>
                 <div className="lower w-full h-[40vh] flex justify-center items-center lg:w-1/3">
                     <div className="first-animation relative w-[250px] h-[250px] desktop1:w-[350px] desktop1:h-[350px] desktop2:w-[400px] desktop2:h-[400px] lg:w-[300px] lg:h-[300px] tv1:w-[700px] tv1:h-[700px] overflow-visible ">
@@ -286,7 +217,7 @@ const About = () => {
                         <img ref={imageCRef}
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/Flow_7_n6z8tt.webp"
                             alt="Image c"
-                            className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5"
+                            className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5 "
                         />
                         <img ref={imageDRef}
                             src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/dotted_ring_tcdt3j.webp"
@@ -313,11 +244,11 @@ const About = () => {
                 </div>
                 <div className="w-full h-1/2 lg:w-1/3 lg:h-auto">
                     <div className="p-7 text-gradient-blue  font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-right md:m-0 lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT US</div>
-                    <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-base desktop1:text-xl md:text-center md:text-3xl ">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
+                    <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-base desktop1:text-xl md:text-center md:text-3xl ">Tecnoesis isn’t just a fest—it’s your gateway to uncharted dimensions of tech, innovation, and discovery! With mind-bending challenges, futuristic workshops, and immersive experiences, this is where reality shifts, creativity leads, and boundaries fade. Step in and explore worlds where the impossible becomes possible, pushing the limits of what you can achieve. Whether you’re coding, designing, or collaborating, Tecnoesis is where bold ideas thrive. Ready to unlock endless possibilities? Dive in!</div>
                 </div>
             </div>
             <div className="text-center p-8 flex items-center justify-center md:h-[20vh]">
-                <div className="w-[85%] 
+                <div onClick = {() => window.open('https://drive.google.com/file/d/1-OEXRWETQVTWnFarzeD4QBurcTC2GV36/view?usp=drivesdk')} className="w-[85%] 
                h-3 text-xs lg:w-1/5  md:w-1/2 font-outfit">
                     <CustomButton text="Download Brochure" />
 

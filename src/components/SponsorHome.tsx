@@ -47,7 +47,7 @@ const imageSets = [
 
 const SponsorHome: React.FC = () => {
   return (
-    <div className="flex flex-wrap justify-center p-0 md:p-4 gap-6 md:gap-20 sm:p-3">
+    <div className="flex flex-wrap justify-center p-0 md:p-4 gap-6 md:gap-20 sm:p-3" id='sponsors'>
       {(imageSets[0] ?? []).map((image, index) => (
         <div key={index} className="p-2 w-[120px] h-[120px] md:h-[230px] md:w-[230px] sm:w-[180px] sm:h-[180px]">
           <div className="relative w-full h-full shadow-md rounded-lg overflow-hidden">
