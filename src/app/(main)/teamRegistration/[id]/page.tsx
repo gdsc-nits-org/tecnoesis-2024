@@ -31,16 +31,21 @@ const CommandMenu = ({
   };
 
   const handleBlur = () => {
-    setTimeout(() => setIsOpen(false), 500);
+    setIsOpen(false);
   };
-  const handleChange = (username: string) => {
-    setValue(username, index + 1);
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue, index + 1);
   };
+
   return (
     <div className={`relative w-full`}>
       <Command
         className="text-white"
         label="Command Menu"
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onClick={handleFocus}
         onKeyDown={(e) => {
           if (e.key === "Escape") {
             e.preventDefault();
@@ -50,11 +55,8 @@ const CommandMenu = ({
       >
         <Command.Input
           className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
           value={value[index + 1]}
           onValueChange={handleChange}
-          onClick={handleFocus}
         />
         {isOpen && (
           <Command.List
@@ -62,14 +64,12 @@ const CommandMenu = ({
             style={{ zIndex: 10 }}
           >
             <Command.Empty>No results found.</Command.Empty>
-
             <Command.Group>
-              {allUsers.map((user, idx) => (
+              {allUsers?.map((user, idx) => (
                 <Command.Item
                   key={idx}
-                  onSelect={() => {
-                    setValue(user.username, index + 1);
-                  }}
+                  onTouchStart={() => handleChange(user.username)}
+                  onMouseDown={() => handleChange(user.username)}
                   className="cursor-pointer px-6 py-2 hover:bg-sky-500"
                 >
                   {user.firstName} {user.lastName} - {user.username} (
@@ -219,17 +219,8 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       const updated = [...prev];
       updated[0] = teamLeader;
       updated[index] = username;
-      console.log(updated);
+      setFormData((prevData) => ({ ...prevData, members: updated }));
       return updated;
-    });
-    setFormData((prevData) => {
-      const newData = {
-        ...prevData,
-        members: members,
-      };
-      newData.members[0] = teamLeader;
-      console.log(newData);
-      return newData;
     });
   };
 
@@ -243,13 +234,13 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           if (!user) throw new Error("User not authenticated");
           const validatedData = userDataSchema.parse(formData);
           const filteredMembers = validatedData.members.filter(
-            (member) => member !== teamLeader
+            (member) => member !== teamLeader,
           );
-          const token =  await user?.getIdToken();
+          const token = await user?.getIdToken();
           await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
-              name : validatedData.teamName,
+              name: validatedData.teamName,
               members: filteredMembers,
               extraInformation:
                 "This team specialises in AI and machine learning projects",
@@ -345,32 +336,36 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           </div>
 
           {!isSoloEvent &&
-            Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="inline-flex w-full items-center justify-between lg:gap-7"
-              >
-                <label
-                  htmlFor={`member${idx + 1}`}
-                  className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            Array.from({ length: (event?.maxTeamSize || 0) - 1 }).map(
+              (_, idx) => (
+                <div
+                  key={idx}
+                  className="inline-flex w-full items-center justify-between lg:gap-7"
                 >
-                  Member {idx + 2} Username:
-                </label>
-                <div className="relative flex w-1/2 items-center">
-                  <CommandMenu
-                    allUsers={allUsers}
-                    value={members}
-                    setValue={handleMemberSelect}
-                    index={idx}
-                  />
+                  <label
+                    htmlFor={`member${idx + 1}`}
+                    className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+                  >
+                    Member {idx + 2} Username:
+                  </label>
+                  <div className="relative flex w-1/2 items-center">
+                    <CommandMenu
+                      allUsers={allUsers}
+                      value={members}
+                      setValue={handleMemberSelect}
+                      index={idx}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
         </div>
         <div className="mt-10 flex w-full items-center justify-around">
-        <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="REGISTER" /></button>
-        </div>
+          <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+            <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+              <CustomButton text="REGISTER" />
+            </button>
+          </div>
         </div>
       </form>
     </div>
