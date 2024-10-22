@@ -29,19 +29,29 @@ const config = {
         tablet25: "870px",
         tablet3: "900px",
         tablet4: "950px",
+        desktop1:"1200px",
+        desktop2:"1600px",
+        desktop3:"1800px",
         tv1: "2100px",
+        tv3:"2400px",
         tv2: "2700px",
         sml: "500px",
         "3xl": "2560px",
+        "6xl":"2900px",
         "4xl": "3440px",
         "5xl": "3840px",
+        "7xl":"4000px"
       },
       fontFamily: {
         rp1: ["readyplayer", "monospace"],
         outfit: ["Outfit", "sans-serif"],
+        nico: ["Nico","sans-serif"]
       },
       colors: {
         customGray: "#1e2025",
+        customBlue: "#59CAFA",
+        customYellow: "DDDBD2",
+        customBluish: "#000912",
         customDark: "#121317",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -81,6 +91,10 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      borderImage:{
+        "silvery": 'linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)'
+
       },
       keyframes: {
         upDown: {
@@ -166,12 +180,14 @@ const config = {
         "bg-glitch": "bg-glitch 5s infinite alternate",
         "text-glow": "text-glow 2s infinite alternate ease-in-out",
         "rotate-pattern": "rotate-pattern 8s 1 ease-in-out",
-        rocketzoom: "rocketzoom 0.5s ease-in-out",
+        rocketzoom: "rocketzoom 0.8s ease-in-out",
       },
       backgroundImage: {
-        "nav-gradient": "linear-gradient(to top, transparent 0%, #070710 50%)",
-        "blue-metall":
-          "linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)",
+        "nav-gradient": "linear-gradient(to top, transparent 0%, #070710aa 30%, #000009 70%)",
+        "blue-metall": "linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)",
+        "silver-lustre":'linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%)',
+        "golden-lustre":'linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)'
+
       },
     },
   },

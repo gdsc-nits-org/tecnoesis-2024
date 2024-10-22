@@ -34,7 +34,7 @@ const Download: React.FC = () => {
           <h3 className="md:hidden font-outfit">Download The New Tecnoesis App On Both Android And iOS Devices.</h3>
           <h3 className="md:flex text-start hidden w-full md:text-sm py-[1rem] font-outfit">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </h3>
         </div>
-        <div className="flex md:justify-start md:p-0 text-start items-center justify-center gap-[1.75rem] px-8 space-x-4 my-2">
+        <div className="flex md:justify-start p-0 text-start items-center justify-center gap-[1.75rem] px-8 space-x-4 my-2">
           <a
             href="https://play.google.com/store"
             target="_blank"
