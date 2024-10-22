@@ -132,24 +132,6 @@ const Pending = ({ count, data, token }: PendingProps) => {
     );
 }
 
-// const Completed = ({ data }: CompletedProps) => {
-//     return (
-//         <div className="text-white eventcard rounded-md">
-//             <h1 className="text-[2rem] bg-silver-lustre bg-clip-text text-transparent font-outfit font-bold text-center">Completed</h1>
-//             <div className="flex flex-col items-center justify-center">
-//                 {data.map((item, index) => (
-//                     <div key={index} className="flex flex-row items-center justify-between w-[100%] p-[2rem] border border-[#fefdfd68] m-1 rounded-[10px]">
-//                         <div className="flex flex-col items-center justify-center">
-//                             <h2 className="bg-golden-lustre bg-clip-text text-transparent font-outfit font-bold text-[1rem]">{item.event}</h2>
-//                             <h4 className="text-[#7ea9cb]"><span>Team name:</span> {item.team}</h4>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
-
 const Registered = ({ data, token }: allProps) => {
     const [opened, setOpened] = useState(false);
     const [eventnames, setEventnames] = useState<string[]>([]);
@@ -279,7 +261,6 @@ const EventsInfo = () => {
     return (
         <div className="flex flex-col items-center justify-center w-[80vw] lg:w-[30vw]">
             {token && < Pending count={count} data={pendinglist} token={token} />}
-            {/* <Completed data={completedlist} /> */}
             {token && <Registered data={allevents} token={token} />}
         </div>
     );

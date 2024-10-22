@@ -10,8 +10,8 @@ export default function Team() {
     const [team, setTeam] = useState<1 | 2 | 3>(1);
     const [hovers, setHovers] = useState(true);
     return (
-        <div className='min-h-screen'>
-            <div className="bg-customBluish min-h-screen">
+        <div className='w-full min-h-screen'>
+            <div className="bg-dotted w-full min-h-screen">
                 <div className="w-full flex justify-center items-center">
                     <h1 className="font-rp1 text-center text-4xl lg:text-6xl text-customBlue mt-24 lg:mt-48 mb-12">MEET OUR TEAM </h1>
                 </div>
@@ -49,22 +49,26 @@ export default function Team() {
                             </div>
                         ))
                     }
-                    <h1 className='font-rp1 text-center text-4xl mb-12'>TEAM MEMBERS</h1>
-                    <Marquee
-                        speed={70}
-                        direction={"left"}
-                        play={hovers}
-                    >
-                        <div className='flex h-[40rem]'>
-                            {
-                                data.map((item) => (
-                                    item.members.map((member) => (
-                                        <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} hoversetter={setHovers} />
-                                    ))
-                                ))
-                            }
-                        </div>
-                    </Marquee>
+                    {team === 2 && (
+                        <>
+                            <h1 className='font-rp1 text-center text-4xl mb-12'>TEAM MEMBERS</h1>
+                            <Marquee
+                                speed={70}
+                                direction={"left"}
+                                play={hovers}
+                            >
+                                <div className='flex h-[40rem]'>
+                                    {
+                                        data.map((item) => (
+                                            item.members.map((member) => (
+                                                <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} hoversetter={setHovers} />
+                                            ))
+                                        ))
+                                    }
+                                </div>
+                            </Marquee>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
