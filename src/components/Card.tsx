@@ -1,6 +1,11 @@
 import Image from "next/image"
 import React, { useEffect, useState } from "react";
-import { SocialIcon } from 'react-social-icons'
+import Link from "next/link";
+import {
+  IoLogoInstagram,
+  IoLogoFacebook,
+  IoLogoLinkedin,
+} from "react-icons/io5";
 interface propsType {
   name: string;
   designation: string;
@@ -60,16 +65,23 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
             transition: "all 0.3s ease",
           } : { opacity: "0", transition: "all 0.3s ease", transform: "scale(0.6)" }}>
             {facebook && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url={facebook} target = "_blank" style={{ height: 30, width: 30 }} />
+              <Link href={"https://facebook.com"} target="_blank" rel="noopener noreferrer" aria-label="FaceBook">
+                <IoLogoFacebook className="h-[30px] w-[30px]" />
+              </Link>
             </div>
             )}
             {instagram && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url={instagram} target = "_blank" style={{ height: 30, width: 30 }} />
-            </div>
+              <Link href={"https://linkedin.com"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <IoLogoLinkedin className="h-[30px] w-[30px]" />
+              </Link>    
+              </div>
             )}
             {linkedin && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url={linkedin} target = "_blank" style={{ height: 30, width: 30 }} />
-            </div>
+              <Link href={"https://instagram.com"} target="_blank" rel="noopener noreferrer" aria-label="InstaGram">
+                <IoLogoInstagram className="h-[30px] w-[30px]" />
+              </Link>            
+              </div>
+
             )}
           </div>
           <Image src="/team/stencil.png" width={162} height={162} alt=""
@@ -123,8 +135,6 @@ interface MemberProps {
 
 }
 
-//Links to the social media handles of the members are not added yet.
-// The json needs to be updated with the social media handles of the members.
 
 const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, facebook, instagram, linkedin, hoversetter }) => {
   const top = index % 2 ? (-2 - 2 * Math.random()) : 6 + 2 * Math.random()
@@ -144,18 +154,25 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, fa
         <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
           {facebook && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url={facebook} target = "_blank" style={{ height: 30, width: 30 }} />
-          </div>
+            <Link href={"https://facebook.com"} target="_blank" rel="noopener noreferrer" aria-label="FaceBook">
+              <IoLogoFacebook className="h-[30px] w-[30px]" />
+            </Link>          
+            </div>
           )}
           {instagram && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url={instagram} target = "_blank" style={{ height: 30, width: 30 }} />
-          </div>
+            <Link href={"https://instagram.com"} target="_blank" rel="noopener noreferrer" aria-label="InstaGram">
+              <IoLogoInstagram className="h-[30px] w-[30px]" />
+            </Link>          
+            </div>
           )}
           {linkedin && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url={linkedin} target = "_blank" style={{ height: 30, width: 30 }} />
-          </div>
+            <Link href={"https://linkedin.com"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <IoLogoLinkedin className="h-[30px] w-[30px]" />
+            </Link>          
+            </div>
+
           )}
         </div>
       </div>
