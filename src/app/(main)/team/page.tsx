@@ -22,7 +22,6 @@ export default function Team() {
                             : "",
                     }} onClick={() => {
                         setTeam(1);
-
                     }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
                         <p className="font-outfit group-hover:scale-90 duration-300">Core Team</p>
                     </button>
@@ -43,7 +42,7 @@ export default function Team() {
                         onClick={() => {
                             setTeam(3);
                         }} className='group bg-[#fff1] flex items-center justify-between rounded-full px-[2vw] py-[0.75vw] shadow-[inset_1px_2px_2.5px_rgba(255,255,255,0.3),inset_1px_-2px_2.5px_rgba(255,255,255,0.3)] duration-1000 hover:shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)]'>
-                        <p className="font-outfit  group-hover:scale-90 duration-300">Module Heads</p>
+                        <p className="font-outfit group-hover:scale-90 duration-300">Module Heads</p>
                     </button>
                 </div>
                 <div className='flex flex-col justify-center items-center text-yellow-50'>
