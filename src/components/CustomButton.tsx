@@ -1,20 +1,22 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+
 interface CustomButtonProps {
   text: string;
+  className?: string;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ text }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ text, className }) => {
   return (
     <div
-      className={`customBtn relative m-auto flex w-[100%] cursor-pointer items-center justify-center overflow-hidden bg-[transparent] p-5 text-xl text-white duration-500 hover:scale-105 hover:bg-[#2F629C]`}
+      className={`customBtn relative flex w-auto max-w-full cursor-pointer items-center justify-center overflow-hidden bg-transparent p-3 text-white duration-500 hover:bg-[#2F629C] sm:p-4 lg:p-5 ${className}`}
     >
-      <div className="absolute top-0 z-0 flex h-[100%] min-w-[100%] flex-row items-center justify-center">
+      <div className="absolute top-0 z-0 flex h-auto w-full items-center justify-center">
         <div className="gradpart1"></div>
         <div className="gradpart2"></div>
       </div>
-      <div className="z-1 absolute top-0 flex h-[100%] flex-row items-center justify-center gap-4">
+      <div className="relative z-10 flex items-center justify-center gap-4">
         <span>
           <Image
             alt="planet"
@@ -23,7 +25,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text }) => {
             src="/assets/Landing/planet.webp"
           />
         </span>
-        <span className="btnText">{text}</span>
+        <span className="btnText text-nowrap font-outfit">{text}</span>
       </div>
     </div>
   );
