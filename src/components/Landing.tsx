@@ -2,11 +2,11 @@
 
 import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
-import { useMediaQuery } from "usehooks-ts";
 import { gsap } from "gsap";
 import EnterButton from "./enterButton";
 import Link from "next/link";
 import Progress from "./Progress";
+import { useIsClient } from "usehooks-ts";
 
 const Landing: React.FC = () => {
   const tl = gsap.timeline({ ease: "slow", duration: 1 });
@@ -129,6 +129,8 @@ const Landing: React.FC = () => {
 };
 
 export default function MainLanding() {
+  const isClient = useIsClient();
+  if (!isClient) return null;
   return (
     <Suspense fallback={<Progress progress={0} />}>
       <Landing />
