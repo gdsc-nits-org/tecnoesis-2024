@@ -135,15 +135,6 @@
         },
         {
 
-            "name": "Mainak Das",
-            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687770/web_developers_Mainak_Das.webp",
-            "designation": "Web Developer",
-            "facebook": "https://github.com/tech-hunter-mainak",
-            "instagram": "https://facebook.com/mainak.nitS",
-            "linkedin": "https://linkedin.com/in/mainakdasnits"
-        },
-        {
-
             "name": "Arindom Sarmah",
             "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687834/web_developers_Arindom_Sarmah.webp",
             "designation": "Web Developer",
@@ -180,6 +171,15 @@
         },
         {
 
+            "name": "Mainak Das",
+            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687770/web_developers_Mainak_Das.webp",
+            "designation": "Web Developer",
+            "facebook": "https://github.com/tech-hunter-mainak",
+            "instagram": "https://facebook.com/mainak.nitS",
+            "linkedin": "https://linkedin.com/in/mainakdasnits"
+        },
+        {
+
             "name": "Vivek Sharma",
             "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687651/web_developers_Vivek_Sharma.webp",
             "designation": "Web Developer",
@@ -206,7 +206,23 @@
             "facebook": "https://github.com/Samarjit25",
             "instagram": "https://www.facebook.com/profile.php?id=100087733476599",
             "linkedin": "https://www.linkedin.com/in/samarjit-roy-368071257/"
-        }
+        },
+        {
+            "name": "Jagatjyoti Deb",
+            "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827560/GDSC%20images/jagatjyoti_-_ECE_052_JAGATJYOTI_DEB_syfvzf.jpg",
+            "facebook": "https://www.facebook.com/profile.php?id=100084536361943",
+            "linkedin": "https://www.linkedin.com/in/jagatjyoti-deb-0a57bb223/",
+            "designation": "UI/UX Developer",
+            "instagram" : "https://github.com/jagat-01"
+        },
+        {
+            "name": "Siddharth Ghosh",
+            "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827576/GDSC%20images/WhatsApp_Image_2023-09-01_at_20.15.25_-_Siddharth_Ghosh_ofceqg.jpg",
+            "linkedin": "https://www.linkedin.com/in/siddharth-ghosh-18ba29251/",
+            "facebook": "https://www.linkedin.com/in/siddharth-ghosh-18ba29251/",
+            "instagram": "https://github.com/Z-Maniac-Sidd",
+            "designation": "UI/UX Developer"
+    }
     ],
     "app_developers": [
         {
