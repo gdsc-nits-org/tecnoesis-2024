@@ -134,6 +134,10 @@ const Navbar = () => {
         behavior: "smooth",
       });
   }, [currentPage]);
+  const [audio] = useState(new Audio("/assets/Landing/outro.mp3"));
+  const handleMoveOut = () => {
+    return (audio.volume = 0.5), audio.play();
+  };
   return (
     <nav
       className={
@@ -142,7 +146,7 @@ const Navbar = () => {
       }
     >
       <div className="flex items-center justify-between px-[5vw] text-center text-[1.3vw] text-white">
-        <Link href="/">
+        <Link href="/" onClick={handleMoveOut}>
           <Image
             src="/assets/Landing/tecnoesisLogo.webp"
             width={300}

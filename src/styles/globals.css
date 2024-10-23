@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -85,7 +86,6 @@ body{
 }
 
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 .bg-dotted {
   background-color: #000204;
@@ -103,13 +103,14 @@ body{
   border-radius: 3rem;
   transition-duration: 500ms;
   box-shadow: none;
-  scale:1;
+  height: auto;
+  /* scale:1; */
 }
 .customBtn:hover{
-  border: 0px solid transparent;
+  border: 1px solid transparent;
   transition-duration: 500ms;
   box-shadow: 0 0 2rem #01a4f583;
-  scale:1.05;
+  /* scale:1.05; */
 }
 
 .gradpart1 {
@@ -187,6 +188,79 @@ body{
   padding: 16px;
   animation: neon-glow-blue 2s infinite alternate;
 }
+
+
+.customBtn{
+  border:1px solid #ffffff;
+  border-radius: 3rem;
+  transition-duration: 500ms;
+  box-shadow: none;
+  scale:1;
+}
+.customBtn:hover{
+  border: 0px solid transparent;
+  transition-duration: 500ms;
+  box-shadow: 0 0 2rem #01a4f583;
+}
+
+.gradpart1 {
+  min-height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration: 1000ms;
+}
+
+@keyframes toRight {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(-50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+.gradpart2 {
+  height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration:1000ms ;
+}
+
+
+@keyframes toLeft {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+
+.customBtn:hover .gradpart1{
+  animation-name: toRight;
+  opacity: 1;
+}
+.customBtn:hover .gradpart2{
+  animation-name: toLeft;
+  opacity: 1;
+}
+
+
 
 @keyframes neon-red-glow {
   0% {
@@ -540,4 +614,61 @@ body{
   .scrollbar-hide {
     scrollbar-width: none; 
   }
+}
+
+
+.homepage{
+  animation-name: emerge;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  animation-timing-function:linear;
+}
+@keyframes emerge{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.landing{
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes diminish {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+*{
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background:black;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  border:0 solid transparent;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
+  border-radius: 10px;
 }

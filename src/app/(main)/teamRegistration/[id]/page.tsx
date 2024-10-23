@@ -17,69 +17,81 @@ const CommandMenu = ({
   allUsers,
   value,
   setValue,
-  index,
 }: {
   allUsers: UserResponse[];
-  value: string[];
-  setValue: (username: string, index: number) => void;
-  index: number;
+  value: string;
+  setValue: (username: string) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<UserResponse | null>(null);
 
-  const handleFocus = () => {
-    setIsOpen(true);
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
   };
 
   const handleBlur = () => {
-    setTimeout(() => setIsOpen(false), 500);
+    if (!selectedUser || selectedUser.username !== value) {
+      setSelectedUser(null);
+      handleChange("");
+    }
+    setIsOpen(false);
   };
-  const handleChange = (username: string) => {
-    setValue(username, index + 1);
-  };
+
   return (
     <div className={`relative w-full`}>
-      <Command
-        className="text-white"
-        label="Command Menu"
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            e.preventDefault();
-            setIsOpen(false);
-          }
-        }}
-      >
-        <Command.Input
+      {!isOpen && (
+        <input
           className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          value={value[index + 1]}
-          onValueChange={handleChange}
-          onClick={handleFocus}
+          onClick={() => setIsOpen(true)}
+          placeholder="Search username..."
+          value={value}
         />
-        {isOpen && (
-          <Command.List
-            className="animate-borderNeon absolute left-0 top-full mt-2 w-full rounded-lg border-[1px] border-transparent bg-black bg-opacity-60 text-center shadow-lg backdrop-blur-md"
-            style={{ zIndex: 10 }}
-          >
-            <Command.Empty>No results found.</Command.Empty>
+      )}
 
-            <Command.Group>
-              {allUsers.map((user, idx) => (
-                <Command.Item
-                  key={idx}
-                  onSelect={() => {
-                    setValue(user.username, index + 1);
-                  }}
-                  className="cursor-pointer px-6 py-2 hover:bg-sky-500"
-                >
-                  {user.firstName} {user.lastName} - {user.username} (
-                  {user.registrationId})
-                </Command.Item>
-              ))}
-            </Command.Group>
-          </Command.List>
-        )}
-      </Command>
+      {isOpen && (
+        <>
+          <div
+            className="fixed left-0 top-0 h-full w-full"
+            onClick={handleBlur}
+          ></div>
+          <Command
+            className="text-white"
+            label="Command Menu"
+            onKeyDown={(e) => e.key === "Escape" && setIsOpen(false)}
+          >
+            <Command.Input
+              autoFocus
+              placeholder="Search username..."
+              className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+              value={value}
+              onValueChange={handleChange}
+            />
+            <Command.List
+              className="animate-borderNeon absolute left-0 top-full mt-2 w-full rounded-lg border-[1px] border-transparent bg-black bg-opacity-60 text-center shadow-lg backdrop-blur-md"
+              style={{ zIndex: 10 }}
+              onFocus={() => console.log("Command LIst focussed")}
+            >
+              <Command.Empty>No results found.</Command.Empty>
+              <Command.Group>
+                {allUsers?.map((user, idx) => (
+                  <Command.Item
+                    key={idx}
+                    className="cursor-pointer px-6 py-2 hover:bg-sky-500"
+                    onSelect={() => {
+                      setSelectedUser(user);
+                      handleChange(user.username);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {user.firstName} {user.lastName} - {user.username} (
+                    {user.registrationId})
+                  </Command.Item>
+                ))}
+              </Command.Group>
+            </Command.List>
+          </Command>
+        </>
+      )}
     </div>
   );
 };
@@ -92,16 +104,15 @@ interface Event {
 }
 
 interface UserResponse {
-  balance: number;
-  collegeName: string;
-  email: string;
-  firebaseId: string;
+  collegeName?: string;
+  email?: string;
+  firebaseId?: string;
   firstName: string;
-  id: string;
-  imageUrl: string;
+  id?: string;
+  imageUrl?: string;
   lastName: string;
-  middleName: string;
-  phoneNumber: string;
+  middleName?: string;
+  phoneNumber?: string;
   registrationId: string;
   username: string;
 }
@@ -146,7 +157,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         `${env.NEXT_PUBLIC_API_URL}/api/user/`,
         {
           headers: {
-            Authorization: 1000000,
+            Authorization: `Bearer ${token}`,
           },
         },
       );
@@ -156,6 +167,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       return [];
     }
   };
+
   const fetchUser = async (token: string) => {
     try {
       const { data } = await axios.get<{ msg: UserResponse }>(
@@ -219,17 +231,8 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       const updated = [...prev];
       updated[0] = teamLeader;
       updated[index] = username;
-      console.log(updated);
+      setFormData((prevData) => ({ ...prevData, members: updated }));
       return updated;
-    });
-    setFormData((prevData) => {
-      const newData = {
-        ...prevData,
-        members: members,
-      };
-      newData.members[0] = teamLeader;
-      console.log(newData);
-      return newData;
     });
   };
 
@@ -243,13 +246,13 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           if (!user) throw new Error("User not authenticated");
           const validatedData = userDataSchema.parse(formData);
           const filteredMembers = validatedData.members.filter(
-            (member) => member !== teamLeader
+            (member) => member !== teamLeader,
           );
-          const token =  await user?.getIdToken();
+          const token = await user?.getIdToken();
           await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
-              name : validatedData.teamName,
+              name: validatedData.teamName,
               members: filteredMembers,
               extraInformation:
                 "This team specialises in AI and machine learning projects",
@@ -345,32 +348,37 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           </div>
 
           {!isSoloEvent &&
-            Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="inline-flex w-full items-center justify-between lg:gap-7"
-              >
-                <label
-                  htmlFor={`member${idx + 1}`}
-                  className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            Array.from({ length: (event?.maxTeamSize || 0) - 1 }).map(
+              (_, idx) => (
+                <div
+                  key={idx}
+                  className="inline-flex w-full items-center justify-between lg:gap-7"
                 >
-                  Member {idx + 2} Username:
-                </label>
-                <div className="relative flex w-1/2 items-center">
-                  <CommandMenu
-                    allUsers={allUsers}
-                    value={members}
-                    setValue={handleMemberSelect}
-                    index={idx}
-                  />
+                  <label
+                    htmlFor={`member${idx + 1}`}
+                    className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+                  >
+                    Member {idx + 2} Username:
+                  </label>
+                  <div className="relative flex w-1/2 items-center">
+                    <CommandMenu
+                      allUsers={allUsers}
+                      value={members[idx + 1]!}
+                      setValue={(username) =>
+                        handleMemberSelect(username, idx + 1)
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
         </div>
         <div className="mt-10 flex w-full items-center justify-around">
-        <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="REGISTER" /></button>
-        </div>
+          <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+            <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+              <CustomButton text="REGISTER" />
+            </button>
+          </div>
         </div>
       </form>
     </div>

@@ -1,0 +1,450 @@
+[
+    {
+        "id": 2,
+        "name": "Chief Coordinator",
+        "heads": [
+            {
+                "name": "Partha Protim Lahkar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687132/chief_coordinators_Partha_Protim_Lahkar.webp",
+                "designation": "Chief Coordinator",
+                "facebook": "https://www.facebook.com/partha.lahkar.16/",
+                "instagram": "https://www.instagram.com/mr.lahkar/",
+                "linkedin": "https://www.linkedin.com/in/partha-p-lahkar/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Convenor",
+        "heads": [
+            {
+                "name": "Shashank Dahewar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687157/convenors_Shashank_Dahewar.webp",
+                "designation": "Convenor",
+                "facebook": "https://www.facebook.com/profile.php?id=100076060506763&mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/sdahewar/profilecard/?igsh=cHpzODVnend0N3R2",
+                "linkedin": "https://www.linkedin.com/in/sdahewar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Executive Head",
+        "heads": [
+            {
+                "name": "SIBASHISH KACHARI",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687328/executive_heads_SIBASHISH_KACHARI.webp",
+                "designation": "Executive ",
+                "facebook": "https://www.facebook.com/raj.kachari.374?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/sibashish.k21/profilecard/?igsh=MXNyZDJpdmhmZHR2OA==",
+                "linkedin": "https://www.linkedin.com/in/sibashish-kachari-aa6472250"
+            },
+            {
+                "name": "Priyabrat Duarah",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687335/executive_heads_Priyabrat_Duarah.webp",
+                "designation": "Executive",
+                "facebook": "https://www.facebook.com/profile.php?id=100076231446828",
+                "instagram": "https://www.instagram.com/prybrt06/",
+                "linkedin": "https://www.linkedin.com/in/priyabratduarah/"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Web Head",
+        "heads": [
+            {
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
+                "name": "Jaydeep Prapanch Das",
+                "designation": "Tech Head",
+                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+                "instagram": "https://www.instagram.com/_jdeep7_/"
+            },
+            {
+                "name": "Adhiraj Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
+                "designation": "Web Head",
+                "facebook": "https://facebook.com/byt3h3ad/",
+                "instagram": "https://instagram.com/textually.active/",
+                "linkedin": "https://links.adhiraj.tech/linkedin"
+            },
+            {
+                "name": "Bijay Jiwrajka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687515/web_heads_Bijay_Jiwrajka.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
+                "instagram": "https://www.instagram.com/bj_jiwrajka/",
+                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
+            },
+            {
+                "name": "Sharthak Sharma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+                "instagram": "https://www.instagram.com/shrthk_7",
+                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
+            },
+            {
+                "name": "Maharnav Deka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687524/web_heads_Maharnav_Deka.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
+                "instagram": "https://www.instagram.com/_imaharnav_",
+                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "App Heads",
+        "heads": [
+            {
+                "name": "Rajdristant Ghose",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687117/app_heads_Rajdristant_Ghose.webp",
+                "designation": "App Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076066695970&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/rajdristant/",
+                "linkedin": "https://www.linkedin.com/in/rajdristant-ghose-286061231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Navneet Raj Karn",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687122/app_heads_Navneet_Raj_Karn.webp",
+                "designation": "App Head",
+                "facebook": "https://www.facebook.com/share/tnBPu6B1UyqPkvd9/",
+                "instagram": "https://www.instagram.com/navneetrajkarn/profilecard/?igsh=a3hpNTk3Nnp5bjEx",
+                "linkedin": "https://www.linkedin.com/in/navneet-raj-08a720228/"
+            },
+            {
+                "name": "Sameer Zaidi",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687127/app_heads_Sameer_Zaidi.webp",
+                "designation": "App Head",
+                "facebook": "https://www.facebook.com/SyedSameerZaidi123",
+                "instagram": "https://www.instagram.com/_interstellar07_/",
+                "linkedin": "https://www.linkedin.com/in/sameer-zaidi-541261226/"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "UI/UX Head",
+        "heads": [
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Head",
+                "facebook": "facebook.com/jacinth.mahanta",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
+            },
+            {
+                "name": "Tithi Jha",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687499/ui_ux_heads_Tithi_Jha.webp",
+                "designation": "UI/UX Head",
+                "facebook": "https://www.facebook.com/tithi.jha.14",
+                "instagram": "https://www.instagram.com/tithii.jha",
+                "linkedin": "https://www.linkedin.com/in/tithi-jha-3b43b5229"
+            },
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Head",
+                "facebook": "https://www.facebook.com/jacinth.mahanta/",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Content Heads",
+        "heads": [
+            {
+                "name": "Aditi Archita Khataniar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687140/content_heads_Aditi_Archita_Khataniar.webp",
+                "designation": "Content Head",
+                "facebook": "https://www.facebook.com/mumpyyyyyyy?mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/_.kabhi.kabhi.aditiii._/profilecard/?igsh=NThsYnA1NzAxamcz",
+                "linkedin": "https://www.linkedin.com/in/aditi-archita-khataniar-2189a3226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Bhargabi Nath",
+                "photo": "https://res.cloudinary.com/dgnlmdkyq/image/upload/v1729714342/1523BB17-6891-429E-9BBA-6A084712B213_-_155__Bhargabi_Nath_sydtnz.webp",
+                "designation": "Content Head",
+                "facebook": "https://www.facebook.com/bhargavi.nath",
+                "instagram": "",
+                "linkedin": "https://www.linkedin.com/in/bhargavi-nath-9a8a81223/"
+            },
+            {
+                "name": "Prateeksha Majumdar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687150/content_heads_Prateeksha_Majumdar.webp",
+                "designation": "Content Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076430416024",
+                "instagram": "https://www.instagram.com/prateekshaaaaaa_?igsh=MWM0czZ5bTd0NGd2cw%3D%3D&utm_source=qr",
+                "linkedin": "https://in.linkedin.com/in/prateeksha-majumdar-20106a230"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Design Head",
+        "heads": [
+            {
+                "name": "Sadman Saquib",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687184/design_heads_Sadman_Saquib.webp",
+                "designation": "Design Head",
+                "facebook": "https://www.facebook.com/sadman.saquibe.9/",
+                "instagram": "https://www.instagram.com/sadman_saquib/profilecard/?igsh=MXVndjlqeTZsN3QzMg==",
+                "linkedin": "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav"
+            },
+            {
+                "name": "Ishan Das",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687221/design_heads_Ishan_Das.webp",
+                "designation": "Design Head",
+                "facebook": "https://www.facebook.com/ishan.baisya/",
+                "instagram": "https://www.instagram.com/_ishan.das/",
+                "linkedin": "https://www.linkedin.com/in/ishan-das-0853042b3/"
+            },
+            {
+                "name": "AMRITA KASHYAP",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687229/design_heads_AMRITA_KASHYAP.webp",
+                "designation": "Design Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076495782914",
+                "instagram": "https://www.instagram.com/amrita_kash_yap",
+                "linkedin": "https://www.linkedin.com/in/amrita-kashyap-a33069230"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Decoration Head",
+        "heads": [
+            {
+                "name": "Rimlee Ghosh",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687163/decoration_heads_Rimlee_Ghosh.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100075884483252&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/rimlee13/profilecard/?igsh=MWQ3cHdheXNrZWJ5cg==",
+                "linkedin": "https://www.linkedin.com/in/rimlee-ghosh-678b65237"
+            },
+            {
+                "name": "Pragyan Atri",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687169/decoration_heads_Pragyan_Atri.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/pragyan.atri.1",
+                "instagram": "https://www.instagram.com/a_tree_pragyan/?hl=en",
+                "linkedin": "https://www.linkedin.com/in/pragyan-atri-06894a241/"
+            },
+            {
+                "name": "Dorothy Phukon",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687176/decoration_heads_Dorothy_Phukon.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076166561248&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/dorothyphukon/profilecard/?igsh=MXBzbDJ1dGxvbWNv",
+                "linkedin": "https://www.linkedin.com/in/dorothy-phukon-48a066230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Event Management Head",
+        "heads": [
+            {
+                "name": "Dhritiman Das",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687270/event_management_heads_Dhritiman_Das.webp",
+                "designation": "Event Management Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076444172130",
+                "instagram": "https://www.instagram.com/who_dhritimandas/",
+                "linkedin": "https://www.linkedin.com/in/dhritiman-das-34439b22a/"
+            },
+            {
+                "name": "Pragyashree Das",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687297/event_management_heads_Pragyashree_Das.webp",
+                "designation": "Event Management Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076542505864",
+                "instagram": "https://www.instagram.com/pragya.___?igsh=bzY2dHd6bnpybjlw",
+                "linkedin": "https://www.linkedin.com/in/pragyashree-das-a67418235/"
+            },
+            {
+                "name": "Gyan Sanatan Hazarika",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687303/event_management_heads_Gyan_Sanatan_Hazarika.webp",
+                "designation": "Event ManagementHead",
+                "facebook": "https://www.facebook.com/share/ev62MN8gDhFgDove/",
+                "instagram": "https://www.instagram.com/gyan.sanatanhazarika/profilecard/?igsh=MWkxY3loNzNzc3RjNQ==",
+                "linkedin": "https://www.linkedin.com/in/gyan-sanatan-hazarika"
+            },
+            {
+                "name": "Priyanuj Baruah",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687309/event_management_heads_Priyanuj_Baruah.webp",
+                "designation": "Event Management Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100011460848605&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/__priyanuj_/profilecard/?igsh=cWdvNmJvd2h6cWpo",
+                "linkedin": "https://www.linkedin.com/in/priyanuj-baruah-58279b223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Nilotpal Sarma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687316/event_management_heads_Nilotpal_Sarma.webp",
+                "designation": "Event Management Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076340676636&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/nilotpal__29/profilecard/?igsh=am93Mm9kYjFkcXFk",
+                "linkedin": "https://www.linkedin.com/in/nilotpal-sarma-24a250237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Hospitality Head",
+        "heads": [
+            {
+                "name": "Rituraj Dey",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687342/hospitality_heads_Rituraj_Dey.webp",
+                "designation": "Hospitality Head",
+                "facebook": "https://www.facebook.com/share/1qtL3QKrKEHZyHDK/",
+                "instagram": "https://www.instagram.com/dey__rituraj?igsh=ZHA5enBjMXNsYThz",
+                "linkedin": "https://www.linkedin.com/in/rituraj-dey-a41283229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Bedanta Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687357/hospitality_heads_Bedanta_Dutta.webp",
+                "designation": "Hospitality Head",
+                "facebook": "https://www.facebook.com/share/mFxNeGVmfEUnQQRm/",
+                "instagram": "https://www.instagram.com/bedanta650/profilecard/?igsh=MWJjM2ExNnNsNTJkOA==",
+                "linkedin": "https://www.linkedin.com/in/bedanta-dutta-25b547255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Hrishikesh Duarah",
+                "photo": "https://res.cloudinary.com/dgnlmdkyq/image/upload/v1729714212/hrishikeshduarah_pdgltk.webp",
+                "designation": "Hospitality Head",
+                "facebook": "https://www.facebook.com/chaohrishikesh.duarah?mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/itzzz_hrishi?igsh=M284N3RnMXRoaTcy",
+                "linkedin": "https://www.linkedin.com/in/hrishikesh-duarah-8838a824b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Pratisruti Buragohain",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687390/hospitality_heads_Pratisruti_Buragohain.webp",
+                "designation": "Hospitality Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076171814953&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/_prati.sruti_/profilecard/?igsh=MTV4Ynhzdm8wczN2Yw==",
+                "linkedin": "https://www.linkedin.com/in/pratisruti-buragohain330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Infra Head",
+        "heads": [
+            {
+                "name": "Siddhanth Paitya",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687405/infra_heads_Siddhanth_Paitya.webp",
+                "designation": "Infrastructure Head",
+                "facebook": "https://www.facebook.com/share/pTSpJu4hecRtfnLs/?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/_.siddhanth._/profilecard/?igsh=MXNmamt6bzhwYXRnbQ==",
+                "linkedin": "https://www.linkedin.com/in/siddhanth-paitya-a199711aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Logistics Head",
+        "heads": [
+            {
+                "name": "Mrinmoy Boro",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687412/logistics_heads_Mrinmoy_Boro.webp",
+                "designation": "Logistics Head",
+                "facebook": "https://www.facebook.com/mrinmoy.b.75?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/mbdiariesss/profilecard/?igsh=MWR1c3lvcThrdm0y",
+                "linkedin": "http://linkedin.com/in/mrinmoy-boro-3a4398256"
+            },
+            {
+                "name": "Antariks Parasar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687418/logistics_heads_Antariks_Parasar.webp",
+                "designation": "Logistics Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076272504214&mibextid=kFxxJD",
+                "instagram": "https://www.instagram.com/antariks_999?igsh=OGd6ZnN6MGFyaXo%3D&utm_source=qr",
+                "linkedin": "https://www.linkedin.com/in/antariksparasar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Marketing Head",
+        "heads": [
+            {
+                "name": "Susmit Gupta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687424/marketing_heads_Susmit_Gupta.webp",
+                "designation": "Marketing Head",
+                "facebook": "https://www.facebook.com/susmit.gupta.35?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/susmit.lstm/",
+                "linkedin": "https://www.linkedin.com/in/susmit-gupta-b3bb07163?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            },
+            {
+                "name": "Priyajit Paul",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687430/marketing_heads_Priyajit_Paul.webp",
+                "designation": "Marketing Head",
+                "facebook": "https://www.facebook.com/priyajit.paul.75",
+                "instagram": "https://www.instagram.com/_priyajit_paul27_/",
+                "linkedin": "https://www.linkedin.com/in/priyajit-paul-4b4840213/"
+            },
+            {
+                "name": "Sayan Kangsa Banik",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687435/marketing_heads_Sayan_Kangsa_Banik.webp",
+                "designation": "Marketing Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100075972468077",
+                "instagram": "",
+                "linkedin": "https://www.linkedin.com/in/sayan-banik-733b8321b/"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "name": "PR Head",
+        "heads": [
+            {
+                "name": "Tanvi Sneha Pachani",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685804/pr_heads_Tanvi_Sneha_Pachani.webp",
+                "designation": "PR Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076207058198&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/____.tanvi.___?igsh=Z2hhOTl6MDh3cW43",
+                "linkedin": "https://www.linkedin.com/in/tanvi-sneha-pachani-86801222a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Pratisruti Buragohain",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687446/pr_heads_Pratisruti_Buragohain.webp",
+                "designation": "PR Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076171814953&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/_prati.sruti_/profilecard/?igsh=MTV4Ynhzdm8wczN2Yw==",
+                "linkedin": "https://www.linkedin.com/in/pratisruti-buragohain330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Publicity Head",
+        "heads": [
+            {
+                "name": "Syed Rehab Tanjir",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687451/publicity_heads_Syed_Rehab_Tanjir.webp",
+                "designation": "Publicity Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100077203684581",
+                "instagram": "https://www.instagram.com/tanjirsyedrehab/",
+                "linkedin": "https://www.linkedin.com/in/syed-rehab-tanjir-0136a722b/"
+            },
+            {
+                "name": "Nishant Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687457/publicity_heads_Nishant_Dutta.webp",
+                "designation": "Publicity Head",
+                "facebook": "https://www.facebook.com/share/pXNwCcwe3M4PmUpo/",
+                "instagram": "https://www.instagram.com/nishant_b_dutta/profilecard/?igsh=ZTQ1ZHpkbGhmanRy",
+                "linkedin": "https://www.linkedin.com/in/nishant-b-dutta-809287281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Khyanmoi Hazarika",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687483/publicity_heads_Khyanmoi_Hazarika.webp",
+                "designation": "Publicity Head",
+                "facebook": "https://www.facebook.com/khyanmoi?mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/khyanmoi_hazarika?igsh=MTYxdmpiajV6eXhmZg==",
+                "linkedin": "https://www.linkedin.com/in/khyanmoi-hazarika-1ab340226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    }
+]
