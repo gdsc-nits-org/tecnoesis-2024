@@ -189,6 +189,79 @@ body{
   animation: neon-glow-blue 2s infinite alternate;
 }
 
+
+.customBtn{
+  border:1px solid #ffffff;
+  border-radius: 3rem;
+  transition-duration: 500ms;
+  box-shadow: none;
+  scale:1;
+}
+.customBtn:hover{
+  border: 0px solid transparent;
+  transition-duration: 500ms;
+  box-shadow: 0 0 2rem #01a4f583;
+}
+
+.gradpart1 {
+  min-height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration: 1000ms;
+}
+
+@keyframes toRight {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(-50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+.gradpart2 {
+  height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration:1000ms ;
+}
+
+
+@keyframes toLeft {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+
+.customBtn:hover .gradpart1{
+  animation-name: toRight;
+  opacity: 1;
+}
+.customBtn:hover .gradpart2{
+  animation-name: toLeft;
+  opacity: 1;
+}
+
+
+
 @keyframes neon-red-glow {
   0% {
     box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3), 0 0 20px rgba(255, 64, 64, 0.2);
@@ -472,7 +545,29 @@ body{
 [cmdk-list]::-webkit-scrollbar {
   display: none;
 }
-
+.newEventCard{
+    border: 1px solid;
+    border-image-source: linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%);
+    border-image-slice: 1;
+    border-radius: 10px;
+    mask-image: radial-gradient(circle, white 100%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%);
+    box-sizing: border-box;
+    z-index: 1;
+}
+.gradCont{
+  z-index: 0;
+  position: absolute;
+  top:100%;
+  min-height: 100%;
+  width: 100%;
+  background-image: linear-gradient(0deg,#00559b67,transparent);
+  transition-duration: 1s;
+}
+.newEventCard:hover .gradCont{
+  top:0%;
+  transition-duration: 1s;
+}
 .eventcard {
   margin: 10px;
   border: 1px solid;
@@ -485,6 +580,30 @@ body{
   width: 100%;
   box-sizing: border-box;
 }
+.contentCont{
+  margin-bottom: 1rem;
+  z-index: 2;
+  opacity: 0;
+  transition-duration: 1s;
+}
+.newEventCard:hover .contentCont{
+  opacity: 1;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+.postercont{
+  position:absolute;
+  top:0;
+  padding-top:1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  transform: scaleY(1) translateY(0%);
+  transition-duration: 1s;
+}
+.newEventCard:hover .postercont{
+  transform: scaleY(0.9) translateY(-10%);
+  transition-duration: 1s;
+}
 @media screen and (min-width:1024px){
   .scrollbar-hide{
     mask-image: linear-gradient(to top,transparent,#000000,);
@@ -494,5 +613,37 @@ body{
   }
   .scrollbar-hide {
     scrollbar-width: none; 
+  }
+}
+
+
+.homepage{
+  animation-name: emerge;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  animation-timing-function:linear;
+}
+@keyframes emerge{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.landing{
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes diminish {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
   }
 }
