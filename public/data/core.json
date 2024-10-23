@@ -343,12 +343,20 @@
     ],
     "web_heads": [
         {
-            "name": "Sharthak Sharma",
-            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+            "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
+            "name": "Jaydeep Prapanch Das",
+            "designation": "Tech Head",
+            "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+            "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+            "instagram": "https://github.com/JDeepD"
+          },
+        {
+            "name": "Adhiraj Dutta",
+            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
             "designation": "Web Head",
-            "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
-            "instagram": "https://www.instagram.com/shrthk_7",
-            "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
+            "facebook": "https://facebook.com/byt3h3ad/",
+            "instagram": "https://instagram.com/textually.active/",
+            "linkedin": "https://links.adhiraj.tech/linkedin"
         },
         {
             "name": "Bijay Jiwrajka",
@@ -359,12 +367,12 @@
             "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
         },
         {
-            "name": "Adhiraj Dutta",
-            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
+            "name": "Sharthak Sharma",
+            "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
             "designation": "Web Head",
-            "facebook": "https://facebook.com/byt3h3ad/",
-            "instagram": "https://instagram.com/textually.active/",
-            "linkedin": "https://links.adhiraj.tech/linkedin"
+            "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+            "instagram": "https://www.instagram.com/shrthk_7",
+            "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
         },
         {
             "name": "Maharnav Deka",
