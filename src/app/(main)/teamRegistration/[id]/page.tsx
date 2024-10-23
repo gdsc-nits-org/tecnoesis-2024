@@ -45,7 +45,6 @@ const CommandMenu = ({
           onClick={() => setIsOpen(true)}
           placeholder="Search username..."
           value={value}
-          onChange={() => {}}
         />
       )}
 
