@@ -38,7 +38,7 @@ const PhotoGallery: React.FC = () => {
           <div onClick={handleButtonClick}>
             <CustomButton
               text="View Gallery"
-              className="3xl:text-5xl text-base lg:text-lg 2xl:text-2xl"
+              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold"
             />
           </div>
         </div>
