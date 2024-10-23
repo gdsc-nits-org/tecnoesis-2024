@@ -1,11 +1,18 @@
 'use client'
-import { useRef, useState } from "react";
+
+import { useRef, useState, useEffect } from "react";
 import { BiSolidVolumeFull, BiSolidVolumeMute } from "react-icons/bi";
 import Landing from "~/components/Landing";
 
 export const runtime = "edge";
 
 export default function HomePage() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
@@ -20,8 +27,9 @@ export default function HomePage() {
     }
   };
 
+  if (!isClient) return null;
   return (
-    <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/stars-bg.avif')]">
+    <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/starry.gif')]">
       <Landing />
       <div
         onClick={togglePlayPause}
