@@ -86,14 +86,16 @@ const CompleteProfile = () => {
       (async () => {
         try {
           const validatedData = userDataSchema.parse(formData);
-
           if (user) {
             await createUser(validatedData, user);
             setTimeout(() => {
-              router.push("/");
+              router.push("/home");
             }, 200);
           }
         } catch (err) {
+          if (axios.isAxiosError(err)) {
+            console.log("Axios Error: ", err, err.status);
+          }
           if (err instanceof z.ZodError) {
             const zodErrors = err.errors.reduce(
               (acc, current) => {
@@ -136,7 +138,7 @@ const CompleteProfile = () => {
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-        USER LOGIN
+        USER REGISTRATION
       </div>
       <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
         <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
@@ -260,7 +262,12 @@ const CompleteProfile = () => {
           </div>
         </div>
         <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="SIGN UP" className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold" /></button>
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+            <CustomButton
+              text="SIGN UP"
+              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem]"
+            />
+          </button>
         </div>
       </form>
     </div>
