@@ -96,118 +96,6 @@
         ]
     },
     {
-        "id": 99,
-        "name": "Tech Lead",
-        "heads": [
-            {
-                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
-                "name": "Jaydeep Prapanch Das",
-                "designation": "Tech Lead",
-                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
-                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
-                "instagram": "https://www.instagram.com/_jdeep7_/"
-            }
-        ]
-    },
-    {
-        "id": 16,
-        "name": "Web Leads",
-        "heads": [
-            {
-                "name": "Adhiraj Dutta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
-                "designation": "Web Lead",
-                "facebook": "https://facebook.com/byt3h3ad/",
-                "instagram": "https://instagram.com/textually.active/",
-                "linkedin": "https://links.adhiraj.tech/linkedin"
-            },
-            {
-                "name": "Bijay Jiwrajka",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687515/web_heads_Bijay_Jiwrajka.webp",
-                "designation": "Web Lead",
-                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
-                "instagram": "https://www.instagram.com/bj_jiwrajka/",
-                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
-            },
-            {
-                "name": "Sharthak Sharma",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
-                "designation": "Web Lead",
-                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
-                "instagram": "https://www.instagram.com/shrthk_7",
-                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
-            },
-            {
-                "name": "Maharnav Deka",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687524/web_heads_Maharnav_Deka.webp",
-                "designation": "Web Lead",
-                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
-                "instagram": "https://www.instagram.com/_imaharnav_",
-                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "name": "App Leads",
-        "heads": [
-            {
-                "name": "Rajdristant Ghose",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687117/app_heads_Rajdristant_Ghose.webp",
-                "designation": "App Lead",
-                "facebook": "https://www.facebook.com/profile.php?id=100076066695970&mibextid=ZbWKwL",
-                "instagram": "https://www.instagram.com/rajdristant/",
-                "linkedin": "https://www.linkedin.com/in/rajdristant-ghose-286061231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-                "name": "Navneet Raj Karn",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687122/app_heads_Navneet_Raj_Karn.webp",
-                "designation": "App Lead",
-                "facebook": "https://www.facebook.com/share/tnBPu6B1UyqPkvd9/",
-                "instagram": "https://www.instagram.com/navneetrajkarn/profilecard/?igsh=a3hpNTk3Nnp5bjEx",
-                "linkedin": "https://www.linkedin.com/in/navneet-raj-08a720228/"
-            },
-            {
-                "name": "Sameer Zaidi",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687127/app_heads_Sameer_Zaidi.webp",
-                "designation": "App Lead",
-                "facebook": "https://www.facebook.com/SyedSameerZaidi123",
-                "instagram": "https://www.instagram.com/_interstellar07_/",
-                "linkedin": "https://www.linkedin.com/in/sameer-zaidi-541261226/"
-            }
-        ]
-    },
-    {
-        "id": 15,
-        "name": "UI/UX Leads",
-        "heads": [
-            {
-                "name": "Jacinth Mahanta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
-                "designation": "UI/UX Lead",
-                "facebook": "facebook.com/jacinth.mahanta",
-                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
-                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
-            },
-            {
-                "name": "Tithi Jha",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687499/ui_ux_heads_Tithi_Jha.webp",
-                "designation": "UI/UX Lead",
-                "facebook": "https://www.facebook.com/tithi.jha.14",
-                "instagram": "https://www.instagram.com/tithii.jha",
-                "linkedin": "https://www.linkedin.com/in/tithi-jha-3b43b5229"
-            },
-            {
-                "name": "Jacinth Mahanta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
-                "designation": "UI/UX Lead",
-                "facebook": "https://www.facebook.com/jacinth.mahanta/",
-                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
-                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
-            }
-        ]
-    },
-    {
         "id": 3,
         "name": "Content Heads",
         "heads": [
@@ -450,6 +338,118 @@
                 "facebook": "https://www.facebook.com/khyanmoi?mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/khyanmoi_hazarika?igsh=MTYxdmpiajV6eXhmZg==",
                 "linkedin": "https://www.linkedin.com/in/khyanmoi-hazarika-1ab340226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 99,
+        "name": "Tech Lead",
+        "heads": [
+            {
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1729723697/BFC8C0E3-662C-43A9-9F0D-CE780B64484C_1_105_c_n0ytxb.webp",
+                "name": "Jaydeep Prapanch Das",
+                "designation": "Tech Lead",
+                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+                "instagram": "https://www.instagram.com/_jdeep7_/"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Web Leads",
+        "heads": [
+            {
+                "name": "Adhiraj Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
+                "designation": "Web Lead",
+                "facebook": "https://facebook.com/byt3h3ad/",
+                "instagram": "https://instagram.com/textually.active/",
+                "linkedin": "https://links.adhiraj.tech/linkedin"
+            },
+            {
+                "name": "Bijay Jiwrajka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687515/web_heads_Bijay_Jiwrajka.webp",
+                "designation": "Web Lead",
+                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
+                "instagram": "https://www.instagram.com/bj_jiwrajka/",
+                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
+            },
+            {
+                "name": "Sharthak Sharma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+                "designation": "Web Lead",
+                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+                "instagram": "https://www.instagram.com/shrthk_7",
+                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
+            },
+            {
+                "name": "Maharnav Deka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687524/web_heads_Maharnav_Deka.webp",
+                "designation": "Web Lead",
+                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
+                "instagram": "https://www.instagram.com/_imaharnav_",
+                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "App Leads",
+        "heads": [
+            {
+                "name": "Rajdristant Ghose",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687117/app_heads_Rajdristant_Ghose.webp",
+                "designation": "App Lead",
+                "facebook": "https://www.facebook.com/profile.php?id=100076066695970&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/rajdristant/",
+                "linkedin": "https://www.linkedin.com/in/rajdristant-ghose-286061231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Navneet Raj Karn",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687122/app_heads_Navneet_Raj_Karn.webp",
+                "designation": "App Lead",
+                "facebook": "https://www.facebook.com/share/tnBPu6B1UyqPkvd9/",
+                "instagram": "https://www.instagram.com/navneetrajkarn/profilecard/?igsh=a3hpNTk3Nnp5bjEx",
+                "linkedin": "https://www.linkedin.com/in/navneet-raj-08a720228/"
+            },
+            {
+                "name": "Sameer Zaidi",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687127/app_heads_Sameer_Zaidi.webp",
+                "designation": "App Lead",
+                "facebook": "https://www.facebook.com/SyedSameerZaidi123",
+                "instagram": "https://www.instagram.com/_interstellar07_/",
+                "linkedin": "https://www.linkedin.com/in/sameer-zaidi-541261226/"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "UI/UX Leads",
+        "heads": [
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Lead",
+                "facebook": "facebook.com/jacinth.mahanta",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
+            },
+            {
+                "name": "Tithi Jha",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687499/ui_ux_heads_Tithi_Jha.webp",
+                "designation": "UI/UX Lead",
+                "facebook": "https://www.facebook.com/tithi.jha.14",
+                "instagram": "https://www.instagram.com/tithii.jha",
+                "linkedin": "https://www.linkedin.com/in/tithi-jha-3b43b5229"
+            },
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Lead",
+                "facebook": "https://www.facebook.com/jacinth.mahanta/",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
             }
         ]
     }

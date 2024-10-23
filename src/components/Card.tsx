@@ -132,7 +132,7 @@ const Card: React.FC<propsType> = ({
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <IoLogoLinkedin className="h-[30px] w-[30px]" />
+                  <IoLogoInstagram className="h-[30px] w-[30px]" />
                 </Link>
               </div>
             )}
@@ -147,7 +147,7 @@ const Card: React.FC<propsType> = ({
                   rel="noopener noreferrer"
                   aria-label="InstaGram"
                 >
-                  <IoLogoInstagram className="h-[30px] w-[30px]" />
+                  <IoLogoLinkedin className="h-[30px] w-[30px]" />
                 </Link>
               </div>
             )}
