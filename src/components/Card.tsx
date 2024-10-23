@@ -65,19 +65,19 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
             transition: "all 0.3s ease",
           } : { opacity: "0", transition: "all 0.3s ease", transform: "scale(0.6)" }}>
             {facebook && (<div className="relative cursor-pointer" style={customHoverButton} >
-              <Link href={"https://facebook.com"} aria-label="FaceBook">
+              <Link href={"https://facebook.com"} target="_blank" rel="noopener noreferrer" aria-label="FaceBook">
                 <IoLogoFacebook className="h-[30px] w-[30px]" />
               </Link>
             </div>
             )}
             {instagram && (<div className="relative cursor-pointer" style={customHoverButton} >
-              <Link href={"https://linkedin.com"} aria-label="LinkedIn">
+              <Link href={"https://linkedin.com"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <IoLogoLinkedin className="h-[30px] w-[30px]" />
               </Link>    
               </div>
             )}
             {linkedin && (<div className="relative cursor-pointer" style={customHoverButton} >
-              <Link href={"https://instagram.com"} aria-label="InstaGram">
+              <Link href={"https://instagram.com"} target="_blank" rel="noopener noreferrer" aria-label="InstaGram">
                 <IoLogoInstagram className="h-[30px] w-[30px]" />
               </Link>            
               </div>
@@ -153,21 +153,21 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, fa
         <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
           {facebook && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            <Link href={"https://facebook.com"} aria-label="FaceBook">
+            <Link href={"https://facebook.com"} target="_blank" rel="noopener noreferrer" aria-label="FaceBook">
               <IoLogoFacebook className="h-[30px] w-[30px]" />
             </Link>          
             </div>
           )}
           {instagram && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            <Link href={"https://instagram.com"} aria-label="InstaGram">
+            <Link href={"https://instagram.com"} target="_blank" rel="noopener noreferrer" aria-label="InstaGram">
               <IoLogoInstagram className="h-[30px] w-[30px]" />
             </Link>          
             </div>
           )}
           {linkedin && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            <Link href={"https://linkedin.com"} aria-label="LinkedIn">
+            <Link href={"https://linkedin.com"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <IoLogoLinkedin className="h-[30px] w-[30px]" />
             </Link>          
             </div>
