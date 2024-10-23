@@ -72,7 +72,7 @@ const Login = () => {
   if (loading || _loading) {
     return (
       <div className="flex w-[12vw] items-center justify-center gap-3 bg-transparent backdrop-blur-lg">
-        <LoaderCircle className=" animate-spin" size={60} />
+        <LoaderCircle className="animate-spin" size={60} />
       </div>
     );
   }
@@ -204,9 +204,9 @@ const ProfileCard: React.FC<UserCred> = ({
           </div>
           <button
             onClick={() => {
-              router.push("/home");
+              router.push("/dashboard");
             }}
-            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5]"
+            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5] lg:text-lg"
           >
             View Profile
           </button>
