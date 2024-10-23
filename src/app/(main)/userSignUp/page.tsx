@@ -260,7 +260,7 @@ const CompleteProfile = () => {
           </div>
         </div>
         <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="SIGN UP" /></button>
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"><CustomButton text="SIGN UP" className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold" /></button>
         </div>
       </form>
     </div>

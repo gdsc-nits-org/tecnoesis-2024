@@ -189,6 +189,79 @@ body{
   animation: neon-glow-blue 2s infinite alternate;
 }
 
+
+.customBtn{
+  border:1px solid #ffffff;
+  border-radius: 3rem;
+  transition-duration: 500ms;
+  box-shadow: none;
+  scale:1;
+}
+.customBtn:hover{
+  border: 0px solid transparent;
+  transition-duration: 500ms;
+  box-shadow: 0 0 2rem #01a4f583;
+}
+
+.gradpart1 {
+  min-height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration: 1000ms;
+}
+
+@keyframes toRight {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(-50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+.gradpart2 {
+  height: 10rem;
+  min-width: 50%;
+  background-image: linear-gradient(90deg,transparent,#01a4f5,transparent);
+  animation-name: none;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  opacity:0;
+  transition-duration:1000ms ;
+}
+
+
+@keyframes toLeft {
+  0% {
+    transform: translate(0%, 0%); 
+  }
+  75% {
+    transform: translate(50%, 0%); 
+  }
+  100% {
+    transform: translate(0%, 0%); 
+  }
+}
+
+.customBtn:hover .gradpart1{
+  animation-name: toRight;
+  opacity: 1;
+}
+.customBtn:hover .gradpart2{
+  animation-name: toLeft;
+  opacity: 1;
+}
+
+
+
 @keyframes neon-red-glow {
   0% {
     box-shadow: 0 0 8px rgba(255, 64, 64, 0.5), 0 0 15px rgba(255, 64, 64, 0.3), 0 0 20px rgba(255, 64, 64, 0.2);

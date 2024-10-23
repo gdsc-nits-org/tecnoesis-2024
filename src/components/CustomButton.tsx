@@ -25,7 +25,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, className }) => {
             src="/assets/Landing/planet.webp"
           />
         </span>
-        <span className="btnText text-nowrap">{text}</span>
+        <span className="btnText text-nowrap font-outfit">{text}</span>
       </div>
     </div>
   );
