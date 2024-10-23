@@ -44,7 +44,7 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
         setHover(false);
       })
     }
-  }, [id])
+  })
   return (
     <div className='m-6 w-[20rem] h-[22rem] relative flex flex-col scale-90' id={"papadiv" + main + id}>
       <div className="w-full flex flex-row items-start justify-around absolute top-0">
@@ -81,6 +81,7 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
                 <IoLogoInstagram className="h-[30px] w-[30px]" />
               </Link>            
               </div>
+
             )}
           </div>
           <Image src="/team/stencil.png" width={162} height={162} alt=""
@@ -171,6 +172,7 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, fa
               <IoLogoLinkedin className="h-[30px] w-[30px]" />
             </Link>          
             </div>
+
           )}
         </div>
       </div>

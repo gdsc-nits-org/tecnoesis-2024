@@ -647,3 +647,28 @@ body{
     opacity: 0;
   }
 }
+*{
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background:black;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  border:0 solid transparent;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
+  border-radius: 10px;
+}
