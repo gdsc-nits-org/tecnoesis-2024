@@ -1,5 +1,101 @@
 [
     {
+        "id": 2,
+        "name": "Chief Coordinator",
+        "heads": [
+            {
+                "name": "Partha Protim Lahkar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687132/chief_coordinators_Partha_Protim_Lahkar.webp",
+                "designation": "Chief Coordinator",
+                "facebook": "https://www.facebook.com/partha.lahkar.16/",
+                "instagram": "https://www.instagram.com/mr.lahkar/",
+                "linkedin": "https://www.linkedin.com/in/partha-p-lahkar/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Convenor",
+        "heads": [
+            {
+                "name": "Shashank Dahewar",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687157/convenors_Shashank_Dahewar.webp",
+                "designation": "Convenor",
+                "facebook": "https://www.facebook.com/profile.php?id=100076060506763&mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/sdahewar/profilecard/?igsh=cHpzODVnend0N3R2",
+                "linkedin": "https://www.linkedin.com/in/sdahewar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Executive Head",
+        "heads": [
+            {
+                "name": "SIBASHISH KACHARI",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687328/executive_heads_SIBASHISH_KACHARI.webp",
+                "designation": "Executive ",
+                "facebook": "https://www.facebook.com/raj.kachari.374?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/sibashish.k21/profilecard/?igsh=MXNyZDJpdmhmZHR2OA==",
+                "linkedin": "https://www.linkedin.com/in/sibashish-kachari-aa6472250"
+            },
+            {
+                "name": "Priyabrat Duarah",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687335/executive_heads_Priyabrat_Duarah.webp",
+                "designation": "Executive",
+                "facebook": "https://www.facebook.com/profile.php?id=100076231446828",
+                "instagram": "https://www.instagram.com/prybrt06/",
+                "linkedin": "https://www.linkedin.com/in/priyabratduarah/"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Web Head",
+        "heads": [
+            {
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
+                "name": "Jaydeep Prapanch Das",
+                "designation": "Tech Head",
+                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+                "instagram": "https://www.instagram.com/_jdeep7_/"
+            },
+            {
+                "name": "Adhiraj Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
+                "designation": "Web Head",
+                "facebook": "https://facebook.com/byt3h3ad/",
+                "instagram": "https://instagram.com/textually.active/",
+                "linkedin": "https://links.adhiraj.tech/linkedin"
+            },
+            {
+                "name": "Bijay Jiwrajka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687515/web_heads_Bijay_Jiwrajka.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
+                "instagram": "https://www.instagram.com/bj_jiwrajka/",
+                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
+            },
+            {
+                "name": "Sharthak Sharma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+                "instagram": "https://www.instagram.com/shrthk_7",
+                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
+            },
+            {
+                "name": "Maharnav Deka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687524/web_heads_Maharnav_Deka.webp",
+                "designation": "Web Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
+                "instagram": "https://www.instagram.com/_imaharnav_",
+                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
+            }
+        ]
+    },
+    {
         "id": 1,
         "name": "App Heads",
         "heads": [
@@ -30,16 +126,32 @@
         ]
     },
     {
-        "id": 2,
-        "name": "Chief Coordinator",
+        "id": 15,
+        "name": "UI/UX Head",
         "heads": [
             {
-                "name": "Partha Protim Lahkar",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687132/chief_coordinators_Partha_Protim_Lahkar.webp",
-                "designation": "Chief Coordinator",
-                "facebook": "https://www.facebook.com/partha.lahkar.16/",
-                "instagram": "https://www.instagram.com/mr.lahkar/",
-                "linkedin": "https://www.linkedin.com/in/partha-p-lahkar/"
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Head",
+                "facebook": "facebook.com/jacinth.mahanta",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
+            },
+            {
+                "name": "Tithi Jha",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687499/ui_ux_heads_Tithi_Jha.webp",
+                "designation": "UI/UX Head",
+                "facebook": "https://www.facebook.com/tithi.jha.14",
+                "instagram": "https://www.instagram.com/tithii.jha",
+                "linkedin": "https://www.linkedin.com/in/tithi-jha-3b43b5229"
+            },
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Head",
+                "facebook": "https://www.facebook.com/jacinth.mahanta/",
+                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
+                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
             }
         ]
     },
@@ -57,10 +169,10 @@
             },
             {
                 "name": "Bhargabi Nath",
-                "photo": "https://drive.google.com/open?id=1wRfY_BBbKzpGKCv1UtM0ulWdJFLH4XQu",
+                "photo": "https://res.cloudinary.com/dgnlmdkyq/image/upload/v1729714342/1523BB17-6891-429E-9BBA-6A084712B213_-_155__Bhargabi_Nath_sydtnz.webp",
                 "designation": "Content Head",
                 "facebook": "https://www.facebook.com/bhargavi.nath",
-                "instagram": "bhargavi_i",
+                "instagram": "",
                 "linkedin": "https://www.linkedin.com/in/bhargavi-nath-9a8a81223/"
             },
             {
@@ -70,50 +182,6 @@
                 "facebook": "https://www.facebook.com/profile.php?id=100076430416024",
                 "instagram": "https://www.instagram.com/prateekshaaaaaa_?igsh=MWM0czZ5bTd0NGd2cw%3D%3D&utm_source=qr",
                 "linkedin": "https://in.linkedin.com/in/prateeksha-majumdar-20106a230"
-            }
-        ]
-    },
-    {
-        "id": 4,
-        "name": "Convenor",
-        "heads": [
-            {
-                "name": "Shashank Dahewar",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687157/convenors_Shashank_Dahewar.webp",
-                "designation": "Convenor",
-                "facebook": "https://www.facebook.com/profile.php?id=100076060506763&mibextid=LQQJ4d",
-                "instagram": "https://www.instagram.com/sdahewar/profilecard/?igsh=cHpzODVnend0N3R2",
-                "linkedin": "https://www.linkedin.com/in/sdahewar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-            }
-        ]
-    },
-    {
-        "id": 5,
-        "name": "Decoration Head",
-        "heads": [
-            {
-                "name": "Rimlee Ghosh",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687163/decoration_heads_Rimlee_Ghosh.webp",
-                "designation": "Decoration Head",
-                "facebook": "https://www.facebook.com/profile.php?id=100075884483252&mibextid=ZbWKwL",
-                "instagram": "https://www.instagram.com/rimlee13/profilecard/?igsh=MWQ3cHdheXNrZWJ5cg==",
-                "linkedin": "https://www.linkedin.com/in/rimlee-ghosh-678b65237"
-            },
-            {
-                "name": "Pragyan Atri",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687169/decoration_heads_Pragyan_Atri.webp",
-                "designation": "Decoration Head",
-                "facebook": "https://www.facebook.com/pragyan.atri.1",
-                "instagram": "https://www.instagram.com/a_tree_pragyan/?hl=en",
-                "linkedin": "https://www.linkedin.com/in/pragyan-atri-06894a241/"
-            },
-            {
-                "name": "Dorothy Phukon",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687176/decoration_heads_Dorothy_Phukon.webp",
-                "designation": "Decoration Head",
-                "facebook": "https://www.facebook.com/profile.php?id=100076166561248&mibextid=ZbWKwL",
-                "instagram": "https://www.instagram.com/dorothyphukon/profilecard/?igsh=MXBzbDJ1dGxvbWNv",
-                "linkedin": "https://www.linkedin.com/in/dorothy-phukon-48a066230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             }
         ]
     },
@@ -144,6 +212,36 @@
                 "facebook": "https://www.facebook.com/profile.php?id=100076495782914",
                 "instagram": "https://www.instagram.com/amrita_kash_yap",
                 "linkedin": "https://www.linkedin.com/in/amrita-kashyap-a33069230"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Decoration Head",
+        "heads": [
+            {
+                "name": "Rimlee Ghosh",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687163/decoration_heads_Rimlee_Ghosh.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100075884483252&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/rimlee13/profilecard/?igsh=MWQ3cHdheXNrZWJ5cg==",
+                "linkedin": "https://www.linkedin.com/in/rimlee-ghosh-678b65237"
+            },
+            {
+                "name": "Pragyan Atri",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687169/decoration_heads_Pragyan_Atri.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/pragyan.atri.1",
+                "instagram": "https://www.instagram.com/a_tree_pragyan/?hl=en",
+                "linkedin": "https://www.linkedin.com/in/pragyan-atri-06894a241/"
+            },
+            {
+                "name": "Dorothy Phukon",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687176/decoration_heads_Dorothy_Phukon.webp",
+                "designation": "Decoration Head",
+                "facebook": "https://www.facebook.com/profile.php?id=100076166561248&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/dorothyphukon/profilecard/?igsh=MXBzbDJ1dGxvbWNv",
+                "linkedin": "https://www.linkedin.com/in/dorothy-phukon-48a066230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             }
         ]
     },
@@ -194,28 +292,6 @@
         ]
     },
     {
-        "id": 8,
-        "name": "Executive Head",
-        "heads": [
-            {
-                "name": "SIBASHISH KACHARI",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687328/executive_heads_SIBASHISH_KACHARI.webp",
-                "designation": "Executive ",
-                "facebook": "https://www.facebook.com/raj.kachari.374?mibextid=LQQJ4d",
-                "instagram": "https://www.instagram.com/sibashish.k21/profilecard/?igsh=MXNyZDJpdmhmZHR2OA==",
-                "linkedin": "https://www.linkedin.com/in/sibashish-kachari-aa6472250"
-            },
-            {
-                "name": "Priyabrat Duarah",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687335/executive_heads_Priyabrat_Duarah.webp",
-                "designation": "Executive",
-                "facebook": "https://www.facebook.com/profile.php?id=100076231446828",
-                "instagram": "https://www.instagram.com/prybrt06/",
-                "linkedin": "https://www.linkedin.com/in/priyabratduarah/"
-            }
-        ]
-    },
-    {
         "id": 9,
         "name": "Hospitality Head",
         "heads": [
@@ -237,7 +313,7 @@
             },
             {
                 "name": "Hrishikesh Duarah",
-                "photo": "https://drive.google.com/open?id=12tAAIY2F6jd2WOVHC-kZhyTh5VfZlJhD",
+                "photo": "https://res.cloudinary.com/dgnlmdkyq/image/upload/v1729714212/hrishikeshduarah_pdgltk.webp",
                 "designation": "Hospitality Head",
                 "facebook": "https://www.facebook.com/chaohrishikesh.duarah?mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/itzzz_hrishi?igsh=M284N3RnMXRoaTcy",
@@ -314,7 +390,7 @@
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687435/marketing_heads_Sayan_Kangsa_Banik.webp",
                 "designation": "Marketing Head",
                 "facebook": "https://www.facebook.com/profile.php?id=100075972468077",
-                "instagram": "--",
+                "instagram": "",
                 "linkedin": "https://www.linkedin.com/in/sayan-banik-733b8321b/"
             }
         ]
@@ -368,82 +444,6 @@
                 "facebook": "https://www.facebook.com/khyanmoi?mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/khyanmoi_hazarika?igsh=MTYxdmpiajV6eXhmZg==",
                 "linkedin": "https://www.linkedin.com/in/khyanmoi-hazarika-1ab340226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            }
-        ]
-    },
-    {
-        "id": 15,
-        "name": "UI/UX Head",
-        "heads": [
-            {
-                "name": "Jacinth Mahanta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
-                "designation": "UI/UX Head",
-                "facebook": "facebook.com/jacinth.mahanta",
-                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
-                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
-            },
-            {
-                "name": "Tithi Jha",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687499/ui_ux_heads_Tithi_Jha.webp",
-                "designation": "UI/UX Head",
-                "facebook": "https://www.facebook.com/tithi.jha.14",
-                "instagram": "https://www.instagram.com/tithii.jha",
-                "linkedin": "https://www.linkedin.com/in/tithi-jha-3b43b5229"
-            },
-            {
-                "name": "Jacinth Mahanta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729685845/ui_ux_heads_Jacinth_Mahanta.webp",
-                "designation": "UI/UX Head",
-                "facebook": "https://www.facebook.com/jacinth.mahanta/",
-                "instagram": "https://www.instagram.com/_neo_nocturnus_/",
-                "linkedin": "https://www.linkedin.com/in/gitsentinel/"
-            }
-        ]
-    },
-    {
-        "id": 16,
-        "name": "Web Head",
-        "heads": [
-            {
-                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
-                "name": "Jaydeep Prapanch Das",
-                "designation": "Tech Head",
-                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
-                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
-                "instagram": "https://www.instagram.com/_jdeep7_/"
-            },
-            {
-                "name": "Adhiraj Dutta",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687519/web_heads_Adhiraj_Dutta.webp",
-                "designation": "Web Head",
-                "facebook": "https://facebook.com/byt3h3ad/",
-                "instagram": "https://instagram.com/textually.active/",
-                "linkedin": "https://links.adhiraj.tech/linkedin"
-            },
-            {
-                "name": "Bijay Jiwrajka",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687515/web_heads_Bijay_Jiwrajka.webp",
-                "designation": "Web Head",
-                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
-                "instagram": "https://www.instagram.com/bj_jiwrajka/",
-                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
-            },
-            {
-                "name": "Sharthak Sharma",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
-                "designation": "Web Head",
-                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
-                "instagram": "https://www.instagram.com/shrthk_7",
-                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
-            },
-            {
-                "name": "Maharnav Deka",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687524/web_heads_Maharnav_Deka.webp",
-                "designation": "Web Head",
-                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
-                "instagram": "https://www.instagram.com/_imaharnav_",
-                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
             }
         ]
     }

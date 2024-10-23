@@ -39,7 +39,7 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
         setHover(false);
       })
     }
-  }, [id])
+  })
   return (
     <div className='m-6 w-[20rem] h-[22rem] relative flex flex-col scale-90' id={"papadiv" + main + id}>
       <div className="w-full flex flex-row items-start justify-around absolute top-0">
@@ -60,15 +60,15 @@ const Card: React.FC<propsType> = ({ name, designation, photo, id, main, faceboo
             transition: "all 0.3s ease",
           } : { opacity: "0", transition: "all 0.3s ease", transform: "scale(0.6)" }}>
             {facebook && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
+              < SocialIcon url={facebook} target = "_blank" style={{ height: 30, width: 30 }} />
             </div>
             )}
             {instagram && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
+              < SocialIcon url={instagram} target = "_blank" style={{ height: 30, width: 30 }} />
             </div>
             )}
             {linkedin && (<div className="relative cursor-pointer" style={customHoverButton} >
-              < SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 }} />
+              < SocialIcon url={linkedin} target = "_blank" style={{ height: 30, width: 30 }} />
             </div>
             )}
           </div>
@@ -144,17 +144,17 @@ const MemberCard: React.FC<MemberProps> = ({ name, designation, photo, index, fa
         <div className=" relative flex -bottom-16 group-hover:-bottom-2 justify-between w-full duration-700">
           {facebook && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url="https://facebook.com" style={{ height: 30, width: 30 }} />
+            < SocialIcon url={facebook} target = "_blank" style={{ height: 30, width: 30 }} />
           </div>
           )}
           {instagram && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url="https://www.instagram.com/officialrickastley" style={{ height: 30, width: 30 }} />
+            < SocialIcon url={instagram} target = "_blank" style={{ height: 30, width: 30 }} />
           </div>
           )}
           {linkedin && (<div className="drop-shadow-xl p-2 cursor-pointer"
             rel="noopener noreferrer">
-            < SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 }} />
+            < SocialIcon url={linkedin} target = "_blank" style={{ height: 30, width: 30 }} />
           </div>
           )}
         </div>
