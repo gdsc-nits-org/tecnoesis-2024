@@ -1,7 +1,8 @@
 "use client"
 
 import Card, { MemberCard } from '~/components/Card';
-import data from "../../../../public/team.json";
+import CoreData from "../../../../public/data/core.json"
+import TechData from "../../../../public/data/tech.json"
 import Marquee from 'react-fast-marquee';
 import { useState } from 'react';
 
@@ -34,12 +35,12 @@ export default function Team() {
                 </div>
                 <div className='flex flex-col justify-center items-center text-yellow-50'>
                     {
-                        data.map((item) => (
+                        CoreData.map((item : any) => (
                             <div className='w-full mb-20 mt-12' key={item.id}>
                                 <h1 className='font-rp1 text-center text-4xl mb-12'>{item.name}</h1>
                                 <div className=' flex justify-center items-center flex-wrap gap-16'>
                                     {
-                                        item.heads.map((member) => (
+                                        item.heads.map((member: any) => (
                                             <div key={member.id} className='flex w-max flex-row justify-center items-center'>
                                                 <Card name={member.name} designation={member.designation} photo={member.photo} main={item.id} id={member.id} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} />
                                             </div>
@@ -59,8 +60,8 @@ export default function Team() {
                             >
                                 <div className='flex h-[40rem]'>
                                     {
-                                        data.map((item) => (
-                                            item.members.map((member) => (
+                                        TechData.map((item: any) => (
+                                            item.heads.map((member: any) => (
                                                 <MemberCard key={member.id} name={member.name} designation={member.designation} photo={member.photo} index={parseInt(member.id)} facebook={member.facebook ?? ""} instagram={member.instagram ?? ""} linkedin={member.linkedin ?? ""} hoversetter={setHovers} />
                                             ))
                                         ))
