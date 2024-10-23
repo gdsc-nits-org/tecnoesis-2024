@@ -11,8 +11,9 @@ import Progress from "./Progress";
 const Landing: React.FC = () => {
   const tl = gsap.timeline({ ease: "slow", duration: 1 });
   const [progress, setProgress] = useState<number>(0);
+  const [enter,setEnter]=useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const [audio] = useState(new Audio("/assets/Landing/enter.mp3"));
   const imageUrls = 5;
 
   useEffect(() => {
@@ -58,15 +59,19 @@ const Landing: React.FC = () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isLoading, tl]);
-
+  const handleEnter=()=>{
+    setEnter(true);
+    return (audio.volume = 0.5), audio.play();
+  }
   return (
     <div>
       {isLoading && <Progress progress={progress} />}
       <div
-        className={`relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff] ${isLoading ? "hidden" : null} `}
+        className={`landing relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff] ${isLoading ? "hidden" : null} `}
+        style={{animationName:`${enter?'diminish':'none'}`}}
       >
         <div className="3xl:ml-[20rem] absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem]">
-          <Link href={"/home"}>
+          <Link onClick={handleEnter} href={"/home"}>
             <EnterButton />
           </Link>
         </div>

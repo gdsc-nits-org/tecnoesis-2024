@@ -10,7 +10,9 @@ var Progress_1 = require("./Progress");
 var Landing = function () {
     var tl = gsap_1.gsap.timeline({ ease: "slow", duration: 1 });
     var _a = react_1.useState(0), progress = _a[0], setProgress = _a[1];
-    var _b = react_1.useState(true), isLoading = _b[0], setIsLoading = _b[1];
+    var _b = react_1.useState(false), enter = _b[0], setEnter = _b[1];
+    var _c = react_1.useState(true), isLoading = _c[0], setIsLoading = _c[1];
+    var audio = react_1.useState(new Audio("/assets/Landing/enter.mp3"))[0];
     var imageUrls = 5;
     react_1.useEffect(function () {
         if (progress >= 100) {
@@ -49,11 +51,15 @@ var Landing = function () {
             document.removeEventListener("mousemove", handleMouseMove);
         };
     }, [isLoading, tl]);
+    var handleEnter = function () {
+        setEnter(true);
+        return (audio.volume = 0.5), audio.play();
+    };
     return (react_1["default"].createElement("div", null,
         isLoading && react_1["default"].createElement(Progress_1["default"], { progress: progress }),
-        react_1["default"].createElement("div", { className: "relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff] " + (isLoading ? "hidden" : null) + " " },
+        react_1["default"].createElement("div", { className: "landing relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff] " + (isLoading ? "hidden" : null) + " ", style: { animationName: "" + (enter ? 'diminish' : 'none') } },
             react_1["default"].createElement("div", { className: "3xl:ml-[20rem] absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem]" },
-                react_1["default"].createElement(link_1["default"], { href: "/home" },
+                react_1["default"].createElement(link_1["default"], { onClick: handleEnter, href: "/home" },
                     react_1["default"].createElement(enterButton_1["default"], null))),
             react_1["default"].createElement("div", { className: "flex flex-col items-center justify-center pb-[4rem] pt-[4rem] lg:p-0" },
                 react_1["default"].createElement(image_1["default"], { src: "/assets/Landing/tecnoesisLogo.webp", alt: "Tecnoesis Logo", className: "movable z-1 4xl:scale-[2] h-[10rem] w-[20rem] object-cover md:h-[15rem] md:w-[30rem] lg:h-[25rem] lg:w-[45rem]", width: 1000, height: 1000, "data-depth": 80, priority: true, onLoad: handleImageLoad })),
