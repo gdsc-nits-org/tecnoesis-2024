@@ -10,20 +10,20 @@ export default function Page() {
       <div className="px-10">
         <PhotoGallery />
       </div>
-      <div className="text-gradient-blue mt-10 font-rp1 text-2xl font-bold md:hidden">
+      <div className="text-gradient-blue mt-10 font-rp1 text-3xl font-bold md:hidden lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         Tecnoesis App
       </div>
       <div className="mb-10 flex w-full flex-col gap-y-20 lg:py-[5rem]">
         <Download />
       </div>
-      <div className="text-gradient-blue m-10 font-rp1 text-2xl font-bold md:text-6xl">
+      <div className="text-gradient-blue m-10 font-rp1 text-3xl font-bold lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         Past Sponsors
       </div>
       <div className="flex w-full flex-col gap-y-20 md:w-4/5">
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
       </div>
-      <div className="text-gradient-blue mb-10 mt-20 font-rp1 text-2xl font-bold sm:pt-20 md:text-6xl">
+      <div className="text-gradient-blue mb-10 mt-20 font-rp1 text-3xl font-bold sm:pt-20 lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         Sponsors
       </div>
       <div className="w-full px-10">

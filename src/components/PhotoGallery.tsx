@@ -19,18 +19,18 @@ const PhotoGallery: React.FC = () => {
       }}
     >
       <div className="items-left flex w-[100%] flex-col justify-center p-0 pt-[20rem] text-center sm:pl-10 sm:pt-[14rem] sm:text-left lg:w-[70%] lg:pt-[11rem]">
-        <div className="text-gradient-blue 3xl:text-7xl w-full font-rp1 text-xl font-bold lg:text-2xl 2xl:text-4xl">
+        <div className="text-gradient-blue w-full font-rp1 text-xl font-bold lg:text-2xl 2xl:text-4xl 3xl:text-7xl">
           Photo
         </div>
-        <div className="3xl:text-9xl w-full font-rp1 text-3xl font-medium leading-[3rem] text-white sm:leading-[6rem] lg:text-4xl 2xl:text-6xl">
+        <div className="w-full font-rp1 text-3xl font-medium leading-[3rem] text-white sm:leading-[6rem] lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
           Gallery
         </div>
-        <p className="3xl:text-6xl mt-4 hidden w-[50%] text-left font-outfit text-lg text-white sm:flex sm:w-[100%] lg:w-[50%] lg:text-xl 2xl:text-3xl">
+        <p className="mt-4 hidden w-[50%] text-left font-outfit text-lg text-white sm:flex sm:w-[100%] lg:w-[50%] lg:text-xl 2xl:text-3xl 3xl:text-6xl">
           Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
           Promising All Tech Geeks, The Ideal Niche of Fascinating Events,
           Workshops, Competitions And Interactions Worth A Lifetime.
         </p>
-        <p className="3xl:text-6xl w-full py-[0.7rem] font-outfit text-lg text-white sm:hidden sm:pr-[22rem] md:text-base lg:text-xl 2xl:text-3xl">
+        <p className="w-full py-[0.7rem] font-outfit text-lg text-white sm:hidden sm:pr-[22rem] md:text-base lg:text-xl 2xl:text-3xl 3xl:text-6xl">
           Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
           Promising All Tech Geeks.
         </p>
@@ -38,7 +38,7 @@ const PhotoGallery: React.FC = () => {
           <div onClick={handleButtonClick}>
             <CustomButton
               text="View Gallery"
-              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold"
+              className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
             />
           </div>
         </div>
@@ -48,14 +48,14 @@ const PhotoGallery: React.FC = () => {
           <Image
             src="/past-sponsor-logos/HoverTextPG.webp"
             alt="Photo Gallery 1"
-            className="animate-upDown h-[33rem] w-[3rem] object-contain"
+            className="h-[33rem] w-[3rem] animate-upDown object-contain"
             height={33}
             width={34}
           />
           <Image
             src="/past-sponsor-logos/HoverTextPG2.webp"
             alt="Photo Gallery 2"
-            className="animate-oppositeUpDown h-[33rem] w-[4.7rem] object-contain"
+            className="h-[33rem] w-[4.7rem] animate-oppositeUpDown object-contain"
             height={33}
             width={34}
           />

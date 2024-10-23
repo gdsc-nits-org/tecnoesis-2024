@@ -29,23 +29,23 @@ const Download: React.FC = () => {
       </div>
       <div className="h-[30%] text-start lg:h-[20%]">
         <div className="mt-4 h-[60%] pb-6 text-center text-lg md:mt-0 md:text-xl">
-          <h5 className="3xl:text-9xl mt-10 hidden h-[20%] font-rp1 text-3xl font-bold text-white md:flex lg:text-4xl 2xl:text-6xl">
+          <h5 className="mt-10 hidden h-[20%] font-rp1 text-3xl font-bold text-white md:flex lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             Download the
           </h5>
-          <h1 className="text-gradient-blue 3xl:text-9xl hidden pt-1 font-rp1 text-3xl font-bold md:flex lg:text-4xl 2xl:text-6xl">
+          <h1 className="text-gradient-blue hidden pt-1 font-rp1 text-3xl font-bold md:flex lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             {" "}
             new tecnoesis app
           </h1>
-          <h3 className="font-outfit md:hidden">
-            Download The New Tecnoesis App On Both Android And iOS Devices.
+          <h3 className="font-outfit text-lg md:hidden lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+            Download The New Tecnoesis App on Android.
           </h3>
-          <h3 className="hidden w-full py-[1rem] text-start font-outfit md:flex md:text-sm">
+          <h3 className="hidden w-full py-[1rem] text-start font-outfit text-lg md:flex lg:text-xl 2xl:text-3xl 3xl:text-6xl">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}
           </h3>
         </div>
-        <div className="my-2 flex items-center justify-center gap-[1.75rem] space-x-4 p-0 px-8 text-start md:justify-start">
+        <div className="my-2 flex items-center justify-center gap-[1.75rem] space-x-4 p-0 text-start md:justify-start">
           <a
             href="https://play.google.com/store"
             target="_blank"
@@ -55,19 +55,6 @@ const Download: React.FC = () => {
             <Image
               src="/app-store-logo/play_store.webp"
               alt="Google Play Store"
-              width={150}
-              height={150}
-            />
-          </a>
-          <a
-            href="https://www.apple.com/app-store/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg border border-white p-[1px] hover:cursor-pointer"
-          >
-            <Image
-              src="/app-store-logo/app_store.webp"
-              alt="Apple Store"
               width={150}
               height={150}
             />
