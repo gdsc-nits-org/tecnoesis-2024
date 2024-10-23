@@ -1,51 +1,61 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation'; 
-import CustomButton from './CustomButton';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import CustomButton from "./CustomButton";
 
 const PhotoGallery: React.FC = () => {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleButtonClick = () => {
-    router.push('/gallery'); 
+    router.push("/gallery");
   };
 
   return (
     <div
-      className="w-full h-[38rem] lg:h-[40rem] bg-no-repeat sm:bg-contain bg-top bg-[length:22rem_auto] sm:bg-[position:center_50%] flex items-center justify-center sm:p-6 md:p-8 gap-10 overflow-hidden"
+      className="flex h-[38rem] w-full items-center justify-center gap-10 overflow-hidden bg-[length:22rem_auto] bg-top bg-no-repeat sm:bg-contain sm:bg-[position:center_50%] sm:p-6 md:p-8 lg:h-[40rem]"
       style={{
-        backgroundImage: 'url(/past-sponsor-logos/photogalleryBG.webp)',
+        backgroundImage: "url(/past-sponsor-logos/photogalleryBG.webp)",
       }}
     >
-      <div className="lg:w-[70%] w-[100%] sm:pl-10 flex flex-col items-left text-center sm:text-left p-0 justify-center pt-[20rem] sm:pt-[14rem] lg:pt-[11rem]">
-        <div className="w-full text-gradient-blue font-rp1 text-3xl font-bold md:text-[2rem]">Photo</div>
-        <div className="w-full font-rp1 sm:text-[5rem] text-[2.7rem] sm:leading-[6rem] leading-[3rem] font-medium text-white">Gallery</div>
-        <p className="w-[50%] text-left sm:flex hidden mt-4 text-sm lg:w-[50%] sm:w-[100%] md:text-base text-white">
-          Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar, Promising All Tech Geeks The Ideal Niche of Fascinating Events, Workshops, Competitions And Interactions Worth A Lifetime.
+      <div className="items-left flex w-[100%] flex-col justify-center p-0 pt-[20rem] text-center sm:pl-10 sm:pt-[14rem] sm:text-left lg:w-[70%] lg:pt-[11rem]">
+        <div className="text-gradient-blue 3xl:text-7xl w-full font-rp1 text-xl font-bold lg:text-2xl 2xl:text-4xl">
+          Photo
+        </div>
+        <div className="3xl:text-9xl w-full font-rp1 text-3xl font-medium leading-[3rem] text-white sm:leading-[6rem] lg:text-4xl 2xl:text-6xl">
+          Gallery
+        </div>
+        <p className="3xl:text-6xl mt-4 hidden w-[50%] text-left font-outfit text-lg text-white sm:flex sm:w-[100%] lg:w-[50%] lg:text-xl 2xl:text-3xl">
+          Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
+          Promising All Tech Geeks, The Ideal Niche of Fascinating Events,
+          Workshops, Competitions And Interactions Worth A Lifetime.
         </p>
-        <p className="w-full sm:pr-[22rem] sm:hidden py-[0.7rem] text-sm md:text-base text-white">
-          Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar, Promising All Tech Geeks.
+        <p className="3xl:text-6xl w-full py-[0.7rem] font-outfit text-lg text-white sm:hidden sm:pr-[22rem] md:text-base lg:text-xl 2xl:text-3xl">
+          Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
+          Promising All Tech Geeks.
         </p>
-        <div className='width-[42%] mt-[0.7rem] px-[3rem] sm:pr-[64%] sm:pl-0 sm:pt-[1rem]'>
+        <div className="width-[42%] mt-[0.7rem] px-[3rem] sm:pl-0 sm:pr-[64%] sm:pt-[1rem]">
           <div onClick={handleButtonClick}>
-            <CustomButton text="View Gallery" />
+            <CustomButton
+              text="View Gallery"
+              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold"
+            />
           </div>
         </div>
       </div>
-      <div className="w-[30%] items-center justify-end lg:flex hidden">
-        <div className="w-[100%] h-[100%] flex gap-10 justify-end pr-[5rem]">
+      <div className="hidden w-[30%] items-center justify-end lg:flex">
+        <div className="flex h-[100%] w-[100%] justify-end gap-10 pr-[5rem]">
           <Image
             src="/past-sponsor-logos/HoverTextPG.webp"
             alt="Photo Gallery 1"
-            className="w-[3rem] h-[33rem] object-contain animate-upDown"
+            className="animate-upDown h-[33rem] w-[3rem] object-contain"
             height={33}
             width={34}
           />
           <Image
             src="/past-sponsor-logos/HoverTextPG2.webp"
             alt="Photo Gallery 2"
-            className="w-[4.7rem] h-[33rem] object-contain animate-oppositeUpDown"
+            className="animate-oppositeUpDown h-[33rem] w-[4.7rem] object-contain"
             height={33}
             width={34}
           />

@@ -7,8 +7,12 @@ import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import { LoaderCircle, Rocket } from "lucide-react";
 import { toast } from "sonner";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { env } from "~/env";
+
+interface UserResponse {
+  username: string;
+}
 
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -17,62 +21,42 @@ const Login = () => {
   const bigScreen = useMediaQuery("(min-width: 768px)");
   const [userName, setUserName] = useState("");
   useEffect(() => {
-    const checkUserFirstTime = () => {
-      if (user) {
-        try {
-          const metadata = _user?.metadata;
-          const isFirstTime =
-            metadata?.creationTime === metadata?.lastSignInTime;
-
-          if (isFirstTime) {
-            router.push("/userSignUp");
-          } else {
-            router.push("/");
-          }
-        } catch (error) {
-          toast.error("Error checking user");
-        }
-      }
-    };
-
-    interface UserResponse {
-      username: string;
-    }
-
-    const getUserName = async () => {
+    const checkUserFirstTime = async () => {
+      if (!_user) return;
       try {
-        if (_user) {
-          const token = await _user?.getIdToken();
-          const { data } = await axios.get<{ msg: UserResponse }>(
-            `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+        const token = await _user.getIdToken();
+        const res = await axios.get<{ msg: UserResponse }>(
+          `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
-          );
-          if (data.msg.username) {
-            setUserName(data.msg.username);
+          },
+        );
+        setUserName(() => res.data.msg.username);
+        console.log("Username", userName);
+        router.push("/home");
+      } catch (e) {
+        if (axios.isAxiosError(e)) {
+          if (e.status === 404) {
+            router.push("/userSignUp");
           }
+        } else {
+          toast.error("Firebase Backend Auth Error");
         }
-      } catch (error) {
-        toast.error("Error fetching user data");
       }
     };
-
-    checkUserFirstTime();
-    void getUserName();
+    console.log("Runnnningggg", _user?.displayName);
+    void checkUserFirstTime();
   }, [user, router, _user]);
 
   if (error) {
-    toast.error(
-      "There was some error. Please refresh the page or email contact@tecnoesis.co.in",
-    );
+    toast.error("There was some Firebase error");
   }
   if (loading || _loading) {
     return (
       <div className="flex w-[12vw] items-center justify-center gap-3 bg-transparent backdrop-blur-lg">
-        <LoaderCircle className=" animate-spin" size={60} />
+        <LoaderCircle className="animate-spin" size={60} />
       </div>
     );
   }
@@ -93,7 +77,7 @@ const Login = () => {
             <div className="-mr-1 flex justify-center overflow-hidden rounded-full bg-[#01A3F5] lg:mr-0">
               <Rocket
                 size={15}
-                className="h-auto w-[2.5vw] p-[0.6rem] group-hover:animate-rocketzoom"
+                className="group-hover:animate-rocketzoom h-auto w-[2.5vw] p-[0.6rem]"
               />
             </div>
           </button>
@@ -118,7 +102,7 @@ const Login = () => {
               ></Image>
             )}
             <p className="w-[8vw] overflow-hidden text-nowrap text-center text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
-              {(userName ? userName : "use_r_name").toLowerCase()}
+              {userName}
             </p>
           </button>
         </section>
@@ -133,14 +117,14 @@ const Login = () => {
         }
       >
         <button
-          className="flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] backdrop-blur-lg tv2:py-8"
+          className="tv2:py-8 flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] backdrop-blur-lg"
           onClick={() => signInWithGoogle()}
         >
           <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
             <Rocket
               size={40}
-              className="p-2 text-white group-hover:animate-rocketzoom"
+              className="group-hover:animate-rocketzoom p-2 text-white"
             />
           </div>
         </button>
