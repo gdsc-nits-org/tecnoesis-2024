@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
-import { z } from "zod";
+import { string, z, ZodError } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
@@ -124,7 +124,7 @@ interface GetEventAPIResponse {
 
 const userDataSchema = z.object({
   teamName: z.string().min(1, "Team name is required"),
-  members: z.array(z.string()).min(1, "At least one member is required"),
+  members: z.array(z.string()).min(0, "At least one member is required"),
 });
 
 interface TeamData {
@@ -148,7 +148,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const [isSoloEvent, setIsSoloEvent] = useState<boolean>(false);
   const [event, setEvent] = useState<Event | null>(null);
   const [allUsers, setAllUsers] = useState<UserResponse[]>([]);
-  const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
+  const [teamLeader, setTeamLeader] = useState<string>("Loading...");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const fetchAllUsers = async (token: string) => {
@@ -208,7 +208,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       setAllUsers(await fetchAllUsers(token));
     })();
     void (async () => {
-      const token = user?.uid;
+      const token = await user?.getIdToken();
       if (!token) return;
       const leaderUsername = await fetchUser(token);
       if (leaderUsername) {
@@ -229,7 +229,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const handleMemberSelect = (username: string, index: number) => {
     setMembers((prev) => {
       const updated = [...prev];
-      updated[0] = teamLeader;
       updated[index] = username;
       setFormData((prevData) => ({ ...prevData, members: updated }));
       return updated;
@@ -244,12 +243,15 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       (async () => {
         try {
           if (!user) throw new Error("User not authenticated");
+          setFormData((prevData) => ({ ...prevData, members: members }));
           const validatedData = userDataSchema.parse(formData);
           const filteredMembers = validatedData.members.filter(
             (member) => member !== teamLeader,
           );
+          console.log(filteredMembers);
           const token = await user?.getIdToken();
-          await axios.post(
+
+          const res = await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
               name: validatedData.teamName,
@@ -263,11 +265,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               },
             },
           );
-
-          toast.success("Team Created successfully.");
-          setTimeout(() => {
-            router.push("/");
-          }, 200);
+          router.push("/dashboard");
         } catch (err) {
           if (err instanceof z.ZodError) {
             const zodErrors = err.errors.reduce(
@@ -281,16 +279,39 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               {} as Record<string, string>,
             );
             setFormErrors(zodErrors);
+            throw err;
+          }
+
+          if (axios.isAxiosError(err)) {
+            const responseData = err.response?.data as { msg?: string };
+            if (err.response?.status && err.response.status <= 500) {
+              if (responseData?.msg) {
+                throw new Error(responseData.msg);
+              } else {
+                throw new Error(
+                  "An error occurred, but no message was provided.",
+                );
+              }
+            } else {
+              throw new Error("Internal Server Error");
+            }
           } else {
-            toast.error("An error occurred during registration.");
-            console.error(err);
+            throw new Error("An error occurred during registration.");
           }
         }
       })(),
       {
         loading: "Registering...",
         success: "Registration successful!",
-        error: "An error occurred during registration.",
+        error: (e: unknown): string => {
+          if (e instanceof ZodError) {
+            return e.errors[0]?.message ?? "Validation error";
+          } else if (e instanceof Error) {
+            return e.message;
+          } else {
+            return "An unknown error occurred";
+          }
+        },
       },
     );
   };
@@ -298,7 +319,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   if (loading || !event) {
     return (
       <div className="flex h-screen w-screen items-center justify-center gap-3">
-        Loading....
+        Loading...
       </div>
     );
   }
@@ -306,7 +327,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-        {isSoloEvent ? "Solo Registration" : "Group Registration"}
+        {isSoloEvent ? `Solo Registration` : "Group Registration"}
       </div>
       <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
         <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
@@ -363,10 +384,8 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                   <div className="relative flex w-1/2 items-center">
                     <CommandMenu
                       allUsers={allUsers}
-                      value={members[idx + 1]!}
-                      setValue={(username) =>
-                        handleMemberSelect(username, idx + 1)
-                      }
+                      value={members[idx]!}
+                      setValue={(username) => handleMemberSelect(username, idx)}
                     />
                   </div>
                 </div>

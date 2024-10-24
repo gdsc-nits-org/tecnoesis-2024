@@ -4,7 +4,7 @@
         "name": "Tech Lead",
         "heads": [
             {
-                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1707886133/JDeep-D.webp",
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1729723697/BFC8C0E3-662C-43A9-9F0D-CE780B64484C_1_105_c_n0ytxb.webp",
                 "name": "Jaydeep Prapanch Das",
                 "year": "4th",
                 "designation": "Tech Head",
@@ -26,6 +26,15 @@
                 "facebook": "https://links.adhiraj.tech/github",
                 "instagram": "https://www.facebook.com/byt3h3ad/",
                 "linkedin": "https://links.adhiraj.tech/linkedin"
+            },
+            {
+                "name": "Sharthak Sharma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+                "designation": "Web Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+                "instagram": "https://www.instagram.com/shrthk_7",
+                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
             },
             {
                 "name": "Bijay Jiwrajka",

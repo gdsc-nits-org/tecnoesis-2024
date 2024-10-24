@@ -37,7 +37,7 @@ export default function Team() {
           </h1>
         </div>
         {!isDesktop ? (
-          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white">
+          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white ">
             <button
               style={
                 team == 1

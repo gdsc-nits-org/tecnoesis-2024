@@ -78,7 +78,6 @@ const Pending = ({ count, data, token }: PendingProps) => {
         },
       );
 
-      console.log(response);
       return response;
     }
     toast.promise(changeStatus(), {
@@ -115,7 +114,7 @@ const Pending = ({ count, data, token }: PendingProps) => {
   }, [data]);
   return (
     <div className="eventcard rounded-md text-white">
-      <h1 className="lg:texl-xl bg-silver-lustre bg-clip-text text-center font-outfit text-lg font-bold text-transparent 2xl:text-3xl 3xl:text-5xl">
+      <h1 className="lg:texl-xl bg-silver-lustre 3xl:text-5xl bg-clip-text text-center font-outfit text-lg font-bold text-transparent 2xl:text-3xl">
         PENDING REQUESTS (
         <span className="bg-blue-metall bg-clip-text text-transparent">
           {count}

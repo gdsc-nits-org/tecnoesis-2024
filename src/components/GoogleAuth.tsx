@@ -52,7 +52,6 @@ const Login = () => {
         }
       }
     };
-    console.log("Runnnningggg", _user?.displayName);
     void checkUserFirstTime();
   }, [user, router, _user, userName, setUserName]);
 
@@ -126,7 +125,7 @@ const Login = () => {
           className="flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] backdrop-blur-lg tv2:py-8"
           onClick={() => signInWithGoogle()}
         >
-          <p className="mx-auto text-center text-lg lg:text-xl">Sign in</p>
+          <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
             <Rocket
               size={40}
@@ -200,9 +199,9 @@ const ProfileCard: React.FC<UserCred> = ({
           </div>
           <button
             onClick={() => {
-              router.push("/dashboard");
+              router.push("/home");
             }}
-            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5] lg:text-lg"
+            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5]"
           >
             View Profile
           </button>
