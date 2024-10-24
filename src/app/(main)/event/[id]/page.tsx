@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { ArrowBigLeft } from 'lucide-react';
 import axios from 'axios';
 import { env } from '~/env';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
+import Loader from '~/components/Loader';
 
 interface Eventresponse {
   "id": string,
@@ -110,4 +111,10 @@ const EventPage = ({ params }: { params: EventParams }) => {
   );
 }
 
-export default EventPage;
+export default function MainEventPage({ params }: { params: EventParams }) {
+  return (
+    <Suspense fallback={<Loader />}>
+      <EventPage params={params} />
+    </Suspense>
+  );
+};
