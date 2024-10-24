@@ -16,8 +16,12 @@ export default function NavbarMobile() {
     "/home#sponsors",
     "/modules",
     "/team",
+    "/dashboard"
   ];
 
+  const handleProfile = () => {
+    setExpand(false);
+  };
   const handleNavClick = (idx: number) => {
     setExpand(false);
     if (navLinks[idx]) path = navLinks[idx];
@@ -37,9 +41,9 @@ export default function NavbarMobile() {
         style={
           expand
             ? {
-                background:
-                  "radial-gradient(circle, #011528d6 0%, #000204d6 100%)",
-              }
+              background:
+                "radial-gradient(circle, #011528d6 0%, #000204d6 100%)",
+            }
             : {}
         }
       >
@@ -68,7 +72,9 @@ export default function NavbarMobile() {
           <div
             className={`${expand ? "flex h-screen translate-y-0 opacity-100" : "h-0 translate-y-[-100rem] opacity-0"} w-full flex-col gap-2 transition-transform duration-1000`}
           >
-            <Login />
+            <div onClick={handleProfile}>
+              <Login />
+            </div>
             <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
               <div className="p-4">
                 <Link
