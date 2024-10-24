@@ -7,7 +7,7 @@ import {
   IoLogoLinkedin,
 } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import CustomButton from "./CustomButton";
+import gdgLogo from "~/../public/assets/footer/imgs/gdgc_logo_animated.gif"
 
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -186,36 +186,36 @@ const LandingFooter = () => {
         )}
         <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-center">
           <div className="flex w-full flex-col items-center justify-between">
-            <div className="mb-0 mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[40vh] lg:w-full mb-[-20px]"></div>
+            <div className="mb-0 mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[80%] md:h-[35vh] md:w-[80%] lg:h-[40vh] lg:w-[80%] mb-[-20px]"></div>
           </div>
 
           <div className="mt-auto flex w-full flex-col items-center justify-end py-8 mb-0 sm:mb-[-10px]">
-            <span className="flex justify-center gap-x-3.5 mb-0 sm:mb-[-10px]">
+            <span className="flex justify-center gap-x-6 mb-0 sm:mb-[-10px] lg:gap-x-4 xl:gap-x-5">
               <Link
                 href={"https://www.instagram.com/tecnoesis.nits/"}
                 aria-label="Instagram"
               >
-                <IoLogoInstagram className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoInstagram className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.facebook.com/tecnoesis.nits"}
                 aria-label="Facebook"
               >
-                <IoLogoFacebook className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoFacebook className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.linkedin.com/company/tecnoesis-nit-silchar/"}
                 aria-label="LinkedIn"
               >
-                <IoLogoLinkedin className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter">
-                <FaXTwitter className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <FaXTwitter className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
             </span>
-            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] sm:!text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row">
+            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] mt-2 font-medium leading-[1.5] tracking-[0.2em] text-white !text-[0.8rem] sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row font-outfit 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
               Designed in collaboration with GDGC NIT Silchar 
-              <img src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" alt="gdgc_logo" className="w-[150px] h-[90px] sm:mt-[22px] sm:ml-[-50px] sm:mb-[-10px] mb-[-30px]" />
+              <img src={(!gdgLogo.src)?"":gdgLogo.src} alt="gdgc_logo" className="h-[60px]" />
             </div>
           </div>
         </div>
