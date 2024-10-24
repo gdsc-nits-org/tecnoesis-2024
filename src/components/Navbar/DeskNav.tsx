@@ -47,6 +47,13 @@ const Navbar = () => {
           left: finalLeft,
           height: reqheight,
         });
+        links.forEach((link) => {
+          if (link !== links[curr]) {
+            gsap.to(link, {
+              color: "white",
+            });
+          }
+        });
         if (links[curr])
           gsap.to(links[curr], {
             color: "#01A3F5",
@@ -125,6 +132,45 @@ const Navbar = () => {
   }, [currentPage, isResize]);
 
   useEffect(() => {
+    const links = document.querySelectorAll<HTMLElement>(".navOpt");
+    const animation = document.querySelector<HTMLElement>(".animation");
+
+    if (animation && links.length > 0) {
+      const linkPositions = Array.from(links).map((link) => {
+        const { width, left } = link.getBoundingClientRect();
+        return { width, left };
+      });
+      const reqheight = links.item(0)?.clientHeight || 0;
+
+      const navMap = new Map<string, number>([
+        ["/home", 0],
+        ["/modules", 3],
+        ["/team", 4],
+      ]);
+      const curr = navMap.get(currentPage);
+      let finalLeft = 4;
+      if (curr !== undefined) {
+        if (linkPositions[curr] && linkPositions[0])
+          finalLeft = linkPositions[curr]?.left - linkPositions[0]?.left + 8;
+        gsap.set(animation, {
+          width: linkPositions[curr]?.width,
+          left: finalLeft,
+          height: reqheight,
+        });
+        links.forEach((link) => {
+          if (link !== links[curr]) {
+            gsap.to(link, {
+              color: "white",
+            });
+          }
+        });
+        if (links[curr])
+          gsap.to(links[curr], {
+            color: "#01A3F5",
+          });
+      }}},[currentPage]);
+
+  useEffect(() => {
     const elempos = document
       .getElementById(section)
       ?.getBoundingClientRect().top;
@@ -163,7 +209,7 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <button
+          {/* <button
             onClick={() => {
               if (currentPage != "/home") router.push("/home");
               setSection("about");
@@ -179,7 +225,13 @@ const Navbar = () => {
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] text-base hover:text-[#01A3F5] lg:text-xl 2xl:text-2xl 3xl:text-6xl"
           >
             About
-          </button>
+          </button> */}
+          <Link
+            href="/gallery"
+            className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] text-base hover:text-[#01A3F5] lg:text-xl 2xl:text-2xl 3xl:text-6xl"
+          >
+            Gallery
+          </Link>
           <button
             onClick={() => {
               if (currentPage != "/home") router.push("/home");
