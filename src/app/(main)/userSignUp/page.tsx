@@ -6,10 +6,10 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 import { env } from "~/env";
-import Image from "next/image";
 import { User } from "firebase/auth";
 import { z } from "zod";
 import { toast } from "sonner";
+import CustomButton from "~/components/CustomButton";
 
 export const runtime = "edge";
 const userDataSchema = z.object({
@@ -86,14 +86,16 @@ const CompleteProfile = () => {
       (async () => {
         try {
           const validatedData = userDataSchema.parse(formData);
-
           if (user) {
             await createUser(validatedData, user);
             setTimeout(() => {
-              router.push("/");
+              router.push("/home");
             }, 200);
           }
         } catch (err) {
+          if (axios.isAxiosError(err)) {
+            console.log("Axios Error: ", err, err.status);
+          }
           if (err instanceof z.ZodError) {
             const zodErrors = err.errors.reduce(
               (acc, current) => {
@@ -136,7 +138,7 @@ const CompleteProfile = () => {
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-        USER LOGIN
+        USER REGISTRATION
       </div>
       <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
         <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
@@ -260,24 +262,12 @@ const CompleteProfile = () => {
           </div>
         </div>
         <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-          <button
-            type="submit"
-            className="h-15 flex w-60 origin-top-left flex-row items-center justify-center gap-5 rounded-full border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent p-2 backdrop-blur-[9.878px] transition-all duration-300 hover:border-none hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] lg:w-80"
-          >
-            <div className="h- full flex w-full items-center justify-center gap-5">
-              <Image
-                src="/Images/tabler_planet.svg"
-                alt="logo"
-                width={25}
-                height={25}
-              />
-              <div className="font-outfit text-lg text-white lg:text-xl">
-                SIGN UP
-              </div>
-            </div>
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+            <CustomButton
+              text="SIGN UP"
+              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem]"
+            />
           </button>
-        </div>
-        <div className="m-auto w-[100%] mobile3:w-[50%]">
         </div>
       </form>
     </div>

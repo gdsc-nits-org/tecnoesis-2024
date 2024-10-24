@@ -1,55 +1,47 @@
 "use client";
 
-import { useEffect, useState, useRef } from 'react';
-import { gsap } from 'gsap';
-import CustomButton from '../components/CustomButton'
+import { useEffect, useState, useRef } from "react";
+import { gsap } from "gsap";
+import CustomButton from "../components/CustomButton";
+import Link from "next/link";
 
 const About = () => {
-    const [isDesktop, setIsDesktop] = useState(true);
-    const image2WrapperRef = useRef<HTMLImageElement | null>(null);
-    const image1Ref = useRef<HTMLImageElement | null>(null);
-    const image2Ref = useRef<HTMLImageElement | null>(null);
-    const image3Ref = useRef<HTMLImageElement | null>(null);
-    const class1DivRef = useRef<HTMLDivElement | null>(null);
-    const imageARef = useRef<HTMLImageElement | null>(null);
-    const imageCRef = useRef<HTMLImageElement | null>(null);
-    const imageDRef = useRef<HTMLImageElement | null>(null);
-    const imageERef = useRef<HTMLImageElement | null>(null);
-    const imageFRef = useRef<HTMLImageElement | null>(null);
-    const imageGRef = useRef<HTMLImageElement | null>(null);
-   
-
-  
-
-
-
-    useEffect(() => {
-        if (image2WrapperRef.current) {
-            gsap.to(image2WrapperRef.current, {
-                rotate: 360,
-                duration: 6,
-                repeat: -1,
-                yoyo: true,
-                ease: "power1.inOut",
-            });
-        }
-
+  const [isDesktop, setIsDesktop] = useState(true);
+  const image2WrapperRef = useRef<HTMLImageElement | null>(null);
+  const image1Ref = useRef<HTMLImageElement | null>(null);
+  const image2Ref = useRef<HTMLImageElement | null>(null);
+  const image3Ref = useRef<HTMLImageElement | null>(null);
+  const class1DivRef = useRef<HTMLDivElement | null>(null);
+  const imageARef = useRef<HTMLImageElement | null>(null);
+  const imageCRef = useRef<HTMLImageElement | null>(null);
+  const imageDRef = useRef<HTMLImageElement | null>(null);
+  const imageERef = useRef<HTMLImageElement | null>(null);
+  const imageFRef = useRef<HTMLImageElement | null>(null);
+  const imageGRef = useRef<HTMLImageElement | null>(null);
+  useEffect(() => {
+    if (image2WrapperRef.current) {
+      gsap.to(image2WrapperRef.current, {
+        rotate: 360,
+        duration: 6,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
     }
+  }, []);
 
-        , []);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsDesktop(window.innerWidth >= 1024);
-        };
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
-        window.addEventListener('resize', handleResize);
-        handleResize();
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
     useEffect(() => {
 
@@ -83,227 +75,259 @@ const About = () => {
             const mouseX = event.clientX;
             const mouseY = event.clientY;
 
-            if (imageARef.current) {
-                gsap.to(imageARef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.1,
-                    y: (mouseY - window.innerHeight / 2) * 0.1,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+      if (imageARef.current) {
+        gsap.to(imageARef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.1,
+          y: (mouseY - window.innerHeight / 2) * 0.1,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
 
-            if (image2WrapperRef.current) {
-                gsap.to(image2WrapperRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.09,
-                    y: (mouseY - window.innerHeight / 2) * 0.09,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageCRef.current) {
-                gsap.to(imageCRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.07,
-                    y: (mouseY - window.innerHeight / 2) * 0.07,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageDRef.current) {
-                gsap.to(imageDRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.065,
-                    y: (mouseY - window.innerHeight / 2) * 0.065,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageERef.current) {
-                gsap.to(imageERef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.06,
-                    y: (mouseY - window.innerHeight / 2) * 0.06,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageFRef.current) {
-                gsap.to(imageFRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.06,
-                    y: (mouseY - window.innerHeight / 2) * 0.06,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-            if (imageGRef.current) {
-                gsap.to(imageGRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.05,
-                    y: (mouseY - window.innerHeight / 2) * 0.05,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+      if (image2WrapperRef.current) {
+        gsap.to(image2WrapperRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.09,
+          y: (mouseY - window.innerHeight / 2) * 0.09,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+      if (imageCRef.current) {
+        gsap.to(imageCRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.07,
+          y: (mouseY - window.innerHeight / 2) * 0.07,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+      if (imageDRef.current) {
+        gsap.to(imageDRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.065,
+          y: (mouseY - window.innerHeight / 2) * 0.065,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+      if (imageERef.current) {
+        gsap.to(imageERef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.06,
+          y: (mouseY - window.innerHeight / 2) * 0.06,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+      if (imageFRef.current) {
+        gsap.to(imageFRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.06,
+          y: (mouseY - window.innerHeight / 2) * 0.06,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+      if (imageGRef.current) {
+        gsap.to(imageGRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.05,
+          y: (mouseY - window.innerHeight / 2) * 0.05,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
 
-            if (image1Ref.current) {
-                gsap.to(image1Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.05,
-                    y: (mouseY - window.innerHeight / 2) * 0.05,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+      if (image1Ref.current) {
+        gsap.to(image1Ref.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.05,
+          y: (mouseY - window.innerHeight / 2) * 0.05,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
 
+      if (image2Ref.current) {
+        gsap.to(image2Ref.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.08,
+          y: (mouseY - window.innerHeight / 2) * 0.08,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
 
-            if (image2Ref.current) {
-                gsap.to(image2Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.08,
-                    y: (mouseY - window.innerHeight / 2) * 0.08,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+      if (image3Ref.current) {
+        gsap.to(image3Ref.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.1,
+          y: (mouseY - window.innerHeight / 2) * 0.1,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
 
+      if (class1DivRef.current) {
+        gsap.to(class1DivRef.current, {
+          x: (mouseX - window.innerWidth / 2) * 0.05,
+          y: (mouseY - window.innerHeight / 2) * 0.05,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+    };
 
-            if (image3Ref.current) {
-                gsap.to(image3Ref.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.1,
-                    y: (mouseY - window.innerHeight / 2) * 0.1,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
+    window.addEventListener("mousemove", handleMouseMove);
 
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [isDesktop]);
 
-            if (class1DivRef.current) {
-                gsap.to(class1DivRef.current, {
-                    x: (mouseX - window.innerWidth / 2) * 0.05,
-                    y: (mouseY - window.innerHeight / 2) * 0.05,
-                    duration: 0.6,
-                    ease: "power3.out",
-                });
-            }
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, [isDesktop]);
-
-
-
-    return (
-        <div className="flex flex-col w-screen overflow-x-hidden" >
-            <div className="flex flex-col lg:flex-row items-center justify-center lg:h-[80vh] md:px-12">
-                <div className=" upper w-full  md:h-[30vh]  lg:w-1/3 lg:h-auto">
-                    <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-left lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT NIT SILCHAR</div>
-                    <div className="px-7 text-[#B5D8EABF] text-base text-justify pb-4 font-outfit lg:text-left md:text-center md:text-3xl lg:text-base desktop1:text-xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
-                </div>
-                <div className="lower w-full h-[40vh] flex justify-center items-center lg:w-1/3">
-                    <div className="first-animation relative w-[250px] h-[250px] desktop1:w-[350px] desktop1:h-[350px] desktop2:w-[400px] desktop2:h-[400px] lg:w-[300px] lg:h-[300px] tv1:w-[700px] tv1:h-[700px] overflow-visible ">
-                        <img ref={imageARef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/1_oztzxp.webp"
-                            alt="Image a"
-                            className="absolute top-1/2 left-1/2 w-[30%] h-[30%] transform -translate-x-1/2 -translate-y-1/2 z-7"
-                            style={{ objectFit: 'cover' }}
-                        />
-                        <img
-                            ref={image2WrapperRef}
-
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/2_fb0wb7.webp"
-                            alt="Image b"
-                            className="absolute top-1/2 left-1/2 w-[80%] h-[80%]  lg:w-[60%] lg:h-[60%] transform -translate-x-1/2 -translate-y-1/2 z-6"
-                            style={{ objectFit: 'cover' }}
-                        />
-                        <img ref={imageCRef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/Flow_7_n6z8tt.webp"
-                            alt="Image c"
-                            className="absolute top-1/2 left-1/2 w-[65%] h-[65%] transform -translate-x-1/2 -translate-y-1/2 z-5 "
-                        />
-                        <img ref={imageDRef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/dotted_ring_tcdt3j.webp"
-                            alt="Image d"
-                            className="absolute top-1/2 left-1/2 w-[70%] h-[70%] transform -translate-x-1/2 -translate-y-1/2 z-4"
-                        />
-                        <img ref={imageERef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/static_ring_ehsm66.webp"
-                            alt="Image e"
-                            className="absolute top-1/2 left-1/2 w-full h-full transform -translate-x-1/2 -translate-y-1/2 z-3 object-contain scale-[1.35]"
-                        />
-                        <img ref={imageFRef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465501/Flow_6_1_ladpab.webp"
-                            alt="Image f"
-                            className="absolute top-1/2 left-1/2 w-[100%] h-[100%] transform -translate-x-1/2 -translate-y-1/2 z-2"
-                        />
-                        <img ref={imageGRef}
-                            src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465507/outer_ring_amzrc1.webp"
-                            alt="Image g"
-                            className="absolute top-1/2 left-1/2 w-full h-full transform -translate-x-1/2 -translate-y-1/2 z-1 scale-[1.5] object-contain"
-                        />
-                    </div>
-
-                </div>
-                <div className="w-full h-1/2 lg:w-1/3 lg:h-auto">
-                    <div className="p-7 text-gradient-blue  font-rp1 text-2xl font-bold md:text-5xl text-center lg:text-right md:m-0 lg:text-[2.5rem] desktop1:text-[3rem]">ABOUT US</div>
-                    <div className="px-7 text-base text-justify font-outfit text-[#B5D8EABF] pb-4 lg:text-right lg:text-base desktop1:text-xl md:text-center md:text-3xl ">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. This mega event has left its mark as of the most prominent techfests across the country. The cauldron of enthusiasm and knowledge attracts various students, presenting the chance to let their minds run wild with ideas, fostering the inventors of the future.</div>
-                </div>
-            </div>
-            <div className="text-center p-8 flex items-center justify-center md:h-[20vh]">
-                <div className="w-[85%] 
-               h-3 text-xs lg:w-1/5  md:w-1/2 font-outfit">
-                    <CustomButton text="Download Brochure" />
-
-                </div>
-
-            </div>
-            <div className=" flex flex-col md:flex-row md:items-center 
-            justify-center px-7 md:px-16 md:mb-20">
-                <div className="w-full h-[40vh] overflow-visible md:h-screen flex flex-col justify-center  ">
-                    <div className=" text-gradient-blue p-10 font-rp1 text-2xl font-bold md:text-5xl text-center md:text-left md:p-7 ">MODULES</div>
-                    <div className="md:px-7 text-[#B5D8EABF] text-xl text-justify  pb-4  font-outfit md:text-left md:w-3/4 md:text-2xl">Tecnoesis is the annual techno-managerial event of NIT Silchar, promising all tech geeks the ideal niche of fascinating events, workshops, competitions and interactions worth a lifetime. </div>
-                    <div className="text-center flex items-center md:justify-start justify-center md:pl-7">
-                        <div className="w-3/4 
-               h-3 text-xs lg:w-1/2 md:w-3/4 font-outfit">
-                            <CustomButton text="VIew All Modules" />
-
-                        </div>
-                    </div>
-
-                </div>
-                <div className="w-full h-[60vh]  md:h-[100%]  overflow-hidden flex flex-col justify-center">
-                    <div className="second-animation relative w-full h-[300px] md:h-[500px]  top-[-60px] ">
-
-                        <div ref={class1DivRef} className="class1 rounded-3xl absolute top-1/2 w-[320px] md:w-[440px] left-1/2 transform -translate-x-1/2 h-1/2 flex items-center justify-center inset-0 bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 z-3">
-                        </div>
-
-
-                        <div className="relative w-full h-full">
-
-                            <img ref={image1Ref}
-                                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624289/DFAS_ksi64o.webp"
-                                alt="Image 1"
-                                className="class1 absolute top-[50%] left-1/2 transform -translate-x-1/2 w-[320px] md:w-[440px] h-1/2 object-cover z-10"
-                            />
-
-                            <img ref={image2Ref}
-                                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624313/ONLI_q2feli.webp"
-                                alt="Image 2"
-                                className="class1 absolute top-[18%]  md:top-[20%] left-1/2 transform -translate-x-1/2 w-36 md:w-56 h-auto object-cover z-20"
-                            />
-
-
-                            <img ref={image3Ref}
-                                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728629253/ezgif-2-181eaf98db_t96qn5.webp"
-                                alt="Image 3"
-                                className="class1 absolute top-[65%]  left-1/2 transform -translate-x-1/2 
-                               w-[160px] md:w-[260px] h-auto object-cover z-30"
-                            />
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+  return (
+    <div className="flex w-screen flex-col overflow-x-hidden" id="about">
+      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[80vh] lg:flex-row">
+        <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
+          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+            ABOUT NIT SILCHAR
+          </div>
+          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+            Welcome to NIT Silchar, the launchpad for tomorrow’s innovators!
+            Established in 1967 and now proudly ranked 92 in NIRF, we’ve been
+            pushing boundaries and redefining the tech landscape for decades.
+            Here, creativity converges with cutting-edge research, allowing
+            students to explore new dimensions of knowledge. With a vibrant
+            atmosphere fostering collaboration and bold ideas, NIT Silchar is
+            where the future of technology and innovation takes shape.
+          </div>
         </div>
-    );
+        <div className="lower flex h-[40vh] w-full items-center justify-center lg:w-1/3">
+          <div className="first-animation relative h-[250px] w-[250px] overflow-visible lg:h-[300px] lg:w-[300px] desktop1:h-[350px] desktop1:w-[350px] desktop2:h-[400px] desktop2:w-[400px] tv1:h-[700px] tv1:w-[700px]">
+            <img
+              ref={imageARef}
+              src="/assets/about/1.png"
+              alt="Image a"
+              className="z-7 absolute left-1/2 top-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 transform"
+              style={{ objectFit: "cover" }}
+            />
+            <img
+              ref={image2WrapperRef}
+              src="/assets/about/2.png"
+              alt="Image b"
+              className="z-6 absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 transform lg:h-[60%] lg:w-[60%]"
+              style={{ objectFit: "cover" }}
+            />
+            <img
+              ref={imageCRef}
+              src="/assets/about/flow 7.gif "
+              alt="Image c"
+              className="z-5 absolute left-1/2 top-1/2 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 transform"
+            />
+            <img
+              ref={imageDRef}
+              src="/assets/about/dotted ring.png"
+              alt="Image d"
+              className="z-4 absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 transform"
+            />
+            <img
+              ref={imageERef}
+              src="/assets/about/static ring.png"
+              alt="Image e"
+              className="z-3 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.35] transform object-contain"
+            />
+            <img
+              ref={imageFRef}
+              src="/assets/about/Flow 6.gif"
+              alt="Image f"
+              className="z-2 absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 transform"
+            />
+            <img
+              ref={imageGRef}
+              src="/assets/about/outer ring.png"
+              alt="Image g"
+              className="z-1 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.5] transform object-contain"
+            />
+          </div>
+        </div>
+        <div className="h-1/2 w-full lg:h-auto lg:w-1/3">
+          <div className="text-gradient-blue p-7 text-center font-rp1 text-3xl font-bold md:m-0 md:text-5xl lg:text-right lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+            ABOUT US
+          </div>
+          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-right lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+            Tecnoesis isn’t just a fest—it’s your gateway to uncharted
+            dimensions of tech, innovation, and discovery! With mind-bending
+            challenges, futuristic workshops, and immersive experiences, this is
+            where reality shifts, creativity leads, and boundaries fade. Step in
+            and explore worlds where the impossible becomes possible, pushing
+            the limits of what you can achieve. Whether you’re coding,
+            designing, or collaborating, Tecnoesis is where bold ideas thrive.
+            Ready to unlock endless possibilities? Dive in!
+          </div>
+        </div>
+      </div>
+      <div className="flex h-auto items-center justify-center p-8 text-center">
+        <div
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/file/d/1-OEXRWETQVTWnFarzeD4QBurcTC2GV36/view?usp=drivesdk",
+            )
+          }
+          className="h-3 w-[85%] font-outfit text-xs md:w-1/2 lg:w-1/5"
+        >
+          <CustomButton
+            text="Download Brochure"
+            className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16">
+        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-screen">
+          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+            MODULES
+          </div>
+          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+            Tecnoesis is the annual techno-managerial event of NIT Silchar,
+            promising all tech geeks the ideal niche of fascinating events,
+            workshops, competitions and interactions worth a lifetime.{" "}
+          </div>
+          <div className="flex items-center justify-center text-center md:justify-start md:pl-7">
+            <Link href="/modules">
+              <div className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold">
+                <CustomButton
+                  text="View All Modules"
+                  className="3xl:text-5xl text-base lg:text-lg 2xl:text-2xl"
+                />
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="flex h-[60vh] w-full flex-col justify-center overflow-hidden md:h-[100%]">
+          <div className="second-animation relative top-[-60px] h-[300px] w-full md:h-[500px]">
+            <div
+              ref={class1DivRef}
+              className="class1 z-3 absolute inset-0 left-1/2 top-1/2 flex h-1/2 w-[320px] -translate-x-1/2 transform items-center justify-center rounded-3xl bg-[url('/assets/about/gradient.gif')] bg-cover bg-center opacity-50 md:w-[440px]"
+            ></div>
+
+            <div className="relative h-full w-full">
+              <img
+                ref={image1Ref}
+                src="/assets/about/DFAS.png"
+                alt="Image 1"
+                className="class1 absolute left-1/2 top-[50%] z-10 h-1/2 w-[320px] -translate-x-1/2 transform object-cover md:w-[440px]"
+              />
+
+              <img
+                ref={image2Ref}
+                src="/assets/about/ONLI.png"
+                alt="Image 2"
+                className="class1 absolute left-1/2 top-[18%] z-20 h-auto w-36 -translate-x-1/2 transform object-cover md:top-[20%] md:w-56"
+              />
+
+              <img
+                ref={image3Ref}
+                src="/assets/about/fireball.gif"
+                alt="Image 3"
+                className="class1 absolute left-1/2 top-[65%] z-30 h-auto w-[160px] -translate-x-1/2 transform object-cover md:w-[260px]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default About;

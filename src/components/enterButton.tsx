@@ -18,27 +18,23 @@ const FuturisticButton: React.FC = () => {
   // }
 
   return (
-    <div className="flex h-screen items-center justify-center outline-none">
+    <div className="flex h-auto items-center justify-center outline-none">
       <div className="enterbtn group relative flex items-center justify-center">
-        <div className="squarebox absolute h-[250px] w-[250px] flex flex-col items-center justify-center">
-          <div className="flex flex-row items-start justify-between h-[50%] w-[100%]">
-            <div className="border-l-2 border-t-2 border-white min-h-[50%] min-w-[25%]"></div>
-            <div className="border-r-2 border-t-2 border-white min-h-[50%] min-w-[25%]"></div>
+        <div className="squarebox absolute flex h-[250px] w-[250px] flex-col items-center justify-center">
+          <div className="flex h-[50%] w-[100%] flex-row items-start justify-between">
+            <div className="min-h-[50%] min-w-[25%] border-l-2 border-t-2 border-white"></div>
+            <div className="min-h-[50%] min-w-[25%] border-r-2 border-t-2 border-white"></div>
           </div>
-          <div className="flex flex-row items-end justify-between h-[50%] w-[100%]">
-            <div className="border-l-2 border-b-2 border-white min-h-[50%] min-w-[25%]"></div>
-            <div className="border-r-2 border-b-2 border-white min-h-[50%] min-w-[25%]"></div>  
+          <div className="flex h-[50%] w-[100%] flex-row items-end justify-between">
+            <div className="min-h-[50%] min-w-[25%] border-b-2 border-l-2 border-white"></div>
+            <div className="min-h-[50%] min-w-[25%] border-b-2 border-r-2 border-white"></div>
           </div>
         </div>
-        <div
-          className="outerring bg-[url('/assets/Landing/outerringenter.svg')] bg-cover bg-no-repeat absolute h-[200px] w-[200px] rounded-full"
-        ></div>
+        <div className="outerring absolute h-[200px] w-[200px] rounded-full bg-[url('/assets/Landing/outerringenter.svg')] bg-cover bg-no-repeat"></div>
 
-        <div
-          className="innerring bg-[url('/assets/Landing/innerringenter.svg')] bg-cover bg-no-repeat absolute h-[150px] w-[150px] rounded-full"
-        ></div>
+        <div className="innerring absolute h-[150px] w-[150px] rounded-full bg-[url('/assets/Landing/innerringenter.svg')] bg-cover bg-no-repeat"></div>
 
-        <button className="relative z-10 font-rp1 h-[100px] w-[250px] text-3xl uppercase tracking-widest text-white transition-all duration-300">
+        <button className="relative z-10 h-[100px] w-[250px] font-rp1 text-2xl uppercase tracking-widest text-white transition-all duration-300">
           Enter
         </button>
 
