@@ -124,7 +124,7 @@ interface GetEventAPIResponse {
 
 const userDataSchema = z.object({
   teamName: z.string().min(1, "Team name is required"),
-  members: z.array(z.string()).min(1, "At least one member is required"),
+  members: z.array(z.string()).min(0, "At least one member is required"),
 });
 
 interface TeamData {
@@ -212,11 +212,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       if (!token) return;
       const leaderUsername = await fetchUser(token);
       if (leaderUsername) {
-        setMembers((prev) => {
-          prev[0] = leaderUsername;
-          return prev;
-        });
-        console.log("Members", members);
         setTeamLeader(leaderUsername);
       }
     })();
@@ -234,7 +229,6 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const handleMemberSelect = (username: string, index: number) => {
     setMembers((prev) => {
       const updated = [...prev];
-      updated[0] = teamLeader;
       updated[index] = username;
       setFormData((prevData) => ({ ...prevData, members: updated }));
       return updated;
@@ -271,9 +265,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               },
             },
           );
-          setTimeout(() => {
-            router.push("/dashboard");
-          }, 200);
+          router.push("/dashboard");
         } catch (err) {
           if (err instanceof z.ZodError) {
             const zodErrors = err.errors.reduce(
@@ -296,9 +288,10 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               if (responseData?.msg) {
                 throw new Error(responseData.msg);
               } else {
-                throw new Error("An error occurred, but no message was provided.");
+                throw new Error(
+                  "An error occurred, but no message was provided.",
+                );
               }
-
             } else {
               throw new Error("Internal Server Error");
             }
@@ -317,10 +310,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
             return e.message;
           } else {
             return "An unknown error occurred";
-
           }
         },
-      }
+      },
     );
   };
 
@@ -392,10 +384,8 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                   <div className="relative flex w-1/2 items-center">
                     <CommandMenu
                       allUsers={allUsers}
-                      value={members[idx + 1]!}
-                      setValue={(username) =>
-                        handleMemberSelect(username, idx + 1)
-                      }
+                      value={members[idx]!}
+                      setValue={(username) => handleMemberSelect(username, idx)}
                     />
                   </div>
                 </div>
