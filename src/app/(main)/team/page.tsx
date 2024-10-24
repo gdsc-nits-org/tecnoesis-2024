@@ -157,6 +157,7 @@ export default function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                       
                       />
                     </div>
                   ))}
@@ -185,6 +186,7 @@ export default function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -213,6 +215,7 @@ export default function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -240,6 +243,7 @@ export default function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
