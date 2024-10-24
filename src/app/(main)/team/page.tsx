@@ -251,6 +251,7 @@ function TeamContent() {
           )}
         </div>
       </div>
+    <FinalFooter />
     </div>
   );
 }
