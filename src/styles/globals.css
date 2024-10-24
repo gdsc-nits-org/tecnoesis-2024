@@ -672,3 +672,25 @@ body{
   background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
   border-radius: 10px;
 }
+
+.sparkHero{
+  background: linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+  animation-name:sparkGlow;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes sparkGlow {
+  0%{
+    text-shadow: 0 0 0.5rem #ffffff;
+  }
+  50%{
+    text-shadow: 0 0 1rem #ffffff;
+  }
+  100%{
+    text-shadow: 0 0 0.5rem #ffffff;
+  }
+}
