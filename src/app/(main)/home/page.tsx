@@ -4,7 +4,7 @@ import SponsorHome from "~/components/SponsorHome";
 import PhotoGallery from "~/components/PhotoGallery";
 import About from "~/components/AboutPage";
 import FinalFooter from "~/components/FinalFooter";
-import Gallery from "~/components/Spark/Gallery";
+
 export default function Page() {
   return (
     <div className="homepage bg-dotted flex min-h-screen w-full flex-col items-center">
@@ -29,7 +29,7 @@ export default function Page() {
         Sponsors
       </div>
       <div className="w-full px-10">
-        <Gallery />
+        <SponsorHome />
       </div>
       <FinalFooter />
     </div>
