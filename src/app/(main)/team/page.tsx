@@ -4,9 +4,10 @@ import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import Loader from "~/components/Loader";
 export const runtime = "edge";
-export default function Team() {
+function TeamContent() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
   const [hovers, setHovers] = useState(true);
@@ -251,5 +252,13 @@ export default function Team() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Team() {
+  return (
+    <Suspense fallback={<Loader/>}>
+      <TeamContent />
+    </Suspense>
   );
 }
