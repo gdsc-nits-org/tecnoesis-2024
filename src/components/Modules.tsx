@@ -17,6 +17,7 @@ interface Module {
 
 const Modules: React.FC = () => {
   const [modules, setModules] = useState<Module[]>([]);
+  const [isLoading, setIsLoading] = useState(true); 
   const comingSoon = true;
 
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
@@ -29,8 +30,10 @@ const Modules: React.FC = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/api/module`,
         );
         setModules(data.msg);
+        setIsLoading(false); 
       } catch (error) {
         console.error("Error fetching modules:", error);
+        setIsLoading(false); 
       }
     };
 
@@ -116,8 +119,25 @@ const Modules: React.FC = () => {
           __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
-      {/* Put Coming Soon Content Here */}
-      {!comingSoon && (
+      {isLoading ? (
+        <div className="relative z-10 pt-[9.4rem] text-white">
+          <div className="flex w-full flex-col gap-24">
+            {[1, 2, 3].map((_, index) => (
+              <div className="flex h-[45vh] w-full" key={index}>
+                <div className="flex h-full flex-1 justify-center">
+                  <div className="img-container right flex h-full w-3/4 flex-col justify-between">
+                    <div className="relative h-full w-full bg-gray-800 animate-pulse"></div>
+                    <div className="my-6 flex items-center">
+                      <p className="pr-9 bg-gray-700 h-4 w-24 animate-pulse"></p>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden flex-1 md:flex"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : !comingSoon ? (
         <div className="relative z-10 pt-[9.4rem] text-white">
           <div className="flex w-full flex-col gap-24">
             {modules.map((module, index) => (
@@ -139,7 +159,7 @@ const Modules: React.FC = () => {
                               ref={(el) => setImageRef(el, index)}
                               src={module.coverImage}
                               alt={module.name}
-                              className="h-full w-full cursor-pointer border-[8px] border-[#B8B8B840] object-cover backdrop-blur-[7.6rem]" // Ensures that the image takes the entire space
+                              className="h-full w-full cursor-pointer border-[8px] border-[#B8B8B840] object-cover backdrop-blur-[7.6rem]" 
                               unoptimized
                               fill
                             />
@@ -150,7 +170,6 @@ const Modules: React.FC = () => {
                             ref={(el) => setTextRef(el, index * 2)}
                             className="pr-9 font-outfit text-white"
                           >
-                            {/* {module.name} */}
                             [Coming Soon]
                           </p>
                         </div>
@@ -172,7 +191,7 @@ const Modules: React.FC = () => {
                               ref={(el) => setImageRef(el, index)}
                               src={module.coverImage}
                               alt={module.name}
-                              className="h-full w-full cursor-pointer border-[7px] border-[#B8B8B840] object-cover backdrop-blur-[121.58px]" // Ensures that the image takes the entire space
+                              className="h-full w-full cursor-pointer border-[7px] border-[#B8B8B840] object-cover backdrop-blur-[121.58px]"
                               unoptimized
                               fill
                             />
@@ -195,7 +214,7 @@ const Modules: React.FC = () => {
             <div className="h-72 w-full"></div>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
