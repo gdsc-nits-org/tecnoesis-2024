@@ -51,7 +51,7 @@ const About = () => {
           // y: "0%",
           duration: 0.6,
           ease: "power3.out",
-          transformOrigin: "center center", // Ensure centered origin
+          transformOrigin: "center center",
         };
 
         if (imageARef.current) gsap.to(imageARef.current, resetProps);
@@ -179,7 +179,7 @@ const About = () => {
 
   return (
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
-      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[80vh] lg:flex-row">
+      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[60vh] lg:flex-row">
         <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
           <div className="titleText text-gradient-blue l p-10 text-center font-rp1 font-bold lg:text-left">
             ABOUT NIT SILCHAR
@@ -198,45 +198,45 @@ const About = () => {
           <div className="first-animation relative h-[250px] w-[250px] overflow-visible lg:h-[300px] lg:w-[300px] desktop1:h-[350px] desktop1:w-[350px] desktop2:h-[400px] desktop2:w-[400px] tv1:h-[700px] tv1:w-[700px]">
             <img
               ref={imageARef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/1_oztzxp.webp"
+              src="/assets/about/1.png"
               alt="Image a"
               className="z-7 absolute left-1/2 top-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 transform"
               style={{ objectFit: "cover" }}
             />
             <img
               ref={image2WrapperRef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/2_fb0wb7.webp"
+              src="/assets/about/2.png"
               alt="Image b"
               className="z-6 absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 transform lg:h-[60%] lg:w-[60%]"
               style={{ objectFit: "cover" }}
             />
             <img
               ref={imageCRef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/Flow_7_n6z8tt.webp"
+              src="/assets/about/flow 7.gif "
               alt="Image c"
               className="z-5 absolute left-1/2 top-1/2 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageDRef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/dotted_ring_tcdt3j.webp"
+              src="/assets/about/dotted ring.png"
               alt="Image d"
               className="z-4 absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageERef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465506/static_ring_ehsm66.webp"
+              src="/assets/about/static ring.png"
               alt="Image e"
               className="z-3 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.35] transform object-contain"
             />
             <img
               ref={imageFRef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465501/Flow_6_1_ladpab.webp"
+              src="/assets/about/Flow 6.gif"
               alt="Image f"
               className="z-2 absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageGRef}
-              src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465507/outer_ring_amzrc1.webp"
+              src="/assets/about/outer ring.png"
               alt="Image g"
               className="z-1 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.5] transform object-contain"
             />
@@ -273,22 +273,22 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16">
-        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-screen">
+      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
+        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-[100%]">
           <div className="text-gradient-blue titleText p-10 text-center font-rp1 font-bold md:p-7 md:text-left">
             MODULES
           </div>
-          <div className="normalText pb-4 text-justify font-outfit text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left">
+          <div className="normalText pb-4 text-justify font-outfit text-[#B5D8EABF] md:px-7 md:text-justify">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}
           </div>
           <div className="flex items-center justify-center text-center md:justify-start md:pl-7">
             <Link href="/modules">
-              <div className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold">
+              <div className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]">
                 <CustomButton
                   text="View All Modules"
-                  className="3xl:text-5xl text-base lg:text-lg 2xl:text-2xl"
+                  className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl"
                 />
               </div>
             </Link>
@@ -298,27 +298,27 @@ const About = () => {
           <div className="second-animation relative top-[-60px] h-[300px] w-full md:h-[500px]">
             <div
               ref={class1DivRef}
-              className="class1 z-3 absolute inset-0 left-1/2 top-1/2 flex h-1/2 w-[320px] -translate-x-1/2 transform items-center justify-center rounded-3xl bg-[url('https://res.cloudinary.com/dxafdfvui/image/upload/v1728624347/a33f887a52eced78d356c06b600b05c8_chf68q.webp')] bg-cover bg-center opacity-50 md:w-[440px]"
+              className="class1 z-3 absolute inset-0 left-1/2 top-1/2 flex h-1/2 w-[320px] -translate-x-1/2 transform items-center justify-center rounded-3xl bg-[url('/assets/about/gradient.gif')] bg-cover bg-center opacity-50 md:w-[440px]"
             ></div>
 
             <div className="relative h-full w-full">
               <img
                 ref={image1Ref}
-                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624289/DFAS_ksi64o.webp"
+                src="/assets/about/DFAS.png"
                 alt="Image 1"
                 className="class1 absolute left-1/2 top-[50%] z-10 h-1/2 w-[320px] -translate-x-1/2 transform object-cover md:w-[440px]"
               />
 
               <img
                 ref={image2Ref}
-                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728624313/ONLI_q2feli.webp"
+                src="/assets/about/ONLI.png"
                 alt="Image 2"
                 className="class1 absolute left-1/2 top-[18%] z-20 h-auto w-36 -translate-x-1/2 transform object-cover md:top-[20%] md:w-56"
               />
 
               <img
                 ref={image3Ref}
-                src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728629253/ezgif-2-181eaf98db_t96qn5.webp"
+                src="/assets/about/fireball.gif"
                 alt="Image 3"
                 className="class1 absolute left-1/2 top-[65%] z-30 h-auto w-[160px] -translate-x-1/2 transform object-cover md:w-[260px]"
               />

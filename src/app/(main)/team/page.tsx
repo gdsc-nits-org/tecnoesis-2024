@@ -5,6 +5,7 @@ import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
+import FinalFooter from "~/components/FinalFooter";
 export const runtime = "edge";
 export default function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
@@ -250,6 +251,7 @@ export default function Team() {
           )}
         </div>
       </div>
+    <FinalFooter />
     </div>
   );
 }
