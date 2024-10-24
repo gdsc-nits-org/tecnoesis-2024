@@ -34,8 +34,8 @@ const Login = () => {
           },
         );
         setUserName(() => res.data.msg.username);
-        console.log("Username", userName);
-        router.push("/home");
+        // console.log("Username", userName);
+        // router.push("/home");
       } catch (e) {
         if (axios.isAxiosError(e)) {
           if (e.status === 404) {
@@ -46,7 +46,6 @@ const Login = () => {
         }
       }
     };
-    console.log("Runnnningggg", _user?.displayName);
     void checkUserFirstTime();
   }, [user, router, _user]);
 
@@ -77,7 +76,7 @@ const Login = () => {
             <div className="-mr-1 flex justify-center overflow-hidden rounded-full bg-[#01A3F5] lg:mr-0">
               <Rocket
                 size={15}
-                className="h-auto w-[2.5vw] p-[0.6rem] group-hover:animate-rocketzoom"
+                className="group-hover:animate-rocketzoom h-auto w-[2.5vw] p-[0.6rem]"
               />
             </div>
           </button>
@@ -117,14 +116,14 @@ const Login = () => {
         }
       >
         <button
-          className="flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] backdrop-blur-lg tv2:py-8"
+          className="tv2:py-8 flex items-center justify-between gap-3 rounded-full bg-transparent py-3 pl-7 pr-3 shadow-[inset_1px_2px_2.5px_rgba(1,163,245,0.5),inset_1px_-2px_2.5px_rgba(1,163,245,0.5)] backdrop-blur-lg"
           onClick={() => signInWithGoogle()}
         >
-          <p className="mx-auto text-center text-lg lg:text-xl">Sign in</p>
+          <p className="mx-auto text-center text-xl">Sign in</p>
           <div className="overflow-hidden rounded-full bg-[#01A3F5]">
             <Rocket
               size={40}
-              className="p-2 text-white group-hover:animate-rocketzoom"
+              className="group-hover:animate-rocketzoom p-2 text-white"
             />
           </div>
         </button>
@@ -188,9 +187,9 @@ const ProfileCard: React.FC<UserCred> = ({
           </div>
           <button
             onClick={() => {
-              router.push("/dashboard");
+              router.push("/home");
             }}
-            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5] lg:text-lg"
+            className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5]"
           >
             View Profile
           </button>
