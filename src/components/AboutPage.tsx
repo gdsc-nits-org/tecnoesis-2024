@@ -179,7 +179,7 @@ const About = () => {
 
   return (
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
-      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[80vh] lg:flex-row">
+      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[60vh] lg:flex-row">
         <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
           <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             ABOUT NIT SILCHAR
@@ -273,12 +273,12 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16">
-        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-screen">
+      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16 md:justify-center">
+        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-[100%]">
           <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             MODULES
           </div>
-          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF]  md:px-7 md:text-justify lg:text-xl 2xl:text-3xl 3xl:text-6xl">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}
