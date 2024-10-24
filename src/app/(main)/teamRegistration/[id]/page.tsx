@@ -124,7 +124,7 @@ interface GetEventAPIResponse {
 
 const userDataSchema = z.object({
   teamName: z.string().min(1, "Team name is required"),
-  members: z.array(z.string()).min(1, "At least one member is required"),
+  members: z.array(z.string()),
 });
 
 interface TeamData {
