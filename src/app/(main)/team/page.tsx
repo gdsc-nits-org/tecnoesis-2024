@@ -7,7 +7,7 @@ import Marquee from "react-fast-marquee";
 import { useState, useEffect, Suspense } from "react";
 import Loader from "~/components/Loader";
 export const runtime = "edge";
-function TeamContent() {
+function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
   const [hovers, setHovers] = useState(true);
@@ -251,15 +251,14 @@ function TeamContent() {
           )}
         </div>
       </div>
-    <FinalFooter />
     </div>
   );
 }
 
-export default function Team() {
+export default function MainTeam() {
   return (
     <Suspense fallback={<Loader/>}>
-      <TeamContent />
+      <Team />
     </Suspense>
   );
 }
