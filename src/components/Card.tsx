@@ -49,7 +49,6 @@ const Card: React.FC<propsType> = ({
   useEffect(() => {
     if (document) {
       const element = document.getElementById("papadiv" + main + id);
-      console.log(element);
       element?.addEventListener("mouseenter", () => {
         setHover(true);
       });
