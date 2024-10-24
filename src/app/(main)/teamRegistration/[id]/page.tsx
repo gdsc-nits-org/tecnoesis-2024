@@ -298,6 +298,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               } else {
                 throw new Error("An error occurred, but no message was provided.");
               }
+
             } else {
               throw new Error("Internal Server Error");
             }
@@ -316,6 +317,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
             return e.message;
           } else {
             return "An unknown error occurred";
+
           }
         },
       }
