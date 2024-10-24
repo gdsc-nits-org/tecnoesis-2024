@@ -291,7 +291,10 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           }
           if (axios.isAxiosError(err)) {
             if (err.status && err.status <= 500) {
-              throw new Error(err.response?.data.msg);
+              throw new Error(
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                String(err.response?.data?.msg || "Internal Server Error"),
+              );
             } else {
               throw new Error("Internal Server Error");
             }
@@ -307,6 +310,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           if (e instanceof ZodError) {
             return e.errors[0]?.message;
           } else {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             return e;
           }
         },
