@@ -213,14 +213,15 @@ const LandingFooter = () => {
               >
                 <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
-              <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter">
+              <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter" target="_blank">
                 <FaXTwitter className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
             </span>
             <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] mt-2 font-medium leading-[1.5] tracking-[0.2em] text-white !text-[0.8rem] sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row font-outfit 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
-              Designed in collaboration with GDGC NIT Silchar 
-              <Image src="/assets/footer/imgs/gdgc_logo_animated.gif" alt="gdgc_logo" height={60} width={55} className="h-[60px]" />
-
+              Designed in collaboration with GDGC NIT Silchar
+              <Link href={"https://gdscnits.org/"} aria-label="GDGC NITS" target="_blank">
+                <Image src="/assets/footer/imgs/gdgc_logo_animated.gif" alt="gdgc_logo" height={60} width={55} className="h-[60px]" />
+              </Link>
             </div>
           </div>
         </div>
