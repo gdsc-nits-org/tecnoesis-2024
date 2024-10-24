@@ -32,20 +32,20 @@
         "name": "Executive Heads",
         "heads": [
             {
-                "name": "SIBASHISH KACHARI",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687328/executive_heads_SIBASHISH_KACHARI.webp",
-                "designation": "Executive ",
-                "facebook": "https://www.facebook.com/raj.kachari.374?mibextid=LQQJ4d",
-                "instagram": "https://www.instagram.com/sibashish.k21/profilecard/?igsh=MXNyZDJpdmhmZHR2OA==",
-                "linkedin": "https://www.linkedin.com/in/sibashish-kachari-aa6472250"
-            },
-            {
                 "name": "Priyabrat Duarah",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687335/executive_heads_Priyabrat_Duarah.webp",
-                "designation": "Executive",
+                "designation": "Executive Head",
                 "facebook": "https://www.facebook.com/profile.php?id=100076231446828",
                 "instagram": "https://www.instagram.com/prybrt06/",
                 "linkedin": "https://www.linkedin.com/in/priyabratduarah/"
+            },
+            {
+                "name": "SIBASHISH KACHARI",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687328/executive_heads_SIBASHISH_KACHARI.webp",
+                "designation": "Executive Head",
+                "facebook": "https://www.facebook.com/raj.kachari.374?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/sibashish.k21/profilecard/?igsh=MXNyZDJpdmhmZHR2OA==",
+                "linkedin": "https://www.linkedin.com/in/sibashish-kachari-aa6472250"
             }
         ]
     },
@@ -54,9 +54,17 @@
         "name": "Event Management Heads",
         "heads": [
             {
+                "name": "Nilotpal Sarma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687316/event_management_heads_Nilotpal_Sarma.webp",
+                "designation": "Event Management",
+                "facebook": "https://www.facebook.com/profile.php?id=100076340676636&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/nilotpal__29/profilecard/?igsh=am93Mm9kYjFkcXFk",
+                "linkedin": "https://www.linkedin.com/in/nilotpal-sarma-24a250237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
                 "name": "Dhritiman Das",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687270/event_management_heads_Dhritiman_Das.webp",
-                "designation": "Event Management Head",
+                "designation": "Event Management",
                 "facebook": "https://www.facebook.com/profile.php?id=100076444172130",
                 "instagram": "https://www.instagram.com/who_dhritimandas/",
                 "linkedin": "https://www.linkedin.com/in/dhritiman-das-34439b22a/"
@@ -64,7 +72,7 @@
             {
                 "name": "Pragyashree Das",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687297/event_management_heads_Pragyashree_Das.webp",
-                "designation": "Event Management Head",
+                "designation": "Event Management",
                 "facebook": "https://www.facebook.com/profile.php?id=100076542505864",
                 "instagram": "https://www.instagram.com/pragya.___?igsh=bzY2dHd6bnpybjlw",
                 "linkedin": "https://www.linkedin.com/in/pragyashree-das-a67418235/"
@@ -72,7 +80,7 @@
             {
                 "name": "Gyan Sanatan Hazarika",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687303/event_management_heads_Gyan_Sanatan_Hazarika.webp",
-                "designation": "Event ManagementHead",
+                "designation": "Event Management",
                 "facebook": "https://www.facebook.com/share/ev62MN8gDhFgDove/",
                 "instagram": "https://www.instagram.com/gyan.sanatanhazarika/profilecard/?igsh=MWkxY3loNzNzc3RjNQ==",
                 "linkedin": "https://www.linkedin.com/in/gyan-sanatan-hazarika"
@@ -80,18 +88,10 @@
             {
                 "name": "Priyanuj Baruah",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687309/event_management_heads_Priyanuj_Baruah.webp",
-                "designation": "Event Management Head",
+                "designation": "Event Management",
                 "facebook": "https://www.facebook.com/profile.php?id=100011460848605&mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/__priyanuj_/profilecard/?igsh=cWdvNmJvd2h6cWpo",
                 "linkedin": "https://www.linkedin.com/in/priyanuj-baruah-58279b223?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
-                "name": "Nilotpal Sarma",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687316/event_management_heads_Nilotpal_Sarma.webp",
-                "designation": "Event Management Head",
-                "facebook": "https://www.facebook.com/profile.php?id=100076340676636&mibextid=ZbWKwL",
-                "instagram": "https://www.instagram.com/nilotpal__29/profilecard/?igsh=am93Mm9kYjFkcXFk",
-                "linkedin": "https://www.linkedin.com/in/nilotpal-sarma-24a250237?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             }
         ]
     },
