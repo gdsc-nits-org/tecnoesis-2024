@@ -79,7 +79,7 @@ export default function NavbarMobile() {
               <div className="p-4">
                 <Link
                   onClick={() => handleNavClick(0)}
-                  className={`navOptions duration- transition-colors ${path == navLinks[0] && "text-[#01A3F5]"} `}
+                  className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[0] && "text-[#01A3F5]"} `}
                   href="/home"
                 >
                   Home
@@ -89,7 +89,7 @@ export default function NavbarMobile() {
               <div className="p-4">
                 <Link
                   onClick={() => handleNavClick(1)}
-                  className={`navOptions duration- transition-colors ${path == navLinks[1] && "text-[#01A3F5]"} `}
+                  className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[1] && "text-[#01A3F5]"} `}
                   href="/home#about"
                 >
                   About
@@ -99,7 +99,7 @@ export default function NavbarMobile() {
               <div className="p-4">
                 <Link
                   onClick={() => handleNavClick(2)}
-                  className={`navOptions duration- transition-colors ${path == navLinks[2] && "text-[#01A3F5]"} `}
+                  className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[2] && "text-[#01A3F5]"} `}
                   href="/home#sponsors"
                 >
                   Sponsors
@@ -109,7 +109,7 @@ export default function NavbarMobile() {
               <div className="p-4">
                 <Link
                   onClick={() => handleNavClick(3)}
-                  className={`navOptions duration- transition-colors ${path == navLinks[3] && "text-[#01A3F5]"} `}
+                  className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[3] && "text-[#01A3F5]"} `}
                   href="/modules"
                 >
                   Modules
@@ -119,7 +119,7 @@ export default function NavbarMobile() {
               <div className="p-4">
                 <Link
                   onClick={() => handleNavClick(4)}
-                  className={`navOptions duration- transition-colors ${path == navLinks[4] && "text-[#01A3F5]"} `}
+                  className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[4] && "text-[#01A3F5]"} `}
                   href="/team"
                 >
                   Team

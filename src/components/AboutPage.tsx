@@ -181,10 +181,10 @@ const About = () => {
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
       <div className="flex flex-col items-center justify-center md:px-12 lg:h-[80vh] lg:flex-row">
         <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue 3xl:text-9xl p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl">
+          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             ABOUT NIT SILCHAR
           </div>
-          <div className="3xl:text-6xl px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-left lg:text-xl 2xl:text-3xl">
+          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
             Welcome to NIT Silchar, the launchpad for tomorrow’s innovators!
             Established in 1967 and now proudly ranked 92 in NIRF, we’ve been
             pushing boundaries and redefining the tech landscape for decades.
@@ -195,7 +195,7 @@ const About = () => {
           </div>
         </div>
         <div className="lower flex h-[40vh] w-full items-center justify-center lg:w-1/3">
-          <div className="first-animation desktop1:w-[350px] desktop1:h-[350px] desktop2:w-[400px] desktop2:h-[400px] tv1:w-[700px] tv1:h-[700px] relative h-[250px] w-[250px] overflow-visible lg:h-[300px] lg:w-[300px]">
+          <div className="first-animation relative h-[250px] w-[250px] overflow-visible lg:h-[300px] lg:w-[300px] desktop1:h-[350px] desktop1:w-[350px] desktop2:h-[400px] desktop2:w-[400px] tv1:h-[700px] tv1:w-[700px]">
             <img
               ref={imageARef}
               src="https://res.cloudinary.com/dxafdfvui/image/upload/v1728465500/1_oztzxp.webp"
@@ -243,10 +243,10 @@ const About = () => {
           </div>
         </div>
         <div className="h-1/2 w-full lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue 3xl:text-9xl p-7 text-center font-rp1 text-3xl font-bold md:m-0 md:text-5xl lg:text-right lg:text-4xl 2xl:text-6xl">
+          <div className="text-gradient-blue p-7 text-center font-rp1 text-3xl font-bold md:m-0 md:text-5xl lg:text-right lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             ABOUT US
           </div>
-          <div className="3xl:text-6xl px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-right lg:text-xl 2xl:text-3xl">
+          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-right lg:text-xl 2xl:text-3xl 3xl:text-6xl">
             Tecnoesis isn’t just a fest—it’s your gateway to uncharted
             dimensions of tech, innovation, and discovery! With mind-bending
             challenges, futuristic workshops, and immersive experiences, this is
@@ -269,16 +269,16 @@ const About = () => {
         >
           <CustomButton
             text="Download Brochure"
-            className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold"
+            className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
           />
         </div>
       </div>
       <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16">
         <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-screen">
-          <div className="text-gradient-blue 3xl:text-9xl p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl">
+          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
             MODULES
           </div>
-          <div className="3xl:text-6xl pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left lg:text-xl 2xl:text-3xl">
+          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -24,10 +24,12 @@ const Modules: React.FC = () => {
   useEffect(() => {
     const fetchModules = async () => {
       try {
-        const { data } = await axios.get<{ msg: Module[] }>(`${process.env.NEXT_PUBLIC_API_URL}/api/module`);
-        setModules(data.msg); 
+        const { data } = await axios.get<{ msg: Module[] }>(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/module`,
+        );
+        setModules(data.msg);
       } catch (error) {
-        console.error('Error fetching modules:', error);
+        console.error("Error fetching modules:", error);
       }
     };
 
@@ -35,9 +37,10 @@ const Modules: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js';
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src =
+      "https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js";
     document.body.appendChild(script);
 
     return () => {
@@ -68,7 +71,7 @@ const Modules: React.FC = () => {
               end: "bottom 70%",
               scrub: true,
             },
-          }
+          },
         );
       }
     });
@@ -86,7 +89,7 @@ const Modules: React.FC = () => {
               start: "top 90%",
               toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       }
     });
@@ -107,60 +110,76 @@ const Modules: React.FC = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div
-        className="fixed inset-0 z-10000"
+        className="z-10000 fixed inset-0"
         dangerouslySetInnerHTML={{
           __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
 
-      <div className="relative z-10 text-white pt-[9.4rem]">
-        <div className="w-full flex flex-col gap-24">
+      <div className="relative z-10 pt-[9.4rem] text-white">
+        <div className="flex w-full flex-col gap-24">
           {modules.map((module, index) => (
-            <div className="flex w-full h-[45vh]" key={module.id} id={`row${index + 1}`}>
+            <div
+              className="flex h-[45vh] w-full"
+              key={module.id}
+              id={`row${index + 1}`}
+            >
               {index % 2 === 0 ? (
                 <>
-                  <div className="flex-1 flex md:justify-end justify-center h-full">
-                    <div className="img-container right w-3/4 h-full flex flex-col justify-between">
-                      <Link href={`/allEvents/${module.id}`} className="block w-full h-full">
-                        <div className="relative w-full h-full">
+                  <div className="flex h-full flex-1 justify-center md:justify-end">
+                    <div className="img-container right flex h-full w-3/4 flex-col justify-between">
+                      <Link
+                        href={`/allEvents/${module.id}`}
+                        className="block h-full w-full"
+                      >
+                        <div className="relative h-full w-full">
                           <Image
                             ref={(el) => setImageRef(el, index)}
                             src={module.coverImage}
                             alt={module.name}
-                            className="object-cover w-full h-full border-[8px] border-[#B8B8B840] backdrop-blur-[7.6rem] cursor-pointer" // Ensures that the image takes the entire space
+                            className="h-full w-full cursor-pointer border-[8px] border-[#B8B8B840] object-cover backdrop-blur-[7.6rem]" // Ensures that the image takes the entire space
                             unoptimized
                             fill
                           />
                         </div>
                       </Link>
-                      <div className="flex justify-start items-center my-6 cursor-pointer">
-                        <p ref={(el) => setTextRef(el, index * 2)} className="text-white pr-9 font-outfit">
+                      <div className="my-6 flex cursor-pointer items-center justify-start">
+                        <p
+                          ref={(el) => setTextRef(el, index * 2)}
+                          className="pr-9 font-outfit text-white"
+                        >
                           {module.name}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex-1 hidden md:flex"></div>
+                  <div className="hidden flex-1 md:flex"></div>
                 </>
               ) : (
                 <>
-                  <div className="flex-1 hidden md:flex"></div>
-                  <div className="flex-1 flex md:justify-start justify-center h-full">
-                    <div className="img-container left w-3/4 h-full flex flex-col justify-between">
-                      <Link href={`/allEvents/${module.id}`} className="block w-full h-full">
-                        <div className="relative w-full h-full">
+                  <div className="hidden flex-1 md:flex"></div>
+                  <div className="flex h-full flex-1 justify-center md:justify-start">
+                    <div className="img-container left flex h-full w-3/4 flex-col justify-between">
+                      <Link
+                        href={`/allEvents/${module.id}`}
+                        className="block h-full w-full"
+                      >
+                        <div className="relative h-full w-full">
                           <Image
                             ref={(el) => setImageRef(el, index)}
                             src={module.coverImage}
                             alt={module.name}
-                            className="object-cover w-full h-full border-[7px] border-[#B8B8B840] backdrop-blur-[121.58px] cursor-pointer" // Ensures that the image takes the entire space
+                            className="h-full w-full cursor-pointer border-[7px] border-[#B8B8B840] object-cover backdrop-blur-[121.58px]" // Ensures that the image takes the entire space
                             unoptimized
                             fill
                           />
                         </div>
                       </Link>
-                      <div className="flex justify-start items-center my-6 cursor-pointer">
-                        <p ref={(el) => setTextRef(el, index * 2)} className="text-white pr-9 font-outfit">
+                      <div className="my-6 flex cursor-pointer items-center justify-start">
+                        <p
+                          ref={(el) => setTextRef(el, index * 2)}
+                          className="pr-9 font-outfit text-lg text-white lg:text-xl 2xl:text-3xl 3xl:text-6xl"
+                        >
                           {module.name}
                         </p>
                       </div>
@@ -170,7 +189,7 @@ const Modules: React.FC = () => {
               )}
             </div>
           ))}
-          <div className="w-full h-72"></div>
+          <div className="h-72 w-full"></div>
         </div>
       </div>
     </div>

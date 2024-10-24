@@ -168,25 +168,6 @@ const config = {
           "80%": { transform: "translate(0,0)" },
           "100%": { transform: "translate(0,0)" },
         },
-        noise1: {
-          '0%, 20%, 40%, 60%, 70%, 90%': { opacity: '0' },
-          '10%': { opacity: '.1' },
-          '50%': { opacity: '.5', left: '-6px' },
-          '80%': { opacity: '.3' },
-          '100%': { opacity: '.6', left: '2px' },
-        },
-        noise2: {
-          '0%, 20%, 40%, 60%, 70%, 90%': { opacity: '0' },
-          '10%': { opacity: '.1' },
-          '50%': { opacity: '.5', left: '6px' },
-          '80%': { opacity: '.3' },
-          '100%': { opacity: '.6', left: '-2px' },
-        },
-        noise3: {
-          '0%, 3%, 5%, 42%, 44%, 100%': { opacity: '1', transform: 'scaleY(1)' },
-          '4.3%': { transform: 'scaleY(4)' },
-          '43%': { transform: 'scaleX(10) rotate(60deg)' },
-        },
       },
       clipPath: {
         "custom-ellipse": "ellipse(100% 50% at 50% 100%)",
@@ -200,9 +181,6 @@ const config = {
         "text-glow": "text-glow 2s infinite alternate ease-in-out",
         "rotate-pattern": "rotate-pattern 8s 1 ease-in-out",
         rocketzoom: "rocketzoom 0.8s ease-in-out",
-        noise1: 'noise1 1s linear infinite',
-        noise2: 'noise2 1s linear infinite',
-        noise3: 'noise3 1s linear infinite',
       },
       backgroundImage: {
         "nav-gradient": "linear-gradient(to top, transparent 0%, #070710aa 30%, #000009 70%)",
