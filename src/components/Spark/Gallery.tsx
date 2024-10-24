@@ -16,7 +16,7 @@ interface ImageData {
 
 const imageList: ImageData[] = images as ImageData[];
 
-function Gallery() {
+const Gallery = () => {
   return (
     <Swiper
       spaceBetween={30}
@@ -33,7 +33,7 @@ function Gallery() {
       }}
       navigation={true} 
       modules={[Navigation, Autoplay]} 
-      className="w-full h-auto"
+      className="w-full h-fit"
     >
       {imageList.map((image) => (
         <SwiperSlide key={image.id} className="flex justify-center items-center">
