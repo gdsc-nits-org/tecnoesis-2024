@@ -186,11 +186,11 @@ const LandingFooter = () => {
         )}
         <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-center">
           <div className="flex w-full flex-col items-center justify-between">
-            <div className="mb-0 mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[40vh] lg:w-full mb-[-20px]"></div>
+            <div className="mb-0 mb-[-20px] mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[40vh] lg:w-full"></div>
           </div>
 
-          <div className="mt-auto flex w-full flex-col items-center justify-end py-8 mb-0 sm:mb-[-10px]">
-            <span className="flex justify-center gap-x-3.5 mb-0 sm:mb-[-10px]">
+          <div className="mb-0 mt-auto flex w-full flex-col items-center justify-end py-8 sm:mb-[-10px]">
+            <span className="mb-0 flex justify-center gap-x-3.5 sm:mb-[-10px]">
               <Link
                 href={"https://www.instagram.com/tecnoesis.nits/"}
                 aria-label="Instagram"
@@ -212,14 +212,22 @@ const LandingFooter = () => {
               >
                 <IoLogoLinkedin className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
               </Link>
-              <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter" target="_blank">
+              <Link
+                href={"https://x.com/tecnoesis_nits"}
+                aria-label="Twitter"
+                target="_blank"
+              >
                 <FaXTwitter className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
               </Link>
             </span>
-            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] sm:!text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row">
+            <div className="mb-[-30px] flex w-auto flex-col items-center pl-[20px] pr-[20px] text-center text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:flex-row sm:!text-[1rem] sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em]">
               Designed in collaboration with GDGC NIT Silchar
               <Link href="https://gdscnits.in" target="_blank">
-                <img src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" alt="gdgc_logo" className="w-[150px] h-[90px] sm:mt-[22px] sm:ml-[-50px] sm:mb-[-10px] mb-[-30px] pl-6" />
+                <img
+                  src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3"
+                  alt="gdgc_logo"
+                  className="mb-[-30px] h-[90px] w-[150px] pl-6 sm:mb-[-10px] sm:ml-[-50px] sm:mt-[22px]"
+                />
               </Link>
             </div>
           </div>
