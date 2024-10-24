@@ -219,7 +219,7 @@ const LandingFooter = () => {
             </span>
             <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] mt-2 font-medium leading-[1.5] tracking-[0.2em] text-white !text-[0.8rem] sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row font-outfit 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
               Designed in collaboration with GDGC NIT Silchar
-              <Link href={"https://gdscnits.org/"} aria-label="GDGC NITS" target="_blank">
+              <Link href={"https://gdscnits.in/"} aria-label="GDGC NITS" target="_blank">
                 <Image src="/assets/footer/imgs/gdgc_logo_animated.gif" alt="gdgc_logo" height={60} width={55} className="h-[60px]" />
               </Link>
             </div>
