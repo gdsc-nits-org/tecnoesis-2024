@@ -60,7 +60,7 @@ const About = () => {
                     // y: "0%",
                     duration: 0.6,
                     ease: "power3.out",
-                    transformOrigin: "center center", // Ensure centered origin
+                    transformOrigin: "center center", 
                 };
     
                 if (imageARef.current) gsap.to(imageARef.current, resetProps);
