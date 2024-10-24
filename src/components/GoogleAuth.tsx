@@ -47,8 +47,7 @@ const Login = () => {
       }
     };
     void checkUserFirstTime();
-  }, [user, router, _user]);
-
+  }, [user,userName,setUserName, router, _user]);
   if (error) {
     toast.error("There was some Firebase error");
   }

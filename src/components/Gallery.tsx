@@ -93,7 +93,7 @@ const Gallery: React.FC = () => {
       <div
         className="z-10000 fixed inset-0"
         dangerouslySetInnerHTML={{
-          __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
+          __html: `<spline-viewer url="https://prod.spline.design/csAC-rSJnjVQZbBi/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
 

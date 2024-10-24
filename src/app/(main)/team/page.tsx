@@ -9,7 +9,8 @@ export const runtime = "edge";
 export default function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [hovers, setHovers] = useState(true);
+  const [hovers1, setHovers1] = useState(true);
+  const [hovers2, setHovers2] = useState(true);
   const techLeads = TechData.filter((item) => {
     return item.name.split(" ")[1] === "Lead";
   });
@@ -196,7 +197,7 @@ export default function Team() {
               <h1 className="mb-12 text-center font-rp1 text-4xl">
                 TEAM MEMBERS
               </h1>
-              <Marquee speed={70} direction={"left"} play={hovers}>
+              <Marquee speed={70} direction={"left"} play={hovers1}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -213,7 +214,7 @@ export default function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          hoversetter={setHovers}
+                          hoversetter={setHovers1}
                         />
                       )),
                   )}
@@ -223,7 +224,7 @@ export default function Team() {
           )}
           {team === 2 && (
             <>
-              <Marquee speed={70} direction={"right"} play={hovers}>
+              <Marquee speed={70} direction={"right"} play={hovers2}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -240,7 +241,7 @@ export default function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          hoversetter={setHovers}
+                          hoversetter={setHovers2}
                         />
                       )),
                   )}

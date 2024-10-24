@@ -88,9 +88,8 @@ const CompleteProfile = () => {
           const validatedData = userDataSchema.parse(formData);
           if (user) {
             await createUser(validatedData, user);
-            setTimeout(() => {
-              router.push("/home");
-            }, 200);
+            router.refresh();
+            router.push("/home");
           }
         } catch (err) {
           if (axios.isAxiosError(err)) {
