@@ -1,0 +1,18 @@
+[
+   
+    {
+        "id": 7,
+        "src": "/assets/modules/module1.jpeg",
+        "alt": "Module 1 Image"
+    },
+    {
+        "id": 8,
+        "src": "/assets/modules/module2.jpeg",
+        "alt": "Module 2 Image"
+    },
+    {
+        "id": 8,
+        "src": "/assets/modules/module3.jpeg",
+        "alt": "Module 3 Image"
+    }
+]
