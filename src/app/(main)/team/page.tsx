@@ -158,6 +158,7 @@ function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                       
                       />
                     </div>
                   ))}
@@ -186,6 +187,7 @@ function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -214,6 +216,7 @@ function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -241,6 +244,7 @@ function Team() {
                           facebook={member.facebook ?? ""}
                           instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),

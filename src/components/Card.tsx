@@ -5,6 +5,7 @@ import {
   IoLogoInstagram,
   IoLogoFacebook,
   IoLogoLinkedin,
+  IoLogoGithub,
 } from "react-icons/io5";
 interface propsType {
   name: string;
@@ -15,6 +16,7 @@ interface propsType {
   facebook?: string;
   linkedin?: string;
   instagram?: string;
+  github?: string;
 }
 
 const Card: React.FC<propsType> = ({
@@ -26,6 +28,7 @@ const Card: React.FC<propsType> = ({
   facebook,
   linkedin,
   instagram,
+  github,
 }) => {
   const [hover, setHover] = useState(false);
   const customHoverDetails = hover
@@ -150,6 +153,22 @@ const Card: React.FC<propsType> = ({
                 </Link>
               </div>
             )}
+            {github && (
+              <div
+                className="relative cursor-pointer"
+                style={customHoverButton}
+                rel="noopener noreferrer"
+              >
+                <Link
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <IoLogoGithub className="h-[30px] w-[30px]" />
+                </Link>
+              </div>
+            )}
           </div>
           <Image
             src="/team/stencil.png"
@@ -223,6 +242,7 @@ interface MemberProps {
   facebook?: string;
   linkedin?: string;
   instagram?: string;
+  github?: string;
   hoversetter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -234,6 +254,7 @@ const MemberCard: React.FC<MemberProps> = ({
   facebook,
   instagram,
   linkedin,
+  github,
   hoversetter,
 }) => {
   const top = index % 2 ? -2 - 2 * Math.random() : 6 + 2 * Math.random();
@@ -302,6 +323,21 @@ const MemberCard: React.FC<MemberProps> = ({
                 aria-label="LinkedIn"
               >
                 <IoLogoLinkedin className="h-[30px] w-[30px]" />
+              </Link>
+            </div>
+          )}
+          {github && (
+            <div
+              className="cursor-pointer p-2 drop-shadow-xl"
+              rel="noopener noreferrer"
+            >
+              <Link
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <IoLogoGithub className="h-[30px] w-[30px]" />
               </Link>
             </div>
           )}
