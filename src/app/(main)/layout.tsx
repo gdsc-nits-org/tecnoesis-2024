@@ -9,7 +9,6 @@ export default function RootLayout({
     <div className="bg-dotted">
       <FinalNav />
       {children}
-      <FinalFooter />
     </div>
   );
 }
