@@ -208,7 +208,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       setAllUsers(await fetchAllUsers(token));
     })();
     void (async () => {
-      const token = user?.uid;
+      const token = await user?.getIdToken();
       if (!token) return;
       const leaderUsername = await fetchUser(token);
       if (leaderUsername) {

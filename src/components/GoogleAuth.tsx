@@ -188,7 +188,7 @@ const ProfileCard: React.FC<UserCred> = ({
           </div>
           <button
             onClick={() => {
-              router.push("/home");
+              router.push("/dashboard");
             }}
             className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5]"
           >

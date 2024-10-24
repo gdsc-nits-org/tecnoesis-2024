@@ -15,7 +15,7 @@ const Download: React.FC = () => {
     <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-7xl md:flex-row-reverse md:gap-8">
       <div className="h-[70%] md:flex">
         <div
-          className="flex h-[24rem] w-[23rem] items-center"
+          className="flex h-[24rem] w-[20rem] md:w-[23rem] items-center"
           style={{
             width: "23rem",
             height: "24rem",
