@@ -184,7 +184,7 @@ const LandingFooter = () => {
         ) : (
           ""
         )}
-        <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-center">
+        <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.png')] bg-cover bg-center">
           <div className="flex w-full flex-col items-center justify-between">
             <div className="mb-0 mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[80%] md:h-[35vh] md:w-[80%] lg:h-[40vh] lg:w-[80%] mb-[-20px]"></div>
           </div>
