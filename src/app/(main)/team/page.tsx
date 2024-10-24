@@ -184,9 +184,8 @@ export default function Team() {
                         main={item.id}
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
-                        instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
-                        github={member.github ?? ""}
+                        github={(member.github as string)?? ""}
                       />
                     </div>
                   ))}
@@ -213,9 +212,8 @@ export default function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={member.github ?? ""}
+                          github={(member.github as string) ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -241,9 +239,8 @@ export default function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={member.github ?? ""}
+                          github={(member.github as string) ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
