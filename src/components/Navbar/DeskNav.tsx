@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Login from "../GoogleAuth";
 import { usePathname, useRouter } from "next/navigation";
-import { set } from "zod";
 
 const outin = Outfit({
   subsets: ["latin"],

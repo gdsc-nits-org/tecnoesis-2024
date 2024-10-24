@@ -146,7 +146,7 @@ const Modules: React.FC = () => {
                       <div className="my-6 flex cursor-pointer items-center justify-start">
                         <p
                           ref={(el) => setTextRef(el, index * 2)}
-                          className="pr-9 font-outfit text-white"
+                          className="pr-9 font-outfit text-lg text-white lg:text-xl 3xl:text-3xl 4xl:text-6xl"
                         >
                           {module.name}
                         </p>
@@ -178,7 +178,7 @@ const Modules: React.FC = () => {
                       <div className="my-6 flex cursor-pointer items-center justify-start">
                         <p
                           ref={(el) => setTextRef(el, index * 2)}
-                          className="pr-9 font-outfit text-lg text-white lg:text-xl 2xl:text-3xl 3xl:text-6xl"
+                          className="pr-9 font-outfit text-lg text-white lg:text-xl 3xl:text-3xl 4xl:text-6xl"
                         >
                           {module.name}
                         </p>

@@ -180,10 +180,10 @@ const About = () => {
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
       <div className="flex flex-col items-center justify-center md:px-12 lg:h-[80vh] lg:flex-row">
         <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="titleText text-gradient-blue l p-10 text-center font-rp1 font-bold lg:text-left">
             ABOUT NIT SILCHAR
           </div>
-          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-left">
             Welcome to NIT Silchar, the launchpad for tomorrow’s innovators!
             Established in 1967 and now proudly ranked 92 in NIRF, we’ve been
             pushing boundaries and redefining the tech landscape for decades.
@@ -242,10 +242,10 @@ const About = () => {
           </div>
         </div>
         <div className="h-1/2 w-full lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue p-7 text-center font-rp1 text-3xl font-bold md:m-0 md:text-5xl lg:text-right lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="text-gradient-blue titleText p-7 text-center font-rp1 font-bold md:m-0 lg:text-right">
             ABOUT US
           </div>
-          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-right lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-right">
             Tecnoesis isn’t just a fest—it’s your gateway to uncharted
             dimensions of tech, innovation, and discovery! With mind-bending
             challenges, futuristic workshops, and immersive experiences, this is
@@ -274,10 +274,10 @@ const About = () => {
       </div>
       <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16">
         <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-screen">
-          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="text-gradient-blue titleText p-10 text-center font-rp1 font-bold md:p-7 md:text-left">
             MODULES
           </div>
-          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText pb-4 text-justify font-outfit text-[#B5D8EABF] md:w-3/4 md:px-7 md:text-left">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}

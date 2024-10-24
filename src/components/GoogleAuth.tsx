@@ -12,6 +12,8 @@ import { env } from "~/env";
 
 interface UserResponse {
   username: string;
+  firstName: string;
+  lastName: string;
 }
 
 const Login = () => {
@@ -20,6 +22,8 @@ const Login = () => {
   const router = useRouter();
   const bigScreen = useMediaQuery("(min-width: 768px)");
   const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   useEffect(() => {
     const checkUserFirstTime = async () => {
       if (!_user) return;
@@ -34,6 +38,8 @@ const Login = () => {
           },
         );
         setUserName(() => res.data.msg.username);
+        setFirstName(() => res.data.msg.firstName);
+        setLastName(() => res.data.msg.lastName);
         console.log("Username", userName);
         router.push("/home");
       } catch (e) {
@@ -48,7 +54,7 @@ const Login = () => {
     };
     console.log("Runnnningggg", _user?.displayName);
     void checkUserFirstTime();
-  }, [user, router, _user]);
+  }, [user, router, _user, userName, setUserName]);
 
   if (error) {
     toast.error("There was some Firebase error");
@@ -101,7 +107,7 @@ const Login = () => {
                 alt="avater"
               ></Image>
             )}
-            <p className="w-[8vw] overflow-hidden text-nowrap text-center text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
+            <p className="w-[8vw] overflow-hidden text-nowrap text-center font-outfit text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
               {userName}
             </p>
           </button>
@@ -136,6 +142,8 @@ const Login = () => {
         photoURL={_user?.photoURL}
         displayName={_user?.displayName}
         userName={userName}
+        firstName={firstName}
+        lastName={lastName}
       />
     );
   }
@@ -145,12 +153,16 @@ export default Login;
 interface UserCred {
   photoURL: string | null | undefined;
   displayName: string | null | undefined;
+  firstName: string | null | undefined;
+  lastName: string | null | undefined;
   userName: string | null | undefined;
 }
 const ProfileCard: React.FC<UserCred> = ({
   photoURL,
   displayName,
   userName,
+  firstName,
+  lastName,
 }) => {
   const router = useRouter();
   return (
@@ -181,8 +193,8 @@ const ProfileCard: React.FC<UserCred> = ({
         </div>
         <div className="flex h-[80%] flex-grow flex-col justify-around gap-2 pl-4">
           <div className="flex flex-col gap-1 text-[#B8B8B8]">
-            <h1 className="text-wrap font-rp1 text-lg leading-5">
-              {displayName}
+            <h1 className="text-wrap font-rp1 text-lg leading-5 tracking-tighter">
+              {firstName}+{lastName}
             </h1>
             <h3 className="font-outfit text-base">{userName}</h3>
           </div>
