@@ -8,6 +8,7 @@ import {
 } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import gdgLogo from "~/../public/assets/footer/imgs/gdgc_logo_animated.gif"
+import Image from "next/image";
 
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -215,7 +216,7 @@ const LandingFooter = () => {
             </span>
             <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] mt-2 font-medium leading-[1.5] tracking-[0.2em] text-white !text-[0.8rem] sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row font-outfit 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
               Designed in collaboration with GDGC NIT Silchar 
-              <img src={(!gdgLogo.src)?"":gdgLogo.src} alt="gdgc_logo" className="h-[60px]" />
+              <Image src="/assets/footer/imgs/gdgc_logo_animated.gif" alt="gdgc_logo" height={60} width={55} className="h-[60px]" />
             </div>
           </div>
         </div>
