@@ -4,6 +4,7 @@ import SponsorHome from "~/components/SponsorHome";
 import PhotoGallery from "~/components/PhotoGallery";
 import About from "~/components/AboutPage";
 import FinalFooter from "~/components/FinalFooter";
+
 export default function Page() {
   return (
     <div className="homepage bg-dotted flex min-h-screen w-full flex-col items-center">
