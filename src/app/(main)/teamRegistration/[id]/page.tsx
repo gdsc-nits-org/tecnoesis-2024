@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
-import { z, ZodError } from "zod";
+import { string, z, ZodError } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
@@ -289,9 +289,15 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
             setFormErrors(zodErrors);
             throw err;
           }
+
           if (axios.isAxiosError(err)) {
-            if (err.status && err.status <= 500) {
-              throw new Error(err.response?.data.msg);
+            const responseData = err.response?.data as { msg?: string };
+            if (err.response?.status && err.response.status <= 500) {
+              if (responseData?.msg) {
+                throw new Error(responseData.msg);
+              } else {
+                throw new Error("An error occurred, but no message was provided.");
+              }
             } else {
               throw new Error("Internal Server Error");
             }
@@ -303,14 +309,16 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       {
         loading: "Registering...",
         success: "Registration successful!",
-        error: (e) => {
+        error: (e: unknown): string => {
           if (e instanceof ZodError) {
-            return e.errors[0]?.message;
+            return e.errors[0]?.message ?? "Validation error";
+          } else if (e instanceof Error) {
+            return e.message;
           } else {
-            return e;
+            return "An unknown error occurred";
           }
         },
-      },
+      }
     );
   };
 
