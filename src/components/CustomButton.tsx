@@ -15,7 +15,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, className }) => {
     const button = document.getElementById("hover-button");
     const handleMouseEnter = () => {
       if (audioRef.current) {
-        audioRef.current.play();
+        void audioRef.current.play();
       }
     };
 
