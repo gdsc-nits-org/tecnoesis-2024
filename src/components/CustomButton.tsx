@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface CustomButtonProps {
   text: string;
@@ -9,30 +9,24 @@ interface CustomButtonProps {
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({ text, className }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const button = document.getElementById("hover-button");
-    const handleMouseEnter = () => {
-      if (audioRef.current) {
-        audioRef.current.play();
-      }
-    };
-
-    if (button) {
-      button.addEventListener("mouseenter", handleMouseEnter);
-    }
-
-    return () => {
-      if (button) {
-        button.removeEventListener("mouseenter", handleMouseEnter);
-      }
-    };
+    const hoverAudio = new Audio("/assets/Landing/hover-sfx.wav");
+    hoverAudio.volume = 0.5;
+    setAudio(hoverAudio);
   }, []);
+
+  const playm = () => {
+    if (audio) {
+      void audio.play();
+    }
+  };
   return (
     <>
-      <audio ref={audioRef} src="/assets/Landing/hover-sfx.wav" />
       <div
+        id="hover-button"
+        onMouseEnter={playm}
         className={`customBtn relative flex w-auto max-w-full cursor-pointer items-center justify-center overflow-hidden bg-transparent p-3 text-white duration-500 hover:bg-[#2F629C] sm:p-4 lg:p-5 ${className}`}
       >
         <div className="absolute top-0 z-0 flex h-auto w-full items-center justify-center">

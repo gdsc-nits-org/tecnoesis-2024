@@ -124,7 +124,7 @@ const LandingFooter = () => {
         if (particle) {
           particle.draw();
         }
-      }      
+      }
       connectParticles();
       requestAnimationFrame(animateParticles);
     }
@@ -191,21 +191,25 @@ const LandingFooter = () => {
 
           <div className="mt-auto flex w-full flex-col items-center justify-end py-8 mb-0 sm:mb-[-10px]">
             <span className="flex justify-center gap-x-6 mb-0 sm:mb-[-10px] lg:gap-x-4 xl:gap-x-5">
+
               <Link
                 href={"https://www.instagram.com/tecnoesis.nits/"}
                 aria-label="Instagram"
+                target="_blank"
               >
                 <IoLogoInstagram className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.facebook.com/tecnoesis.nits"}
                 aria-label="Facebook"
+                target="_blank"
               >
                 <IoLogoFacebook className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.linkedin.com/company/tecnoesis-nit-silchar/"}
                 aria-label="LinkedIn"
+                target="_blank"
               >
                 <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
@@ -216,6 +220,7 @@ const LandingFooter = () => {
             <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] mt-2 font-medium leading-[1.5] tracking-[0.2em] text-white !text-[0.8rem] sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] mb-[-30px] flex-col sm:flex-row font-outfit 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
               Designed in collaboration with GDGC NIT Silchar 
               <Image src="/assets/footer/imgs/gdgc_logo_animated.gif" alt="gdgc_logo" height={60} width={55} className="h-[60px]" />
+
             </div>
           </div>
         </div>

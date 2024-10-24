@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import CustomButton from "../components/CustomButton";
+import Link from "next/link";
 
 const About = () => {
   const [isDesktop, setIsDesktop] = useState(true);
@@ -283,12 +284,14 @@ const About = () => {
             workshops, competitions and interactions worth a lifetime.{" "}
           </div>
           <div className="flex items-center justify-center text-center md:justify-start md:pl-7">
-            <div className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]">
-              <CustomButton
-                text="View All Modules"
-                className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl"
-              />
-            </div>
+            <Link href="/modules">
+              <div className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold">
+                <CustomButton
+                  text="View All Modules"
+                  className="3xl:text-5xl text-base lg:text-lg 2xl:text-2xl"
+                />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="flex h-[60vh] w-full flex-col justify-center overflow-hidden md:h-[100%]">

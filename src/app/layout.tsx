@@ -24,14 +24,27 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`} prefix="og: https://ogp.me/ns#">
+    <html
+      lang="en"
+      className={`${GeistSans.variable}`}
+      prefix="og: https://ogp.me/ns#"
+    >
       <head>
         <meta property="og:title" content="Tecnoesis 2024" />
-        <meta property="og:description" content="The Official Website of Tecnoesis 2024" />
-        <meta property="og:image" content="https://opengraph.tecnoesis-2024.pages.dev/tecnoesislogo.jpg" />
+        <meta
+          property="og:description"
+          content="The Official Website of Tecnoesis 2024"
+        />
+        <meta
+          property="og:image"
+          content="https://dev.tecnoesis-2024.pages.dev/tecnoesis-highres.webp"
+        />
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
-        <meta property="og:website" content="https://tecnoesis-2024.pages.dev" />
+        <meta
+          property="og:website"
+          content="https://tecnoesis-2024.pages.dev"
+        />
         <meta property="og:type" content="website" />
       </head>
       <body>
