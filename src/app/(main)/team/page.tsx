@@ -33,7 +33,7 @@ function Team() {
     <div className="min-h-screen w-full">
       <div className="bg-dotted min-h-screen w-full">
         <div className="flex w-full items-center justify-center">
-          <h1 className="mb-12 mt-24 text-center font-rp1 text-4xl text-customBlue lg:mt-48 lg:text-6xl">
+          <h1 className="titleText mb-12 mt-24 text-center font-rp1 text-customBlue lg:mt-48">
             MEET OUR TEAM{" "}
           </h1>
         </div>

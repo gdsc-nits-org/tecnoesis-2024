@@ -43,37 +43,37 @@ const About = () => {
     };
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (!isDesktop) {
+      const resetPositions = () => {
+        const resetProps = {
+          // x: "0%",
+          // y: "0%",
+          duration: 0.6,
+          ease: "power3.out",
+          transformOrigin: "center center",
+        };
 
-        if (!isDesktop) {
-            const resetPositions = () => {
-                const resetProps = {
-                    // x: "0%",
-                    // y: "0%",
-                    duration: 0.6,
-                    ease: "power3.out",
-                    transformOrigin: "center center", 
-                };
-    
-                if (imageARef.current) gsap.to(imageARef.current, resetProps);
-                if (image2WrapperRef.current) gsap.to(image2WrapperRef.current, resetProps);
-                if (imageCRef.current) gsap.to(imageCRef.current, resetProps);
-                if (imageDRef.current) gsap.to(imageDRef.current, resetProps);
-                if (imageERef.current) gsap.to(imageERef.current, resetProps);
-                if (imageFRef.current) gsap.to(imageFRef.current, resetProps);
-                if (imageGRef.current) gsap.to(imageGRef.current, resetProps);
-                if (image1Ref.current) gsap.to(image1Ref.current, resetProps);
-                if (image2Ref.current) gsap.to(image2Ref.current, resetProps);
-                if (image3Ref.current) gsap.to(image3Ref.current, resetProps);
-                if (class1DivRef.current) gsap.to(class1DivRef.current, resetProps);
-            };
-    
-            resetPositions();
-            return;
-        }
-        const handleMouseMove = (event: MouseEvent) => {
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
+        if (imageARef.current) gsap.to(imageARef.current, resetProps);
+        if (image2WrapperRef.current)
+          gsap.to(image2WrapperRef.current, resetProps);
+        if (imageCRef.current) gsap.to(imageCRef.current, resetProps);
+        if (imageDRef.current) gsap.to(imageDRef.current, resetProps);
+        if (imageERef.current) gsap.to(imageERef.current, resetProps);
+        if (imageFRef.current) gsap.to(imageFRef.current, resetProps);
+        if (imageGRef.current) gsap.to(imageGRef.current, resetProps);
+        if (image1Ref.current) gsap.to(image1Ref.current, resetProps);
+        if (image2Ref.current) gsap.to(image2Ref.current, resetProps);
+        if (image3Ref.current) gsap.to(image3Ref.current, resetProps);
+        if (class1DivRef.current) gsap.to(class1DivRef.current, resetProps);
+      };
+
+      resetPositions();
+      return;
+    }
+    const handleMouseMove = (event: MouseEvent) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
 
       if (imageARef.current) {
         gsap.to(imageARef.current, {
@@ -181,10 +181,10 @@ const About = () => {
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
       <div className="flex flex-col items-center justify-center md:px-12 lg:h-[60vh] lg:flex-row">
         <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold lg:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="titleText text-gradient-blue l p-10 text-center font-rp1 font-bold lg:text-left">
             ABOUT NIT SILCHAR
           </div>
-          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-left lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-left">
             Welcome to NIT Silchar, the launchpad for tomorrow’s innovators!
             Established in 1967 and now proudly ranked 92 in NIRF, we’ve been
             pushing boundaries and redefining the tech landscape for decades.
@@ -243,10 +243,10 @@ const About = () => {
           </div>
         </div>
         <div className="h-1/2 w-full lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue p-7 text-center font-rp1 text-3xl font-bold md:m-0 md:text-5xl lg:text-right lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="text-gradient-blue titleText p-7 text-center font-rp1 font-bold md:m-0 lg:text-right">
             ABOUT US
           </div>
-          <div className="px-7 pb-4 text-justify font-outfit text-lg text-[#B5D8EABF] md:text-center lg:text-right lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-right">
             Tecnoesis isn’t just a fest—it’s your gateway to uncharted
             dimensions of tech, innovation, and discovery! With mind-bending
             challenges, futuristic workshops, and immersive experiences, this is
@@ -273,22 +273,22 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:px-16 md:justify-center">
+      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
         <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-[100%]">
-          <div className="text-gradient-blue p-10 text-center font-rp1 text-3xl font-bold md:p-7 md:text-left lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+          <div className="text-gradient-blue titleText p-10 text-center font-rp1 font-bold md:p-7 md:text-left">
             MODULES
           </div>
-          <div className="pb-4 text-justify font-outfit text-lg text-[#B5D8EABF]  md:px-7 md:text-justify lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+          <div className="normalText pb-4 text-justify font-outfit text-[#B5D8EABF] md:px-7 md:text-justify">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
             promising all tech geeks the ideal niche of fascinating events,
             workshops, competitions and interactions worth a lifetime.{" "}
           </div>
           <div className="flex items-center justify-center text-center md:justify-start md:pl-7">
             <Link href="/modules">
-              <div className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] font-semibold">
+              <div className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]">
                 <CustomButton
                   text="View All Modules"
-                  className="3xl:text-5xl text-base lg:text-lg 2xl:text-2xl"
+                  className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl"
                 />
               </div>
             </Link>

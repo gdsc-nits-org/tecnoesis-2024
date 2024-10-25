@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import Login from "../GoogleAuth";
 import { usePathname, useRouter } from "next/navigation";
 
-
 const outin = Outfit({
   subsets: ["latin"],
   weight: ["400"],
