@@ -2,6 +2,8 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { Toaster } from "sonner";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import Head from "next/head";
 
 export const metadata: Metadata = {
@@ -55,6 +57,7 @@ export default function RootLayout({
           position="bottom-center"
         />
       </body>
+      <GoogleAnalytics gaId="G-1DLK2743WQ" />
     </html>
   );
 }
