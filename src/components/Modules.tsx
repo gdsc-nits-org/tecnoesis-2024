@@ -112,23 +112,26 @@ const Modules: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div
+      className="relative min-h-screen overflow-hidden bg-cover bg-center 
+                 bg-[url('/assets/modules/bg-modules.gif')] md:bg-none"
+    >
       <div
-        className="z-10000 fixed inset-0"
+        className="z-10000 fixed inset-0 md:flex hidden"
         dangerouslySetInnerHTML={{
           __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
       {isLoading ? (
-        <div className="relative z-10 pt-[9.4rem] text-white">
+        <div className="relative z-10 pt-[7.4rem] text-white">
           <div className="flex w-full flex-col gap-24">
-            {[1, 2, 3].map((_, index) => (
+            {[1, 2].map((_, index) => (
               <div className="flex h-[45vh] w-full" key={index}>
                 <div className="flex h-full flex-1 justify-center">
                   <div className="img-container right flex h-full w-3/4 flex-col justify-between">
-                    <div className="relative h-full w-full bg-gray-800 animate-pulse"></div>
-                    <div className="my-6 flex items-center">
-                      <p className="pr-9 bg-gray-700 h-4 w-24 animate-pulse"></p>
+                    <div className="relative h-full w-full bg-gray-800 rounded-xl animate-pulse opacity-70"></div>
+                    <div className="my-6 flex items-center rounded-xl">
+                      <p className="pr-9 bg-gray-700 h-4 w-24 animate-pulse rounded-xl"></p>
                     </div>
                   </div>
                 </div>

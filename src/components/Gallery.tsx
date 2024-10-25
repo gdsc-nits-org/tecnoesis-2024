@@ -15,65 +15,39 @@ interface DataItem {
 }
 
 const SkeletonLoader: React.FC = () => (
-  <div>
-  <div className="flex w-full justify-center mx-auto md:pl-[5.5rem] pl-0">
-    <div className="p-4 rounded-lg shadow-2xl md:w-[50%] w-[80%] max-w-[500px]">
-      <div className="relative h-60 mb-5 flex justify-center items-center rounded-lg bg-gray-300 animate-pulse">
-        <svg
-          className="w-10 h-10 text-gray-200"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 18"
-        >
-          <path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18.5c-4.6 0-8.5-3.9-8.5-8.5S5.4 1.5 10 1.5s8.5 3.9 8.5 8.5-3.9 8.5-8.5 8.5z" />
-        </svg>
-      </div>
-      <div className="flex justify-between">
-        <div className="h-4 bg-gray-300 rounded-full mb-3 animate-pulse w-[30%]"></div>
-        <div className="h-4 bg-gray-300 rounded-full mb-3 animate-pulse w-[10%]"></div>
-      </div>
+  <div className="relative z-10 pt-[6.9rem] text-white">
+    <div className="flex w-full flex-col gap-24">
+      {[1, 2].map((_, index) => (
+        <div className="flex h-[45vh] w-full" key={index}>
+          <div className="flex h-full flex-1 justify-center">
+            <div className="img-container right flex h-full w-3/4 flex-col justify-between">
+              <div className="relative h-full w-full bg-gray-800 rounded-xl animate-pulse"></div>
+              <div className="my-6 flex items-center rounded-xl">
+                <p className="pr-9 bg-gray-700 h-4 w-24 animate-pulse rounded-xl"></p>
+              </div>
+            </div>
+          </div>
+          <div className="hidden flex-1 md:flex"></div>
+        </div>
+      ))}
     </div>
-    <div className="flex-1 md:flex w-[50%] justify-center items-center hidden sm:visible"></div>
-  </div>
-  <div className="flex w-full justify-center mx-auto md:pl-[5.5rem] pl-0 md:hidden">
-    <div className="p-4 rounded-lg shadow-2xl md:w-[50%] w-[80%] max-w-[500px]">
-      <div className="relative h-60 mb-5 flex justify-center items-center rounded-lg bg-gray-300 animate-pulse">
-        <svg
-          className="w-10 h-10 text-gray-200"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 18"
-        >
-          <path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18.5c-4.6 0-8.5-3.9-8.5-8.5S5.4 1.5 10 1.5s8.5 3.9 8.5 8.5-3.9 8.5-8.5 8.5z" />
-        </svg>
-      </div>
-      <div className="flex justify-between">
-        <div className="h-4 bg-gray-300 rounded-full mb-3 animate-pulse w-[30%]"></div>
-        <div className="h-4 bg-gray-300 rounded-full mb-3 animate-pulse w-[10%]"></div>
-      </div>
-    </div>
-    <div className="flex-1 md:flex w-[50%] justify-center items-center hidden md:visible"></div>
-  </div>
   </div>
 );
 
 const Gallery: React.FC = () => {
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
   const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "module";
-    script.src =
-      "https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js";
+    script.src = "https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js";
     document.body.appendChild(script);
   }, []);
 
   useLayoutEffect(() => {
-    if (!loading) { 
+    if (!loading) {
       const images = imagesRef.current;
       const texts = textRefs.current;
 
@@ -92,11 +66,12 @@ const Gallery: React.FC = () => {
               opacity: 1,
               scrollTrigger: {
                 trigger: img,
-                start: "top 80%",
-                end: "bottom 70%",
+                start: "top 95%",
+                end: "bottom 85%",
                 scrub: true,
+                markers: false,
               },
-            },
+            }
           );
         }
       });
@@ -114,10 +89,10 @@ const Gallery: React.FC = () => {
               opacity: 1,
               scrollTrigger: {
                 trigger: text,
-                start: "top 90%",
+                start: "top 100%",
                 toggleActions: "play none none reverse",
               },
-            },
+            }
           );
         }
       });
@@ -133,7 +108,7 @@ const Gallery: React.FC = () => {
       setLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
   const setImageRef = (el: HTMLImageElement | null, index: number) => {
@@ -145,25 +120,20 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="gallerypage relative min-h-screen overflow-hidden">
+    <div className="gallerypage relative min-h-screen overflow-hidden bg-none">
       <div
         className="z-10000 fixed inset-0 opacity-45"
         dangerouslySetInnerHTML={{
           __html: `<spline-viewer url="https://prod.spline.design/csAC-rSJnjVQZbBi/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
-
-      <div className="relative z-10 pt-[9.4rem] text-white">
-        {loading ? ( 
+      <div className="relative z-10">
+        {loading ? (
           <SkeletonLoader />
         ) : (
-          <div className="flex w-full flex-col gap-24">
+          <div className="flex w-full flex-col gap-24 pt-[7.7rem]">
             {data.map((item: DataItem, index: number) => (
-              <div
-                className="flex h-[45vh] w-full"
-                key={index}
-                id={`row${index + 1}`}
-              >
+              <div className="flex h-[45vh] w-full" key={index} id={`row${index + 1}`}>
                 {index % 2 === 0 ? (
                   <>
                     <div className="flex h-full flex-1 justify-center md:justify-end">
@@ -178,16 +148,10 @@ const Gallery: React.FC = () => {
                           height={500}
                         />
                         <div className="my-6 flex items-center justify-start text-lg lg:text-xl 2xl:text-3xl 3xl:text-6xl">
-                          <p
-                            ref={(el) => setTextRef(el, index * 2)}
-                            className="pr-9 font-outfit text-white"
-                          >
+                          <p ref={(el) => setTextRef(el, index * 2)} className="pr-9 font-outfit text-white">
                             {item.year}
                           </p>
-                          <p
-                            ref={(el) => setTextRef(el, index * 2 + 1)}
-                            className="font-rp1 text-white"
-                          >
+                          <p ref={(el) => setTextRef(el, index * 2 + 1)} className="font-rp1 text-white">
                             {item.title}
                           </p>
                         </div>
@@ -210,16 +174,10 @@ const Gallery: React.FC = () => {
                           height={500}
                         />
                         <div className="my-6 flex items-center justify-start text-lg lg:text-xl 2xl:text-3xl 3xl:text-6xl">
-                          <p
-                            ref={(el) => setTextRef(el, index * 2)}
-                            className="pr-9 font-outfit text-white"
-                          >
+                          <p ref={(el) => setTextRef(el, index * 2)} className="pr-9 font-outfit text-white">
                             {item.year}
                           </p>
-                          <p
-                            ref={(el) => setTextRef(el, index * 2 + 1)}
-                            className="font-rp1 text-white"
-                          >
+                          <p ref={(el) => setTextRef(el, index * 2 + 1)} className="font-rp1 text-white">
                             {item.title}
                           </p>
                         </div>
