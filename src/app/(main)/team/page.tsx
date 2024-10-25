@@ -4,8 +4,7 @@ import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
-import { useState, useEffect, Suspense } from "react";
-import Loader from "~/components/Loader";
+import { useState, useEffect } from "react";
 export const runtime = "edge";
 
 function Team() {
@@ -257,10 +256,4 @@ function Team() {
   );
 }
 
-export default function MainTeam() {
-  return (
-    <Suspense fallback={<Loader />}>
-      <Team />
-    </Suspense>
-  );
-}
+export default Team;

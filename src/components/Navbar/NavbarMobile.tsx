@@ -13,10 +13,10 @@ export default function NavbarMobile() {
   const navLinks: string[] = [
     "/home",
     "/gallery",
-    "/home#sponsors",
+    "/spark",
     "/modules",
     "/team",
-    "/dashboard"
+    "/dashboard",
   ];
 
   const handleProfile = () => {
@@ -41,9 +41,9 @@ export default function NavbarMobile() {
         style={
           expand
             ? {
-              background:
-                "radial-gradient(circle, #011528d6 0%, #000204d6 100%)",
-            }
+                background:
+                  "radial-gradient(circle, #011528d6 0%, #000204d6 100%)",
+              }
             : {}
         }
       >
@@ -100,9 +100,9 @@ export default function NavbarMobile() {
                 <Link
                   onClick={() => handleNavClick(2)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[2] && "text-[#01A3F5]"} `}
-                  href="/home#sponsors"
+                  href="/spark"
                 >
-                  Sponsors
+                  Spark
                 </Link>
               </div>
               <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />

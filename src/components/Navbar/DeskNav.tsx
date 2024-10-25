@@ -167,7 +167,9 @@ const Navbar = () => {
           gsap.to(links[curr], {
             color: "#01A3F5",
           });
-      }}},[currentPage]);
+      }
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     const elempos = document
@@ -231,23 +233,12 @@ const Navbar = () => {
           >
             Gallery
           </Link>
-          <button
-            onClick={() => {
-              if (currentPage != "/home") router.push("/home");
-              setSection("sponsors");
-              const elempos = document
-                .getElementById("sponsors")
-                ?.getBoundingClientRect().top;
-              if (elempos)
-                window.scrollTo({
-                  top: elempos + window.scrollY - 240,
-                  behavior: "smooth",
-                });
-            }}
+          <Link
+            href="/spark"
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] text-base hover:text-[#01A3F5] lg:text-xl 2xl:text-2xl 3xl:text-6xl"
           >
-            Sponsors
-          </button>
+            Spark
+          </Link>
           <Link
             href="/modules"
             className="navOpt cursor-pointer rounded-full px-[2vw] py-[0.54vw] text-base hover:text-[#01A3F5] lg:text-xl 2xl:text-2xl 3xl:text-6xl"
