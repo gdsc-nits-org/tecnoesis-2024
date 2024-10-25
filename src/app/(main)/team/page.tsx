@@ -4,13 +4,15 @@ import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Loader from "~/components/Loader";
 export const runtime = "edge";
+
 function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [hovers, setHovers] = useState(true);
+  const [hovers1, setHovers1] = useState(true);
+  const [hovers2, setHovers2] = useState(true);
   const techLeads = TechData.filter((item) => {
     return item.name.split(" ")[1] === "Lead";
   });
@@ -197,7 +199,7 @@ function Team() {
               <h1 className="mb-12 text-center font-rp1 text-4xl">
                 TEAM MEMBERS
               </h1>
-              <Marquee speed={70} direction={"left"} play={hovers}>
+              <Marquee speed={70} direction={"left"} play={hovers1}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -214,7 +216,7 @@ function Team() {
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
                           github={member.github ?? ""}
-                          hoversetter={setHovers}
+                          hoversetter={setHovers1}
                         />
                       )),
                   )}
@@ -224,7 +226,7 @@ function Team() {
           )}
           {team === 2 && (
             <>
-              <Marquee speed={70} direction={"right"} play={hovers}>
+              <Marquee speed={70} direction={"right"} play={hovers2}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -241,7 +243,7 @@ function Team() {
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
                           github={member.github ?? ""}
-                          hoversetter={setHovers}
+                          hoversetter={setHovers2}
                         />
                       )),
                   )}
@@ -256,5 +258,9 @@ function Team() {
 }
 
 export default function MainTeam() {
-  return <Team />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <Team />
+    </Suspense>
+  );
 }

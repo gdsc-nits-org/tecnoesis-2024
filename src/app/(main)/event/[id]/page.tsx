@@ -6,7 +6,7 @@ import axios from "axios";
 import { env } from "~/env";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Loader from "~/components/Loader";
+
 
 interface Eventresponse {
   id: string;
