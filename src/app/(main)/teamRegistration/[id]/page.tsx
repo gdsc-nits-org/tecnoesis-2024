@@ -10,7 +10,7 @@ import { string, z, ZodError } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
-
+import Loader from "~/components/Loader";
 export const runtime = "edge";
 
 const CommandMenu = ({

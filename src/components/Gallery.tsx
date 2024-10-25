@@ -145,7 +145,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="gallerypage relative min-h-screen overflow-hidden">
       <div
         className="z-10000 fixed inset-0 opacity-45"
         dangerouslySetInnerHTML={{

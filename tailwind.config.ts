@@ -29,23 +29,23 @@ const config = {
         tablet25: "870px",
         tablet3: "900px",
         tablet4: "950px",
-        desktop1:"1200px",
-        desktop2:"1600px",
-        desktop3:"1800px",
+        desktop1: "1200px",
+        desktop2: "1600px",
+        desktop3: "1800px",
         tv1: "2100px",
-        tv3:"2400px",
+        tv3: "2400px",
         tv2: "2700px",
         sml: "500px",
         "3xl": "2560px",
-        "6xl":"2900px",
+        "6xl": "2900px",
         "4xl": "3440px",
         "5xl": "3840px",
-        "7xl":"4000px"
+        "7xl": "4000px",
       },
       fontFamily: {
         rp1: ["readyplayer", "monospace"],
         outfit: ["Outfit", "sans-serif"],
-        nico: ["Nico","sans-serif"]
+        nico: ["Nico", "sans-serif"],
       },
       colors: {
         customGray: "#1e2025",
@@ -92,11 +92,15 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      borderImage:{
-        "silvery": 'linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)'
-
+      borderImage: {
+        silvery:
+          "linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)",
       },
       keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
         upDown: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-20px)" },
@@ -173,6 +177,7 @@ const config = {
         "custom-ellipse": "ellipse(100% 50% at 50% 100%)",
       },
       animation: {
+        "rotate": "rotate 1.2s linear infinite",
         upDown: "upDown 3s ease-in-out infinite",
         oppositeUpDown: "oppositeUpDown 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",

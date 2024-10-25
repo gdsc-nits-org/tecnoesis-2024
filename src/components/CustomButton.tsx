@@ -27,7 +27,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, className }) => {
       <div
         id="hover-button"
         onMouseEnter={playm}
-        className={`customBtn relative flex w-auto max-w-full cursor-pointer items-center justify-center overflow-hidden bg-transparent p-3 text-white duration-500 hover:bg-[#2F629C] sm:p-4 lg:p-5 ${className}`}
+        className={`customBtn relative flex w-auto max-w-full cursor-pointer items-center justify-center overflow-hidden bg-transparent px-3 py-2 text-white duration-500 hover:bg-[#2F629C] sm:px-4 sm:py-2 lg:px-5 lg:py-3 ${className}`}
       >
         <div className="absolute top-0 z-0 flex h-auto w-full items-center justify-center">
           <div className="gradpart1"></div>

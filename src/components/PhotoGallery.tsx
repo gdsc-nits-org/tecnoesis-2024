@@ -19,18 +19,18 @@ const PhotoGallery: React.FC = () => {
       }}
     >
       <div className="items-left flex w-[100%] flex-col justify-center p-0 pt-[20rem] text-center sm:pl-10 sm:pt-[14rem] sm:text-left lg:w-[70%] lg:pt-[11rem]">
-        <div className="text-gradient-blue w-full font-rp1 text-xl font-bold lg:text-2xl 2xl:text-4xl 3xl:text-7xl">
+        <div className="text-gradient-blue w-full font-rp1 text-xl font-bold lg:text-2xl 3xl:text-4xl 4xl:text-7xl">
           Photo
         </div>
-        <div className="w-full font-rp1 text-3xl font-medium leading-[3rem] text-white sm:leading-[6rem] lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+        <div className="titleText w-full font-rp1 font-medium text-white">
           Gallery
         </div>
-        <p className="mt-4 hidden w-[50%] text-left font-outfit text-lg text-white sm:flex sm:w-[100%] lg:w-[50%] lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+        <p className="normalText mt-4 hidden w-[50%] text-left font-outfit text-[#B5D8EABF] sm:flex sm:w-[100%] lg:w-[50%]">
           Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
           Promising All Tech Geeks, The Ideal Niche of Fascinating Events,
           Workshops, Competitions And Interactions Worth A Lifetime.
         </p>
-        <p className="w-full py-[0.7rem] font-outfit text-lg text-white sm:hidden sm:pr-[22rem] md:text-base lg:text-xl 2xl:text-3xl 3xl:text-6xl">
+        <p className="normalText w-full py-[0.7rem] font-outfit text-[#B5D8EABF] sm:hidden sm:pr-[22rem]">
           Tecnoesis Is The Annual Techno-Managerial Event of NIT Silchar,
           Promising All Tech Geeks.
         </p>

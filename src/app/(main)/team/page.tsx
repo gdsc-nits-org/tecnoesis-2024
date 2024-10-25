@@ -5,9 +5,9 @@ import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
-import FinalFooter from "~/components/FinalFooter";
+import Loader from "~/components/Loader";
 export const runtime = "edge";
-export default function Team() {
+function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
   const [hovers1, setHovers1] = useState(true);
@@ -31,15 +31,15 @@ export default function Team() {
     };
   }, []);
   return (
-    <div className="min-h-screen w-full">
+    <div className="teampage min-h-screen w-full">
       <div className="bg-dotted min-h-screen w-full">
         <div className="flex w-full items-center justify-center">
-          <h1 className="mb-12 mt-24 text-center font-rp1 text-4xl text-customBlue lg:mt-48 lg:text-6xl">
+          <h1 className="titleText mb-12 mt-24 text-center font-rp1 text-customBlue lg:mt-48">
             MEET OUR TEAM{" "}
           </h1>
         </div>
         {!isDesktop ? (
-          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white ">
+          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white">
             <button
               style={
                 team == 1
@@ -185,8 +185,8 @@ export default function Team() {
                         main={item.id}
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
-                        instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -213,9 +213,13 @@ export default function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+<<<<<<< HEAD
                           hoversetter={setHovers1}
+=======
+                          github={member.github ?? ""}
+                          hoversetter={setHovers}
+>>>>>>> 1ff1cf5898df50549395df80925dd8cfc556699f
                         />
                       )),
                   )}
@@ -240,9 +244,13 @@ export default function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+<<<<<<< HEAD
                           hoversetter={setHovers2}
+=======
+                          github={member.github ?? ""}
+                          hoversetter={setHovers}
+>>>>>>> 1ff1cf5898df50549395df80925dd8cfc556699f
                         />
                       )),
                   )}
@@ -252,7 +260,10 @@ export default function Team() {
           )}
         </div>
       </div>
-    <FinalFooter />
     </div>
   );
+}
+
+export default function MainTeam() {
+  return <Team />;
 }
