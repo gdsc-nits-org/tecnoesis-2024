@@ -12,7 +12,7 @@ export default function NavbarMobile() {
   let path = usePathname();
   const navLinks: string[] = [
     "/home",
-    "/home#about",
+    "/gallery",
     "/home#sponsors",
     "/modules",
     "/team",
@@ -37,7 +37,7 @@ export default function NavbarMobile() {
   return (
     <>
       <nav
-        className={`${expand ? "fixed h-auto min-h-screen" : "sticky h-[4.75rem]"} left-0 top-0 z-50 flex w-full flex-col gap-4 bg-transparent backdrop-blur-sm`}
+        className={`${expand ? "fixed h-auto min-h-screen" : "sticky h-[4.75rem]"} left-0 top-0 z-50 flex w-full flex-col gap-1 bg-transparent backdrop-blur-sm`}
         style={
           expand
             ? {
@@ -75,8 +75,8 @@ export default function NavbarMobile() {
             <div onClick={handleProfile}>
               <Login />
             </div>
-            <section className="font-out flex h-full flex-col items-center gap-4 pb-4 text-2xl font-semibold text-[#B8B8B8]">
-              <div className="p-4">
+            <section className="font-out flex h-full flex-col items-center gap-2 pb-4 text-2xl font-semibold text-[#B8B8B8]">
+              <div className="p-1">
                 <Link
                   onClick={() => handleNavClick(0)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[0] && "text-[#01A3F5]"} `}
@@ -86,17 +86,17 @@ export default function NavbarMobile() {
                 </Link>
               </div>
               <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
-              <div className="p-4">
+              <div className="p-1">
                 <Link
                   onClick={() => handleNavClick(1)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[1] && "text-[#01A3F5]"} `}
-                  href="/home#about"
+                  href="/gallery"
                 >
-                  About
+                  Gallery
                 </Link>
               </div>
               <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
-              <div className="p-4">
+              <div className="p-1">
                 <Link
                   onClick={() => handleNavClick(2)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[2] && "text-[#01A3F5]"} `}
@@ -106,7 +106,7 @@ export default function NavbarMobile() {
                 </Link>
               </div>
               <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
-              <div className="p-4">
+              <div className="p-1">
                 <Link
                   onClick={() => handleNavClick(3)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[3] && "text-[#01A3F5]"} `}
@@ -116,7 +116,7 @@ export default function NavbarMobile() {
                 </Link>
               </div>
               <hr className="h-0.5 w-[75%] border-0 bg-gradient-to-r from-transparent via-[#01A3F5] to-transparent" />
-              <div className="p-4">
+              <div className="p-1">
                 <Link
                   onClick={() => handleNavClick(4)}
                   className={`navOptions text-lg transition-colors duration-500 lg:text-xl ${path == navLinks[4] && "text-[#01A3F5]"} `}
