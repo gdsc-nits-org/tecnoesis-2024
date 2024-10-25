@@ -212,31 +212,31 @@ const About = () => {
             />
             <img
               ref={imageCRef}
-              src="/assets/about/flow 7.gif "
+              src="/assets/about/Flow7.gif"
               alt="Image c"
               className="z-5 absolute left-1/2 top-1/2 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageDRef}
-              src="/assets/about/dotted ring.png"
+              src="/assets/about/dottedring.png"
               alt="Image d"
               className="z-4 absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageERef}
-              src="/assets/about/static ring.png"
+              src="/assets/about/static_ring.png"
               alt="Image e"
               className="z-3 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.35] transform object-contain"
             />
             <img
               ref={imageFRef}
-              src="/assets/about/Flow 6.gif"
+              src="/assets/about/Flow6.gif"
               alt="Image f"
               className="z-2 absolute left-1/2 top-1/2 h-[100%] w-[100%] -translate-x-1/2 -translate-y-1/2 transform"
             />
             <img
               ref={imageGRef}
-              src="/assets/about/outer ring.png"
+              src="/assets/about/outer_ring.png"
               alt="Image g"
               className="z-1 absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-[1.5] transform object-contain"
             />
