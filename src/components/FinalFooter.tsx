@@ -7,7 +7,7 @@ import {
   IoLogoLinkedin,
 } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import CustomButton from "./CustomButton";
+import Image from "next/image";
 
 const LandingFooter = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -124,7 +124,7 @@ const LandingFooter = () => {
         if (particle) {
           particle.draw();
         }
-      }      
+      }
       connectParticles();
       requestAnimationFrame(animateParticles);
     }
@@ -158,13 +158,13 @@ const LandingFooter = () => {
     <>
       <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
         <div
-          className="bg-[linear-gradient(black, #000000)] z-40 mb-[-150px] h-[180px] w-full"
+          className="bg-[linear-gradient(black, #000000)] z-40 mb-[-150px] h-[160px] w-full"
           style={{
             background:
               "linear-gradient(#000000, #0000009e, rgb(0 0 0 / 33%), #00000000)",
           }}
         ></div>
-        <div className="inset-0 z-0 w-full">
+        <div className="inset-0 z-0 w-auto">
           <canvas
             ref={canvasRef}
             style={{
@@ -184,45 +184,57 @@ const LandingFooter = () => {
         ) : (
           ""
         )}
-
-        <div className="back-cover z-20 flex h-full w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.webp')] bg-cover bg-bottom pt-[5vh]">
-          <div className="flex h-full w-full flex-col items-center justify-between">
-            <div className="tecno-big-img mb-0 mt-[150px] flex h-4/6 h-[40vh] h-[50vh] w-9/12 w-full flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[120%] md:h-[35vh] md:w-[110%] lg:h-[50vh] lg:w-full"></div>
-            <div className="mt-[-30px] h-[50px] w-[70%]">
-              <CustomButton text="Become Our Campus Ambassador" />
-            </div>
+        <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.png')] bg-cover bg-center">
+          <div className="flex w-full flex-col items-center justify-between">
+            <div className="mb-0 mb-[-20px] mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[80%] md:h-[35vh] md:w-[80%] lg:h-[40vh] lg:w-[80%]"></div>
           </div>
 
-          <div className="mt-auto flex min-h-[50vh] w-full flex-col items-center justify-end py-8">
-            <h2 className="lg:text-4x mb-4 flex items-center bg-gradient-to-b from-[#E9F8FF] to-[rgba(144,168,180,0.75)] bg-clip-text text-center font-['readyplayer',sans-serif] text-[24px] text-[28px] text-xl font-[500] leading-[1.5] tracking-[0.35em] text-transparent text-white sm:text-2xl sm:text-[28px] sm:tracking-[0.35em] md:text-3xl md:text-[32px] md:tracking-[0.4em] lg:text-[36px] lg:tracking-[0.45em]">
-              CONTACT US
-            </h2>
-            <span className="mb-6 flex justify-center gap-x-3.5">
+          <div className="mb-0 mt-auto flex w-full flex-col items-center justify-end py-8 sm:mb-[-10px]">
+            <span className="mb-0 flex justify-center gap-x-6 sm:mb-[-10px] lg:gap-x-4 xl:gap-x-5">
               <Link
                 href={"https://www.instagram.com/tecnoesis.nits/"}
                 aria-label="Instagram"
+                target="_blank"
               >
-                <IoLogoInstagram className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoInstagram className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.facebook.com/tecnoesis.nits"}
                 aria-label="Facebook"
+                target="_blank"
               >
-                <IoLogoFacebook className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoFacebook className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
               <Link
                 href={"https://www.linkedin.com/company/tecnoesis-nit-silchar/"}
                 aria-label="LinkedIn"
+                target="_blank"
               >
-                <IoLogoLinkedin className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+                <IoLogoLinkedin className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
-              <Link href={"https://x.com/tecnoesis_nits"} aria-label="Twitter">
-                <FaXTwitter className="text-2xl text-[1.5rem] text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-5xl lg:text-[1.5rem] xl:text-[1.5rem]" />
+              <Link
+                href={"https://x.com/tecnoesis_nits"}
+                aria-label="Twitter"
+                target="_blank"
+              >
+                <FaXTwitter className="text-2xl text-white hover:text-gray-200 sm:text-3xl md:text-4xl md:text-[1.5rem] lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl" />
               </Link>
             </span>
-            <div className="flex items-center text-center w-auto pl-[20px] pr-[20px] !text-[1rem] text-[0.875rem] text-sm font-medium leading-[1.5] tracking-[0.15em] tracking-[0.2em] text-white sm:text-base sm:tracking-[0.25em] md:text-lg md:tracking-[0.25em] lg:text-xl lg:tracking-[0.3em] xl:tracking-[0.35em]">
-              Designed in collaboration with GDG NIT Silchar 
-              <img src="https://res.cloudinary.com/dagggqd6g/image/upload/f_auto,q_auto/hyg5xs9vkkpswxiiidp3" alt="gdgc_logo" className="w-[150px] h-[90px] mt-[22px] ml-[-50px]" />
+            <div className="mb-[-30px] mt-2 flex w-auto flex-col items-center pl-[20px] pr-[20px] text-center font-outfit !text-[0.8rem] font-medium leading-[1.5] tracking-[0.2em] text-white sm:flex-row sm:!text-base sm:!tracking-[0.25em] md:!text-base md:tracking-[0.25em] lg:!text-[1rem] lg:tracking-[0.3em] xl:tracking-[0.35em] 2xl:!text-[1rem] 3xl:text-[1.6rem] 4xl:!text-[2rem]">
+              Designed in collaboration with GDGC NIT Silchar
+              <Link
+                href={"https://gdscnits.in/"}
+                aria-label="GDGC NITS"
+                target="_blank"
+              >
+                <Image
+                  src="/assets/footer/imgs/gdgc_logo_animated.gif"
+                  alt="gdgc_logo"
+                  height={60}
+                  width={55}
+                  className="h-[60px]"
+                />
+              </Link>
             </div>
           </div>
         </div>

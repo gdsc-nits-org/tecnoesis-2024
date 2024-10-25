@@ -6,80 +6,91 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
-import { z } from "zod";
+import {  z, ZodError } from "zod";
 import { toast } from "sonner";
-import Image from "next/image";
+import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
-
 export const runtime = "edge";
 
 const CommandMenu = ({
   allUsers,
   value,
   setValue,
-  index,
 }: {
   allUsers: UserResponse[];
-  value: string[];
-  setValue: (username: string, index: number) => void;
-  index: number;
+  value: string;
+  setValue: (username: string) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<UserResponse | null>(null);
 
-  const handleFocus = () => {
-    setIsOpen(true);
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
   };
 
   const handleBlur = () => {
-    setTimeout(() => setIsOpen(false), 100);
+    if (!selectedUser || selectedUser.username !== value) {
+      setSelectedUser(null);
+      handleChange("");
+    }
+    setIsOpen(false);
   };
-  const handleChange = (username: string) => {
-    setValue(username, index + 1);
-  };
+
   return (
     <div className={`relative w-full`}>
-      <Command
-        className="text-white"
-        label="Command Menu"
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            e.preventDefault();
-            setIsOpen(false);
-          }
-        }}
-      >
-        <Command.Input
+      {!isOpen && (
+        <input
           className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          value={value[index + 1]}
-          onValueChange={handleChange}
-          onClick={handleFocus}
+          onClick={() => setIsOpen(true)}
+          placeholder="Search username..."
+          value={value}
         />
-        {isOpen && (
-          <Command.List
-            className="animate-borderNeon absolute left-0 top-full mt-2 w-full rounded-lg border-[1px] border-transparent bg-black bg-opacity-60 text-center shadow-lg backdrop-blur-md"
-            style={{ zIndex: 10 }}
-          >
-            <Command.Empty>No results found.</Command.Empty>
+      )}
 
-            <Command.Group>
-              {allUsers.map((user, idx) => (
-                <Command.Item
-                  key={idx}
-                  onSelect={() => {
-                    setValue(user.username, index + 1);
-                  }}
-                  className="cursor-pointer px-6 py-2 hover:bg-sky-500"
-                >
-                  {user.firstName} {user.lastName} - {user.username} (
-                  {user.registrationId})
-                </Command.Item>
-              ))}
-            </Command.Group>
-          </Command.List>
-        )}
-      </Command>
+      {isOpen && (
+        <>
+          <div
+            className="fixed left-0 top-0 h-full w-full"
+            onClick={handleBlur}
+          ></div>
+          <Command
+            className="text-white"
+            label="Command Menu"
+            onKeyDown={(e) => e.key === "Escape" && setIsOpen(false)}
+          >
+            <Command.Input
+              autoFocus
+              placeholder="Search username..."
+              className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+              value={value}
+              onValueChange={handleChange}
+            />
+            <Command.List
+              className="animate-borderNeon absolute left-0 top-full mt-2 w-full rounded-lg border-[1px] border-transparent bg-black bg-opacity-60 text-center shadow-lg backdrop-blur-md"
+              style={{ zIndex: 10 }}
+              onFocus={() => console.log("Command LIst focussed")}
+            >
+              <Command.Empty>No results found.</Command.Empty>
+              <Command.Group>
+                {allUsers?.map((user, idx) => (
+                  <Command.Item
+                    key={idx}
+                    className="cursor-pointer px-6 py-2 hover:bg-sky-500"
+                    onSelect={() => {
+                      setSelectedUser(user);
+                      handleChange(user.username);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {user.firstName} {user.lastName} - {user.username} (
+                    {user.registrationId})
+                  </Command.Item>
+                ))}
+              </Command.Group>
+            </Command.List>
+          </Command>
+        </>
+      )}
     </div>
   );
 };
@@ -92,16 +103,15 @@ interface Event {
 }
 
 interface UserResponse {
-  balance: number;
-  collegeName: string;
-  email: string;
-  firebaseId: string;
+  collegeName?: string;
+  email?: string;
+  firebaseId?: string;
   firstName: string;
-  id: string;
-  imageUrl: string;
+  id?: string;
+  imageUrl?: string;
   lastName: string;
-  middleName: string;
-  phoneNumber: string;
+  middleName?: string;
+  phoneNumber?: string;
   registrationId: string;
   username: string;
 }
@@ -113,7 +123,7 @@ interface GetEventAPIResponse {
 
 const userDataSchema = z.object({
   teamName: z.string().min(1, "Team name is required"),
-  members: z.array(z.string()).min(1, "At least one member is required"),
+  members: z.array(z.string()),
 });
 
 interface TeamData {
@@ -137,7 +147,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const [isSoloEvent, setIsSoloEvent] = useState<boolean>(false);
   const [event, setEvent] = useState<Event | null>(null);
   const [allUsers, setAllUsers] = useState<UserResponse[]>([]);
-  const [teamLeader, setTeamLeader] = useState<string>("John_Doe");
+  const [teamLeader, setTeamLeader] = useState<string>("Loading...");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const fetchAllUsers = async (token: string) => {
@@ -146,7 +156,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         `${env.NEXT_PUBLIC_API_URL}/api/user/`,
         {
           headers: {
-            Authorization: 1000000,
+            Authorization: `Bearer ${token}`,
           },
         },
       );
@@ -156,6 +166,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       return [];
     }
   };
+
   const fetchUser = async (token: string) => {
     try {
       const { data } = await axios.get<{ msg: UserResponse }>(
@@ -196,7 +207,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       setAllUsers(await fetchAllUsers(token));
     })();
     void (async () => {
-      const token = user?.uid;
+      const token = await user?.getIdToken();
       if (!token) return;
       const leaderUsername = await fetchUser(token);
       if (leaderUsername) {
@@ -217,19 +228,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const handleMemberSelect = (username: string, index: number) => {
     setMembers((prev) => {
       const updated = [...prev];
-      updated[0] = teamLeader;
       updated[index] = username;
-      console.log(updated);
+      setFormData((prevData) => ({ ...prevData, members: updated }));
       return updated;
-    });
-    setFormData((prevData) => {
-      const newData = {
-        ...prevData,
-        members: members,
-      };
-      newData.members[0] = teamLeader;
-      console.log(newData);
-      return newData;
     });
   };
 
@@ -241,15 +242,17 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       (async () => {
         try {
           if (!user) throw new Error("User not authenticated");
+          setFormData((prevData) => ({ ...prevData, members: members }));
           const validatedData = userDataSchema.parse(formData);
           const filteredMembers = validatedData.members.filter(
-            (member) => member !== teamLeader
+            (member) => member !== teamLeader,
           );
-          const token =  await user?.getIdToken();
-          await axios.post(
+          const token = await user?.getIdToken();
+
+          const res = await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
-              name : validatedData.teamName,
+              name: validatedData.teamName,
               members: filteredMembers,
               extraInformation:
                 "This team specialises in AI and machine learning projects",
@@ -260,11 +263,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               },
             },
           );
-
-          toast.success("Team Created successfully.");
-          setTimeout(() => {
-            router.push("/");
-          }, 200);
+          router.push("/dashboard");
         } catch (err) {
           if (err instanceof z.ZodError) {
             const zodErrors = err.errors.reduce(
@@ -278,16 +277,39 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               {} as Record<string, string>,
             );
             setFormErrors(zodErrors);
+            throw err;
+          }
+
+          if (axios.isAxiosError(err)) {
+            const responseData = err.response?.data as { msg?: string };
+            if (err.response?.status && err.response.status <= 500) {
+              if (responseData?.msg) {
+                throw new Error(responseData.msg);
+              } else {
+                throw new Error(
+                  "An error occurred, but no message was provided.",
+                );
+              }
+            } else {
+              throw new Error("Internal Server Error");
+            }
           } else {
-            toast.error("An error occurred during registration.");
-            console.error(err);
+            throw new Error("An error occurred during registration.");
           }
         }
       })(),
       {
         loading: "Registering...",
         success: "Registration successful!",
-        error: "An error occurred during registration.",
+        error: (e: unknown): string => {
+          if (e instanceof ZodError) {
+            return e.errors[0]?.message ?? "Validation error";
+          } else if (e instanceof Error) {
+            return e.message;
+          } else {
+            return "An unknown error occurred";
+          }
+        },
       },
     );
   };
@@ -295,7 +317,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   if (loading || !event) {
     return (
       <div className="flex h-screen w-screen items-center justify-center gap-3">
-        Loading....
+        Loading...
       </div>
     );
   }
@@ -303,7 +325,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-        {isSoloEvent ? "Solo Registration" : "Group Registration"}
+        {isSoloEvent ? `Solo Registration` : "Group Registration"}
       </div>
       <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
         <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
@@ -345,45 +367,35 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           </div>
 
           {!isSoloEvent &&
-            Array.from({ length: event?.maxTeamSize - 1 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="inline-flex w-full items-center justify-between lg:gap-7"
-              >
-                <label
-                  htmlFor={`member${idx + 1}`}
-                  className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            Array.from({ length: (event?.maxTeamSize || 0) - 1 }).map(
+              (_, idx) => (
+                <div
+                  key={idx}
+                  className="inline-flex w-full items-center justify-between lg:gap-7"
                 >
-                  Member {idx + 2} Username:
-                </label>
-                <div className="relative flex w-1/2 items-center">
-                  <CommandMenu
-                    allUsers={allUsers}
-                    value={members}
-                    setValue={handleMemberSelect}
-                    index={idx}
-                  />
+                  <label
+                    htmlFor={`member${idx + 1}`}
+                    className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+                  >
+                    Member {idx + 2} Username:
+                  </label>
+                  <div className="relative flex w-1/2 items-center">
+                    <CommandMenu
+                      allUsers={allUsers}
+                      value={members[idx]!}
+                      setValue={(username) => handleMemberSelect(username, idx)}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
         </div>
         <div className="mt-10 flex w-full items-center justify-around">
-          <button
-            type="submit"
-            className="h-15 flex w-60 origin-top-left flex-row items-center justify-center gap-5 rounded-full border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent p-2 backdrop-blur-[9.878px] transition-all duration-300 hover:border-none hover:bg-gradient-to-r hover:from-[#01A3F5] hover:via-[#0AEFF6] hover:to-[#2F629C] lg:w-80"
-          >
-            <div className="h- full flex w-full items-center justify-center gap-5">
-              <Image
-                src="/Images/tabler_planet.svg"
-                alt="logo"
-                width={25}
-                height={25}
-              />
-              <div className="font-outfit text-lg text-white lg:text-xl">
-                Register
-              </div>
-            </div>
-          </button>
+          <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+            <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+              <CustomButton text="REGISTER" />
+            </button>
+          </div>
         </div>
       </form>
     </div>

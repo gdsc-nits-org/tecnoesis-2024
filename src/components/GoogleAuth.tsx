@@ -7,8 +7,14 @@ import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import { LoaderCircle, Rocket } from "lucide-react";
 import { toast } from "sonner";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { env } from "~/env";
+
+interface UserResponse {
+  username: string;
+  firstName: string;
+  lastName: string;
+}
 
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -16,63 +22,46 @@ const Login = () => {
   const router = useRouter();
   const bigScreen = useMediaQuery("(min-width: 768px)");
   const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   useEffect(() => {
-    const checkUserFirstTime = () => {
-      if (user) {
-        try {
-          const metadata = _user?.metadata;
-          const isFirstTime =
-            metadata?.creationTime === metadata?.lastSignInTime;
-
-          if (isFirstTime) {
-            router.push("/userSignUp");
-          } else {
-            router.push("/");
-          }
-        } catch (error) {
-          toast.error("Error checking user");
-        }
-      }
-    };
-
-    interface UserResponse {
-      username: string;
-    }
-
-    const getUserName = async () => {
+    const checkUserFirstTime = async () => {
+      if (!_user) return;
       try {
-        if (_user) {
-          const token = await _user?.getIdToken();
-          const { data } = await axios.get<{ msg: UserResponse }>(
-            `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
+        const token = await _user.getIdToken();
+        const res = await axios.get<{ msg: UserResponse }>(
+          `${env.NEXT_PUBLIC_API_URL}/api/user/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
             },
-          );
-          if (data.msg.username) {
-            setUserName(data.msg.username);
+          },
+        );
+        setUserName(() => res.data.msg.username);
+        setFirstName(() => res.data.msg.firstName);
+        setLastName(() => res.data.msg.lastName);
+        console.log("Username", userName);
+        router.push("/home");
+      } catch (e) {
+        if (axios.isAxiosError(e)) {
+          if (e.status === 404) {
+            router.push("/userSignUp");
           }
+        } else {
+          toast.error("Firebase Backend Auth Error");
         }
-      } catch (error) {
-        toast.error("Error fetching user data");
       }
     };
-
-    checkUserFirstTime();
-    void getUserName();
-  }, [user, router, _user]);
+    void checkUserFirstTime();
+  }, [user, router, _user, userName, setUserName]);
 
   if (error) {
-    toast.error(
-      "There was some error. Please refresh the page or email contact@tecnoesis.co.in",
-    );
+    toast.error("There was some Firebase error");
   }
   if (loading || _loading) {
     return (
       <div className="flex w-[12vw] items-center justify-center gap-3 bg-transparent backdrop-blur-lg">
-        <LoaderCircle className=" animate-spin" size={60} />
+        <LoaderCircle className="animate-spin" size={60} />
       </div>
     );
   }
@@ -117,8 +106,8 @@ const Login = () => {
                 alt="avater"
               ></Image>
             )}
-            <p className="w-[8vw] overflow-hidden text-nowrap text-center text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
-              {(userName ? userName : "use_r_name").toLowerCase()}
+            <p className="w-[8vw] overflow-hidden text-nowrap text-center font-outfit text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
+              {userName}
             </p>
           </button>
         </section>
@@ -152,6 +141,8 @@ const Login = () => {
         photoURL={_user?.photoURL}
         displayName={_user?.displayName}
         userName={userName}
+        firstName={firstName}
+        lastName={lastName}
       />
     );
   }
@@ -161,12 +152,16 @@ export default Login;
 interface UserCred {
   photoURL: string | null | undefined;
   displayName: string | null | undefined;
+  firstName: string | null | undefined;
+  lastName: string | null | undefined;
   userName: string | null | undefined;
 }
 const ProfileCard: React.FC<UserCred> = ({
   photoURL,
   displayName,
   userName,
+  firstName,
+  lastName,
 }) => {
   const router = useRouter();
   return (
@@ -197,14 +192,14 @@ const ProfileCard: React.FC<UserCred> = ({
         </div>
         <div className="flex h-[80%] flex-grow flex-col justify-around gap-2 pl-4">
           <div className="flex flex-col gap-1 text-[#B8B8B8]">
-            <h1 className="text-wrap font-rp1 text-lg leading-5">
-              {displayName}
+            <h1 className="text-wrap font-rp1 text-lg leading-5 tracking-tighter">
+              {firstName}+{lastName}
             </h1>
             <h3 className="font-outfit text-base">{userName}</h3>
           </div>
           <button
             onClick={() => {
-              router.push("/home");
+              router.push("/dashboard");
             }}
             className="w-full max-w-[160px] rounded-3xl border border-[#01a3f5] p-1 text-base text-[#01a3f5]"
           >

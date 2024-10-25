@@ -1,69 +1,43 @@
-"use client";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "usehooks-ts";
-import Login from "~/components/GoogleAuth";
-import Landing from "~/components/Landing";
-import Navbar from "~/components/LandingNav";
-import Scene from "~/components/Scene";
+'use client'
 
-const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"));
+import { useRef, useState, useEffect } from "react";
+import { BiSolidVolumeFull, BiSolidVolumeMute } from "react-icons/bi";
+import Landing from "~/components/Landing";
 
 export const runtime = "edge";
-interface NavigatorExtended extends Navigator {
-  deviceMemory?: number | undefined;
-}
+
 export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
-  const comingsoon = false;
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const matches = useMediaQuery("(max-width: 1024px)");
+
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+       void audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   if (!isClient) return null;
-  const nav = navigator as NavigatorExtended;
-  const isFirefox = navigator.userAgent.includes("Firefox");
-  const isLowMemoryDevice = nav.deviceMemory! <= 4;
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  if (comingsoon) {
-    if (!isFirefox) {
-      return (
-        <main className="bg-black">
-          <Navbar />
-          {matches && <NavbarMobile />}
-          <div className="h-screen">
-            {isLowMemoryDevice && isAndroid ? (
-              <div className="flex min-h-screen items-center justify-center text-[#ffffff]">
-                <p>Low memory Android device detected</p>
-              </div>
-            ) : (
-              <Scene />
-            )}
-            <Login />
-          </div>
-        </main>
-      );
-    } else {
-      return (
-        <main className="bg-black">
-          <Navbar />
-          {matches && <NavbarMobile />}
-          <div className="flex h-screen items-center justify-center">
-            <h1 className="text-[#ffffff]">
-              Please have the mercy to use chromium based browsers
-            </h1>
-            <Login />
-          </div>
-        </main>
-      );
-    }
-  } else {
-    return (
-      <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/stars-bg.avif')]">
-        <Landing />
+  return (
+    <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/starry.gif')]">
+      <Landing />
+      <div
+        onClick={togglePlayPause}
+        className="text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF] fixed top-[93%] right-12 animate-text-glow text-center text-white cursor-pointer z-20 text-3xl"
+      >
+        {isPlaying ? <BiSolidVolumeFull /> : <BiSolidVolumeMute />}
       </div>
-    );
-  }
+      <audio ref={audioRef} src="/rp1bgm.mp3" preload="metadata" loop />
+    </div>
+  );
 }
