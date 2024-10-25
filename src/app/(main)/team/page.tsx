@@ -4,9 +4,10 @@ import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Loader from "~/components/Loader";
 export const runtime = "edge";
+
 function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
@@ -214,12 +215,8 @@ function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-<<<<<<< HEAD
-                          hoversetter={setHovers1}
-=======
                           github={member.github ?? ""}
-                          hoversetter={setHovers}
->>>>>>> 1ff1cf5898df50549395df80925dd8cfc556699f
+                          hoversetter={setHovers1}
                         />
                       )),
                   )}
@@ -245,12 +242,8 @@ function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-<<<<<<< HEAD
-                          hoversetter={setHovers2}
-=======
                           github={member.github ?? ""}
-                          hoversetter={setHovers}
->>>>>>> 1ff1cf5898df50549395df80925dd8cfc556699f
+                          hoversetter={setHovers2}
                         />
                       )),
                   )}
@@ -265,5 +258,9 @@ function Team() {
 }
 
 export default function MainTeam() {
-  return <Team />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <Team />
+    </Suspense>
+  );
 }

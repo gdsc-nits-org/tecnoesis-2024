@@ -404,4 +404,3 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   );
 };
 
-export default RegisterTeam;

@@ -28,9 +28,9 @@ export default function Page() {
       <div className="text-gradient-blue titleText mb-10 mt-20 font-rp1 font-bold sm:pt-20">
         Sponsors
       </div>
-      <div className="w-full px-10">
+      {/* <div className="w-full px-10">
         <SponsorHome />
-      </div>
+      </div> */}
       <FinalFooter />
     </div>
   );

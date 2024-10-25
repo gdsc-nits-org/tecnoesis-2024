@@ -2,6 +2,8 @@ import Landing from "~/components/Spark/Landing";
 import About from "~/components/Spark/About";
 import Gallery from "~/components/Spark/Gallery";
 import FinalFooter from "~/components/FinalFooter";
+import { Suspense } from "react";
+import Loader from "~/components/Loader";
 export const runtime = "edge";
 
 const Spark = () => {
@@ -21,4 +23,10 @@ const Spark = () => {
     );
 }
 
-export default Spark;
+export default function Page() {
+    return (
+      <Suspense fallback={<Loader />}>
+        <Spark />
+      </Suspense>
+    );
+  }
