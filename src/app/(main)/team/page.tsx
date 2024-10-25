@@ -185,7 +185,7 @@ export default function Team() {
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
                         linkedin={member.linkedin ?? ""}
-                        github={(member.github as string)?? ""}
+                        github={(member.github)?? ""}
                       />
                     </div>
                   ))}
@@ -213,7 +213,7 @@ export default function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github as string) ?? ""}
+                          github={(member.github) ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -240,7 +240,7 @@ export default function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github as string) ?? ""}
+                          github={(member.github) ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
