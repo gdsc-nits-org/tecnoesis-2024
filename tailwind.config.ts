@@ -97,6 +97,10 @@ const config = {
           "linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)",
       },
       keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
         upDown: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-20px)" },
@@ -173,6 +177,7 @@ const config = {
         "custom-ellipse": "ellipse(100% 50% at 50% 100%)",
       },
       animation: {
+        "rotate": "rotate 1.2s linear infinite",
         upDown: "upDown 3s ease-in-out infinite",
         oppositeUpDown: "oppositeUpDown 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
