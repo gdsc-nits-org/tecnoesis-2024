@@ -38,7 +38,7 @@ function Team() {
           </h1>
         </div>
         {!isDesktop ? (
-          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white ">
+          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white">
             <button
               style={
                 team == 1
@@ -158,7 +158,6 @@ function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
-                       
                       />
                     </div>
                   ))}
@@ -186,7 +185,7 @@ function Team() {
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
                         linkedin={member.linkedin ?? ""}
-                        github={(member.github as string)?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -214,7 +213,7 @@ function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github as string) ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -241,7 +240,7 @@ function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github as string) ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -258,7 +257,7 @@ function Team() {
 
 export default function MainTeam() {
   return (
-    <Suspense fallback={<Loader/>}>
+    <Suspense fallback={<Loader />}>
       <Team />
     </Suspense>
   );
