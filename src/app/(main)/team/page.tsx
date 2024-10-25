@@ -4,7 +4,7 @@ import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import Loader from "~/components/Loader";
 export const runtime = "edge";
 function Team() {
@@ -30,7 +30,7 @@ function Team() {
     };
   }, []);
   return (
-    <div className="min-h-screen w-full">
+    <div className="teampage min-h-screen w-full">
       <div className="bg-dotted min-h-screen w-full">
         <div className="flex w-full items-center justify-center">
           <h1 className="titleText mb-12 mt-24 text-center font-rp1 text-customBlue lg:mt-48">
@@ -256,9 +256,5 @@ function Team() {
 }
 
 export default function MainTeam() {
-  return (
-    <Suspense fallback={<Loader />}>
-      <Team />
-    </Suspense>
-  );
+  return <Team />;
 }

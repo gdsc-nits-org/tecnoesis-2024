@@ -1,9 +1,8 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { env } from "~/env";
 import EventCard from "~/components/EventCard";
-import Loader from "~/components/Loader";
 
 interface Eventresponse {
   id: string;
@@ -68,31 +67,23 @@ const AllEvents = ({ params }: { params: EventParams }) => {
     void fetchEventDec();
   }, [params]);
   return (
-    <Suspense fallback={<Loader />}>
-      <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
-        <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-3xl font-normal uppercase tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
-          {moduleName}
-        </div>
-        <div className="flex flex-col flex-wrap items-center justify-evenly gap-[3rem] md:flex-row">
-          {events.map((event, ind) => (
-            <EventCard
-              key={ind}
-              eventID={event.id}
-              eventPoster={event.posterImage}
-              eventname={event.name}
-              modulename={moduleName ?? "Loading module name ...."}
-            />
-          ))}
-        </div>
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
+      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-3xl font-normal uppercase tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+        {moduleName}
       </div>
-    </Suspense>
+      <div className="flex flex-col flex-wrap items-center justify-evenly gap-[3rem] md:flex-row">
+        {events.map((event, ind) => (
+          <EventCard
+            key={ind}
+            eventID={event.id}
+            eventPoster={event.posterImage}
+            eventname={event.name}
+            modulename={moduleName ?? "Loading module name ...."}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default function MainAllEvents({ params }: { params: EventParams }) {
-  return (
-    <Suspense fallback={<Loader />} >
-      <AllEvents params={params} />
-    </Suspense>
-  );
-};
+export default AllEvents;

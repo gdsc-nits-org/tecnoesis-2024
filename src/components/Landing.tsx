@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import EnterButton from "./enterButton";
@@ -11,7 +11,7 @@ import { useIsClient } from "usehooks-ts";
 const Landing: React.FC = () => {
   const tl = gsap.timeline({ ease: "slow", duration: 1 });
   const [progress, setProgress] = useState<number>(0);
-  const [enter,setEnter]=useState(false);
+  const [enter, setEnter] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [audio] = useState(new Audio("/assets/Landing/enter.mp3"));
   const imageUrls = 5;
@@ -59,18 +59,18 @@ const Landing: React.FC = () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isLoading, tl]);
-  const handleEnter=()=>{
+  const handleEnter = () => {
     setEnter(true);
     return (audio.volume = 0.5), audio.play();
-  }
+  };
   return (
     <div>
       {isLoading && <Progress progress={progress} />}
       <div
         className={`landing relative flex h-[100vh] flex-col items-center justify-around overflow-hidden text-[#ffffff] ${isLoading ? "hidden" : null} `}
-        style={{animationName:`${enter?'diminish':'none'}`}}
+        style={{ animationName: `${enter ? "diminish" : "none"}` }}
       >
-        <div className="3xl:ml-[20rem] absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem]">
+        <div className="absolute z-10 ml-[10rem] scale-[0.5] sm:ml-[12rem] sm:mt-[4rem] sm:scale-[0.8] lg:ml-[16rem] 3xl:ml-[20rem]">
           <Link onClick={handleEnter} href={"/home"}>
             <EnterButton />
           </Link>
@@ -79,7 +79,7 @@ const Landing: React.FC = () => {
           <Image
             src="/assets/Landing/tecnoesisLogo.webp"
             alt="Tecnoesis Logo"
-            className="movable z-1 4xl:scale-[2] h-[10rem] w-[20rem] object-cover md:h-[15rem] md:w-[30rem] lg:h-[25rem] lg:w-[45rem]"
+            className="movable z-1 h-[10rem] w-[20rem] object-cover md:h-[15rem] md:w-[30rem] lg:h-[25rem] lg:w-[45rem] 4xl:scale-[2]"
             width={1000}
             height={1000}
             data-depth={80}
@@ -98,7 +98,7 @@ const Landing: React.FC = () => {
             priority={true}
             onLoad={handleImageLoad}
           />
-          <div className="scale-1 tv1:scale-[1.5] tv2:scale-[1.6] relative bottom-[40px] left-0 flex w-[100%] items-center justify-center">
+          <div className="scale-1 relative bottom-[40px] left-0 flex w-[100%] items-center justify-center tv1:scale-[1.5] tv2:scale-[1.6]">
             <Image
               width={500}
               height={500}
@@ -122,7 +122,7 @@ const Landing: React.FC = () => {
             <img
               src="/assets/Landing/hiker.png"
               alt="rock"
-              className="movable z-5 desktop1:bottom-[-500px] desktop2:bottom-[-550px] desktop3:bottom-[-700px] tv1:scale-[0.25] tv1:bottom-[-850px] tv3:bottom-[-1000px] 6xl:bottom-[-1200px] 7xl:bottom-[-1300px] absolute bottom-[-100px] mobile4:bottom-[-150px] mobile4:scale-[0.8] md:bottom-[-300px] md:scale-[0.5] tablet4:bottom-[-400px] tablet4:scale-[0.4]"
+              className="movable z-5 absolute bottom-[-100px] mobile4:bottom-[-150px] mobile4:scale-[0.8] md:bottom-[-300px] md:scale-[0.5] tablet4:bottom-[-400px] tablet4:scale-[0.4] desktop1:bottom-[-500px] desktop2:bottom-[-550px] desktop3:bottom-[-700px] tv1:bottom-[-850px] tv1:scale-[0.25] tv3:bottom-[-1000px] 6xl:bottom-[-1200px] 7xl:bottom-[-1300px]"
               data-depth={20}
               onLoad={handleImageLoad}
             />
@@ -136,9 +136,5 @@ const Landing: React.FC = () => {
 export default function MainLanding() {
   const isClient = useIsClient();
   if (!isClient) return null;
-  return (
-    <Suspense fallback={<Progress progress={0} />}>
-      <Landing />
-    </Suspense>
-  );
+  return <Landing />;
 }

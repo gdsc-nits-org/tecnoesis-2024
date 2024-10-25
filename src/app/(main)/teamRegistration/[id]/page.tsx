@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -325,96 +325,83 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   }
 
   return (
-    <Suspense fallback={<Loader />}>
-      <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
-        <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-          {isSoloEvent ? `Solo Registration` : "Group Registration"}
-        </div>
-        <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
-          <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
-            <div className="inline-flex w-full items-center justify-between lg:gap-7">
-              <label
-                htmlFor="teamName"
-                className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
-              >
-                Team Name:
-              </label>
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
+      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
+        {isSoloEvent ? `Solo Registration` : "Group Registration"}
+      </div>
+      <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
+        <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="teamName"
+              className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            >
+              Team Name:
+            </label>
+            <input
+              type="text"
+              id="teamName"
+              name="teamName"
+              value={formData.teamName}
+              onChange={handleChange}
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+              required
+            />
+          </div>
+
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="teamLeader"
+              className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
+            >
+              Leader&apos;s Username:
+            </label>
+            <div className="relative flex w-1/2 items-center">
               <input
                 type="text"
-                id="teamName"
-                name="teamName"
-                value={formData.teamName}
-                onChange={handleChange}
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-                required
+                id="teamLeader"
+                name="teamLeader"
+                value={teamLeader}
+                className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+                readOnly
               />
             </div>
+          </div>
 
-            <div className="inline-flex w-full items-center justify-between lg:gap-7">
-              <label
-                htmlFor="teamLeader"
-                className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
-              >
-                Leader&apos;s Username:
-              </label>
-              <div className="relative flex w-1/2 items-center">
-                <input
-                  type="text"
-                  id="teamLeader"
-                  name="teamLeader"
-                  value={teamLeader}
-                  className="h-10 w-full origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-                  readOnly
-                />
-              </div>
-            </div>
-
-            {!isSoloEvent &&
-              Array.from({ length: (event?.maxTeamSize || 0) - 1 }).map(
-                (_, idx) => (
-                  <div
-                    key={idx}
-                    className="inline-flex w-full items-center justify-between lg:gap-7"
+          {!isSoloEvent &&
+            Array.from({ length: (event?.maxTeamSize || 0) - 1 }).map(
+              (_, idx) => (
+                <div
+                  key={idx}
+                  className="inline-flex w-full items-center justify-between lg:gap-7"
+                >
+                  <label
+                    htmlFor={`member${idx + 1}`}
+                    className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
                   >
-                    <label
-                      htmlFor={`member${idx + 1}`}
-                      className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
-                    >
-                      Member {idx + 2} Username:
-                    </label>
-                    <div className="relative flex w-1/2 items-center">
-                      <CommandMenu
-                        allUsers={allUsers}
-                        value={members[idx]!}
-                        setValue={(username) =>
-                          handleMemberSelect(username, idx)
-                        }
-                      />
-                    </div>
+                    Member {idx + 2} Username:
+                  </label>
+                  <div className="relative flex w-1/2 items-center">
+                    <CommandMenu
+                      allUsers={allUsers}
+                      value={members[idx]!}
+                      setValue={(username) => handleMemberSelect(username, idx)}
+                    />
                   </div>
-                ),
-              )}
+                </div>
+              ),
+            )}
+        </div>
+        <div className="mt-10 flex w-full items-center justify-around">
+          <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+            <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+              <CustomButton text="REGISTER" />
+            </button>
           </div>
-          <div className="mt-10 flex w-full items-center justify-around">
-            <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-              <button
-                type="submit"
-                className="w-[60vw] lg:w-[30vw] xl:w-[20vw]"
-              >
-                <CustomButton text="REGISTER" />
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </Suspense>
+        </div>
+      </form>
+    </div>
   );
 };
 
-export default function MainRegisterTeam({ params }: { params: EventParams }) {
-  return (
-    <Suspense fallback={<Loader />}>
-      <RegisterTeam params={params} />
-    </Suspense>
-  );
-}
+export default RegisterTeam;

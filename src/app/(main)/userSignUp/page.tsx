@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -137,148 +137,142 @@ const CompleteProfile = () => {
   }
 
   return (
-      <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
-        <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
-          USER REGISTRATION
-        </div>
-        <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
-          <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
-            <div className="inline-flex w-full items-center justify-between lg:gap-7">
-              <label
-                htmlFor="firstName"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                FIRST NAME:
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full items-center justify-between lg:gap-7">
-              <label
-                htmlFor="middleName"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                MIDDLE NAME:
-              </label>
-              <input
-                type="text"
-                id="middleName"
-                name="middleName"
-                value={formData.middleName}
-                onChange={handleChange}
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full items-center justify-between lg:gap-7">
-              <label
-                htmlFor="lastName"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                LAST NAME:
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full justify-between lg:gap-7">
-              <label
-                htmlFor="phoneNumber"
-                className="font-outfittext-sm w-3/10 text-wrap font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                PHONE NUMBER:
-              </label>
-              <input
-                type="text"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full justify-between lg:gap-7">
-              <label
-                htmlFor="username"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                USERNAME:
-              </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full justify-between lg:gap-7">
-              <label
-                htmlFor="collegeName"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                COLLEGE NAME:
-              </label>
-              <input
-                type="text"
-                id="collegeName"
-                name="collegeName"
-                value={formData.collegeName}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-            <div className="inline-flex w-full justify-between lg:gap-7">
-              <label
-                htmlFor="registrationId"
-                className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
-              >
-                REGISTRATION ID:
-              </label>
-              <input
-                type="text"
-                id="registrationId"
-                name="registrationId"
-                value={formData.registrationId}
-                onChange={handleChange}
-                required
-                className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
-              />
-            </div>
-          </div>
-          <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
-            <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
-              <CustomButton
-                text="SIGN UP"
-                className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
-              />
-            </button>
-          </div>
-        </form>
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
+      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
+        USER REGISTRATION
       </div>
+      <form onSubmit={handleSubmit} className="gap-15 flex flex-col">
+        <div className="flex min-w-[90vw] flex-col items-center justify-center gap-7 lg:min-w-[60vw]">
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="firstName"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              FIRST NAME:
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="middleName"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              MIDDLE NAME:
+            </label>
+            <input
+              type="text"
+              id="middleName"
+              name="middleName"
+              value={formData.middleName}
+              onChange={handleChange}
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full items-center justify-between lg:gap-7">
+            <label
+              htmlFor="lastName"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              LAST NAME:
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full justify-between lg:gap-7">
+            <label
+              htmlFor="phoneNumber"
+              className="font-outfittext-sm w-3/10 text-wrap font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              PHONE NUMBER:
+            </label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full justify-between lg:gap-7">
+            <label
+              htmlFor="username"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              USERNAME:
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full justify-between lg:gap-7">
+            <label
+              htmlFor="collegeName"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              COLLEGE NAME:
+            </label>
+            <input
+              type="text"
+              id="collegeName"
+              name="collegeName"
+              value={formData.collegeName}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+          <div className="inline-flex w-full justify-between lg:gap-7">
+            <label
+              htmlFor="registrationId"
+              className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
+            >
+              REGISTRATION ID:
+            </label>
+            <input
+              type="text"
+              id="registrationId"
+              name="registrationId"
+              value={formData.registrationId}
+              onChange={handleChange}
+              required
+              className="h-10 w-1/2 origin-top-left rounded-[10.036px] border-[0.627px] border-b-gray-700 border-t-gray-400 bg-transparent text-center text-white backdrop-blur-[9.878px]"
+            />
+          </div>
+        </div>
+        <div className="lg:translate-x-25 mt-10 flex w-full items-center justify-around">
+          <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
+            <CustomButton
+              text="SIGN UP"
+              className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
-export default function MainCompleteProfile() {
-  return(
-    <Suspense fallback={<Loader/>}>
-      <CompleteProfile/>
-    </Suspense>
-  )
-};
+export default CompleteProfile;

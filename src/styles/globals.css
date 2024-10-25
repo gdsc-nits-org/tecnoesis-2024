@@ -638,9 +638,9 @@ body {
   }
 }
 
-.homepage {
+.homepage,.teampage,.gallerypage,.dashboardpage,.modulepage {
   animation-name: emerge;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: linear;

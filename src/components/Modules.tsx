@@ -118,7 +118,7 @@ const Modules: React.FC = () => {
       ></div>
       {/* Put Coming Soon Content Here */}
       {!comingSoon && (
-        <div className="relative z-10 pt-[9.4rem] text-white">
+        <div className="modulepage relative z-10 pt-[9.4rem] text-white">
           <div className="flex w-full flex-col gap-24">
             {modules.map((module, index) => (
               <div
