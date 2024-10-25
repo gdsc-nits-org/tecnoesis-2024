@@ -1,7 +1,8 @@
 "use client";
-
+import { Suspense } from "react";
 import EventsInfo from "~/components/Dashboard/EventsInfo";
 import Profile from "~/components/Dashboard/Profile";
+import Loader from "~/components/Loader";
 export const runtime = "edge";
 const DashBoard = () => {
   return (
@@ -21,4 +22,11 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default function MainDashBoard() {
+  return (
+    <Suspense fallback={<Loader/>}>
+      <DashBoard />
+    </Suspense>
+  );
+}
+
