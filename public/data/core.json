@@ -24,7 +24,16 @@
                 "facebook": "https://www.facebook.com/profile.php?id=100076060506763&mibextid=LQQJ4d",
                 "instagram": "https://www.instagram.com/sdahewar/profilecard/?igsh=cHpzODVnend0N3R2",
                 "linkedin": "https://www.linkedin.com/in/sdahewar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-            }
+            },
+              {
+                "name": "Nabarun Kalita",
+                "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729785183/IMG_3509_-_189_Nabarun_Kalita_rak4xh.webp",
+                "designation": "Convenor",
+                "facebook": "https://www.facebook.com/people/Nabarun-Kalita/pfbid03o5ZY8TrWRidxK8phH4ZxDQZcfqwDaCe6DvnTPm4UyA6DGnUiDj1KZnAyKSs7TESl/",
+                "instagram": "https://www.instagram.com/nabarunk_7/profilecard/?igsh=MWZvMmN4b2J3OXh1cQ%3D%3D",
+                "linkedin": "https://www.linkedin.com/in/nabarunk7/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              }
+
         ]
     },
     {
@@ -390,7 +399,15 @@
                 "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
                 "instagram": "https://www.instagram.com/_imaharnav_",
                 "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
-            }
+            },
+             {
+               "name": "Kumar Ashish Ranjan",
+               "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729783906/AirBrush_20230816233118_-_144_Kumar_Ashish_Ranjan_ogl5ip.webp",
+               "designation": "Web Lead",
+               "facebook": "https://www.facebook.com/RASTRASHASTRA/",
+               "instagram": "https://www.instagram.com/kr.ashishranjan/",
+               "linkedin": "https://www.linkedin.com/in/kumar-ashish-ranjan-6359b7233/"
+             }
         ]
     },
     {

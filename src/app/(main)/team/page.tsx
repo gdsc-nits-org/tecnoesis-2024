@@ -38,7 +38,7 @@ function Team() {
           </h1>
         </div>
         {!isDesktop ? (
-          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white ">
+          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white">
             <button
               style={
                 team == 1
@@ -184,8 +184,8 @@ function Team() {
                         main={item.id}
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
-                        instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -212,8 +212,8 @@ function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -239,8 +239,8 @@ function Team() {
                           photo={member.photo}
                           index={idx}
                           facebook={member.facebook ?? ""}
-                          instagram={member.instagram ?? ""}
                           linkedin={member.linkedin ?? ""}
+                          github={member.github ?? ""}
                           hoversetter={setHovers}
                         />
                       )),
@@ -257,7 +257,7 @@ function Team() {
 
 export default function MainTeam() {
   return (
-    <Suspense fallback={<Loader/>}>
+    <Suspense fallback={<Loader />}>
       <Team />
     </Suspense>
   );
