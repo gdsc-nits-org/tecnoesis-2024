@@ -40,8 +40,6 @@ const Login = () => {
         setUserName(() => res.data.msg.username);
         setFirstName(() => res.data.msg.firstName);
         setLastName(() => res.data.msg.lastName);
-        console.log("Username", userName);
-        router.push("/home");
       } catch (e) {
         if (axios.isAxiosError(e)) {
           if (e.status === 404) {

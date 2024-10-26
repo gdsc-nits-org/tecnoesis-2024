@@ -118,9 +118,18 @@ const CompleteProfile = () => {
         error: (err) => {
           if (err instanceof z.ZodError) {
             return "Validation errors occurred.";
-          } else {
-            return "An error occurred while creating the user.";
           }
+          if (axios.isAxiosError(err)) {
+            const responseData = err.response?.data as { msg?: string };
+            if (
+              err.response?.status &&
+              err.response.status <= 500 &&
+              responseData?.msg
+            ) {
+              return responseData.msg;
+            }
+          }
+          return "An error occurred while creating the user.";
         },
       },
     );
