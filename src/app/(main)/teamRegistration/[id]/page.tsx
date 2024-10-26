@@ -226,6 +226,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
 
   const [members, setMembers] = useState<string[]>([]);
   const handleMemberSelect = (username: string, index: number) => {
+    if (!username) return;
     setMembers((prev) => {
       const updated = [...prev];
       updated[index] = username;

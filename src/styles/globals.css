@@ -558,7 +558,7 @@ body {
   display: none;
 }
 .newEventCard {
-  border: 1px solid;
+  border: 6px solid;
   border-image-source: linear-gradient(
     148.38deg,
     #7decff 1.01%,

@@ -21,14 +21,14 @@ export default function Page() {
       <div className="text-gradient-blue titleText m-10 text-center font-rp1 font-bold">
         Past Sponsors
       </div>
-      <div className="flex w-full flex-col gap-y-20 md:w-4/5">
+      <div className="flex w-full flex-col gap-y-20 md:w-4/5 mb-20">
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
       </div>
-      <div className="text-gradient-blue titleText mb-10 mt-20 font-rp1 font-bold sm:pt-20">
+      {/* <div className="text-gradient-blue titleText mb-10 mt-20 font-rp1 font-bold sm:pt-20">
         Sponsors
       </div>
-      {/* <div className="w-full px-10">
+      <div className="w-full px-10">
         <SponsorHome />
       </div> */}
       <FinalFooter />
