@@ -25,10 +25,10 @@ export default function Page() {
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
       </div>
-      <div className="text-gradient-blue titleText mb-10 mt-20 font-rp1 font-bold sm:pt-20">
+      {/* <div className="text-gradient-blue titleText mb-10 mt-20 font-rp1 font-bold sm:pt-20">
         Sponsors
       </div>
-      {/* <div className="w-full px-10">
+      <div className="w-full px-10">
         <SponsorHome />
       </div> */}
       <FinalFooter />
