@@ -17,7 +17,7 @@ interface Module {
 
 const Modules: React.FC = () => {
   const [modules, setModules] = useState<Module[]>([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
   const comingSoon = true;
 
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
@@ -30,10 +30,10 @@ const Modules: React.FC = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/api/module`,
         );
         setModules(data.msg);
-        setIsLoading(false); 
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching modules:", error);
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
 
@@ -113,8 +113,8 @@ const Modules: React.FC = () => {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden bg-cover bg-center 
-                 bg-[url('/assets/modules/bg-modules.gif')] md:bg-none"
+      className="relative min-h-screen overflow-hidden bg-center bg-cover bg-fixed 
+             bg-[url('/assets/modules/bg-modules.gif')] md:bg-none"
     >
       <div
         className="z-10000 fixed inset-0 md:flex hidden"
@@ -162,7 +162,7 @@ const Modules: React.FC = () => {
                               ref={(el) => setImageRef(el, index)}
                               src={module.coverImage}
                               alt={module.name}
-                              className="h-full w-full cursor-pointer border-[8px] border-[#B8B8B840] object-cover backdrop-blur-[7.6rem]" 
+                              className="h-full w-full cursor-pointer border-[8px] border-[#B8B8B840] object-cover backdrop-blur-[7.6rem]"
                               unoptimized
                               fill
                             />
