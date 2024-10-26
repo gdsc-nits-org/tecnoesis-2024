@@ -159,6 +159,7 @@ function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
+                       
                       />
                     </div>
                   ))}
