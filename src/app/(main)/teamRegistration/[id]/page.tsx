@@ -6,11 +6,10 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
-import { string, z, ZodError } from "zod";
+import { z, ZodError } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
-
 export const runtime = "edge";
 
 const CommandMenu = ({
@@ -124,7 +123,7 @@ interface GetEventAPIResponse {
 
 const userDataSchema = z.object({
   teamName: z.string().min(1, "Team name is required"),
-  members: z.array(z.string()).min(0, "At least one member is required"),
+  members: z.array(z.string()),
 });
 
 interface TeamData {
@@ -193,7 +192,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         );
         const eventData = data.msg;
         setEvent(eventData);
-        setIsSoloEvent(eventData.maxTeamSize === eventData.minTeamSize);
+        setIsSoloEvent(eventData.maxTeamSize == 1);
       } catch (e) {
         console.error(e);
       }
@@ -248,10 +247,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           const filteredMembers = validatedData.members.filter(
             (member) => member !== teamLeader,
           );
-          console.log(filteredMembers);
           const token = await user?.getIdToken();
 
-          const res = await axios.post(
+          await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
               name: validatedData.teamName,

@@ -29,23 +29,23 @@ const config = {
         tablet25: "870px",
         tablet3: "900px",
         tablet4: "950px",
-        desktop1:"1200px",
-        desktop2:"1600px",
-        desktop3:"1800px",
+        desktop1: "1200px",
+        desktop2: "1600px",
+        desktop3: "1800px",
         tv1: "2100px",
-        tv3:"2400px",
+        tv3: "2400px",
         tv2: "2700px",
         sml: "500px",
         "3xl": "2560px",
-        "6xl":"2900px",
+        "6xl": "2900px",
         "4xl": "3440px",
         "5xl": "3840px",
-        "7xl":"4000px"
+        "7xl": "4000px",
       },
       fontFamily: {
         rp1: ["readyplayer", "monospace"],
         outfit: ["Outfit", "sans-serif"],
-        nico: ["Nico","sans-serif"]
+        nico: ["Nico", "sans-serif"],
       },
       colors: {
         customGray: "#1e2025",
@@ -92,11 +92,15 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      borderImage:{
-        "silvery": 'linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)'
-
+      borderImage: {
+        silvery:
+          "linear-gradient(148.38deg, #7DECFF 1.01%, #111922 51.14%, #76BEF8 97.42%)",
       },
       keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
         upDown: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-20px)" },
@@ -173,6 +177,7 @@ const config = {
         "custom-ellipse": "ellipse(100% 50% at 50% 100%)",
       },
       animation: {
+        "rotate": "rotate 1.2s linear infinite",
         upDown: "upDown 3s ease-in-out infinite",
         oppositeUpDown: "oppositeUpDown 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -186,8 +191,8 @@ const config = {
         "nav-gradient": "linear-gradient(to top, transparent 0%, #070710aa 30%, #000009 70%)",
         "blue-metall": "linear-gradient(77deg, #59CAFA 11.6%, #A4D8E1 25.31%, #88C3D4 48.06%, #59CAFA 55.72%, #59CAFA 77.23%, #6DB0C1 85.34%, #59CAFA 91.31%)",
         "silver-lustre":'linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%)',
-        "golden-lustre":'linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)'
-
+        "golden-lustre":'linear-gradient(135.34deg, #8C421D 15.43%, #FBE67B 38.47%, #FCFBE7 53.36%, #F7D14E 69.97%, #D4A041 86.26%)',
+        "silvery-text":"linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%)"
       },
     },
   },

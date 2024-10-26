@@ -88,9 +88,8 @@ const CompleteProfile = () => {
           const validatedData = userDataSchema.parse(formData);
           if (user) {
             await createUser(validatedData, user);
-            setTimeout(() => {
-              router.push("/home");
-            }, 200);
+            router.refresh();
+            router.push("/home");
           }
         } catch (err) {
           if (axios.isAxiosError(err)) {
@@ -119,9 +118,18 @@ const CompleteProfile = () => {
         error: (err) => {
           if (err instanceof z.ZodError) {
             return "Validation errors occurred.";
-          } else {
-            return "An error occurred while creating the user.";
           }
+          if (axios.isAxiosError(err)) {
+            const responseData = err.response?.data as { msg?: string };
+            if (
+              err.response?.status &&
+              err.response.status <= 500 &&
+              responseData?.msg
+            ) {
+              return responseData.msg;
+            }
+          }
+          return "An error occurred while creating the user.";
         },
       },
     );
@@ -265,7 +273,7 @@ const CompleteProfile = () => {
           <button type="submit" className="w-[60vw] lg:w-[30vw] xl:w-[20vw]">
             <CustomButton
               text="SIGN UP"
-              className="3xl:text-5xl 3xl:hover:text-[2.95rem] text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem]"
+              className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
             />
           </button>
         </div>

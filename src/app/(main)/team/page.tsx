@@ -6,10 +6,12 @@ import TechData from "../../../../public/data/tech.json";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
 export const runtime = "edge";
-export default function Team() {
+
+function Team() {
   const [team, setTeam] = useState<1 | 2 | 3>(1);
   const [isDesktop, setIsDesktop] = useState(true);
-  const [hovers, setHovers] = useState(true);
+  const [hovers1, setHovers1] = useState(true);
+  const [hovers2, setHovers2] = useState(true);
   const techLeads = TechData.filter((item) => {
     return item.name.split(" ")[1] === "Lead";
   });
@@ -29,15 +31,15 @@ export default function Team() {
     };
   }, []);
   return (
-    <div className="min-h-screen w-full">
+    <div className="teampage min-h-screen w-full">
       <div className="bg-dotted min-h-screen w-full">
         <div className="flex w-full items-center justify-center">
-          <h1 className="mb-12 mt-24 text-center font-rp1 text-4xl text-customBlue lg:mt-48 lg:text-6xl">
+          <h1 className="titleText mb-12 mt-24 text-center font-rp1 text-customBlue lg:mt-48">
             MEET OUR TEAM{" "}
           </h1>
         </div>
         {!isDesktop ? (
-          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white ">
+          <div className="border-1 mb-12 flex justify-center gap-0 border-white text-xl text-white">
             <button
               style={
                 team == 1
@@ -185,7 +187,7 @@ export default function Team() {
                         id={String(idx)}
                         facebook={member.facebook ?? ""}
                         linkedin={member.linkedin ?? ""}
-                        github={(member.github)?? ""}
+                        github={member.github ?? ""}
                       />
                     </div>
                   ))}
@@ -197,7 +199,7 @@ export default function Team() {
               <h1 className="mb-12 text-center font-rp1 text-4xl">
                 TEAM MEMBERS
               </h1>
-              <Marquee speed={70} direction={"left"} play={hovers}>
+              <Marquee speed={70} direction={"left"} play={hovers1}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -213,8 +215,8 @@ export default function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github) ?? ""}
-                          hoversetter={setHovers}
+                          github={member.github ?? ""}
+                          hoversetter={setHovers1}
                         />
                       )),
                   )}
@@ -224,7 +226,7 @@ export default function Team() {
           )}
           {team === 2 && (
             <>
-              <Marquee speed={70} direction={"right"} play={hovers}>
+              <Marquee speed={70} direction={"right"} play={hovers2}>
                 <div className="flex h-[40rem]">
                   {devs.map((item) =>
                     item.heads
@@ -240,8 +242,8 @@ export default function Team() {
                           index={idx}
                           facebook={member.facebook ?? ""}
                           linkedin={member.linkedin ?? ""}
-                          github={(member.github) ?? ""}
-                          hoversetter={setHovers}
+                          github={member.github ?? ""}
+                          hoversetter={setHovers2}
                         />
                       )),
                   )}
@@ -254,3 +256,5 @@ export default function Team() {
     </div>
   );
 }
+
+export default Team;

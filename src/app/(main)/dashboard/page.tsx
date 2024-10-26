@@ -1,11 +1,11 @@
 "use client";
-
 import EventsInfo from "~/components/Dashboard/EventsInfo";
 import Profile from "~/components/Dashboard/Profile";
+
 export const runtime = "edge";
 const DashBoard = () => {
   return (
-    <div className="flex min-h-screen w-[100%] flex-col items-center justify-center overflow-x-hidden">
+    <div className="dashboardpage flex min-h-screen w-[100%] flex-col items-center justify-center overflow-x-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-3xl font-normal tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         DASHBOARD
       </div>
