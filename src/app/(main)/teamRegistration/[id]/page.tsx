@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "~/app/utils/firebase";
 import { env } from "~/env";
-import {  z, ZodError } from "zod";
+import { z, ZodError } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
 import { Command } from "cmdk";
@@ -192,7 +192,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
         );
         const eventData = data.msg;
         setEvent(eventData);
-        setIsSoloEvent(eventData.maxTeamSize === eventData.minTeamSize);
+        setIsSoloEvent(eventData.maxTeamSize == 1);
       } catch (e) {
         console.error(e);
       }
@@ -250,7 +250,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
           );
           const token = await user?.getIdToken();
 
-          const res = await axios.post(
+          await axios.post(
             `${env.NEXT_PUBLIC_API_URL}/api/team/event/${params.id}/add`,
             {
               name: validatedData.teamName,
