@@ -738,3 +738,30 @@ body {
     text-shadow: 0 0 0.5rem #ffffff;
   }
 }
+
+
+.glitch {
+  font-size: 4rem;
+  color: #f1f1f1;
+  transform: skew(var(--skew)) scale(var(--scale));
+}
+
+.glitch::after, .glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  transition: clip-path 50ms ease-in;
+  background-color: #1a1a1a;
+}
+
+.glitch::before {
+  left: 5px;
+  text-shadow: 2px -2px #2a96d4;
+  clip-path: polygon(0 var(--t1), 100% var(--t1), 100% var(--b1), 0 var(--b1));
+}
+
+.glitch::after {
+  left: -5px;
+  text-shadow: -2px 2px #cc2a1f;
+  clip-path: polygon(0 var(--t2), 100% var(--t2), 100% var(--b2), 0 var(--b2));
+}
