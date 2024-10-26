@@ -33,6 +33,8 @@ const Navbar = () => {
 
       const navMap = new Map<string, number>([
         ["/home", 0],
+        ["/gallery", 1],
+        ["/spark", 2],
         ["/modules", 3],
         ["/team", 4],
       ]);

@@ -57,16 +57,18 @@ export default function NavbarMobile() {
               <IoClose size={50} color="#B8B8B8" />
             )}
           </button>
-          <Image
-            className="filter"
-            style={{
-              filter: "drop-shadow(2px 2px 16px #01A3F5)",
-            }}
-            src="/assets/NavbarMobile/TecnoLogo.svg"
-            width={30}
-            height={41}
-            alt="tecnoesisLogo"
-          ></Image>
+          <Link href="/home">
+            <Image
+              className="filter"
+              style={{
+                filter: "drop-shadow(2px 2px 16px #01A3F5)",
+              }}
+              src="/assets/NavbarMobile/TecnoLogo.svg"
+              width={30}
+              height={41}
+              alt="tecnoesisLogo"
+            ></Image>
+          </Link>
         </section>
         {
           <div
