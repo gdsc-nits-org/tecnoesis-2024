@@ -41,8 +41,16 @@
         "name": "Executive Heads",
         "heads": [
             {
+                "name": "PRANJEET KALITA",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1730135621/nits-hacks-7.0/20797BE4-74F6-403A-90F8-427A04FC5E7C_-_EI002_PRANJEET_mwmbb3.webp",
+                "designation": "Executive Head",
+                "facebook": "https://www.google.com/url?q=https://www.facebook.com/pranjeet.kalita.77?mibextid%3DLQQJ4d&sa=D&source=editors&ust=1730138744416549&usg=AOvVaw2ULWitkgZv2VU76Fmf4d0h",
+                "instagram": "https://www.google.com/url?q=https://www.instagram.com/pranjeetkalita_/profilecard/?igsh%3Dcm16ZDRtbTU1dTRi&sa=D&source=editors&ust=1730138744417019&usg=AOvVaw3mVu2QIaPa2PQc2TC5h5y5",
+                "linkedin": "https://www.google.com/url?q=https://www.linkedin.com/in/pranjeet-kalita-983a51240?utm_source%3Dshare%26utm_campaign%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dios_app&sa=D&source=editors&ust=1730138744417409&usg=AOvVaw1EWRqVe2-GLxdXoa7-QZ6n"
+            },
+            {
                 "name": "Priyabrat Duarah",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687335/executive_heads_Priyabrat_Duarah.webp",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1730136272/nits-hacks-7.0/IMG_8127_m0optj.webp",
                 "designation": "Executive Head",
                 "facebook": "https://www.facebook.com/profile.php?id=100076231446828",
                 "instagram": "https://www.instagram.com/prybrt06/",
@@ -63,8 +71,16 @@
         "name": "Event Management Heads",
         "heads": [
             {
+                "name": "ARYADEEP GOGOI",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1730135621/nits-hacks-7.0/WhatsApp_Image_2024-10-25_at_00.23.54_-_ECE_032_Aryadeep_Gogoi_nsprhu.webp",
+                "designation": "Event Management",
+                "facebook": "https://www.facebook.com/profile.php?id=100076109862434",
+                "instagram": "https://www.instagram.com/arya__deep__31/",
+                "linkedin": "https://www.linkedin.com/in/aryadeep-gogoi-696609236/"
+            },
+            {
                 "name": "Nilotpal Sarma",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687316/event_management_heads_Nilotpal_Sarma.webp",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1730136272/nits-hacks-7.0/IMG_20241025_045107_x91klr.webp",
                 "designation": "Event Management",
                 "facebook": "https://www.facebook.com/profile.php?id=100076340676636&mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/nilotpal__29/profilecard/?igsh=am93Mm9kYjFkcXFk",
