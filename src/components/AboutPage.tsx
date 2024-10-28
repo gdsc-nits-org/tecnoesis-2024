@@ -180,8 +180,8 @@ const About = () => {
   return (
     <div className="flex w-screen flex-col overflow-x-hidden" id="about">
       <div className="flex flex-col items-center justify-center md:px-12 lg:h-[60vh] lg:flex-row">
-        <div className="upper w-full md:h-[30vh] lg:h-auto lg:w-1/3">
-          <div className="titleText text-gradient-blue l p-10 text-center font-rp1 font-bold lg:text-left">
+        <div className="upper w-full md:h-[30vh] lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-evenly">
+          <div className="titleText text-gradient-blue l p-10 lg:py-0 lg:px-7 text-center font-rp1 font-bold lg:text-left lg:h-1/4">
             ABOUT NIT SILCHAR
           </div>
           <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-left">
@@ -242,8 +242,8 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="h-1/2 w-full lg:h-auto lg:w-1/3">
-          <div className="text-gradient-blue titleText p-7 text-center font-rp1 font-bold md:m-0 lg:text-right">
+        <div className="h-1/2 w-full lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-evenly">
+          <div className="text-gradient-blue titleText p-7 lg:py-0 text-center font-rp1 font-bold md:m-0 lg:text-right lg:h-1/4">
             ABOUT US
           </div>
           <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-right">
@@ -258,7 +258,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto items-center justify-center p-8 text-center">
+      <div className="flex h-auto items-center justify-center p-8 text-center mb-0 md:mb-7">
         <div
           onClick={() =>
             window.open(
@@ -274,7 +274,7 @@ const About = () => {
         </div>
       </div>
       <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
-        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible md:h-[100%]">
+        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible">
           <div className="text-gradient-blue titleText p-10 text-center font-rp1 font-bold md:p-7 md:text-left">
             MODULES
           </div>
@@ -294,7 +294,7 @@ const About = () => {
             </Link>
           </div>
         </div>
-        <div className="flex h-[60vh] w-full flex-col justify-center overflow-hidden md:h-[100%]">
+        <div className="flex w-full flex-col justify-center overflow-hidden md:h-[100%]">
           <div className="second-animation relative top-[-60px] h-[300px] w-full md:h-[500px]">
             <div
               ref={class1DivRef}
