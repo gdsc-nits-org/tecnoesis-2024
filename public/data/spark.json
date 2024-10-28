@@ -1,23 +1,82 @@
 [
-    {
-      "id": 1,
-      "url": "https://img.freepik.com/free-photo/dark-tunnel-with-turned-lamps-ceiling_181624-9703.jpg?t=st=1729799705~exp=1729803305~hmac=0acdf94e5a279afc795cd4385fa053c530b6752ec44215a3b662c82209bdd4d7&w=1060",
-      "alt": "Slide 1"
-    },
-    {
-      "id": 2,
-      "url": "https://img.freepik.com/free-photo/dark-tunnel-with-turned-lamps-ceiling_181624-9703.jpg?t=st=1729799705~exp=1729803305~hmac=0acdf94e5a279afc795cd4385fa053c530b6752ec44215a3b662c82209bdd4d7&w=1060",
-      "alt": "Slide 2"
-    },
-    {
-      "id": 3,
-      "url": "https://img.freepik.com/free-photo/dark-tunnel-with-turned-lamps-ceiling_181624-9703.jpg?t=st=1729799705~exp=1729803305~hmac=0acdf94e5a279afc795cd4385fa053c530b6752ec44215a3b662c82209bdd4d7&w=1060",
-      "alt": "Slide 3"
-    },
-    {
-      "id": 4,
-      "url": "https://img.freepik.com/free-photo/dark-tunnel-with-turned-lamps-ceiling_181624-9703.jpg?t=st=1729799705~exp=1729803305~hmac=0acdf94e5a279afc795cd4385fa053c530b6752ec44215a3b662c82209bdd4d7&w=1060",
-      "alt": "Slide 4"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "url": "/assets/spark/spark10.webp",
+    "alt": "Slide 1"
+  },
+  {
+    "id": 2,
+    "url": "/assets/spark/spark2.webp",
+    "alt": "Slide 2"
+  },
+  {
+    "id": 3,
+    "url": "/assets/spark/spark3.webp",
+    "alt": "Slide 3"
+  },
+  {
+    "id": 4,
+    "url": "/assets/spark/spark4.webp",
+    "alt": "Slide 4"
+  },
+  {
+    "id": 5,
+    "url": "/assets/spark/spark5.webp",
+    "alt": "Slide 5"
+  },
+  {
+    "id": 6,
+    "url": "/assets/spark/spark6.webp",
+    "alt": "Slide 6"
+  },
+  {
+    "id": 7,
+    "url": "/assets/spark/spark7.webp",
+    "alt": "Slide 7"
+  },
+  {
+    "id": 8,
+    "url": "/assets/spark/spark8.webp",
+    "alt": "Slide 8"
+  },
+  {
+    "id": 9,
+    "url": "/assets/spark/spark9.webp",
+    "alt": "Slide 9"
+  },
+  {
+    "id": 10,
+    "url": "/assets/spark/spark10.webp",
+    "alt": "Slide 10"
+  },
+  {
+    "id": 11,
+    "url": "/assets/spark/spark11.webp",
+    "alt": "Slide 11"
+  },
+  {
+    "id": 12,
+    "url": "/assets/spark/spark12.webp",
+    "alt": "Slide 12"
+  },
+  {
+    "id": 13,
+    "url": "/assets/spark/spark13.webp",
+    "alt": "Slide 13"
+  },
+  {
+    "id": 14,
+    "url": "/assets/spark/spark14.webp",
+    "alt": "Slide 14"
+  },
+  {
+    "id": 15,
+    "url": "/assets/spark/spark15.webp",
+    "alt": "Slide 15"
+  },
+  {
+    "id": 16,
+    "url": "/assets/spark/spark16.webp",
+    "alt": "Slide 16"
+  }
+]
