@@ -18,7 +18,7 @@ interface Module {
 const Modules: React.FC = () => {
   const [modules, setModules] = useState<Module[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const comingSoon = true;
+  const comingSoon = false;
 
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
   const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -112,16 +112,13 @@ const Modules: React.FC = () => {
   };
 
   return (
-    <div
-      className="relative min-h-screen overflow-hidden bg-center bg-cover bg-fixed 
-             bg-[url('/assets/modules/bg-modules.gif')] md:bg-none"
-    >
-      <div
+    <div className="relative min-h-screen overflow-hidden bg-[url('/assets/modules/bg-modules.gif')] bg-cover bg-center md:bg-none">
+      {/* <div
         className="z-10000 fixed inset-0 md:flex hidden"
         dangerouslySetInnerHTML={{
           __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
-      ></div>
+      ></div> */}
       {isLoading ? (
         <div className="relative z-10 pt-[7.4rem] text-white">
           <div className="flex w-full flex-col gap-24">
@@ -129,9 +126,9 @@ const Modules: React.FC = () => {
               <div className="flex h-[45vh] w-full" key={index}>
                 <div className="flex h-full flex-1 justify-center">
                   <div className="img-container right flex h-full w-3/4 flex-col justify-between">
-                    <div className="relative h-full w-full bg-gray-800 rounded-xl animate-pulse opacity-70"></div>
+                    <div className="relative h-full w-full animate-pulse rounded-xl bg-gray-800 opacity-70"></div>
                     <div className="my-6 flex items-center rounded-xl">
-                      <p className="pr-9 bg-gray-700 h-4 w-24 animate-pulse rounded-xl"></p>
+                      <p className="h-4 w-24 animate-pulse rounded-xl bg-gray-700 pr-9"></p>
                     </div>
                   </div>
                 </div>
@@ -173,7 +170,7 @@ const Modules: React.FC = () => {
                             ref={(el) => setTextRef(el, index * 2)}
                             className="pr-9 font-outfit text-lg text-white lg:text-xl 2xl:text-3xl 3xl:text-6xl"
                           >
-                            [Coming Soon]
+                            {module.name}
                           </p>
                         </div>
                       </div>
