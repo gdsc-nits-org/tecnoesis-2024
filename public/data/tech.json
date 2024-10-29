@@ -153,15 +153,6 @@
                 "linkedin": "https://www.linkedin.com/in/barnil-sarma-34383a255/"
             },
             {
-                "name": "Pragyan Das",
-                "year":"3rd",
-                "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729880238/pragyan_-_Agent_X_Gaming_qatswd.webp",
-                "designation": "Web Developer",
-                "github": "https://github.com/pragyan4261",
-                "facebook": "https://www.facebook.com/profile.php?id=100087648530022&mibextid=JRoKGi",
-                "linkedin": "https://www.linkedin.com/in/pragyan-das-197086255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            },
-            {
                 "name": "Bedanta Kataki",
                 "year":"3rd",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687760/web_developers_Bedanta_Kataki.webp",
@@ -187,6 +178,15 @@
               "facebook": "https://www.facebook.com/profile.php?id=100087855768923",
               "github": "https://github.com/arindom-s",
               "linkedin": "www.linkedin.com/in/ arindom-sarmah-324076255"
+            },
+            {
+                "name": "Pragyan Das",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729880238/pragyan_-_Agent_X_Gaming_qatswd.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/pragyan4261",
+                "facebook": "https://www.facebook.com/profile.php?id=100087648530022&mibextid=JRoKGi",
+                "linkedin": "https://www.linkedin.com/in/pragyan-das-197086255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             },
             {
               "name": "Anirban Bora",

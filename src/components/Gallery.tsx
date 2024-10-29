@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import data from "../../public/data/data.json";
+import data from "../../public/data/gallery.json";
 
 gsap.registerPlugin(ScrollTrigger);
 

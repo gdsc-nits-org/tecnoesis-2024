@@ -12,10 +12,10 @@ const Download: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-7xl md:flex-row-reverse md:gap-8">
+    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-[82vw] lg:max-w-7xl md:mt-[5rem] md:flex-row-reverse md:gap-8">
       <div className="h-[70%] md:flex">
         <div
-          className="flex h-[24rem] w-[20rem] md:w-[23rem] items-center"
+          className="flex h-[24rem] w-[20rem] md:w-[23rem] items-center -translate-x-4 sm:-translate-x-0"
           style={{
             width: "23rem",
             height: "24rem",
@@ -32,7 +32,7 @@ const Download: React.FC = () => {
           <h5 className="mt-10 hidden h-[20%] font-rp1 text-xl font-bold text-white md:flex lg:text-2xl 3xl:text-4xl 4xl:text-7xl">
             Download the
           </h5>
-          <h1 className="text-gradient-blue titleText hidden pt-1 font-rp1 font-bold md:flex">
+          <h1 className="text-gradient-blue titleText hidden pt-1 font-rp1 font-bold md:flex text-left">
             {" "}
             new tecnoesis app
           </h1>

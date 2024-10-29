@@ -3,6 +3,7 @@
 import Card, { MemberCard } from "~/components/Card";
 import CoreData from "../../../../public/data/core.json";
 import TechData from "../../../../public/data/tech.json";
+import ModuleData from "../../../../public/data/moduleheads.json"
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
 export const runtime = "edge";
@@ -44,16 +45,16 @@ function Team() {
               style={
                 team == 1
                   ? {
-                      backgroundColor: "#59CAFA",
-                      border: "0 solid transparent",
-                      borderTopLeftRadius: "1rem",
-                      borderBottomLeftRadius: "1rem",
-                    }
+                    backgroundColor: "#59CAFA",
+                    border: "0 solid transparent",
+                    borderTopLeftRadius: "1rem",
+                    borderBottomLeftRadius: "1rem",
+                  }
                   : {
-                      border: "0 solid transparent",
-                      borderTopLeftRadius: "1rem",
-                      borderBottomLeftRadius: "1rem",
-                    }
+                    border: "0 solid transparent",
+                    borderTopLeftRadius: "1rem",
+                    borderBottomLeftRadius: "1rem",
+                  }
               }
               onClick={() => {
                 setTeam(1);
@@ -79,16 +80,16 @@ function Team() {
               style={
                 team == 3
                   ? {
-                      backgroundColor: "#59CAFA",
-                      border: "0 solid transparent",
-                      borderTopRightRadius: "1rem",
-                      borderBottomRightRadius: "1rem",
-                    }
+                    backgroundColor: "#59CAFA",
+                    border: "0 solid transparent",
+                    borderTopRightRadius: "1rem",
+                    borderBottomRightRadius: "1rem",
+                  }
                   : {
-                      border: "0 solid transparent",
-                      borderTopRightRadius: "1rem",
-                      borderBottomRightRadius: "1rem",
-                    }
+                    border: "0 solid transparent",
+                    borderTopRightRadius: "1rem",
+                    borderBottomRightRadius: "1rem",
+                  }
               }
               onClick={() => {
                 setTeam(3);
@@ -159,7 +160,7 @@ function Team() {
                         facebook={member.facebook ?? ""}
                         instagram={member.instagram ?? ""}
                         linkedin={member.linkedin ?? ""}
-                       
+
                       />
                     </div>
                   ))}
@@ -251,6 +252,34 @@ function Team() {
               </Marquee>
             </>
           )}
+          {team === 3 &&
+            ModuleData.map((item, index) => (
+              <div className="mb-20 mt-12 w-full" key={index}>
+                <h1 className="mb-12 text-center font-rp1 text-4xl">
+                  {item.module}
+                </h1>
+                <div className="flex flex-wrap items-center justify-center gap-16">
+                  {item.heads.map((member, idx) => (
+                    <div
+                      key={idx}
+                      className="flex w-max flex-row items-center justify-center"
+                    >
+                      <Card
+                        name={member.name}
+                        designation={member.designation}
+                        photo={member.photo}
+                        main={item.id}
+                        id={String(idx)}
+                        facebook={member.facebook ?? ""}
+                        instagram={member.instagram ?? ""}
+                        linkedin={member.linkedin ?? ""}
+
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>

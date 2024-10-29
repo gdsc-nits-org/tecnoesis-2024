@@ -178,13 +178,13 @@ const About = () => {
   }, [isDesktop]);
 
   return (
-    <div className="flex w-screen flex-col overflow-x-hidden" id="about">
-      <div className="flex flex-col items-center justify-center md:px-12 lg:h-[60vh] lg:flex-row">
-        <div className="upper w-full md:h-[30vh] lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-evenly">
+    <div className="flex w-screen flex-col overflow-x-hidden" id="about ">
+      <div className="flex flex-col gap-12 lg:gap-0 items-center justify-center md:px-16 lg:h-[60vh] lg:flex-row">
+        <div className="upper w-full md:h-fit lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-center">
           <div className="titleText text-gradient-blue l p-10 lg:py-0 lg:px-7 text-center font-rp1 font-bold lg:text-left lg:h-1/4">
             ABOUT NIT SILCHAR
           </div>
-          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-left">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-justify lg:text-left">
             Welcome to NIT Silchar, the launchpad for tomorrow’s innovators!
             Established in 1967 and now proudly ranked 92 in NIRF, we’ve been
             pushing boundaries and redefining the tech landscape for decades.
@@ -194,7 +194,7 @@ const About = () => {
             where the future of technology and innovation takes shape.
           </div>
         </div>
-        <div className="lower flex h-[40vh] w-full items-center justify-center lg:w-1/3">
+        <div className="lower flex h-fit  w-full items-center justify-center lg:w-1/3">
           <div className="first-animation relative h-[250px] w-[250px] overflow-visible lg:h-[300px] lg:w-[300px] desktop1:h-[350px] desktop1:w-[350px] desktop2:h-[400px] desktop2:w-[400px] tv1:h-[700px] tv1:w-[700px]">
             <img
               ref={imageARef}
@@ -242,11 +242,11 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="h-1/2 w-full lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-evenly">
+        <div className="h-1/2 w-full lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-center">
           <div className="text-gradient-blue titleText p-7 lg:py-0 text-center font-rp1 font-bold md:m-0 lg:text-right lg:h-1/4">
             ABOUT US
           </div>
-          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-center lg:text-right">
+          <div className="normalText px-7 pb-4 text-justify font-outfit text-[#B5D8EABF] md:text-justify lg:text-right">
             Tecnoesis isn’t just a fest—it’s your gateway to uncharted
             dimensions of tech, innovation, and discovery! With mind-bending
             challenges, futuristic workshops, and immersive experiences, this is
@@ -258,19 +258,18 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto items-center justify-center p-8 text-center mb-0 md:mb-7">
+      <div className="flex h-auto items-center justify-center text-center mb-0 md:mb-7">
         <div
           onClick={() =>
             window.open(
               "https://drive.google.com/file/d/1-OEXRWETQVTWnFarzeD4QBurcTC2GV36/view?usp=drivesdk",
             )
           }
-          className="h-3 w-[85%] font-outfit text-xs md:w-1/2 lg:w-1/5"
+          className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
         >
           <CustomButton
             text="Download Brochure"
-            className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
-          />
+            className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl" />
         </div>
       </div>
       <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
