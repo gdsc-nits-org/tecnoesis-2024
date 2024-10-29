@@ -25,12 +25,12 @@ const EventCard = ({ eventname, modulename, eventID, eventPoster }: propsType) =
       <div className="flex flex-row justify-evenly items-center gap-5 m-1 p-1 z-20 contentCont">
         <Link href={`/event/${eventID}`}>
           <div className="w-[100%] flex items-center justify-center">
-            <button className="h-[1.8rem] w-[8rem] rounded-full bg-transparent border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-[#01A3F5]  hover:bg-gray-700">View details</button>
+            <button className="h-[1.8rem] w-[8rem] rounded-full bg-transparent border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-[#01A3F5] font-bold  hover:bg-gray-700">View details</button>
           </div>
         </Link>
         <Link href={`/teamRegistration/${eventID}`}>
           <div className="w-[100%] flex items-center justify-center">
-            <button className="h-[1.8rem] w-[8rem] rounded-full bg-transparent border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-[#01A3F5] hover:bg-gray-700">Register</button>
+            <button className="h-[1.8rem] w-[8rem] rounded-full bg-[#01A3F5] border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-black font-bold hover:text-white">Register</button>
           </div>
         </Link>
       </div>

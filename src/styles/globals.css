@@ -558,7 +558,7 @@ body {
   display: none;
 }
 .newEventCard {
-  border: 6px solid;
+  border: 1.5px solid;
   border-image-source: linear-gradient(
     148.38deg,
     #7decff 1.01%,
@@ -571,6 +571,12 @@ body {
   -webkit-mask-image: radial-gradient(circle, white 100%, transparent 100%);
   box-sizing: border-box;
   z-index: 1;
+}
+
+@media screen and (max-width:500px){
+  .newEventCard{
+    scale: .8;
+  }
 }
 .gradCont {
   z-index: 0;
@@ -603,29 +609,16 @@ body {
   box-sizing: border-box;
 }
 .contentCont {
-  margin-bottom: 1rem;
   z-index: 2;
-  opacity: 0;
-  transition-duration: 1s;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
-.newEventCard:hover .contentCont {
-  opacity: 1;
-  overflow: hidden;
-  transition-duration: 1s;
-}
+
 .postercont {
-  position: absolute;
-  top: 0;
-  padding-top: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  transform: scaleY(1) translateY(0%);
-  transition-duration: 1s;
+  padding: 2rem;
 }
-.newEventCard:hover .postercont {
-  transform: scaleY(0.9) translateY(-10%);
-  transition-duration: 1s;
-}
+
 @media screen and (min-width: 1024px) {
   .scrollbar-hide {
     mask-image: linear-gradient(to top, transparent, #000000);
