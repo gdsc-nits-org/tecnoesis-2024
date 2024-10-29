@@ -5,7 +5,7 @@
         "heads": [
             {
                 "name": "Hrishiraj Sikder ",
-                "designation": "Amazers",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207024/yonmoaazrddwoa0tctbq.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100075207975579&mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/hrishirajsikder/profilecard/?igsh=MXc1N25uaDN0dGJyOA==",
@@ -19,7 +19,7 @@
         "heads": [
             {
                 "name": "Rudrank",
-                "designation": "Bytewatt Module",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207028/yzglnbqsmmpccdpnhj6s.webp",
                 "facebook": "https://www.facebook.com/share/XcdHe1SdS1wq9ryC/",
                 "instagram": "https://www.instagram.com/rudrnk?igsh=NmJzdWFjdTBiZ281",
@@ -33,7 +33,7 @@
         "heads": [
             {
                 "name": "Ankit Raj",
-                "designation": "Circuitary nexus module",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207034/medslzuzeuqjgdkznkdi.webp",
                 "facebook": "https://www.facebook.com/rio.de.1217",
                 "instagram": "https://www.instagram.com/1_iamankitraj/",
@@ -47,7 +47,7 @@
         "heads": [
             {
                 "name": "Sanidhya Sinha ",
-                "designation": "Conferenza",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207041/ami4xrgidai0d0hzmtqj.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100076053614436&mibextid=ZbWKwL",
                 "instagram": "https://www.instagram.com/sanidhya._.30/profilecard/?igsh=MXA0dDdxNTRqcnJ5OA==",
@@ -60,20 +60,12 @@
         "module": "CyberWarp",
         "heads": [
             {
-                "name": "Amartya Ahmed ",
-                "designation": "CyberWarp",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207045/ul9ttrv4jykkbj6njx85.webp",
-                "facebook": "https://www.facebook.com/share/18rdamPgX4/",
-                "instagram": "https://www.instagram.com/amartyaahmed/",
-                "linkedin": "https://www.linkedin.com/in/amartyaahmed/"
-            },
-            {
-                "name": "Siddhid Saha",
-                "designation": "CyberWarp",
-                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207049/nd8syfz80w7aosldktcx.webp",
-                "facebook": "https://www.facebook.com/siddhid.saha/",
-                "instagram": "https://www.instagram.com/_siddhid_s/",
-                "linkedin": "https://www.linkedin.com/in/siddhid-saha/"
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1729723697/BFC8C0E3-662C-43A9-9F0D-CE780B64484C_1_105_c_n0ytxb.webp",
+                "name": "Jaydeep Prapanch Das",
+                "designation": "Module Head",
+                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+                "github": "https://github.com/JDeepD"
             }
         ]
     },
@@ -83,7 +75,7 @@
         "heads": [
             {
                 "name": "Ananya Chetia ",
-                "designation": "ECS module",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207053/bunxb3as5tqa9v2oaxuy.webp",
                 "facebook": "https://www.facebook.com/ananya.chetia.10",
                 "instagram": "https://www.instagram.com/ananyachettia/",
@@ -97,7 +89,7 @@
         "heads": [
             {
                 "name": "Arpit Dhankani",
-                "designation": "Empressario",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207056/x5rixljfzwjzfca1xy7x.webp",
                 "facebook": "https://www.facebook.com/arpit.dhankani",
                 "instagram": "https://www.instagram.com/evil_soul29/",
@@ -111,7 +103,7 @@
         "heads": [
             {
                 "name": "Dipan Patgiri",
-                "designation": "Foto Galleria",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207059/xhh0m5ey27qopl2snzxp.webp",
                 "facebook": "https://www.facebook.com/Dipan017/",
                 "instagram": "-",
@@ -125,7 +117,7 @@
         "heads": [
             {
                 "name": "Deepak Kumar Singh",
-                "designation": "IEI module",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207064/tjlrszhh1rfjzgyfktnf.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100041481200079",
                 "instagram": "https://www.instagram.com/doobii___/",
@@ -139,7 +131,7 @@
         "heads": [
             {
                 "name": "Ripunjeet Barman ",
-                "designation": "Myndsnare (Quiz Module)",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207069/zqq12ughwjnzqn4npeeg.webp",
                 "facebook": "https://www.facebook.com/share/Ko2zk7votgXQje7G/",
                 "instagram": "https://www.instagram.com/___.ripunjeet.___/profilecard/?igsh=YTB4cTMxZGsxbmcy",
@@ -153,7 +145,7 @@
         "heads": [
             {
                 "name": "Ayush Maurya ",
-                "designation": "Robotron",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207072/ngas3zt2a21tcnl1qkhk.webp",
                 "facebook": "https://www.facebook.com/share/HLWPwjvqyeG7r9RR/",
                 "instagram": "https://www.instagram.com/ayushmaurya12/profilecard/?igsh=MW9ud20yM2NoeDN4bA==",
@@ -167,7 +159,7 @@
         "heads": [
             {
                 "name": "Rudrank",
-                "designation": "School Genius",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207075/mus83xburf82vnhmknjc.webp",
                 "facebook": "https://www.facebook.com/share/XcdHe1SdS1wq9ryC/",
                 "instagram": "https://www.instagram.com/rudrnk?igsh=NmJzdWFjdTBiZ281",
@@ -175,7 +167,7 @@
             },
             {
                 "name": "Swapneel Maulik",
-                "designation": "School Genius",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207079/e7okxarni8p45cgqmpga.webp",
                 "facebook": "https://www.facebook.com/uruzzzzx?mibextid=LQQJ4d",
                 "instagram": "https://www.instagram.com/uruz.x/profilecard/?igsh=bXQwOTk3dDBiaG54",
@@ -189,7 +181,7 @@
         "heads": [
             {
                 "name": "Gaurav Kumar Singh ",
-                "designation": "Smart City",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207084/zdpuxize91sjlhpi4oug.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100076082396765&mibextid=ZbWKwL",
                 "instagram": "https://www.facebook.com/profile.php?id=100076082396765&mibextid=ZbWKwL",
@@ -203,7 +195,7 @@
         "heads": [
             {
                 "name": "Ayaz Rahman",
-                "designation": "V Warz",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207091/licomeoe2dazm9ufxsh3.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100075869785387&mibextid=LQQJ4d",
                 "instagram": "https://www.instagram.com/ayazz_r/profilecard/?igsh=MWk5ZzhiaDd4NW52eQ==",
@@ -211,7 +203,7 @@
             },
             {
                 "name": "Prachurjya Deka",
-                "designation": "V Warz",
+                "designation": "Module Head",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207096/htkwemugar7jfsywtaw1.webp",
                 "facebook": "https://www.facebook.com/profile.php?id=100041178313551&mibextid=LQQJ4d",
                 "instagram": "https://www.instagram.com/__.prachurjya/profilecard/?igsh=cGVwY21icnc1NzVz",
