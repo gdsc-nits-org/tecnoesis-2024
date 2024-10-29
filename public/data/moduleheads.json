@@ -1,0 +1,222 @@
+[
+    {
+        "id": 1,
+        "module": "Amazers",
+        "heads": [
+            {
+                "name": "Hrishiraj Sikder ",
+                "designation": "Amazers",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207024/yonmoaazrddwoa0tctbq.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100075207975579&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/hrishirajsikder/profilecard/?igsh=MXc1N25uaDN0dGJyOA==",
+                "linkedin": "https://www.linkedin.com/in/hrishiraj-sikder-40ba5322a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "module": "Bytewatt Module",
+        "heads": [
+            {
+                "name": "Rudrank",
+                "designation": "Bytewatt Module",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207028/yzglnbqsmmpccdpnhj6s.webp",
+                "facebook": "https://www.facebook.com/share/XcdHe1SdS1wq9ryC/",
+                "instagram": "https://www.instagram.com/rudrnk?igsh=NmJzdWFjdTBiZ281",
+                "linkedin": "https://www.linkedin.com/in/rudrankadas?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "module": "Circuitary nexus module",
+        "heads": [
+            {
+                "name": "Ankit Raj",
+                "designation": "Circuitary nexus module",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207034/medslzuzeuqjgdkznkdi.webp",
+                "facebook": "https://www.facebook.com/rio.de.1217",
+                "instagram": "https://www.instagram.com/1_iamankitraj/",
+                "linkedin": "https://www.linkedin.com/in/ankitrajlogin/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "module": "Conferenza",
+        "heads": [
+            {
+                "name": "Sanidhya Sinha ",
+                "designation": "Conferenza",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207041/ami4xrgidai0d0hzmtqj.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100076053614436&mibextid=ZbWKwL",
+                "instagram": "https://www.instagram.com/sanidhya._.30/profilecard/?igsh=MXA0dDdxNTRqcnJ5OA==",
+                "linkedin": "https://www.linkedin.com/in/sanidhya30?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "module": "CyberWarp",
+        "heads": [
+            {
+                "name": "Amartya Ahmed ",
+                "designation": "CyberWarp",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207045/ul9ttrv4jykkbj6njx85.webp",
+                "facebook": "https://www.facebook.com/share/18rdamPgX4/",
+                "instagram": "https://www.instagram.com/amartyaahmed/",
+                "linkedin": "https://www.linkedin.com/in/amartyaahmed/"
+            },
+            {
+                "name": "Siddhid Saha",
+                "designation": "CyberWarp",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207049/nd8syfz80w7aosldktcx.webp",
+                "facebook": "https://www.facebook.com/siddhid.saha/",
+                "instagram": "https://www.instagram.com/_siddhid_s/",
+                "linkedin": "https://www.linkedin.com/in/siddhid-saha/"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "module": "ECS module",
+        "heads": [
+            {
+                "name": "Ananya Chetia ",
+                "designation": "ECS module",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207053/bunxb3as5tqa9v2oaxuy.webp",
+                "facebook": "https://www.facebook.com/ananya.chetia.10",
+                "instagram": "https://www.instagram.com/ananyachettia/",
+                "linkedin": "https://www.linkedin.com/in/ananya-chetia-a06ab6223/"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "module": "Empressario",
+        "heads": [
+            {
+                "name": "Arpit Dhankani",
+                "designation": "Empressario",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207056/x5rixljfzwjzfca1xy7x.webp",
+                "facebook": "https://www.facebook.com/arpit.dhankani",
+                "instagram": "https://www.instagram.com/evil_soul29/",
+                "linkedin": "https://www.linkedin.com/in/arpit-dhankani-27238b219/"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "module": "Foto Galleria",
+        "heads": [
+            {
+                "name": "Dipan Patgiri",
+                "designation": "Foto Galleria",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207059/xhh0m5ey27qopl2snzxp.webp",
+                "facebook": "https://www.facebook.com/Dipan017/",
+                "instagram": "-",
+                "linkedin": "https://www.linkedin.com/in/dipan-patgiri-a04473148/"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "module": "IEI module",
+        "heads": [
+            {
+                "name": "Deepak Kumar Singh",
+                "designation": "IEI module",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207064/tjlrszhh1rfjzgyfktnf.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100041481200079",
+                "instagram": "https://www.instagram.com/doobii___/",
+                "linkedin": "https://www.linkedin.com/in/deepak-singh-3a9b2a247/"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "module": "Myndsnare (Quiz Module)",
+        "heads": [
+            {
+                "name": "Ripunjeet Barman ",
+                "designation": "Myndsnare (Quiz Module)",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207069/zqq12ughwjnzqn4npeeg.webp",
+                "facebook": "https://www.facebook.com/share/Ko2zk7votgXQje7G/",
+                "instagram": "https://www.instagram.com/___.ripunjeet.___/profilecard/?igsh=YTB4cTMxZGsxbmcy",
+                "linkedin": "https://www.linkedin.com/in/ripunjeet-barman-9b946322b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "module": "Robotron",
+        "heads": [
+            {
+                "name": "Ayush Maurya ",
+                "designation": "Robotron",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207072/ngas3zt2a21tcnl1qkhk.webp",
+                "facebook": "https://www.facebook.com/share/HLWPwjvqyeG7r9RR/",
+                "instagram": "https://www.instagram.com/ayushmaurya12/profilecard/?igsh=MW9ud20yM2NoeDN4bA==",
+                "linkedin": "https://www.linkedin.com/in/ayush-maurya-am1729?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "module": "School Genius",
+        "heads": [
+            {
+                "name": "Rudrank",
+                "designation": "School Genius",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207075/mus83xburf82vnhmknjc.webp",
+                "facebook": "https://www.facebook.com/share/XcdHe1SdS1wq9ryC/",
+                "instagram": "https://www.instagram.com/rudrnk?igsh=NmJzdWFjdTBiZ281",
+                "linkedin": "https://www.linkedin.com/in/rudrankadas?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Swapneel Maulik",
+                "designation": "School Genius",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207079/e7okxarni8p45cgqmpga.webp",
+                "facebook": "https://www.facebook.com/uruzzzzx?mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/uruz.x/profilecard/?igsh=bXQwOTk3dDBiaG54",
+                "linkedin": "https://www.linkedin.com/in/swapneel-maulik-699948182?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "module": "Smart City",
+        "heads": [
+            {
+                "name": "Gaurav Kumar Singh ",
+                "designation": "Smart City",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207084/zdpuxize91sjlhpi4oug.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100076082396765&mibextid=ZbWKwL",
+                "instagram": "https://www.facebook.com/profile.php?id=100076082396765&mibextid=ZbWKwL",
+                "linkedin": "https://www.linkedin.com/in/gaurav-kumar-singh-21a474222?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "module": "V Warz",
+        "heads": [
+            {
+                "name": "Ayaz Rahman",
+                "designation": "V Warz",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207091/licomeoe2dazm9ufxsh3.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100075869785387&mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/ayazz_r/profilecard/?igsh=MWk5ZzhiaDd4NW52eQ==",
+                "linkedin": "https://www.linkedin.com/in/ayaz-rahman-88b989256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            },
+            {
+                "name": "Prachurjya Deka",
+                "designation": "V Warz",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1730207096/htkwemugar7jfsywtaw1.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100041178313551&mibextid=LQQJ4d",
+                "instagram": "https://www.instagram.com/__.prachurjya/profilecard/?igsh=cGVwY21icnc1NzVz",
+                "linkedin": "http://linkedin.com/in/prachurjya-deka-332049220"
+            }
+        ]
+    }
+]
