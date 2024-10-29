@@ -13,7 +13,7 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
   const imageSets = [
     [
       {
-        src: "/past-sponsor-logos/ed.webp",
+        src: "/past-sponsor-logos/amul-blue.webp",
         alt: "Amul",
         width: 200,
         height: 200,
@@ -51,8 +51,8 @@ const MarqueeComponent: React.FC<MarqueeComponentProps> = ({
       {
         src: "/past-sponsor-logos/mtv.webp",
         alt: "MTV",
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
         divWidths: "w-[150px] sm:w-[150px] md:w-[150px] lg:w-[190px]",
       },
     ],
