@@ -15,7 +15,7 @@
     },
     {
         "id": 2,
-        "module": "Bytewatt Module",
+        "module": "Bytewatt",
         "heads": [
             {
                 "name": "Rudrank",
@@ -29,7 +29,7 @@
     },
     {
         "id": 3,
-        "module": "Circuitary nexus module",
+        "module": "Circuitary Nexus",
         "heads": [
             {
                 "name": "Ankit Raj",
@@ -135,7 +135,7 @@
     },
     {
         "id": 10,
-        "module": "Myndsnare (Quiz Module)",
+        "module": "Myndsnare",
         "heads": [
             {
                 "name": "Ripunjeet Barman ",

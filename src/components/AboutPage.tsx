@@ -258,19 +258,18 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto items-center justify-center p-8 text-center mb-0 md:mb-7">
+      <div className="flex h-auto items-center justify-center text-center mb-0 md:mb-7">
         <div
           onClick={() =>
             window.open(
               "https://drive.google.com/file/d/1-OEXRWETQVTWnFarzeD4QBurcTC2GV36/view?usp=drivesdk",
             )
           }
-          className="h-3 w-[85%] font-outfit text-xs md:w-1/2 lg:w-1/5"
+          className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
         >
           <CustomButton
             text="Download Brochure"
-            className="text-base font-semibold hover:text-[0.95] lg:text-lg lg:hover:text-[1.1rem] 2xl:text-2xl 2xl:hover:text-[1.45rem] 3xl:text-5xl 3xl:hover:text-[2.95rem]"
-          />
+            className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl" />
         </div>
       </div>
       <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
