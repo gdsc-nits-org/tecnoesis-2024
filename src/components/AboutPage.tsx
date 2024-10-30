@@ -178,7 +178,7 @@ const About = () => {
   }, [isDesktop]);
 
   return (
-    <div className="flex w-screen flex-col overflow-x-hidden" id="about ">
+    <div className="flex w-screen flex-col overflow-hidden" id="about ">
       <div className="flex flex-col gap-12 lg:gap-0 items-center justify-center md:px-16 lg:h-[60vh] lg:flex-row">
         <div className="upper w-full md:h-fit lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-center">
           <div className="titleText text-gradient-blue l p-10 lg:py-0 lg:px-7 text-center font-rp1 font-bold lg:text-left lg:h-1/4">
@@ -258,7 +258,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto items-center justify-center text-center mb-0 md:mb-7">
+      <div className="flex items-center justify-center text-center mb-0 md:mb-7">
         <div
           onClick={() =>
             window.open(
@@ -272,8 +272,8 @@ const About = () => {
             className="text-base lg:text-lg 2xl:text-2xl 3xl:text-5xl" />
         </div>
       </div>
-      <div className="flex flex-col-reverse justify-center px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
-        <div className="flex h-[40vh] w-full flex-col justify-center overflow-visible">
+      <div className="flex flex-col-reverse justify-center mb-[3rem] px-7 md:mb-20 md:flex-row md:items-center md:justify-center md:px-16">
+        <div className="flex h-fit w-full flex-col justify-center overflow-visible">
           <div className="text-gradient-blue titleText p-10 text-center font-rp1 font-bold md:p-7 md:text-left">
             MODULES
           </div>
@@ -293,7 +293,7 @@ const About = () => {
             </Link>
           </div>
         </div>
-        <div className="flex w-full flex-col justify-center overflow-hidden md:h-[100%]">
+        <div className="flex w-full flex-col justify-center overflow-hidden md:h-[100%] bg-red">
           <div className="second-animation relative top-[-60px] h-[300px] w-full md:h-[500px]">
             <div
               ref={class1DivRef}

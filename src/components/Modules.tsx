@@ -112,14 +112,14 @@ const Modules: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[url('/assets/modules/bg-desk.gif')] bg-fixed bg-center bg-no-repeat bg-contain md:bg-none">
-      {/* <div
+    <div className="relative min-h-screen overflow-hidden bg-[url('/assets/modules/bg-modules.gif')] bg-fixed bg-center bg-no-repeat bg-contain md:bg-none">
+      <div
         className="z-10000 fixed inset-0 md:flex hidden"
         dangerouslySetInnerHTML={{
-          __html: `<spline-viewer url="https://prod.spline.design/NPelTris6eEVQkKp/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
+          __html: `<spline-viewer url="https://prod.spline.design/OmWCr5bjwkhWeTeP/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
-      ></div> */}
-      <div className="relative min-h-screen overflow-hidden md:bg-[url('/assets/modules/bg-modules.gif')] md:bg-fixed md:bg-center md:bg-no-repeat bg-none md:bg-contain">
+      ></div>
+      {/* <div className="relative min-h-screen overflow-hidden md:bg-[url('/assets/modules/bg-modules.gif')] md:bg-fixed md:bg-center md:bg-no-repeat bg-none md:bg-contain"> */}
         {isLoading ? (
           <div className="relative z-10 pt-[7.4rem] text-white">
             <div className="flex w-full flex-col gap-24">
@@ -217,7 +217,7 @@ const Modules: React.FC = () => {
           </div>
         ) : null}
       </div>
-    </div>
+    // </div>
   );
 };
 
