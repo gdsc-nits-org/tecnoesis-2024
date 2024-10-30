@@ -178,7 +178,7 @@ const About = () => {
   }, [isDesktop]);
 
   return (
-    <div className="flex w-screen flex-col overflow-x-hidden" id="about ">
+    <div className="flex w-screen flex-col h-fit overflow-hidden" id="about ">
       <div className="flex flex-col gap-12 lg:gap-0 items-center justify-center md:px-16 lg:h-[60vh] lg:flex-row">
         <div className="upper w-full md:h-fit lg:h-[100%] lg:w-1/3 lg:flex lg:flex-col lg:justify-center">
           <div className="titleText text-gradient-blue l p-10 lg:py-0 lg:px-7 text-center font-rp1 font-bold lg:text-left lg:h-1/4">
