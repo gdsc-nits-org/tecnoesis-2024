@@ -12,7 +12,7 @@ const Download: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-[82vw] lg:max-w-7xl md:mt-[5rem] md:flex-row-reverse md:gap-8">
+    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-[82vw] xl:max-w-7xl md:mt-[5rem] md:flex-row-reverse md:gap-8">
       <div className="h-[70%] md:flex">
         <div
           className="flex h-[24rem] w-[20rem] md:w-[23rem] items-center -translate-x-4 sm:-translate-x-0"
