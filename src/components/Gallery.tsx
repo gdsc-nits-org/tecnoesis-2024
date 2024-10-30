@@ -120,14 +120,14 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="gallerypage relative min-h-screen overflow-hidden bg-none">
+    <div className="gallerypage relative min-h-screen overflow-hidden bg-[url('/assets/gallery/gallerymobile.gif')] bg-fixed bg-center bg-no-repeat bg-contain md:bg-none z-20">
       <div
-        className="z-10000 fixed inset-0 opacity-45"
+        className="z-10000 fixed inset-0 opacity-45 hidden md:flex"
         dangerouslySetInnerHTML={{
           __html: `<spline-viewer url="https://prod.spline.design/csAC-rSJnjVQZbBi/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>`,
         }}
       ></div>
-      <div className="relative z-10">
+      <div className="relative z-10 bg-[url('/assets/gallery/text.png')] bg-[length:80%] bg-fixed bg-center bg-no-repeat md:bg-none ">
         {loading ? (
           <SkeletonLoader />
         ) : (

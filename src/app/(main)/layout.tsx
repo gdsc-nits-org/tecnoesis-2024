@@ -13,7 +13,7 @@ export default function RootLayout({
   const applyBackground = !noBackgroundPaths.includes(pathname);
 
   return (
-    <div className={applyBackground ? "bg-dotted" : "bg-current"}>
+    <div className={applyBackground ? "bg-dotted" : "bg-black"}>
       <FinalNav />
       {children}
     </div>
