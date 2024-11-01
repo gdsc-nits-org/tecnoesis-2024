@@ -10,7 +10,7 @@ interface propsType {
 
 const EventCard = ({ eventname, modulename, eventID, eventPoster }: propsType) => {
   return (
-    <div className="relative h-[26rem] w-fit xl:w-[21.5vw] flex flex-col justify-end text-white newEventCard overflow-hidden">
+    <div className="relative h-[26rem] w-[20rem] flex flex-col justify-end text-white newEventCard overflow-hidden">
       <div className="h-[100%] w-[100%] flex flex-col justify-center items-center z-10 postercont">
         <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
           <div className="h-[90] w-[100%] border-white/20 border-2 rounded-2xl overflow-hidden">
