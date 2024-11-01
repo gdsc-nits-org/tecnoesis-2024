@@ -7,42 +7,12 @@ const backgroundImg = '/past-sponsor-logos/sponsorRect.webp';
 const imageSets = [
   [
     {
-      src: "/past-sponsor-logos/amul-logo.webp",
+      src: "/sponsors/jrny.webp",
       alt: "Amul",
       width: 150,
       height: 150,
-    },
-    {
-      src: "/past-sponsor-logos/hackerearth-logo.webp",
-      alt: "HackerEarth",
-      width: 150,
-      height: 150,
-    },
-    {
-      src: "/past-sponsor-logos/gplus-logo.webp",
-      alt: "G Plus",
-      width: 200,
-      height: 100,
-    },
-    {
-      src: "/past-sponsor-logos/cocacola-logo.webp",
-      alt: "Coca Cola",
-      width: 150,
-      height: 150,
-    },
-    {
-      src: "/past-sponsor-logos/zebronics-logo-white.webp",
-      alt: "Zebronics",
-      width: 150,
-      height: 150,
-    },
-    {
-      src: "/past-sponsor-logos/MTV-logo.webp",
-      alt: "MTV",
-      width: 200,
-      height: 200,
-    },
-  ],
+    }
+  ]
 ];
 
 const SponsorHome: React.FC = () => {

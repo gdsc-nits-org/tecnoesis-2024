@@ -296,8 +296,7 @@ body {
 .starry-background {
   background-color: #000;
   background-image: radial-gradient(circle, #ffffff 1px, transparent 1px),
-    radial-gradient(circle, #ffffff 2px, transparent 2px),
-    radial-gradient(circle, #ffffff 3px, transparent 3px);
+    radial-gradient(circle, #ffffff 2px, transparent 2px), radial-gradient(circle, #ffffff 3px, transparent 3px);
   background-size:
     20px 20px,
     40px 40px,
@@ -559,12 +558,7 @@ body {
 }
 .newEventCard {
   border: 1.5px solid;
-  border-image-source: linear-gradient(
-    148.38deg,
-    #7decff 1.01%,
-    #111922 51.14%,
-    #76bef8 97.42%
-  );
+  border-image-source: linear-gradient(148.38deg, #7decff 1.01%, #111922 51.14%, #76bef8 97.42%);
   border-image-slice: 1;
   border-radius: 10px;
   mask-image: radial-gradient(circle, white 100%, transparent 100%);
@@ -573,9 +567,9 @@ body {
   z-index: 1;
 }
 
-@media screen and (max-width:500px){
-  .newEventCard{
-    scale: .8;
+@media screen and (max-width: 500px) {
+  .newEventCard {
+    scale: 0.8;
   }
 }
 .gradCont {
@@ -594,12 +588,7 @@ body {
 .eventcard {
   margin: 10px;
   border: 1px solid;
-  border-image-source: linear-gradient(
-    148.38deg,
-    #7decff 1.01%,
-    #111922 51.14%,
-    #76bef8 97.42%
-  );
+  border-image-source: linear-gradient(148.38deg, #7decff 1.01%, #111922 51.14%, #76bef8 97.42%);
   border-image-slice: 1;
   padding: 20px;
   border-radius: 10px;
@@ -631,7 +620,11 @@ body {
   }
 }
 
-.homepage,.teampage,.gallerypage,.dashboardpage,.modulepage {
+.homepage,
+.teampage,
+.gallerypage,
+.dashboardpage,
+.modulepage {
   animation-name: emerge;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -677,22 +670,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to top,
-    transparent 0%,
-    #0f0fefaa 40%,
-    #000009 60%
-  );
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to top,
-    transparent 0%,
-    #0f0fefaa 40%,
-    #000009 60%
-  );
+  background: linear-gradient(to top, transparent 0%, #0f0fefaa 40%, #000009 60%);
   border-radius: 10px;
 }
 
@@ -705,33 +688,44 @@ body {
 .btnText {
   @apply text-sm lg:text-base 3xl:text-xl 4xl:text-4xl;
 }
-.sparkheroParent {
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 1) 80%,transparent);
-  mask-image: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 1) 80%,transparent);
+.sparkheroParent{
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 1) 80%, transparent);
+  mask-image: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 1) 80%, transparent);
 }
-
-.sparkHero{
-  background: linear-gradient(137.95deg, #7A96AC 2.28%, #EAEFF3 19.8%, #C2D4E1 32.94%, #FFFFFF 50.16%, #D4DEE5 62.15%, #ABBDC8 78.69%, #BCCAD7 95.24%);
+.footer_mask{
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 1) 80%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 1) 80%);
+}
+.sparkHero {
+  background: linear-gradient(
+    137.95deg,
+    #7a96ac 2.28%,
+    #eaeff3 19.8%,
+    #c2d4e1 32.94%,
+    #ffffff 50.16%,
+    #d4dee5 62.15%,
+    #abbdc8 78.69%,
+    #bccad7 95.24%
+  );
   -webkit-background-clip: text;
   background-clip: text;
-  color:transparent;
-  animation-name:sparkGlow;
+  color: transparent;
+  animation-name: sparkGlow;
   animation-iteration-count: infinite;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes sparkGlow {
-  0%{
+  0% {
     text-shadow: 0 0 0.5rem #ffffff;
   }
-  50%{
+  50% {
     text-shadow: 0 0 1rem #ffffff;
   }
-  100%{
+  100% {
     text-shadow: 0 0 0.5rem #ffffff;
   }
 }
-
 
 .glitch {
   font-size: 4rem;
@@ -739,7 +733,8 @@ body {
   transform: skew(var(--skew)) scale(var(--scale));
 }
 
-.glitch::after, .glitch::before {
+.glitch::after,
+.glitch::before {
   content: attr(data-text);
   position: absolute;
   width: 100%;
