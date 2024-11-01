@@ -14,6 +14,20 @@
         ]
     },
     {
+        "id":15,
+        "module": "ASME",
+        "heads":[
+            {
+                "name": "Dhritiman Das",
+                "designation": "Module Head",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687270/event_management_heads_Dhritiman_Das.webp",
+                "facebook": "https://www.facebook.com/profile.php?id=100076444172130",
+                "instagram": "https://www.instagram.com/who_dhritimandas/",
+                "linkedin": "https://www.linkedin.com/in/dhritiman-das-34439b22a/"
+            }
+        ]
+    },
+    {
         "id": 2,
         "module": "Bytewatt",
         "heads": [

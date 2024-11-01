@@ -156,7 +156,7 @@ const LandingFooter = () => {
 
   return (
     <>
-      <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black">
+      <footer className="relative flex min-h-[50vh] w-full flex-col overflow-hidden bg-black footer_mask">
         <div
           className="bg-[linear-gradient(black, #000000)] z-40 mb-[-150px] h-[160px] w-full"
           style={{
@@ -186,7 +186,7 @@ const LandingFooter = () => {
         )}
         <div className="z-20 flex h-fit w-full flex-grow flex-col items-center justify-between bg-[url('/assets/footer/imgs/globe.png')] bg-cover bg-center">
           <div className="flex w-full flex-col items-center justify-between">
-            <div className="mb-0 mb-[-20px] mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[80%] md:h-[35vh] md:w-[80%] lg:h-[40vh] lg:w-[80%]"></div>
+            <div className="mb-[-20px] mt-[150px] flex h-[30vh] w-[90vw] flex-col items-center justify-center bg-[url('/assets/footer/imgs/tecno.webp')] bg-contain bg-center bg-no-repeat sm:h-[30vh] sm:w-[80%] md:h-[35vh] md:w-[80%] lg:h-[40vh] lg:w-[80%]"></div>
           </div>
 
           <div className="mb-0 mt-auto flex w-full flex-col items-center justify-end py-8 sm:mb-[-10px]">
