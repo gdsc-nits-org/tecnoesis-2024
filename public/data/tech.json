@@ -1,0 +1,373 @@
+[
+    {
+        "id": 1,
+        "name": "Tech Lead",
+        "heads": [
+            {
+                "photo": "https://res.cloudinary.com/dedlyz6hn/image/upload/v1729723697/BFC8C0E3-662C-43A9-9F0D-CE780B64484C_1_105_c_n0ytxb.webp",
+                "name": "Jaydeep Prapanch Das",
+                "year": "4th",
+                "designation": "Tech Head",
+                "linkedin": "https://www.linkedin.com/in/jaydeep-das-021625206/",
+                "facebook": "https://www.facebook.com/profile.php?id=100076497327860",
+                "github": "https://github.com/JDeepD"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Web Lead",
+        "heads": [
+            {
+                "name": "Adhiraj Dutta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687756/web_leads_Adhiraj_Dutta.webp",
+                "designation": "Web Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/byt3h3ad/",
+                "github": "https://links.adhiraj.tech/github",
+                "linkedin": "https://links.adhiraj.tech/linkedin"
+            },
+            {
+                "name": "Sharthak Sharma",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687510/web_heads_Sharthak_Sharma.webp",
+                "designation": "Web Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/share/XFrhv2fRGZ6hFELC/",
+                "github": "https://www.github.com/shrthk_7",
+                "linkedin": "https://www.linkedin.com/in/sharthak-sharma-1a23b0235"
+            },
+            {
+                "name": "Bijay Jiwrajka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687744/web_leads_Bijay_Jiwrajka.webp",
+                "designation": "Web Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/bijay.jiwrajka.1",
+                "github": "https://github.com/bj-jiwrajka",
+                "linkedin": "https://www.linkedin.com/in/bijay-jiwrajka-6b308a225/"
+            },
+            {
+                "name": "Maharnav Deka",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687750/web_leads_Maharnav_Deka.webp",
+                "designation": "Web Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/profile.php?id=100076295825121",
+                "github":  "github.com/mdekaa",
+                "linkedin": "https://www.linkedin.com/in/maharnav-deka-06742815a/"
+            },
+            {
+              "name": "Kumar Ashish Ranjan",
+              "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729783906/AirBrush_20230816233118_-_144_Kumar_Ashish_Ranjan_ogl5ip.webp",
+              "designation": "Web Lead",
+              "facebook": "https://www.facebook.com/RASTRASHASTRA/",
+              "github": "https://www.github.com/kr.ashishranjan/",
+              "linkedin": "https://www.linkedin.com/in/kumar-ashish-ranjan-6359b7233/"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "App Lead",
+        "heads": [
+            {
+                "name": "Sameer Zaidi",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687724/app_leads_Sameer_Zaidi.webp",
+                "designation": "App Lead",
+                "year": "4th",
+                "github": "https://github.com/Interstellar07",
+                "facebook": "https://www.facebook.com/SyedSameerZaidi123",
+                "linkedin": "https://www.linkedin.com/in/sameer-zaidi-541261226/"
+            },
+            {
+                "name": "Rajdristant Ghose",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687738/app_leads_Rajdristant_Ghose.webp",
+                "designation": "App Lead",
+                "year": "4th",
+                "facebook": "https://github.com/Raj217",
+                "github": "https://www.facebook.com/profile.php?id=100076066695970&mibextid=ZbWKwL",
+                "linkedin": "https://www.linkedin.com/in/rajdristant-ghose-286061231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Navneet Raj Karn",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687734/app_leads_Navneet_Raj_Karn.webp",
+                "designation": "App Lead",
+                "year": "4th",
+                "facebook": "https://www.facebook.com/share/tnBPu6B1UyqPkvd9/" ,
+                "github":  "https://github.com/navneet-raj-karn",
+                "linkedin": "https://www.linkedin.com/in/navneet-raj-08a720228/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "UI/UX Lead",
+        "heads": [
+            {
+                "name": "Pragya Annesha Baruah",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687713/ui_ux_leads_Pragya_Annesha_Baruah.webp",
+                "designation": "UI/UX Lead",
+                "year": "4th",
+                "github": "https://github.com/Prag03",
+                "facebook": "https://www.facebook.com/profile.php?id=100075204826742",
+                "linkedin": "https://www.linkedin.com/in/pragya-annesha-baruah-34a043229"
+            },
+            {
+                "name": "Tithi Jha",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687706/ui_ux_leads_Tithi_Jha.webp",
+                "designation": "UI/UX Lead",
+                "year": "4th",
+                "github": "https://github.com/tithi-jha",
+                "facebook": "https://www.facebook.com/tithi.jha.14?mibextid=LQQJ4d",
+                "linkedin": "www.linkedin.com/in/tithi-jha-3b43b5229"
+            },
+            {
+                "name": "Jacinth Mahanta",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729686121/ui_ux_leads_Jacinth_Mahanta.webp",
+                "designation": "UI/UX Lead",
+                "year": "4th",
+                "github": "github.com/gitsentinel",
+                "facebook": "facebook.com/jacinth.mahanta",
+                "linkedin": "linkedin.com/in/gitsentinel"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Web Developer",
+        "heads": [
+            {
+                "name": "Rishi Raj Saha",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687824/web_developers_Rishi_Raj_Saha.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/rishinhk004",
+                "facebook": "https://www.facebook.com/rishiraj.saha.353",
+                "linkedin": "https://www.linkedin.com/in/rishi-raj-saha-696b44257/"
+            },
+            {
+                "name": "Barnil Sarma",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687861/web_developers_Barnil_Sarma.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/barnilsarma",
+                "facebook": "https://www.facebook.com/barnil.sarma.3",
+                "linkedin": "https://www.linkedin.com/in/barnil-sarma-34383a255/"
+            },
+            {
+                "name": "Bedanta Kataki",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687760/web_developers_Bedanta_Kataki.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/r4inr3aper",
+                "facebook": "https://m.facebook.com/bedanta.kataki.5/",
+                "linkedin": "https://www.linkedin.com/in/bedanta-kataki-0b5205257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+                "name": "Rishav Bora",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687764/web_developers_Rishav_Bora.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/rishav3110",
+                "facebook": "https://www.facebook.com/rishav.bora.31586/",
+                "linkedin": "https://www.linkedin.com/in/rishav-bora-377157258/"
+            },
+            {
+              "name": "Arindom Sarmah",
+              "year": "3rd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687834/web_developers_Arindom_Sarmah.webp",
+              "designation": "Web Developer",
+              "facebook": "https://www.facebook.com/profile.php?id=100087855768923",
+              "github": "https://github.com/arindom-s",
+              "linkedin": "www.linkedin.com/in/ arindom-sarmah-324076255"
+            },
+            {
+                "name": "Pragyan Das",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dl0knguhb/image/upload/v1729880238/pragyan_-_Agent_X_Gaming_qatswd.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/pragyan4261",
+                "facebook": "https://www.facebook.com/profile.php?id=100087648530022&mibextid=JRoKGi",
+                "linkedin": "https://www.linkedin.com/in/pragyan-das-197086255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+              "name": "Anirban Bora",
+              "year": "2nd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687841/web_developers_Anirban_Bora.webp",
+              "designation": "Web Developer",
+              "facebook": "https://www.facebook.com/profile.php?id=61553104123672",
+              "github": "https://github.com/A-nirvana",
+              "linkedin": "https://www.linkedin.com/in/anirban-bora-432b2a280"
+            },
+            {
+              "name": "Hirak Rajbonshi",
+              "year": "2nd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687851/web_developers_Hirak_Rajbonshi.webp",
+              "designation": "Web Developer",
+              "facebook": "https://www.facebook.com/hirak.rajbonshi.7",
+              "github": "https://github.com/hirakRajbonshi/",
+              "linkedin": "https://www.linkedin.com/in/hirak-rajbonshi-baa6a628a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+              "name": "Mriganka Dey",
+              "year": "2nd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687801/web_developers_Mriganka_Dey.webp",
+              "designation": "Web Developer",
+              "facebook": "https://www.facebook.com/share/5vTqVyKhvMg7YP64/",
+              "github": "https://github.com/velgardey",
+              "linkedin": "https://www.linkedin.com/in/mrigankadey"
+            },
+            {
+                "name": "Mainak Das",
+                "year":"2nd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687770/web_developers_Mainak_Das.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/tech-hunter-mainak",
+                "facebook": "https://facebook.com/mainak.nitS",
+                "linkedin": "https://linkedin.com/in/mainakdasnits"
+            },
+            {
+                "name": "Vivek Sharma",
+                "year":"2nd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687651/web_developers_Vivek_Sharma.webp",
+                "designation": "Web Developer",
+                "github": "https://github.com/vivekksh",
+                "facebook": "https://www.facebook.com/profile.php?id=61550951534773&mibextid=ZbWKwL",
+                "linkedin": "linkedin.com/in/vivek-sharma-318593297"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "App Developer",
+        "heads": [
+            {
+              "name": "Saptarshi Adhikari",
+              "year": "3rd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687882/app_developers_Saptarshi_Adhikari.webp",
+              "designation": "App Developer",
+              "facebook": "https://www.facebook.com/profile.php?id=100013361384712",
+              "github": "https://github.com/Mastermind-sap",
+              "linkedin": "https://www.linkedin.com/in/saptarshi-adhikari/"
+            },
+            {
+              "name": "Arunaditya Dasgupta",
+              "year": "3rd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687930/app_developers_Arunaditya_Dasgupta.webp",
+              "designation": "App Developer",
+              "facebook": "https://www.facebook.com/share/uBiEWFHX1tRNbSG4/",
+              "github": "github.com/git-ADG",
+              "linkedin": "https://www.linkedin.com/in/arunaditya-dasgupta-662aa4256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            },
+            {
+              "name": "Diptangshu Chakraborty",
+              "year": "3rd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687937/app_developers_Diptangshu_Chakraborty.webp",
+              "designation": "App Developer",
+              "facebook": "https://www.facebook.com/profile.php?id=61562585326030",
+              "github": "https://github.com/Diptanghsu-DC",
+              "linkedin": "https://www.linkedin.com/in/diptangshu-chakraborty-463b77250/"
+            },
+            {
+              "name": "TAHMID UL HAQUE CHOUDHURY",
+              "year": "2nd",
+              "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687888/app_developers_TAHMID_UL_HAQUE_CHOUDHURY.webp",
+              "designation": "App Developer",
+              "facebook": "https://www.facebook.com/muhsina.muhsina.946954/",
+              "github": "https://github.com/Tahmid019",
+              "linkedin": "https://www.linkedin.com/in/tahmid019/"
+            },
+            {
+                "name": "Premansh Chakraborty",
+                "year":"2nd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687923/app_developers_Premansh_Chakraborty.webp",
+                "designation": "App Developer",
+                "github": "https://github.com/PremanshChakraborty",
+                "facebook": "https://www.facebook.com/profile.php?id=61550513922111&mibextid=ZbWKwL",
+                "linkedin": "https://www.linkedin.com/in/premansh-chakraborty-825812314?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "UI/UX Developer",
+        "heads": [
+            {
+                "name": "Kaustav Dev",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687877/ui_ux_developers_Kaustav_Dev.webp",
+                "designation": "UI/UX Developer",
+                "github": "https://github.com/KaustavDev1",
+                "facebook": "https://www.facebook.com/profile.php?id=100087939076312",
+                "linkedin": "https://www.linkedin.com/in/kaustav-dev-429123248/"
+            },
+            {
+                "name": "Samarjit Roy",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687872/ui_ux_developers_Samarjit_Roy.webp",
+                "designation": "UI/UX Developer",
+                "github": "https://github.com/Samarjit25",
+                "facebook": "https://www.facebook.com/profile.php?id=100087733476599",
+                "linkedin": "https://www.linkedin.com/in/samarjit-roy-368071257/"
+            },
+            {
+                "name": "Rajdeep Sarkar",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827558/GDSC%20images/IMG-20221111-WA0020_2_-_EIE_030_RAJDEEP_SARKAR_g0xej9.jpg",
+                "facebook": "https://www.facebook.com/freaky.Rajdeep",
+                "linkedin": "https://www.linkedin.com/in/rajdeep-sarkar-00b80a244",
+                "github": "https://github.com/Rajdeepsark",
+                "designation": "UI/UX Developer"
+            },
+            {
+                "name": "Siddharth Ghosh",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827576/GDSC%20images/WhatsApp_Image_2023-09-01_at_20.15.25_-_Siddharth_Ghosh_ofceqg.jpg",
+                "linkedin": "https://www.linkedin.com/in/siddharth-ghosh-18ba29251/",
+                "facebook": "https://www.facebook.com/in/siddharth-ghosh-18ba29251/",
+                "github": "https://github.com/Z-Maniac-Sidd",
+                "designation": "UI/UX Developer"
+            },
+            {
+                "name": "Jagatjyoti Deb",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827560/GDSC%20images/jagatjyoti_-_ECE_052_JAGATJYOTI_DEB_syfvzf.jpg",
+                "facebook": "https://www.facebook.com/profile.php?id=100084536361943",
+                "linkedin": "https://www.linkedin.com/in/jagatjyoti-deb-0a57bb223/",
+                "github": "https://github.com/jagat-01",
+                "designation": "UI/UX Developer"
+            },
+            {
+                "name": "Gracie G. Rabha",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1693827558/GDSC%20images/IMG-20230801-WA0017_-_CSE_012__Gracie_rvrw39.jpg",
+                "facebook": "https://www.facebook.com/profile.php?id=100087872117590&mibextid=ZbWKwL",
+                "linkedin": "https://www.linkedin.com/in/gracie-g-rabha-4472621aa",
+                "github": "https://github.com/GracieRuth",
+                "designation": "UI/UX Developer"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Cloud Developer",
+        "heads": [
+            {
+                "name": "Sahin Alam",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687948/cloud_developers_Sahin_Alam.webp",
+                "designation": "Cloud Developer",
+                "github": "https://github.com/rler45",
+                "facebook": "https://www.facebook.com/sahin.alam.9216778?mibextid=ZbWKwL",
+                "linkedin": "https://www.linkedin.com/in/sahin-alam-96250324a/"
+            },
+            {
+                "name": "Padmaja Mazumder",
+                "year":"3rd",
+                "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687942/cloud_developers_Padmaja_Mazumder.webp",
+                "designation": "Cloud Developer",
+                "github": "https://github.com/padmajamazumder",
+                "facebook": "https://www.facebook.com/share/VzKsEoAEhxPHjpLT/",
+                "linkedin": "https://www.linkedin.com/in/padmaja-mazumder/"
+            }
+        ]
+    }
+]

@@ -1,28 +1,43 @@
-"use client";
-import Navbar from "~/components/LandingNav";
-import Scene from "~/components/Scene";
-import { useMediaQuery } from "usehooks-ts";
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from "react";
+'use client'
 
-const NavbarMobile = dynamic(() => import("~/components/LandingNavMobile"))
+import { useRef, useState, useEffect } from "react";
+import { BiSolidVolumeFull, BiSolidVolumeMute } from "react-icons/bi";
+import Landing from "~/components/Landing";
 
 export const runtime = "edge";
 
 export default function HomePage() {
-  const [isClient, setIsClient] = useState(false)
+  const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    setIsClient(true)
-  }, [])
-  const matches = useMediaQuery("(max-width: 1024px)")
+    setIsClient(true);
+  }, []);
+
+
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+       void audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  if (!isClient) return null;
   return (
-    <main className="bg-black">
-      <Navbar />
-      {isClient && matches && <NavbarMobile />}
-      <div className="h-screen">
-        <Scene />
+    <div className="min-h-screen w-screen overflow-hidden bg-[url('/assets/Landing/starry.gif')]">
+      <Landing />
+      <div
+        onClick={togglePlayPause}
+        className="text-shadow-[0_0_9px_rgba(255,255,255,1),-1px_1px_0_#E123FF,1px_-1px_0_#4D7FFF] fixed top-[93%] right-12 animate-text-glow text-center text-white cursor-pointer z-20 text-3xl"
+      >
+        {isPlaying ? <BiSolidVolumeFull /> : <BiSolidVolumeMute />}
       </div>
-      {/* <Footer /> */}
-    </main>
+      <audio ref={audioRef} src="/rp1bgm.mp3" preload="metadata" loop />
+    </div>
   );
 }
