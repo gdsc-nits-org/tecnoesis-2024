@@ -13,7 +13,7 @@ const EventCard = ({ eventname, modulename, eventID, eventPoster }: propsType) =
     <div className="relative h-[26rem] w-fit flex flex-col justify-end text-white newEventCard overflow-hidden">
       <div className="h-[100%] w-[100%] flex flex-col justify-center items-center z-10 postercont">
         <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
-          <div className="h-[90] w-[100%] border-white/20 border-2 rounded-2xl">
+          <div className="h-[90] w-[100%] border-white/20 border-2 rounded-2xl overflow-hidden">
             <Image src = {eventPoster} className="w-[100%]" alt="Events" height={100} width={150} />
           </div>
           <div className="w-[84%] mt-3 flex flex-col justify-start items-start">
