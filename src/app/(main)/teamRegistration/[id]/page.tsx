@@ -324,7 +324,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     );
   }
   if(!user){
-   toast.error("User not authenticated")
+   toast.error("SignIn to Register for the event")
    router.push('/home')
   }
   return (
