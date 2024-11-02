@@ -150,6 +150,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const [teamLeader, setTeamLeader] = useState<string>("Loading...");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
+
   const fetchAllUsers = async (token: string) => {
     try {
       const { data } = await axios.get<{ msg: UserResponse[] }>(
@@ -314,7 +315,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       },
     );
   };
-
+ 
   if (loading || !event) {
     return (
       <div className="flex h-screen w-screen items-center justify-center gap-3">
@@ -322,7 +323,9 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       </div>
     );
   }
-
+  if(!user){
+    router.push('/userSignUp')
+  }
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
