@@ -7,6 +7,7 @@ interface propsType {
   eventID: string;
   eventPoster: string;
   thirdPartyURL?: string;
+  closingDate: string;
 }
 
 const EventCard = ({
@@ -15,6 +16,7 @@ const EventCard = ({
   eventID,
   eventPoster,
   thirdPartyURL,
+  closingDate,
 }: propsType) => {
   return (
     <div className="newEventCard relative flex h-[26rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
@@ -30,8 +32,21 @@ const EventCard = ({
             />
           </div>
           <div className="mt-3 flex w-[84%] flex-col items-start justify-start">
-            <div className="font-rp1 text-lg">{eventname}</div>
-            <h1 className="font-rp1 text-sm">{modulename}</h1>
+            <div className="font-outfit text-xl">{eventname}</div>
+            {/* <h1 className="font-rp1 text-sm">{modulename}</h1> */}
+            <div className="mt-2 font-outfit text-base">
+              Registration Closing on {}
+            </div>
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {new Date(closingDate).toLocaleString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </div>
           </div>
         </div>
       </div>

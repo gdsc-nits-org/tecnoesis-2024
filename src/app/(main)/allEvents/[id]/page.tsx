@@ -68,8 +68,8 @@ const AllEvents = ({ params }: { params: EventParams }) => {
     void fetchEventDec();
   }, [params]);
   return (
-    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
-      <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-3xl font-normal uppercase tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
+    <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden px-20">
+      <div className="bg-blue-metall bg-clip-text text-center font-outfit text-3xl font-normal uppercase tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         {moduleName}
       </div>
       <div className="flex flex-col flex-wrap items-center justify-evenly gap-[3rem] md:flex-row">
@@ -81,6 +81,7 @@ const AllEvents = ({ params }: { params: EventParams }) => {
             eventname={event.name}
             modulename={moduleName ?? "Loading module name ...."}
             thirdPartyURL={event.thirdPartyURL}
+            closingDate={event.registrationEndTime}
           />
         ))}
       </div>

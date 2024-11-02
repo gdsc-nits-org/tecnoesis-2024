@@ -72,7 +72,7 @@ const EventPage = ({ params }: { params: EventParams }) => {
             </button>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="font-rp1 text-4xl text-white lg:text-7xl xl:text-[2.5vw]">
+            <div className="font-outfit text-4xl text-white lg:text-7xl xl:text-[2.5vw]">
               {event?.name}
             </div>
             <div className="flex h-5 items-center justify-start font-nico text-xl text-white lg:text-2xl xl:text-[1.8vw]">
@@ -96,6 +96,9 @@ const EventPage = ({ params }: { params: EventParams }) => {
           <div className="w-full overflow-y-auto text-justify text-white">
             <p className="font-outfit text-[1rem] lg:text-[1.3rem] xl:text-[1.7vw]">
               {event?.description}
+            </p>
+            <p className="font-outfit text-[0.5rem] text-cyan-600 lg:text-[1rem] xl:text-[1.5vw]">
+              Venue: {event?.venue}
             </p>
           </div>
 
