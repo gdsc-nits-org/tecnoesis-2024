@@ -6,7 +6,7 @@ import axios from "axios";
 import { env } from "~/env";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import CustomButton from "~/components/CustomButton";
 
 interface Eventresponse {
   id: string;
@@ -22,6 +22,7 @@ interface Eventresponse {
   venue: string;
   lat: number;
   lng: number;
+  thirdPartyURL: string;
   registrationStartTime: string;
   registrationEndTime: string;
   extraQuestions: string[];
@@ -75,8 +76,10 @@ const EventPage = ({ params }: { params: EventParams }) => {
               {event?.name}
             </div>
             <div className="flex h-5 items-center justify-start font-nico text-xl text-white lg:text-2xl xl:text-[1.8vw]">
-              <span className="text-green-200"> MODULE: </span>
-              <span className="font-bold"> {event?.module?.name}</span>
+              <span className="font-outfit font-bold text-cyan-600">
+                {" "}
+                {event?.module?.name}
+              </span>
             </div>
           </div>
           <div className="flex w-[100%] items-center justify-center rounded-3xl border-4 border-solid border-white/20 lg:hidden lg:h-[80vh]">
@@ -91,16 +94,16 @@ const EventPage = ({ params }: { params: EventParams }) => {
             )}
           </div>
           <div className="w-full overflow-y-auto text-justify text-white">
-            <p className="text-[1.2rem] lg:text-[1.3rem] xl:text-[1.7vw]">
+            <p className="font-outfit text-[1rem] lg:text-[1.3rem] xl:text-[1.7vw]">
               {event?.description}
             </p>
           </div>
 
           <div className="mt-[2rem] flex w-[100%] items-center justify-center lg:justify-start">
-            <Link href={`/teamRegistration/${event?.id}`}>
-              <button className="flex h-[2rem] w-[12rem] flex-row items-center justify-center rounded-full border-[1.4px] border-[#01A3F5] bg-transparent p-4 font-outfit text-xl text-[#01A3F5]">
-                Register
-              </button>
+            <Link
+              href={event?.thirdPartyURL ?? `/teamRegistration/${event?.id}`}
+            >
+              <CustomButton text="Register" />
             </Link>
           </div>
         </div>

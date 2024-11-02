@@ -21,6 +21,7 @@ interface Eventresponse {
   registrationStartTime: string;
   registrationEndTime: string;
   extraQuestions: string[];
+  thirdPartyURL: string;
 }
 interface EventDesc {
   id: number;
@@ -79,6 +80,7 @@ const AllEvents = ({ params }: { params: EventParams }) => {
             eventPoster={event.posterImage}
             eventname={event.name}
             modulename={moduleName ?? "Loading module name ...."}
+            thirdPartyURL={event.thirdPartyURL}
           />
         ))}
       </div>
