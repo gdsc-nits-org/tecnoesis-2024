@@ -753,3 +753,11 @@ body {
   text-shadow: -2px 2px #cc2a1f;
   clip-path: polygon(0 var(--t2), 100% var(--t2), 100% var(--b2), 0 var(--b2));
 }
+.glassmorphism{
+  background: linear-gradient(-10deg #000000 27%, #B8B8B8 25%, #ffffff 84%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 0.5px solid #4b4b4b;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  border-radius: 10px;
+}
