@@ -19,7 +19,7 @@ const EventCard = ({
   closingDate,
 }: propsType) => {
   return (
-    <div className="newEventCard relative flex h-[26rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
+    <div className="newEventCard relative flex h-[30rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
       <div className="postercont z-10 flex h-[100%] w-[100%] flex-col items-center justify-center">
         <div className="flex h-[100%] w-[100%] flex-col items-center justify-center">
           <div className="h-[90] w-[100%] overflow-hidden rounded-2xl border-2 border-white/20">
