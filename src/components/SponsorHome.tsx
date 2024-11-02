@@ -9,14 +9,14 @@ const imageSets = [
   [
     {
       src: "/sponsors/jrny.webp",
-      alt: "Amul",
+      alt: "JRNY Entertainment",
       width: 150,
       height: 150,
       url: "https://jrnyentertainment.com/",
     },
     {
       src: "/sponsors/krafton.webp",
-      alt: "Amul",
+      alt: "Krafton",
       width: 150,
       height: 150,
       url: "https://krafton.com/en/",
