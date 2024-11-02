@@ -324,7 +324,8 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
     );
   }
   if(!user){
-    router.push('/userSignUp')
+   toast.error("User not authenticated")
+   router.push('/home')
   }
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
