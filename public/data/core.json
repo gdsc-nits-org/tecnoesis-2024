@@ -219,7 +219,11 @@
         "heads": [
             {
                 "name": "Rituraj Dey",
+<<<<<<< HEAD
                 "photo": "https://res.cloudinary.com/dgnlmdkyq/image/upload/v1730649326/IMG-20240609-WA0056_bncqmn.webp",
+=======
+                "photo": "https://res.cloudinary.com/dhry5xscm/image/upload/v1730648492/IMG-20240609-WA0056_wefnaa.webp",
+>>>>>>> fec2da0 (minor changes in error)
                 "designation": "Hospitality Head",
                 "facebook": "https://www.facebook.com/share/1qtL3QKrKEHZyHDK/",
                 "instagram": "https://www.instagram.com/dey__rituraj?igsh=ZHA5enBjMXNsYThz",

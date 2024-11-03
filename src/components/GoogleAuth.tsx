@@ -25,8 +25,6 @@ const Login = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-
-  
   useEffect(() => {
     const checkUserFirstTime = async () => {
       if (!_user) return;
@@ -40,7 +38,7 @@ const Login = () => {
             },
           },
         );
-        
+
         setUserName(() => res.data.msg.username);
         setFirstName(() => res.data.msg.firstName);
         setLastName(() => res.data.msg.lastName);
@@ -55,10 +53,10 @@ const Login = () => {
       }
     };
     void checkUserFirstTime();
-  }, [ _user, userName, setUserName, router, user]);
+  }, [_user, userName, setUserName, router, user]);
 
   if (error) {
-    toast.error("There was some Firebase error");
+    console.log("Firebase Error", error);
   }
   if (loading || _loading) {
     return (
