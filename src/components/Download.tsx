@@ -13,19 +13,12 @@ const Download: React.FC = () => {
 
   return (
     <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:mt-[5rem] md:flex md:max-w-[82vw] md:flex-row-reverse md:gap-8 xl:max-w-7xl">
-      <div className="h-[70%] md:flex">
+      <div className="h-[70%] md:flex w-full flex items-center justify-center">
         <div
-          className="flex h-[24rem] w-[20rem] -translate-x-4 items-center sm:-translate-x-0 md:w-[23rem]"
-          style={{
-            width: "23rem",
-            height: "24rem",
-          }}
-          dangerouslySetInnerHTML={{
-            __html: `
-              <spline-viewer url="https://prod.spline.design/psqhx99vgzwWUMIs/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>
-            `,
-          }}
-        />
+          className="flex h-[20rem] w-[20rem] -translate-x-4 items-center sm:-translate-x-0 md:w-[23rem] bg-contain bg-center bg-no-repeat bg-[url('/assets/mobile/circle.png')]"
+        >
+          <img src = "/assets/mobile/mobile.gif" alt = "gif" className="h-fit w-[30rem] scale-150"/>
+        </div>
       </div>
       <div className="h-[30%] text-start lg:h-[20%]">
         <div className="mt-4 h-[60%] pb-6 text-center text-lg md:mt-0 md:text-xl">
