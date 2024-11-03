@@ -339,7 +339,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               htmlFor="teamName"
               className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
             >
-              Team Name:
+              Team Name<span className="text-[#ff2521] text-xl ml-2">*</span>:
             </label>
             <input
               type="text"
@@ -382,7 +382,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                     htmlFor={`member${idx + 1}`}
                     className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
                   >
-                    Member {idx + 2} Username:
+                    Member {idx + 2} Username{(idx<event?.minTeamSize-1)?<span className="text-[#ff2521] text-xl ml-2">*</span>:null}:
                   </label>
                   <div className="relative flex w-1/2 items-center">
                     <CommandMenu
