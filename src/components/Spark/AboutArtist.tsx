@@ -8,7 +8,7 @@ const AboutArtist = () => {
     const handleClick = () => {
         if (!audioRef.current) {
             audioRef.current = new Audio('/spark.mp3');
-            audioRef.current.volume = 0.2
+            audioRef.current.volume = 0.3
         }
         if (isPlaying) {
             audioRef.current.pause();
