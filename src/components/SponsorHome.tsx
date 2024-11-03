@@ -19,7 +19,7 @@ const imageSets = [
       alt: "Krafton",
       width: 150,
       height: 150,
-      url: "https://krafton.com/en/",
+      url: "https://krafton.in",
     },
   ],
 ];
