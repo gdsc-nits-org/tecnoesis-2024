@@ -6,37 +6,80 @@ interface propsType {
   modulename: string;
   eventID: string;
   eventPoster: string;
+  thirdPartyURL?: string;
+  closingDate: string;
+  minTeamSize: number;
+  maxTeamSize: number;
 }
 
-const EventCard = ({ eventname, modulename, eventID, eventPoster }: propsType) => {
+const EventCard = ({
+  eventname,
+  modulename,
+  eventID,
+  eventPoster,
+  thirdPartyURL,
+  closingDate,
+  minTeamSize,
+  maxTeamSize,
+}: propsType) => {
   return (
-    <div className="relative h-[26rem] w-[20rem] flex flex-col justify-end text-white newEventCard overflow-hidden">
-      <div className="h-[100%] w-[100%] flex flex-col justify-center items-center z-10 postercont">
-        <div className="h-[100%] w-[100%] flex flex-col items-center justify-center">
-          <div className="h-[90] w-[100%] border-white/20 border-2 rounded-2xl overflow-hidden">
-            <Image src = {eventPoster} className="w-[100%]" alt="Events" height={100} width={150} />
+    <div className="newEventCard relative flex h-[34rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
+      <div className="postercont z-10 flex h-[100%] w-[100%] flex-col items-center justify-center">
+        <div className="flex h-[100%] w-[100%] flex-col items-center justify-center">
+          <div className="h-[90] w-[100%] overflow-hidden rounded-2xl border-2 border-white/20">
+            <Image
+              src={eventPoster}
+              className="w-[100%]"
+              alt="Events"
+              height={100}
+              width={150}
+            />
           </div>
-          <div className="w-[84%] mt-3 flex flex-col justify-start items-start">
-            <div className="text-lg font-rp1">{eventname}</div>
-            <h1 className=" text-sm font-rp1">{modulename}</h1>
+          <div className="mt-3 flex w-[84%] flex-col items-start justify-start">
+            <div className="font-outfit text-xl">{eventname}</div>
+            {/* <h1 className="font-rp1 text-sm">{modulename}</h1> */}
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {maxTeamSize === 1 ? "Solo Event" : ""}
+            </div>
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {maxTeamSize === 1
+                ? ""
+                : `Group Size: ${minTeamSize} - ${maxTeamSize}`}
+            </div>
+            <div className="mt-2 font-outfit text-base">
+              Registration Closing on {}
+            </div>
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {new Date(closingDate).toLocaleString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-evenly items-center gap-5 m-1 p-1 z-20 contentCont">
+      <div className="contentCont z-20 m-1 flex flex-row items-center justify-evenly gap-5 p-1">
         <Link href={`/event/${eventID}`}>
-          <div className="w-[100%] flex items-center justify-center">
-            <button className="h-[1.8rem] w-[8rem] rounded-full bg-transparent border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-[#01A3F5] font-bold  hover:bg-gray-700">View details</button>
+          <div className="flex w-[100%] items-center justify-center">
+            <button className="text-md flex h-[1.8rem] w-[8rem] flex-row items-center justify-center rounded-full border-[1.4px] border-[#01A3F5] bg-transparent p-3 font-outfit font-bold text-[#01A3F5] hover:bg-gray-700">
+              View details
+            </button>
           </div>
         </Link>
-        <Link href={`/teamRegistration/${eventID}`}>
-          <div className="w-[100%] flex items-center justify-center">
-            <button className="h-[1.8rem] w-[8rem] rounded-full bg-[#01A3F5] border-[#01A3F5] border-[1.4px] flex flex-row items-center justify-center text-md font-outfit p-3 text-black font-bold hover:text-white">Register</button>
+        <Link href={thirdPartyURL ?? `/teamRegistration/${eventID}`}>
+          <div className="flex w-[100%] items-center justify-center">
+            <button className="text-md flex h-[1.8rem] w-[8rem] flex-row items-center justify-center rounded-full border-[1.4px] border-[#01A3F5] bg-[#01A3F5] p-3 font-outfit font-bold text-black hover:text-white">
+              Register
+            </button>
           </div>
         </Link>
       </div>
-      <div className="gradCont">
-      </div>
+      <div className="gradCont"></div>
     </div>
-  )
-}
+  );
+};
 export default EventCard;

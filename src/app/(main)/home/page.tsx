@@ -18,18 +18,18 @@ export default function Page() {
       <div className="mb-10 flex w-full flex-col gap-y-20 lg:py-[5rem]">
         <Download />
       </div>
+      <div className="text-gradient-blue titleText font-rp1 font-bold sm:pt-20">
+        Sponsors
+      </div>
+      <div className="mb-20 w-full px-10">
+        <SponsorHome />
+      </div>
       <div className="text-gradient-blue titleText m-10 text-center font-rp1 font-bold">
         Past Sponsors
       </div>
       <div className="flex w-full flex-col gap-y-20 md:w-4/5">
         <MarqueeComponent direction={"left"} set={1} />
         <MarqueeComponent direction={"right"} set={2} />
-      </div>
-      <div className="text-gradient-blue titleText mt-20 font-rp1 font-bold sm:pt-20">
-        Sponsors
-      </div>
-      <div className="w-full px-10 mb-20">
-        <SponsorHome />
       </div>
       <FinalFooter />
     </div>
