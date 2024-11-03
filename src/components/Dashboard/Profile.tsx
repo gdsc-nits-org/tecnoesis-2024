@@ -59,7 +59,7 @@ const Profile = () => {
     })();
   }, [_user]);
 
-  if (!user){
+  if (!_user){
     toast.error("User not SignedIn")
     router.push('/home')
   }
