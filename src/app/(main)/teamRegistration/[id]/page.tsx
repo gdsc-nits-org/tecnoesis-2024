@@ -150,6 +150,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
   const [teamLeader, setTeamLeader] = useState<string>("Loading...");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
+
   const fetchAllUsers = async (token: string) => {
     try {
       const { data } = await axios.get<{ msg: UserResponse[] }>(
@@ -314,7 +315,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       },
     );
   };
-
+ 
   if (loading || !event) {
     return (
       <div className="flex h-screen w-screen items-center justify-center gap-3">
@@ -322,7 +323,10 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
       </div>
     );
   }
-
+  if(!user){
+   toast.error("SignIn to Register for the event")
+   router.push('/home')
+  }
   return (
     <div className="bg-dotted pt-15 flex min-h-[100vh] flex-col items-center justify-center gap-10 overflow-hidden">
       <div className="bg-blue-metall bg-clip-text text-center font-rp1 text-2xl font-normal tracking-widest text-transparent lg:text-5xl">
@@ -335,7 +339,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
               htmlFor="teamName"
               className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
             >
-              Team Name:
+              Team Name<span className="text-[#ff2521] text-xl ml-2">*</span>:
             </label>
             <input
               type="text"
@@ -378,7 +382,7 @@ const RegisterTeam = ({ params }: { params: EventParams }) => {
                     htmlFor={`member${idx + 1}`}
                     className="w-3/10 font-outfit text-sm font-normal text-white md:text-xl lg:text-2xl"
                   >
-                    Member {idx + 2} Username:
+                    Member {idx + 2} Username{(idx<event?.minTeamSize-1)?<span className="text-[#ff2521] text-xl ml-2">*</span>:null}:
                   </label>
                   <div className="relative flex w-1/2 items-center">
                     <CommandMenu
