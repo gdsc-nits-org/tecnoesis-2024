@@ -106,7 +106,7 @@ const Login = () => {
                 alt="avater"
               ></Image>
             )}
-            <p className="w-[8vw] overflow-hidden text-nowrap text-center font-outfit text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
+            <p className="w-[8vw] overflow-hidden truncate text-nowrap pl-2 text-center font-outfit text-[1.25vw] tracking-wide duration-1000 group-hover:text-[#01A3F5]">
               {userName}
             </p>
           </button>
