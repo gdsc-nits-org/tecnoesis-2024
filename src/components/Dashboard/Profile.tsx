@@ -6,6 +6,7 @@ import axios from "axios";
 import { auth } from "~/app/utils/firebase";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { env } from "~/env";
+import { toast } from "sonner";
 
 interface UserResponse {
   balance: number;
@@ -57,6 +58,12 @@ const Profile = () => {
       }
     })();
   }, [_user]);
+
+  if (!user){
+    toast.error("User not SignedIn")
+    router.push('/home')
+  }
+  
   return (
     <div className="shadow-smborder-gray-700 w-[80vw] rounded-lg border-2 border-white/20 bg-transparent bg-opacity-30 shadow-xl backdrop-blur-md transition-all duration-300 hover:shadow-cyan-400/20 lg:w-[50vw]">
       <div className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
