@@ -610,7 +610,7 @@ body {
 
 @media screen and (min-width: 1024px) {
   .scrollbar-hide {
-    mask-image: linear-gradient(to top, transparent, #000000);
+    /* mask-image: linear-gradient(to top, transparent, #000000); */
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
