@@ -36,7 +36,7 @@ const AboutArtist = () => {
                     width={250}
                     className="lg:hidden translate-y-40 md:scale-[2] md:translate-y-[24rem]"
                 />
-                <div className="hidden lg:flex h-[5rem] w-[15rem] rounded-full bg-transparent border-white border-[.5px] -translate-y-[27rem]">
+                <div className="hidden lg:flex h-[5rem] w-[15rem] rounded-full -translate-x-32 bg-transparent border-white border-[.5px] -translate-y-[27rem]">
                     <div className={`h-full w-full rounded-full bg-[#19DCED] ${isPlaying ? '-translate-y-0' : '-translate-y-1/2'} flex items-center justify-center`}>
                         <div
                             onClick={handleClick}
