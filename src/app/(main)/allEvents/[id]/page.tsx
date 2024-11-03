@@ -72,7 +72,7 @@ const AllEvents = ({ params }: { params: EventParams }) => {
       <div className="bg-blue-metall bg-clip-text text-center font-outfit text-3xl font-normal uppercase tracking-widest text-transparent lg:text-4xl 2xl:text-6xl 3xl:text-9xl">
         {moduleName}
       </div>
-      <div className="flex flex-col flex-wrap items-center justify-evenly gap-[3rem] md:flex-row">
+      <div className="flex flex-col flex-wrap items-center justify-evenly gap-[3rem] md:flex-row mb-[4rem]">
         {events.map((event, ind) => (
           <EventCard
             key={ind}
