@@ -18,8 +18,15 @@ const config = {
         pathname: "/**",
       },
     ],
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/cyberwarp",
+        destination: "/allEvents/671cda7637ad0e86d7370c83",
+      },
+    ];
+  },
 };
-
 
 export default config;

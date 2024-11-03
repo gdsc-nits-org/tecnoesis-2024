@@ -8,6 +8,8 @@ interface propsType {
   eventPoster: string;
   thirdPartyURL?: string;
   closingDate: string;
+  minTeamSize: number;
+  maxTeamSize: number;
 }
 
 const EventCard = ({
@@ -17,9 +19,11 @@ const EventCard = ({
   eventPoster,
   thirdPartyURL,
   closingDate,
+  minTeamSize,
+  maxTeamSize,
 }: propsType) => {
   return (
-    <div className="newEventCard relative flex h-[30rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
+    <div className="newEventCard relative flex h-[34rem] w-[20rem] flex-col justify-end overflow-hidden text-white">
       <div className="postercont z-10 flex h-[100%] w-[100%] flex-col items-center justify-center">
         <div className="flex h-[100%] w-[100%] flex-col items-center justify-center">
           <div className="h-[90] w-[100%] overflow-hidden rounded-2xl border-2 border-white/20">
@@ -34,6 +38,14 @@ const EventCard = ({
           <div className="mt-3 flex w-[84%] flex-col items-start justify-start">
             <div className="font-outfit text-xl">{eventname}</div>
             {/* <h1 className="font-rp1 text-sm">{modulename}</h1> */}
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {maxTeamSize === 1 ? "Solo Event" : ""}
+            </div>
+            <div className="font-outfit text-base font-bold text-cyan-600">
+              {maxTeamSize === 1
+                ? ""
+                : `Group Size: ${minTeamSize} - ${maxTeamSize}`}
+            </div>
             <div className="mt-2 font-outfit text-base">
               Registration Closing on {}
             </div>

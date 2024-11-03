@@ -82,6 +82,8 @@ const AllEvents = ({ params }: { params: EventParams }) => {
             modulename={moduleName ?? "Loading module name ...."}
             thirdPartyURL={event.thirdPartyURL}
             closingDate={event.registrationEndTime}
+            minTeamSize={event.minTeamSize}
+            maxTeamSize={event.maxTeamSize}
           />
         ))}
       </div>
