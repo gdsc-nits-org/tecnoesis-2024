@@ -256,7 +256,7 @@ const CompleteProfile = () => {
               htmlFor="registrationId"
               className="w-3/10 text-wrap font-outfit text-sm font-normal text-white md:text-xl lg:text-nowrap lg:text-2xl"
             >
-              REGISTRATION ID:
+              SCHOLAR ID:
             </label>
             <input
               type="text"
