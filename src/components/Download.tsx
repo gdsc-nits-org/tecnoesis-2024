@@ -12,10 +12,10 @@ const Download: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:flex md:max-w-[82vw] xl:max-w-7xl md:mt-[5rem] md:flex-row-reverse md:gap-8">
+    <div className="mx-auto h-full w-full max-w-sm space-x-4 overflow-hidden px-3 text-white md:mt-[5rem] md:flex md:max-w-[82vw] md:flex-row-reverse md:gap-8 xl:max-w-7xl">
       <div className="h-[70%] md:flex">
         <div
-          className="flex h-[24rem] w-[20rem] md:w-[23rem] items-center -translate-x-4 sm:-translate-x-0"
+          className="flex h-[24rem] w-[20rem] -translate-x-4 items-center sm:-translate-x-0 md:w-[23rem]"
           style={{
             width: "23rem",
             height: "24rem",
@@ -30,14 +30,15 @@ const Download: React.FC = () => {
       <div className="h-[30%] text-start lg:h-[20%]">
         <div className="mt-4 h-[60%] pb-6 text-center text-lg md:mt-0 md:text-xl">
           <h5 className="mt-10 hidden h-[20%] font-rp1 text-xl font-bold text-white md:flex lg:text-2xl 3xl:text-4xl 4xl:text-7xl">
-            Download the
+            {/* Download the */}
+            Coming Soon
           </h5>
-          <h1 className="text-gradient-blue titleText hidden pt-1 font-rp1 font-bold md:flex text-left">
+          <h1 className="text-gradient-blue titleText hidden pt-1 text-left font-rp1 font-bold md:flex">
             {" "}
             new tecnoesis app
           </h1>
           <h3 className="normalContent font-outfit md:hidden">
-            Download The New Tecnoesis App on Android.
+            Coming Soon, The New Tecnoesis App on Android.
           </h3>
           <h3 className="normalText hidden w-full py-[1rem] text-start font-outfit text-[#B5D8EABF] md:flex">
             Tecnoesis is the annual techno-managerial event of NIT Silchar,
@@ -45,7 +46,7 @@ const Download: React.FC = () => {
             workshops, competitions and interactions worth a lifetime.{" "}
           </h3>
         </div>
-        <div className="my-2 flex items-center justify-center gap-[1.75rem] space-x-4 p-0 text-start md:justify-start">
+        <div className="my-2 flex hidden items-center justify-center gap-[1.75rem] space-x-4 p-0 text-start md:justify-start">
           <a
             href="https://play.google.com/store"
             target="_blank"
