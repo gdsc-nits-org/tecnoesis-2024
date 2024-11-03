@@ -3,6 +3,7 @@ import Image from "next/image";
 const AboutArtist = () => {
     return (
         <div className="w-full md:h-[60rem] bg-contain lg:bg-[length:80%] bg-center bg-no-repeat bg-[url('/assets/spark/sparkmobbg.png')] lg:bg-[url('/assets/spark/meettheartist.png')] flex flex-col">
+             
             <div className="h-fit w-full flex items-center justify-center translate-x-4  lg:translate-y-80 z-40 ">
                 <Image
                     src="/assets/spark/NikhilDSouza.png"
@@ -18,6 +19,18 @@ const AboutArtist = () => {
                     width={250}
                     className="lg:hidden translate-y-40 md:scale-[2] md:translate-y-[24rem]"
                 />
+                <div className="hidden lg:flex h-[5rem] w-[15rem] rounded-full bg-transparent border-white border-[.5px] -translate-y-[27rem]">
+                    <div className="h-full w-full rounded-full bg-[#19DCED] -translate-y-1/2 hover:-translate-y-0 flex items-center justify-evenly">
+                    <div className="h-[3.8rem] w-[3.8rem] rounded-full bg-white cursor-pointer flex items-center justify-center">
+                        <Image 
+                            src = "/assets/spark/pause.png"
+                            alt = "pause"
+                            height = {30}
+                            width = {30}
+                        />    
+                    </div>
+                    </div>
+                </div>
             </div>
             <div className="w-full flex items-center justify-center">
                 <div className="h-[10rem] md:h-[12rem] lg:h-[15rem] w-[18rem] md:w-[25rem] glassmorphism z-50 
