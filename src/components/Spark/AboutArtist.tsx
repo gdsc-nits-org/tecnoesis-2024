@@ -5,25 +5,23 @@ const AboutArtist = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
-    const handleMouseEnter = () => {
-        setIsPlaying(true);
+    const handleClick = () => {
         if (!audioRef.current) {
             audioRef.current = new Audio('/spark.mp3');
+            audioRef.current.volume = 0.2
         }
-        void audioRef.current.play();
-    };
-
-    const handleMouseLeave = () => {
-        setIsPlaying(false);
-        if (audioRef.current) {
+        if (isPlaying) {
             audioRef.current.pause();
+        } else {
+            void audioRef.current.play();
         }
+        setIsPlaying(!isPlaying);
     };
 
     return (
         <div className="w-full md:h-[60rem] bg-contain lg:bg-[length:80%] bg-center bg-no-repeat bg-[url('/assets/spark/sparkmobbg.png')] lg:bg-[url('/assets/spark/meettheartist.png')] flex flex-col">
 
-            <div className="h-fit w-full flex items-center justify-center translate-x-4  lg:translate-y-80 z-40 ">
+            <div className="h-fit w-full flex items-center justify-center translate-x-4 xl:translate-x-36  lg:translate-y-80 z-40">
                 <Image
                     src="/assets/spark/NikhilDSouza.png"
                     alt="nikhildsouza"
@@ -39,10 +37,9 @@ const AboutArtist = () => {
                     className="lg:hidden translate-y-40 md:scale-[2] md:translate-y-[24rem]"
                 />
                 <div className="hidden lg:flex h-[5rem] w-[15rem] rounded-full bg-transparent border-white border-[.5px] -translate-y-[27rem]">
-                    <div className="h-full w-full rounded-full bg-[#19DCED] -translate-y-1/2 hover:-translate-y-0 flex items-center justify-center">
+                    <div className={`h-full w-full rounded-full bg-[#19DCED] ${isPlaying ? '-translate-y-0' : '-translate-y-1/2'} flex items-center justify-center`}>
                         <div
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
+                            onClick={handleClick}
                             className="h-[3.8rem] w-[3.8rem] rounded-full bg-white cursor-pointer flex items-center justify-center overflow-hidden">
                             {isPlaying ?
                                 <div className="h-[30px] w-[30px] text-[#19DCED] font-bold text-center text-2xl -translate-y-1">  | |  </div>
