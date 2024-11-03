@@ -47,15 +47,25 @@ const config = {
         source: "/ecs",
         destination: "/allEvents/672606f555a414cbd04a4d74",
       },
-
       {
         source: "/iei",
         destination: "/allEvents/6726086f55a414cbd04a4d77",
       },
-
       {
         source: "/vwarz",
         destination: "/allEvents/671cdab637ad0e86d7370c85",
+      },
+      {
+        source: "/bytewatt",
+        destination: "/allEvents/6726611055a414cbd04a4d85",
+      },
+      {
+        source: "/smartcity",
+        destination: "/allEvents/671cd8e137ad0e86d7370c82",
+      },
+      {
+        source: "/circuitry-nexus",
+        destination: "/allEvents/672610f955a414cbd04a4d82",
       },
     ];
   },
