@@ -73,7 +73,7 @@ const AboutArtist = () => {
                     <p className="text-white font-rp1 font-semibold text-center tracking-widest text-xl mb-2">Nikhil D Souza</p>
                     <p className="text-white font-outfit text-justify text-[0.7rem] md:text-[0.8rem] w-[90%] xl:text-md">Nikhil D Souza is an Indian singer, songwriter, and musician,who has captivated audiences across the subcontinent with his soulful melodies and heartfelt performances. He gained popularity in India for his independent music as well as for playback singing in Bollywood films.
                         <br />
-                       <span className="hidden lg:flex"> His success as an indie artist, paired with his Bollywood achievements, showcases his versatility and the broad range of his musical capabilities.</span>
+                        <span className="hidden lg:flex"> His success as an indie artist, paired with his Bollywood achievements, showcases his versatility and the broad range of his musical capabilities.</span>
                     </p>
                 </div>
             </div>
