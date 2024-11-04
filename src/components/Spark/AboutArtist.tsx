@@ -71,22 +71,25 @@ const AboutArtist = () => {
                 <div className="h-[10rem] md:h-[12rem] lg:h-[15rem] w-[18rem] md:w-[25rem] glassmorphism z-50 
             translate-y-16 lg:-translate-x-40 xl:-translate-x-96 lg:-translate-y-8 xl:-translate-y-0 md:translate-y-[26rem] flex flex-col items-center justify-center" >
                     <p className="text-white font-rp1 font-semibold text-center tracking-widest text-xl mb-2">Nikhil D Souza</p>
-                    <p className="text-white font-outfit text-justify text-sm w-[90%] xl:text-md">Nikhil D Souza is an Indian singer-songwriter known for his soulful voice and heartfelt lyrics, blending pop, indie, and folk. With hits like Silver and Gold, he’s popular in India and internationally.</p>
+                    <p className="text-white font-outfit text-justify text-[0.7rem] md:text-[0.8rem] w-[90%] xl:text-md">Nikhil D Souza is an Indian singer, songwriter, and musician,who has captivated audiences across the subcontinent with his soulful melodies and heartfelt performances. He gained popularity in India for his independent music as well as for playback singing in Bollywood films.
+                        <br />
+                       <span className="hidden lg:flex"> His success as an indie artist, paired with his Bollywood achievements, showcases his versatility and the broad range of his musical capabilities.</span>
+                    </p>
                 </div>
             </div>
             <div className="h-[2rem] lg:h-[3rem] w-full bg-[#04B5C4] relative z-10 overflow-hidden flex items-center justify-start translate-y-20 md:translate-y-[28rem] lg:translate-y-0 xl:translate-y-8">
-                <div className="relative h-[2.5rem] w-[200%] animate-slide-left flex gap-4">
+                <div className="relative h-[2.5rem] w-[300%] animate-slide-left flex gap-28 md:gap-4">
                     <Image
                         src="/assets/spark/songinfinite.png"
                         alt="nikhildsouza"
-                        className="object-contain w-[100vw]"
+                        className="object-contain w-[100vw] scale-y-125 scale-x-125 md:scale-y-100 md:scale-x-100"
                         width={800}
                         height={120}
                     />
                     <Image
                         src="/assets/spark/songinfinite.png"
                         alt="nikhildsouza"
-                        className="object-contain w-[100vw]"
+                        className="object-contain w-[100vw] scale-y-125 scale-x-125 md:scale-y-100 md:scale-x-100"
                         width={800}
                         height={120}
                     />
