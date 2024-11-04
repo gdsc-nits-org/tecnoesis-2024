@@ -1,21 +1,32 @@
 'use client'
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 const AboutArtist = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
+    useEffect(() => {
+        audioRef.current = new Audio('/spark.mp3');
+        audioRef.current.volume = 0.3;
+        audioRef.current.loop = true;
+        void audioRef.current.play().then(() => setIsPlaying(true)).catch((error) => {
+            console.warn("Audio playback was prevented", error);
+        });
+
+        return () => {
+            audioRef.current?.pause();
+        };
+    }, []);
+
     const handleClick = () => {
-        if (!audioRef.current) {
-            audioRef.current = new Audio('/spark.mp3');
-            audioRef.current.volume = 0.3
+        if (audioRef.current) {
+            if (isPlaying) {
+                audioRef.current.pause();
+            } else {
+                void audioRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
         }
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
-            void audioRef.current.play();
-        }
-        setIsPlaying(!isPlaying);
     };
 
     return (

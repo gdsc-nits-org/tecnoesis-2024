@@ -10,7 +10,7 @@ const Landing: React.FC = () => {
                 <div className="flex flex-col items-center justify-center h-[100%] w-[100%]">
                     <img 
                         src="/assets/spark/wheel.gif" 
-                        className='mobile1:scale-x-[-0.65] mobile1:scale-y-[0.65] sm:scale-x-[-0.5] sm:scale-y-[0.5] xl:scale-x-[-0.55] xl:scale-y-[0.55] scale-x-[-1] scale-y-[1] -translate-y-10 mobile1:-translate-y-15 md:-translate-y-20' 
+                        className='mobile1:scale-x-[-0.85] mobile1:scale-y-[0.85] sm:scale-x-[-0.5] sm:scale-y-[0.5] xl:scale-x-[-0.55] xl:scale-y-[0.55] scale-x-[-1] scale-y-[1] -translate-y-10 mobile1:-translate-y-15 md:-translate-y-20' 
                         alt='wheel' 
                     />
                 </div>
