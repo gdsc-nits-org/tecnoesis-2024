@@ -96,10 +96,7 @@ const EventPage = ({ params }: { params: EventParams }) => {
           <div className="w-full overflow-y-auto text-justify text-white">
             <p
               className="font-outfit text-[1rem] lg:text-[1.3rem] xl:text-[1.7vw]"
-<<<<<<< HEAD
-=======
               // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
->>>>>>> 201d4de (fix build)
               dangerouslySetInnerHTML={{ __html: event?.description! }}
             ></p>
 
