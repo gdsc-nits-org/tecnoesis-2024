@@ -67,6 +67,14 @@ const config = {
         source: "/circuitry-nexus",
         destination: "/allEvents/672610f955a414cbd04a4d82",
       },
+      {
+        source: "/amazers",
+        destination: "/allEvents/6729f5b68992b16a7b9d887c",
+      },
+      {
+        source: "/foto-galleria",
+        destination: "/allEvents/6729da0c55a414cbd04a4e3e",
+      },
     ];
   },
 };
