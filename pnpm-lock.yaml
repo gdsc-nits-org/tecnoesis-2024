@@ -68,6 +68,9 @@ importers:
       react-cmdk:
         specifier: ^1.3.9
         version: 1.3.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-cursor:
+        specifier: ^2.0.15
+        version: 2.0.15(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -1069,9 +1072,20 @@ packages:
     resolution: {integrity: sha512-ahC5W1xgou+KTXix4sAO8Ki12Q+jf4i0+tmk3sC+zgcynshkHxzpXdImBehiUYKKKDwvfFiJl1tZt6ewscS1Mg==}
     engines: {node: '>= 0.4'}
 
+  array-difference@0.0.1:
+    resolution: {integrity: sha512-LMXXDKmRSsO+d7N73LyTBWlT+GiLfNUCWeeWmZivzJ1NxSPOobS+w8bIAAfGEV35oVBsk9u9cXii8dDceU5NPw==}
+
   array-includes@3.1.8:
     resolution: {integrity: sha512-itaWrbYbqpGXkGhZPGUulwnhVf5Hpy1xiCFsGqyIGglbBxmG5vSjxQen3/WGOjPpNEv1RtBLKxbmVXm8HpJStQ==}
     engines: {node: '>= 0.4'}
+
+  array-union@1.0.2:
+    resolution: {integrity: sha512-Dxr6QJj/RdU/hCaBjOfxW+q6lyuVE6JFWIrAUpuOOhoJJoQ99cUn3igRaHVB5P9WrgFVN0FfArM3x0cueOU8ng==}
+    engines: {node: '>=0.10.0'}
+
+  array-uniq@1.0.3:
+    resolution: {integrity: sha512-MNha4BWQ6JbwhFhj03YK552f7cb3AzoE8SzeljgChvL1dl3IcvggXVz1DilzySZkCja+CXuZbdW7yATchWn8/Q==}
+    engines: {node: '>=0.10.0'}
 
   array.prototype.findlast@1.2.5:
     resolution: {integrity: sha512-CVvd6FHg1Z3POpBLxO6E6zr+rSKEQ9L6rZHAaY7lLfhKsWYUBBOuMs0e9o24oopj6H+geRCX0YJ+TJLBK2eHyQ==}
@@ -1296,6 +1310,9 @@ packages:
     peerDependenciesMeta:
       supports-color:
         optional: true
+
+  deep-equal@0.2.2:
+    resolution: {integrity: sha512-FXgye2Jr6oEk01S7gmSrHrPEQ1ontR7wwl+nYiZ8h4SXlHVm0DYda74BIPcHz2s2qPz4+375IcAz1vsWLwddgQ==}
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
@@ -1883,6 +1900,10 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
+  isobject@0.2.0:
+    resolution: {integrity: sha512-VaWq6XYAsbvM0wf4dyBO7WH9D7GosB7ZZlqrawI9BBiTMINBeCyqSKBa35m870MY3O4aM31pYyZi9DfGrYMJrQ==}
+    engines: {node: '>=0.10.0'}
+
   iterator.prototype@1.1.3:
     resolution: {integrity: sha512-FW5iMbeQ6rBGm/oKgzq2aW4KvAGpxPzYES8N4g4xNXUKpL1mclMvOe+76AcLDTvD+Ze+sOpVhgdAQEKF4L9iGQ==}
     engines: {node: '>= 0.4'}
@@ -1968,8 +1989,23 @@ packages:
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
+  lodash.identity@3.0.0:
+    resolution: {integrity: sha512-AupTIzdLQxJS5wIYUQlgGyk2XRTfGXA+MCghDHqZk0pzUNYvd3EESS6dkChNauNYVIutcb0dfHw1ri9Q1yPV8Q==}
+
+  lodash.isequal@4.5.0:
+    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+
+  lodash.isobject@3.0.2:
+    resolution: {integrity: sha512-3/Qptq2vr7WeJbB4KHUSKlq8Pl7ASXi3UG6CMbBm8WRtXi8+GHm7mKaU3urfpSEzWe2wCIChs6/sdocUsTKJiA==}
+
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+
+  lodash.omit@4.5.0:
+    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
+
+  lodash.reduce@4.6.0:
+    resolution: {integrity: sha512-6raRe2vxCYBhpBu+B+TtNGUzah+hQjVdu3E17wfusjyrXBka2nBS8OH/gjVZ5PvHOhWmIZTYri09Z6n/QfnNMw==}
 
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -2129,6 +2165,10 @@ packages:
   object.values@1.2.0:
     resolution: {integrity: sha512-yBYjY9QX2hnRmZHAjG/f13MzmBzxzYgQhFrke06TTyKY5zSTEqkOeukBzIdVA3j3ulu8Qa3MbVFShV7T2RmGtQ==}
     engines: {node: '>= 0.4'}
+
+  omit-keys@0.1.0:
+    resolution: {integrity: sha512-JfTw3lVL54592o0Vb1frMN6DpS/wT8Uz/IWg1e0w2ZkjF4yyPYHGJAtdcBcUbp/RMf/LbdMzIz6QZ6ycaRCFUA==}
+    engines: {node: '>=0.10.0'}
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
@@ -2336,6 +2376,11 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  react-addons-update@0.14.8:
+    resolution: {integrity: sha512-dttB8vt4Nkw/euHlBi0rBZU234WQW7TeTSGnGk57j5MlrMxKlfDDVgJuzA3WX9G9cwUlKV4w1SuYLE2cKQZbVA==}
+    peerDependencies:
+      react: ^0.14.8
+
   react-cmdk@1.3.9:
     resolution: {integrity: sha512-MSVmAQZ9iqY7hO3r++XP6yWSHzGfMDGMvY3qlDT8k5RiWoRFwO1CGPlsWzhvcUbPilErzsMKK7uB4McEcX4B6g==}
     peerDependencies:
@@ -2346,6 +2391,9 @@ packages:
     resolution: {integrity: sha512-1uWd07EME6XZvMfapwZmc7NgCZqDemcvicRi3wMJzXsQLvZ3L7fTHVyPy1bZdnWXM4iPjYuNE+uJ41MLKeTtnA==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
+  react-cursor@2.0.15:
+    resolution: {integrity: sha512-JA1Pnh4NIaPnqmTykZ5d4qHzffNAK+8Knvs+EUurB7J9uOODvoxvQOn4QRZjtg5oSBjXkqxGEJrdDeeTuJ+xCw==}
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
@@ -2764,6 +2812,9 @@ packages:
   undici@6.19.7:
     resolution: {integrity: sha512-HR3W/bMGPSr90i8AAp2C4DM3wChFdJPLrWYpIS++LxS8K+W535qftjt+4MyjNYHeWabMj1nvtmLIi7l++iq91A==}
     engines: {node: '>=18.17'}
+
+  update-in@0.0.1-alpha.5:
+    resolution: {integrity: sha512-qWHo2lg+++s+Ia7TXhN7kYmY448pTdz85fhOB+Uiz+dtky0mxv3s43IlTWBjmXRhAkTSRUBAUsANHEf4LrNYGA==}
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -3953,6 +4004,8 @@ snapshots:
       call-bind: 1.0.7
       is-array-buffer: 3.0.4
 
+  array-difference@0.0.1: {}
+
   array-includes@3.1.8:
     dependencies:
       call-bind: 1.0.7
@@ -3961,6 +4014,12 @@ snapshots:
       es-object-atoms: 1.0.0
       get-intrinsic: 1.2.4
       is-string: 1.0.7
+
+  array-union@1.0.2:
+    dependencies:
+      array-uniq: 1.0.3
+
+  array-uniq@1.0.3: {}
 
   array.prototype.findlast@1.2.5:
     dependencies:
@@ -4210,6 +4269,8 @@ snapshots:
   debug@4.3.7:
     dependencies:
       ms: 2.1.3
+
+  deep-equal@0.2.2: {}
 
   deep-is@0.1.4: {}
 
@@ -4968,6 +5029,8 @@ snapshots:
 
   isexe@2.0.0: {}
 
+  isobject@0.2.0: {}
+
   iterator.prototype@1.1.3:
     dependencies:
       define-properties: 1.2.1
@@ -5053,7 +5116,17 @@ snapshots:
 
   lodash.debounce@4.0.8: {}
 
+  lodash.identity@3.0.0: {}
+
+  lodash.isequal@4.5.0: {}
+
+  lodash.isobject@3.0.2: {}
+
   lodash.merge@4.6.2: {}
+
+  lodash.omit@4.5.0: {}
+
+  lodash.reduce@4.6.0: {}
 
   lodash@4.17.21: {}
 
@@ -5209,6 +5282,11 @@ snapshots:
       define-properties: 1.2.1
       es-object-atoms: 1.0.0
 
+  omit-keys@0.1.0:
+    dependencies:
+      array-difference: 0.0.1
+      isobject: 0.2.0
+
   once@1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -5363,6 +5441,10 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  react-addons-update@0.14.8(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   react-cmdk@1.3.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5378,6 +5460,18 @@ snapshots:
     dependencies:
       prop-types: 15.8.1
       react: 18.3.1
+
+  react-cursor@2.0.15(react@18.3.1):
+    dependencies:
+      lodash.identity: 3.0.0
+      lodash.isequal: 4.5.0
+      lodash.isobject: 3.0.2
+      lodash.omit: 4.5.0
+      lodash.reduce: 4.6.0
+      react-addons-update: 0.14.8(react@18.3.1)
+      update-in: 0.0.1-alpha.5(react@18.3.1)
+    transitivePeerDependencies:
+      - react
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
@@ -5853,6 +5947,16 @@ snapshots:
   undici-types@6.19.8: {}
 
   undici@6.19.7: {}
+
+  update-in@0.0.1-alpha.5(react@18.3.1):
+    dependencies:
+      array-union: 1.0.2
+      deep-equal: 0.2.2
+      lodash.isobject: 3.0.2
+      omit-keys: 0.1.0
+      react-addons-update: 0.14.8(react@18.3.1)
+    transitivePeerDependencies:
+      - react
 
   uri-js@4.4.1:
     dependencies:
