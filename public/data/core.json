@@ -155,12 +155,12 @@
     },
     {
         "id": 6,
-        "name": "Design Heads",
+        "name": "Motion and Graphics Heads",
         "heads": [
             {
                 "name": "Sadman Saquib",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687184/design_heads_Sadman_Saquib.webp",
-                "designation": "Design Head",
+                "designation": "Motion Graphics Head",
                 "facebook": "https://www.facebook.com/sadman.saquibe.9/",
                 "instagram": "https://www.instagram.com/sadman_saquib/profilecard/?igsh=MXVndjlqeTZsN3QzMg==",
                 "linkedin": "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav"
@@ -168,7 +168,7 @@
             {
                 "name": "Ishan Das",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687221/design_heads_Ishan_Das.webp",
-                "designation": "Design Head",
+                "designation": "Motion Graphics Head",
                 "facebook": "https://www.facebook.com/ishan.baisya/",
                 "instagram": "https://www.instagram.com/_ishan.das/",
                 "linkedin": "https://www.linkedin.com/in/ishan-das-0853042b3/"
@@ -176,7 +176,7 @@
             {
                 "name": "AMRITA KASHYAP",
                 "photo": "https://res.cloudinary.com/dprjiwgfo/image/upload/v1729687229/design_heads_AMRITA_KASHYAP.webp",
-                "designation": "Design Head",
+                "designation": "Motion Graphics Head",
                 "facebook": "https://www.facebook.com/profile.php?id=100076495782914",
                 "instagram": "https://www.instagram.com/amrita_kash_yap",
                 "linkedin": "https://www.linkedin.com/in/amrita-kashyap-a33069230"
