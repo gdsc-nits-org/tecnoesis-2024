@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import { LoaderCircle, Rocket } from "lucide-react";
 import { toast } from "sonner";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { env } from "~/env";
 
 interface UserResponse {
@@ -158,7 +158,7 @@ interface UserCred {
 }
 const ProfileCard: React.FC<UserCred> = ({
   photoURL,
-  displayName,
+  displayName: _displayName,
   userName,
   firstName,
   lastName,

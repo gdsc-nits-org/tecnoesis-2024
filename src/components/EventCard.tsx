@@ -14,7 +14,7 @@ interface propsType {
 
 const EventCard = ({
   eventname,
-  modulename,
+  modulename: _modulename,
   eventID,
   eventPoster,
   thirdPartyURL,

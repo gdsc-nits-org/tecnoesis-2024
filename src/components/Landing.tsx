@@ -119,7 +119,9 @@ const Landing: React.FC = () => {
               priority={true}
               onLoad={handleImageLoad}
             />
-            <img
+            <Image
+              width={500}
+              height={500}
               src="/assets/Landing/hiker.png"
               alt="rock"
               className="movable z-5 absolute bottom-[-100px] mobile4:bottom-[-150px] mobile4:scale-[0.8] md:bottom-[-300px] md:scale-[0.5] tablet4:bottom-[-400px] tablet4:scale-[0.4] desktop1:bottom-[-500px] desktop2:bottom-[-550px] desktop3:bottom-[-700px] tv1:bottom-[-850px] tv1:scale-[0.25] tv3:bottom-[-1000px] 6xl:bottom-[-1200px] 7xl:bottom-[-1300px]"

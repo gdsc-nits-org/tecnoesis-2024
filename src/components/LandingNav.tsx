@@ -45,7 +45,7 @@ const Navbar = () => {
     const nav = navigator as NavigatorExtended;
     console.log("Nav mem", nav.deviceMemory);
     setRam(nav.deviceMemory);
-  });
+  }, []); // Add empty dependency array to run only once on mount
 
   return (
     <nav className="fixed bottom-4 left-0 z-10 flex w-full items-center justify-center p-1 font-rp1 text-2xl lg:text-4xl">

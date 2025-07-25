@@ -1,7 +1,6 @@
 'use client'; 
 
 import FinalNav from "~/components/Navbar/FinalNav";
-import SmoothScroll from "~/components/smoothScroll";
 import { usePathname } from "next/navigation";
 
 export default function RootLayout({

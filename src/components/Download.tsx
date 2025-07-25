@@ -17,7 +17,13 @@ const Download: React.FC = () => {
         <div
           className="flex h-[20rem] w-[20rem] -translate-x-4 items-center sm:-translate-x-0 md:w-[23rem] bg-contain bg-center bg-no-repeat bg-[url('/assets/mobile/circle.png')]"
         >
-          <img src = "/assets/mobile/mobile.gif" alt = "gif" className="h-fit w-[30rem] scale-150"/>
+          <Image 
+            src="/assets/mobile/mobile.gif" 
+            alt="mobile app preview" 
+            width={480}
+            height={480}
+            className="h-fit w-[30rem] scale-150"
+          />
         </div>
       </div>
       <div className="h-[30%] text-start lg:h-[20%]">
