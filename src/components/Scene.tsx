@@ -14,12 +14,11 @@ import {
   Bloom,
   DepthOfField,
   EffectComposer,
-  Noise,
   Vignette,
 } from "@react-three/postprocessing";
 import { Suspense, useEffect, useRef, useState } from "react";
 import LoadingProgress from "./LoadingFallback";
-import * as THREE from "three";
+import type * as THREE from "three";
 import CountdownTimer from "./CountdownTimer";
 import { useMediaQuery } from "usehooks-ts";
 

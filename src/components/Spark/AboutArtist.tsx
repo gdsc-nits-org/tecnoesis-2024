@@ -62,8 +62,8 @@ const AboutArtist = () => {
                                 />
                             }
                         </div>
-                        {isPlaying ? <img src="/assets/spark/playState.gif" alt="play_gif" className="h-[4rem] w-[10rem]" />
-                            : <img src="/assets/spark/pauseState.gif" alt="pause_gif" className="h-[4rem] w-[10rem]" />}
+                        {isPlaying ? <Image src="/assets/spark/playState.gif" alt="play_gif" width={160} height={64} className="h-[4rem] w-[10rem]" />
+                            : <Image src="/assets/spark/pauseState.gif" alt="pause_gif" width={160} height={64} className="h-[4rem] w-[10rem]" />}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from "next/image";
 
 const Landing: React.FC = () => {
     return (
@@ -8,8 +9,10 @@ const Landing: React.FC = () => {
             />
             <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center justify-center h-[100%] w-[100%]">
-                    <img 
+                    <Image 
                         src="/assets/spark/wheel.gif" 
+                        width={500}
+                        height={500}
                         className='mobile1:scale-x-[-0.85] mobile1:scale-y-[0.85] sm:scale-x-[-0.5] sm:scale-y-[0.5] xl:scale-x-[-0.55] xl:scale-y-[0.55] scale-x-[-1] scale-y-[1] -translate-y-10 mobile1:-translate-y-15 md:-translate-y-20' 
                         alt='wheel' 
                     />

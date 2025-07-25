@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 import { env } from "~/env";
-import { User } from "firebase/auth";
+import type { User } from "firebase/auth";
 import { z } from "zod";
 import { toast } from "sonner";
 import CustomButton from "~/components/CustomButton";
